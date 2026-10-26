@@ -115,7 +115,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0;background:rgba(25
 .service-check-icon{color:#25D366;font-weight:700;flex-shrink:0;margin-top:1px;font-size:14px}
 .service-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
 .s-tag{font-size:12px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);border:1px solid var(--border);border-radius:4px;padding:5px 10px}
-.service-card.featured-card{border-color:rgba(37,211,102,0.25);background:linear-gradient(135deg,rgba(37,211,102,0.03),#fff)}
+.service-card.featured-card{grid-column:1/-1;border-color:rgba(37,211,102,0.25);background:linear-gradient(135deg,rgba(37,211,102,0.03),#fff)}
 
 /* PROJECTS */
 #projects{padding:96px 0;background:var(--surface);border-top:1px solid var(--border)}
@@ -284,7 +284,7 @@ footer p{color:rgba(255,255,255,.3);font-size:14px}
         <div class="hero-badges">
           <span class="hero-badge hi">IA Generativa</span>
           <span class="hero-badge hi">WhatsApp API</span>
-          <span class="hero-badge">N8N</span>
+          <span class="hero-badge">Agentes de IA</span>
           <span class="hero-badge">Automação</span>
           <span class="hero-badge">CRM</span>
           <span class="hero-badge">Integrações</span>
@@ -349,6 +349,24 @@ footer p{color:rgba(255,255,255,.3);font-size:14px}
       <p class="section-desc">Não vendo pacotes prontos. Cada solução é construída do zero para o seu contexto, com levantamento de requisitos, escopo formal e suporte pós go-live.</p>
     </div>
     <div class="services-grid">
+      <div class="service-card featured-card">
+        <div style="display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:start">
+          <div class="service-icon" style="background:rgba(37,211,102,0.1)">📲</div>
+          <div>
+            <h3>API Oficial do WhatsApp</h3>
+            <p style="margin-bottom:16px">Chega de soluções não-oficiais que bloqueiam o número, limitam envios e ficam fora do ar. A API Oficial da Meta garante conformidade, escala real e entregas confiáveis — sem risco de ban.</p>
+            <div class="service-checks">
+              <div class="service-check"><span class="service-check-icon">✓</span>Número da empresa nunca é bloqueado ou banido pela Meta</div>
+              <div class="service-check"><span class="service-check-icon">✓</span>Templates aprovados — mensagens ativas com altíssima taxa de entrega</div>
+              <div class="service-check"><span class="service-check-icon">✓</span>Envio em escala para milhares de contatos sem travamento</div>
+              <div class="service-check"><span class="service-check-icon">✓</span>Múltiplos atendentes e automações num único número oficial</div>
+              <div class="service-check"><span class="service-check-icon">✓</span>Conformidade total com as políticas da Meta — operação protegida</div>
+            </div>
+            <div class="service-tags" style="margin-top:16px"><span class="s-tag" style="border-color:rgba(37,211,102,0.3);color:#1a9e4a">Meta Business</span><span class="s-tag">API Oficial</span><span class="s-tag">Templates</span></div>
+          </div>
+        </div>
+      </div>
+
       <div class="service-card">
         <div class="service-icon" style="background:rgba(0,184,158,0.1)">🤖</div>
         <h3>Agentes de IA</h3>
@@ -384,25 +402,7 @@ footer p{color:rgba(255,255,255,.3);font-size:14px}
         <h3>CRM &amp; Chatbots</h3>
         <p>Pipelines estruturados do zero, atribuição de leads em round-robin, chatbots simples ou com IA embarcada. Operação organizada, rastreável e escalável.</p>
         <div class="service-tags"><span class="s-tag">CRM</span><span class="s-tag">Pipelines</span><span class="s-tag">Round-robin</span></div>
-      </div>
-      <div class="service-card featured-card" style="grid-column:span 3">
-        <div style="display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:start">
-          <div class="service-icon" style="background:rgba(37,211,102,0.1)">📲</div>
-          <div>
-            <h3>API Oficial do WhatsApp</h3>
-            <p style="margin-bottom:16px">Chega de soluções não-oficiais que bloqueiam o número, limitam envios e ficam fora do ar. A API Oficial da Meta garante conformidade, escala real e entregas confiáveis — sem risco de ban.</p>
-            <div class="service-checks">
-              <div class="service-check"><span class="service-check-icon">✓</span>Número da empresa nunca é bloqueado ou banido pela Meta</div>
-              <div class="service-check"><span class="service-check-icon">✓</span>Templates aprovados — mensagens ativas com altíssima taxa de entrega</div>
-              <div class="service-check"><span class="service-check-icon">✓</span>Envio em escala para milhares de contatos sem travamento</div>
-              <div class="service-check"><span class="service-check-icon">✓</span>Múltiplos atendentes e automações num único número oficial</div>
-              <div class="service-check"><span class="service-check-icon">✓</span>Conformidade total com as políticas da Meta — operação protegida</div>
-            </div>
-            <div class="service-tags" style="margin-top:16px"><span class="s-tag" style="border-color:rgba(37,211,102,0.3);color:#1a9e4a">Meta Business</span><span class="s-tag">API Oficial</span><span class="s-tag">Templates</span></div>
-          </div>
-        </div>
-      </div>
-    </div>
+      </div>    </div>
   </div>
 </section>
 
@@ -448,7 +448,7 @@ footer p{color:rgba(255,255,255,.3);font-size:14px}
             <li>Confirmação obrigatória antes de qualquer registro — erro virou coisa do passado</li>
             <li>Gerente liberada das interrupções constantes para focar no estratégico</li>
           </ul>
-          <div class="tech-tags"><span class="tech-tag">IA Generativa</span><span class="tech-tag">Tiny Olist ERP</span><span class="tech-tag">Voz</span><span class="tech-tag">N8N</span><span class="tech-tag">WhatsApp API</span></div>
+          <div class="tech-tags"><span class="tech-tag">IA Generativa</span><span class="tech-tag">Tiny Olist ERP</span><span class="tech-tag">Voz</span><span class="tech-tag">Integração</span><span class="tech-tag">WhatsApp API</span></div>
         </div>
       </div>
     </div>
@@ -632,7 +632,7 @@ footer p{color:rgba(255,255,255,.3);font-size:14px}
       <div class="method-left">
         <span class="section-label" style="display:block;margin-bottom:16px">Como trabalho</span>
         <h2>Não é freelancer.<br>É consultoria com<br><span>execução técnica.</span></h2>
-        <p>A maioria dos especialistas em automação entrega um fluxo no N8N e some. Eu trago a metodologia que aprendi em 11 anos na Accenture — levantamento de requisitos estruturado, escopo formal, testes integrados e suporte pós go-live.</p>
+        <p>A maioria dos especialistas em automação entrega um fluxo e some. Eu trago a metodologia que aprendi em 11 anos na Accenture — levantamento de requisitos estruturado, escopo formal, testes integrados e suporte pós go-live.</p>
         <p>Cada projeto tem um <strong>Documento de Escopo Técnico Detalhado</strong> como referência oficial. Nada é feito sem alinhamento prévio.</p>
         <div class="method-pull">"Poucos consultores de automação têm background em consultoria enterprise. Esse é o diferencial que meus clientes percebem desde a primeira reunião."</div>
       </div>
