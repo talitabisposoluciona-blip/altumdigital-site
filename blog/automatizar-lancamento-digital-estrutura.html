@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Como automatizar um lançamento digital do zero ao go-live: a estrutura completa | Altum Digital</title>
+<meta name="description" content="A estrutura completa de automação para lançamentos digitais — da captação ao pós-venda — e como cada etapa funciona nos bastidores para escalar sem travar a operação.">
+<meta name="author" content="Talita Bispo — Altum Digital">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://altumdigital.com.br/blog/automatizar-lancamento-digital-estrutura">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://altumdigital.com.br/blog/automatizar-lancamento-digital-estrutura">
+<meta property="og:title" content="Como automatizar um lançamento digital do zero ao go-live: a estrutura completa">
+<meta property="og:description" content="A estrutura de automação para lançamentos digitais — da captação ao pós-venda — e como cada etapa funciona para escalar sem travar a operação.">
+<meta property="og:image" content="https://altumdigital.com.br/og-image.jpg">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Altum Digital">
+<meta property="article:author" content="Talita Bispo">
+<meta property="article:published_time" content="2026-04-16">
+<meta property="article:tag" content="Lançamento Digital">
+<meta property="article:tag" content="Infoprodutores">
+<meta property="article:tag" content="Automação">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Como automatizar um lançamento digital do zero ao go-live: a estrutura completa",
+  "description": "A estrutura de automação para lançamentos digitais — captação, aquecimento, abertura de carrinho, recuperação de vendas e onboarding pós-venda.",
+  "author": {"@type": "Person", "name": "Talita Bispo", "url": "https://altumdigital.com.br"},
+  "publisher": {"@type": "Organization", "name": "Altum Digital", "url": "https://altumdigital.com.br"},
+  "datePublished": "2026-04-16",
+  "dateModified": "2026-04-16",
+  "mainEntityOfPage": "https://altumdigital.com.br/blog/automatizar-lancamento-digital-estrutura",
+  "keywords": ["automação lançamento digital", "WhatsApp API lançamento", "estrutura lançamento infoprodutor", "automação infoprodutos", "CRM lançamento digital"]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:#f8fafb;color:#0f172a;font-family:'DM Sans',sans-serif;font-size:16px;line-height:1.7}
+h1,h2,h3,h4{font-family:'Manrope',sans-serif}
+a{text-decoration:none;color:inherit}
+.container{max-width:1100px;margin:0 auto;padding:0 28px}
+nav{background:#06080f;padding:18px 0;border-bottom:1px solid rgba(255,255,255,0.07)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;max-width:1100px;margin:0 auto;padding:0 28px}
+.nav-logo{font-family:'Manrope',sans-serif;font-size:18px;font-weight:800;color:#e8eaf0}
+.nav-logo span{color:#00e5c3}
+.nav-links{list-style:none;display:flex;gap:28px;align-items:center}
+.nav-links a{color:#7b8499;font-size:14px;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:#e8eaf0}
+.nav-links a.active{color:#00e5c3}
+.nav-cta{background:#00e5c3;color:#06080f!important;padding:9px 20px;border-radius:6px;font-weight:700!important;font-size:13px!important}
+.article-hero{background:#fff;border-bottom:1px solid #e5e7eb;padding:52px 0 44px}
+.article-hero-inner{max-width:760px;margin:0 auto;padding:0 28px}
+.breadcrumb{font-size:13px;color:#9ca3af;margin-bottom:20px;display:flex;align-items:center;gap:8px}
+.breadcrumb a{color:#00b89e;font-weight:500}
+.breadcrumb-sep{color:#d1d5db}
+.art-tag{display:inline-flex;align-items:center;gap:6px;background:#e6faf6;border:1px solid #b3f0e0;border-radius:100px;padding:5px 14px;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#0f6e56;margin-bottom:20px}
+.art-tag-dot{width:6px;height:6px;border-radius:50%;background:#00e5c3}
+.article-title{font-size:clamp(24px,4vw,38px);font-weight:800;line-height:1.2;color:#0f172a;margin-bottom:20px;letter-spacing:-.025em}
+.article-meta{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.meta-avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#00e5c3,#4f8cff);display:flex;align-items:center;justify-content:center;font-family:'Manrope',sans-serif;font-weight:800;font-size:11px;color:#fff;flex-shrink:0}
+.meta-info{display:flex;flex-direction:column;gap:2px}
+.meta-name{font-size:14px;font-weight:700;color:#374151}
+.meta-details{font-size:12px;color:#9ca3af}
+.article-layout{display:grid;grid-template-columns:1fr 280px;gap:48px;max-width:1060px;margin:0 auto;padding:48px 28px 80px}
+.art-lead{font-size:19px;color:#374151;line-height:1.8;margin-bottom:36px;font-weight:400;border-left:3px solid #00e5c3;padding-left:22px}
+.art-h2{font-size:22px;font-weight:800;color:#0f172a;margin:44px 0 14px;letter-spacing:-.015em}
+.art-h3{font-size:17px;font-weight:700;color:#0f172a;margin:28px 0 10px}
+.art-p{font-size:16px;color:#4b5563;line-height:1.85;margin-bottom:18px}
+.art-highlight{background:#f0fdf9;border:1px solid #ccf7eb;border-left:3px solid #00e5c3;border-radius:0 8px 8px 0;padding:18px 22px;margin:28px 0;font-size:15px;color:#065f46;line-height:1.75}
+.art-highlight strong{font-weight:700;color:#047857}
+.art-tip{background:#fffbeb;border:1px solid #fde68a;border-left:3px solid #f59e0b;border-radius:0 8px 8px 0;padding:18px 22px;margin:24px 0;font-size:14px;color:#92400e;line-height:1.7}
+.art-tip strong{font-weight:700}
+.art-divider{border:none;border-top:1px solid #f0f0f0;margin:40px 0}
+.art-quote{background:#f8fafb;border-left:3px solid #00e5c3;border-radius:0 8px 8px 0;padding:20px 24px;margin:32px 0;font-size:17px;font-style:italic;color:#374151;line-height:1.75}
+.fase-block{background:#fff;border:1px solid #e5e7eb;border-radius:16px;overflow:hidden;margin-bottom:16px}
+.fase-header{display:flex;align-items:center;gap:16px;padding:18px 22px;border-bottom:1px solid #f3f4f6}
+.fase-num{width:36px;height:36px;border-radius:8px;background:#0f172a;display:flex;align-items:center;justify-content:center;font-family:'Manrope',sans-serif;font-weight:800;font-size:14px;color:#00e5c3;flex-shrink:0}
+.fase-title{font-family:'Manrope',sans-serif;font-size:16px;font-weight:700;color:#0f172a}
+.fase-subtitle{font-size:12px;color:#9ca3af;margin-top:2px}
+.fase-body{padding:18px 22px}
+.fase-body p{font-size:14px;color:#4b5563;line-height:1.75;margin-bottom:12px}
+.fase-body p:last-child{margin-bottom:0}
+.fase-automacoes{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.fase-automacao{font-size:11px;font-weight:600;letter-spacing:.05em;background:#e6faf6;color:#0f6e56;border-radius:4px;padding:4px 9px}
+.cta-inline{background:#0f172a;border-radius:16px;padding:32px;margin:44px 0;text-align:center}
+.cta-inline h3{font-family:'Manrope',sans-serif;font-size:20px;font-weight:800;color:#fff;margin-bottom:10px}
+.cta-inline p{font-size:14px;color:#9ca3af;margin-bottom:22px;line-height:1.65}
+.btn-wa{display:inline-flex;align-items:center;gap:10px;background:#25D366;color:#fff;padding:13px 26px;border-radius:8px;font-family:'Manrope',sans-serif;font-weight:700;font-size:14px;transition:opacity .2s}
+.btn-wa:hover{opacity:.9}
+.btn-wa svg{width:18px;height:18px;fill:#fff;flex-shrink:0}
+.author-box{background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:24px;margin-top:48px}
+.author-box-inner{display:flex;gap:16px;align-items:flex-start}
+.author-box-avatar{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#00e5c3,#4f8cff);display:flex;align-items:center;justify-content:center;font-family:'Manrope',sans-serif;font-weight:800;font-size:14px;color:#fff;flex-shrink:0}
+.author-box h4{font-size:15px;font-weight:800;color:#0f172a;margin-bottom:4px}
+.author-box p{font-size:13px;color:#6b7280;line-height:1.6}
+.sidebar-sticky{position:sticky;top:28px}
+.sidebar-card{background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:22px;margin-bottom:20px}
+.sidebar-card h4{font-family:'Manrope',sans-serif;font-size:13px;font-weight:700;color:#0f172a;margin-bottom:16px;letter-spacing:.02em;text-transform:uppercase}
+.toc-list{list-style:none;display:flex;flex-direction:column;gap:10px}
+.toc-list a{font-size:13px;color:#6b7280;line-height:1.4;transition:color .2s;display:block}
+.toc-list a:hover{color:#00b89e}
+.sidebar-cta{background:#0f172a;border-radius:16px;padding:22px;text-align:center}
+.sidebar-cta p{font-size:13px;color:#9ca3af;margin-bottom:16px;line-height:1.6}
+.sidebar-cta h4{font-family:'Manrope',sans-serif;font-size:15px;font-weight:800;color:#fff;margin-bottom:10px}
+.btn-wa-sm{display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#fff;padding:11px 18px;border-radius:8px;font-family:'Manrope',sans-serif;font-weight:700;font-size:13px;width:100%;justify-content:center}
+footer{background:#06080f;border-top:1px solid rgba(255,255,255,0.07);padding:32px 0}
+.footer-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.footer-logo{font-family:'Manrope',sans-serif;font-weight:800;font-size:15px;color:#e8eaf0}
+.footer-logo span{color:#00e5c3}
+footer p{color:#7b8499;font-size:13px}
+@media(max-width:900px){.article-layout{grid-template-columns:1fr}.sidebar{display:none}.nav-links{display:none}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">Altum<span>.</span>Digital</a>
+    <ul class="nav-links">
+      <li><a href="/#services">Serviços</a></li>
+      <li><a href="/#projects">Projetos</a></li>
+      <li><a href="/#method">Metodologia</a></li>
+      <li><a href="/blog" class="active">Blog</a></li>
+      <li><a href="/#cta" class="nav-cta">Falar com Talita</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="article-hero">
+  <div class="article-hero-inner">
+    <div class="breadcrumb">
+      <a href="/">Altum Digital</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="/blog">Blog</a>
+      <span class="breadcrumb-sep">›</span>
+      <span>Automatizar lançamento digital</span>
+    </div>
+    <div class="art-tag"><div class="art-tag-dot"></div>Lançamento Digital</div>
+    <h1 class="article-title">Como automatizar um lançamento digital do zero ao go-live: a estrutura que usamos nos bastidores</h1>
+    <div class="article-meta">
+      <div class="meta-avatar">TB</div>
+      <div class="meta-info">
+        <span class="meta-name">Talita Bispo · Altum Digital</span>
+        <span class="meta-details">16 de abril de 2026 · 11 min de leitura</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="article-layout">
+  <article class="article-content">
+
+    <p class="art-lead">Um lançamento digital bem executado é uma das operações mais complexas do mercado digital. Em poucos dias, centenas ou milhares de leads precisam ser captados, aquecidos, acompanhados na jornada de decisão, atendidos quando têm dúvidas, recuperados quando abandonam o carrinho e onboardados quando compram. Tudo ao mesmo tempo, sem parar.</p>
+
+    <p class="art-p">A maioria dos produtores chega ao dia de abertura de carrinho com uma estrutura manual ou semiestruturada — e descobre na prática o que significa tentar gerenciar tudo isso sem automação. A equipe trava, mensagens não são respondidas, oportunidades de venda somem e o produtor vai dormir sem saber quantas vendas realmente foram perdidas.</p>
+
+    <p class="art-p">Neste artigo vou mostrar a estrutura completa de automação que usamos em lançamentos — fase por fase, do primeiro lead ao último onboarding — e o que cada etapa faz nos bastidores para que a operação escale sem depender de braço humano para cada ação.</p>
+
+    <hr class="art-divider">
+
+    <h2 class="art-h2" id="visao-geral">A visão geral — as 6 fases de um lançamento automatizado</h2>
+
+    <p class="art-p">Um lançamento digital tem fases bem definidas — e cada uma tem suas próprias automações. Entender esse mapa é o primeiro passo para montar uma estrutura que funciona de verdade.</p>
+
+    <div class="fase-block">
+      <div class="fase-header">
+        <div class="fase-num">1</div>
+        <div>
+          <div class="fase-title">Captação</div>
+          <div class="fase-subtitle">Antes do lançamento — construção de base</div>
+        </div>
+      </div>
+      <div class="fase-body">
+        <p>O lead entra pelo formulário de inscrição, página de captura ou anúncio. A automação recebe os dados via webhook, registra no CRM, confirma a inscrição via WhatsApp e inicia a sequência de aquecimento. Tudo em segundos — sem nenhuma ação manual.</p>
+        <p>A confirmação imediata via WhatsApp tem um papel duplo: confirma a inscrição e já inicia o relacionamento pelo canal que vai ser usado durante todo o lançamento. O lead que recebe uma mensagem personalizada nos primeiros minutos após se inscrever tem taxa de engajamento significativamente maior do que o que recebe só um e-mail.</p>
+        <div class="fase-automacoes">
+          <span class="fase-automacao">Webhook de captação</span>
+          <span class="fase-automacao">Registro automático no CRM</span>
+          <span class="fase-automacao">Confirmação via WhatsApp</span>
+          <span class="fase-automacao">Início da sequência de aquecimento</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="fase-block">
+      <div class="fase-header">
+        <div class="fase-num">2</div>
+        <div>
+          <div class="fase-title">Aquecimento</div>
+          <div class="fase-subtitle">Pré-lançamento — preparação para compra</div>
+        </div>
+      </div>
+      <div class="fase-body">
+        <p>Durante os dias que antecedem a abertura de carrinho, a automação mantém o lead engajado com uma sequência de mensagens que prepara para a decisão de compra — sem ser invasiva e sem queimar a base com volume excessivo.</p>
+        <p>A sequência de aquecimento é segmentada: leads que engajam mais recebem conteúdos mais aprofundados, leads frios recebem mensagens de reativação. O CRM registra o nível de engajamento de cada lead e a automação ajusta a comunicação de acordo.</p>
+        <div class="fase-automacoes">
+          <span class="fase-automacao">Sequência de aquecimento segmentada</span>
+          <span class="fase-automacao">Score de engajamento no CRM</span>
+          <span class="fase-automacao">Lembretes de conteúdo e eventos ao vivo</span>
+          <span class="fase-automacao">Reativação de leads frios</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="fase-block">
+      <div class="fase-header">
+        <div class="fase-num">3</div>
+        <div>
+          <div class="fase-title">Abertura de Carrinho</div>
+          <div class="fase-subtitle">Janela de vendas — máxima atenção</div>
+        </div>
+      </div>
+      <div class="fase-body">
+        <p>O momento mais crítico do lançamento. Na abertura do carrinho, a automação dispara a comunicação de abertura para toda a base segmentada — com personalização por nome, produto e condição especial quando aplicável.</p>
+        <p>Durante a janela de vendas, o CRM atualiza em tempo real: quem comprou sai da esteira de vendas e entra na esteira de onboarding. Quem não comprou continua recebendo comunicação de vendas. Quem abandona o carrinho entra imediatamente na cadência de recuperação. Tudo automaticamente, tudo visível no pipeline.</p>
+        <div class="fase-automacoes">
+          <span class="fase-automacao">Disparo de abertura segmentado</span>
+          <span class="fase-automacao">Atualização em tempo real no CRM</span>
+          <span class="fase-automacao">Separação automática compradores/não-compradores</span>
+          <span class="fase-automacao">Cadência de vendas durante a janela</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="fase-block">
+      <div class="fase-header">
+        <div class="fase-num">4</div>
+        <div>
+          <div class="fase-title">Recuperação de Vendas</div>
+          <div class="fase-subtitle">Durante e após abertura — captura de oportunidades perdidas</div>
+        </div>
+      </div>
+      <div class="fase-body">
+        <p>Carrinho abandonado, boleto não pago, PIX expirado, cartão recusado — cada gatilho tem sua própria cadência de recuperação rodando em paralelo com a comunicação principal do lançamento. A recuperação age no momento certo, com o contexto do lançamento ativo.</p>
+        <p>Leads que respondem qualquer mensagem da recuperação são transferidos para atendimento imediato — com histórico completo disponível. A recuperação durante um lançamento tem taxas de conversão maiores do que em períodos normais porque o contexto de urgência genuína (prazo de encerramento, vagas limitadas) está presente.</p>
+        <div class="fase-automacoes">
+          <span class="fase-automacao">Recuperação de carrinho abandonado</span>
+          <span class="fase-automacao">Recuperação de boleto e PIX</span>
+          <span class="fase-automacao">Parcelamento inteligente para recusa de cartão</span>
+          <span class="fase-automacao">Transferência para atendimento com contexto</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="fase-block">
+      <div class="fase-header">
+        <div class="fase-num">5</div>
+        <div>
+          <div class="fase-title">Encerramento</div>
+          <div class="fase-subtitle">Últimas horas — urgência real</div>
+        </div>
+      </div>
+      <div class="fase-body">
+        <p>Nas últimas horas antes do encerramento, a comunicação muda de tom. A automação dispara para os leads que ainda não compraram com urgência genuína — prazo real de encerramento, não fabricado. A sequência de encerramento é uma das mais importantes do lançamento porque concentra uma parte significativa das vendas.</p>
+        <p>Após o encerramento, os leads que não compraram podem ser movidos para uma esteira de espera para o próximo lançamento, uma oferta de entrada de menor valor ou simplesmente para uma lista de nutrição de longo prazo.</p>
+        <div class="fase-automacoes">
+          <span class="fase-automacao">Sequência de encerramento com urgência real</span>
+          <span class="fase-automacao">Comunicação de últimas horas</span>
+          <span class="fase-automacao">Movimentação automática pós-encerramento no CRM</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="fase-block">
+      <div class="fase-header">
+        <div class="fase-num">6</div>
+        <div>
+          <div class="fase-title">Onboarding Pós-venda</div>
+          <div class="fase-subtitle">Após a compra — experiência do novo aluno</div>
+        </div>
+      </div>
+      <div class="fase-body">
+        <p>O momento da compra é o pico do entusiasmo do aluno. A automação age imediatamente — confirmação da compra, boas-vindas personalizadas, instruções de acesso, próximos passos claros. Tudo nos primeiros minutos após a compra confirmada.</p>
+        <p>Nos dias seguintes, a automação acompanha o engajamento do aluno com o produto. Quem não acessa depois de X dias recebe uma mensagem de reengajamento. Quem completa determinadas etapas recebe reconhecimento. O relacionamento não termina na venda — começa nela.</p>
+        <div class="fase-automacoes">
+          <span class="fase-automacao">Boas-vindas imediatas pós-compra</span>
+          <span class="fase-automacao">Instruções de acesso automatizadas</span>
+          <span class="fase-automacao">Sequência de onboarding por etapas</span>
+          <span class="fase-automacao">Reengajamento de alunos inativos</span>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="art-h2" id="o-crm">O CRM que torna o lançamento visível</h2>
+
+    <p class="art-p">Uma estrutura de automação sem visibilidade é incompleta. O CRM integrado ao lançamento é o painel de controle — mostra em tempo real quantos leads estão em cada etapa, quais compraram, quais abandonaram, quais estão em recuperação e quais já foram onboardados.</p>
+
+    <p class="art-p">Essa visibilidade muda completamente a capacidade de tomar decisões durante o lançamento. Se a recuperação de carrinho está com taxa baixa, o produtor sabe na hora e pode ajustar. Se determinado segmento está convertendo mais, a comunicação pode ser intensificada. Se há um pico de dúvidas sobre um tema específico, uma mensagem esclarecedora pode ser disparada para toda a base.</p>
+
+    <div class="art-highlight">
+      <strong>O que o CRM mostra durante um lançamento:</strong> total de leads na base segmentado por origem · leads que abriram as mensagens vs que não engajaram · leads em cada etapa da esteira (captado, aquecido, carrinho aberto, comprou, recuperação ativa) · valor total em leads na etapa de recuperação · novos alunos confirmados em tempo real · leads prontos para abordagem manual pelo time comercial, quando houver.
+    </div>
+
+    <h2 class="art-h2" id="o-que-precisa">O que precisa estar pronto antes do dia do lançamento</h2>
+
+    <p class="art-p">Uma estrutura de automação para lançamento não se monta em cima da hora. O que precisa estar pronto antes de apertar o botão:</p>
+
+    <div class="art-tip">
+      <strong>API Oficial do WhatsApp configurada e testada:</strong> número verificado, templates aprovados, integrações testadas. Qualquer problema com a API no dia do lançamento é catastrófico.<br><br>
+      <strong>CRM com pipelines estruturados:</strong> etapas definidas, campos mapeados, integrações com a plataforma de venda e com o WhatsApp testadas end-to-end.<br><br>
+      <strong>Templates de mensagem aprovados:</strong> confirmação de inscrição, aquecimento, abertura de carrinho, recuperação, encerramento e onboarding — todos aprovados pela Meta com antecedência.<br><br>
+      <strong>Webhooks de compra configurados e testados:</strong> a integração entre a plataforma de venda e o CRM precisa funcionar sem falha — é ela que dispara o onboarding e move o lead de compradores para a esteira correta.<br><br>
+      <strong>Testes completos em ambiente de homologação:</strong> simular todo o fluxo de um lead — desde a captação até o onboarding — antes do lançamento real. Bugs em produção custam vendas.
+    </div>
+
+    <h2 class="art-h2" id="quanto-antes">Quanto antes, melhor</h2>
+
+    <p class="art-p">A pergunta que mais recebo de produtores que estão planejando seu próximo lançamento é: com quanto tempo de antecedência devo começar a estruturar a automação?</p>
+
+    <p class="art-p">A resposta honesta: pelo menos 4 semanas antes da data de abertura. Configurar a API, criar e aprovar templates, integrar sistemas, mapear fluxos, testar tudo — cada etapa tem seu tempo e sua burocracia. Produtores que deixam para a última semana chegam ao dia do lançamento com algo que funciona pela metade.</p>
+
+    <p class="art-p">Os que constroem a estrutura com antecedência chegam ao dia do lançamento com a operação no piloto automático — e conseguem focar no que realmente precisa da sua presença: o conteúdo, o relacionamento e as decisões estratégicas.</p>
+
+    <div class="cta-inline">
+      <h3>Tem um lançamento planejado?</h3>
+      <p>Em 30 minutos consigo mapear a estrutura de automação ideal para o seu produto e o cronograma de implementação antes da sua data de abertura.</p>
+      <a href="https://wa.me/5511954715571?text=Oi%20Talita!%20Li%20seu%20artigo%20sobre%20automa%C3%A7%C3%A3o%20de%20lan%C3%A7amento%20e%20tenho%20um%20lan%C3%A7amento%20planejado%20que%20quero%20estruturar" class="btn-wa" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Falar com Talita no WhatsApp
+      </a>
+    </div>
+
+    <div class="author-box">
+      <div class="author-box-inner">
+        <div class="author-box-avatar">TB</div>
+        <div>
+          <h4>Talita Bispo</h4>
+          <p>Fundadora da Altum Digital e especialista em automação estratégica com WhatsApp API Oficial, agentes de IA e integrações de sistemas. Com 11 anos de experiência em consultoria enterprise na Accenture e mais de 30 projetos entregues, ajuda infoprodutores e empresas a escalar operações sem depender de braço humano para cada ação. São Paulo/SP — atendimento para todo o Brasil e exterior.</p>
+        </div>
+      </div>
+    </div>
+
+  </article>
+
+  <aside class="sidebar">
+    <div class="sidebar-sticky">
+      <div class="sidebar-card">
+        <h4>Neste artigo</h4>
+        <ul class="toc-list">
+          <li><a href="#visao-geral">As 6 fases do lançamento automatizado</a></li>
+          <li><a href="#o-crm">O CRM que torna o lançamento visível</a></li>
+          <li><a href="#o-que-precisa">O que precisa estar pronto antes</a></li>
+          <li><a href="#quanto-antes">Com quanto tempo de antecedência</a></li>
+        </ul>
+      </div>
+      <div class="sidebar-cta">
+        <h4>Tem um lançamento?</h4>
+        <p>Mapeio a estrutura ideal para o seu produto em 30 minutos.</p>
+        <a href="https://wa.me/5511954715571?text=Oi%20Talita!%20Li%20seu%20artigo%20sobre%20automa%C3%A7%C3%A3o%20de%20lan%C3%A7amento%20e%20tenho%20um%20lan%C3%A7amento%20planejado" class="btn-wa-sm" target="_blank">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Falar com Talita
+        </a>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-logo">Altum<span>.</span>Digital</div>
+      <p>© 2025 Talita Bispo · Altum Digital Soluções LTDA</p>
+      <p>São Paulo, SP · Brasil</p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

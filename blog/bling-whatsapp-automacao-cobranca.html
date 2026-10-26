@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bling e WhatsApp: como automatizar cobranças, notificações de vencimento e consultas pelo cliente | Altum Digital</title>
+<meta name="description" content="Como integrar o Bling ao WhatsApp API Oficial para notificar clientes no vencimento, permitir consulta de boletos sem acionar equipe e cobrar automaticamente após o vencimento.">
+<meta name="author" content="Talita Bispo — Altum Digital">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://altumdigital.com.br/blog/bling-whatsapp-automacao-cobranca">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://altumdigital.com.br/blog/bling-whatsapp-automacao-cobranca">
+<meta property="og:title" content="Bling e WhatsApp: como automatizar cobranças, notificações de vencimento e consultas pelo cliente">
+<meta property="og:description" content="Integre o Bling ao WhatsApp API Oficial e automatize notificações de vencimento, consultas de boleto e cobranças pós-vencimento.">
+<meta property="og:image" content="https://altumdigital.com.br/og-image.jpg">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Altum Digital">
+<meta property="article:author" content="Talita Bispo">
+<meta property="article:published_time" content="2026-05-02">
+<meta property="article:tag" content="Bling">
+<meta property="article:tag" content="WhatsApp API">
+<meta property="article:tag" content="Automação Financeira">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Bling e WhatsApp: como automatizar cobranças, notificações de vencimento e consultas pelo cliente",
+  "description": "Como integrar o Bling ao WhatsApp API Oficial para notificações de vencimento, chatbot de consulta e cobrança pós-vencimento automatizada.",
+  "author": {"@type": "Person", "name": "Talita Bispo", "url": "https://altumdigital.com.br"},
+  "publisher": {"@type": "Organization", "name": "Altum Digital", "url": "https://altumdigital.com.br"},
+  "datePublished": "2026-05-02",
+  "dateModified": "2026-05-02",
+  "mainEntityOfPage": "https://altumdigital.com.br/blog/bling-whatsapp-automacao-cobranca",
+  "keywords": ["Bling WhatsApp", "automação cobrança Bling", "notificação vencimento Bling", "integração Bling WhatsApp", "Bling ERP automação boleto"]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:#f8fafb;color:#0f172a;font-family:'DM Sans',sans-serif;font-size:16px;line-height:1.7}
+h1,h2,h3,h4{font-family:'Manrope',sans-serif}
+a{text-decoration:none;color:inherit}
+.container{max-width:1100px;margin:0 auto;padding:0 28px}
+nav{background:#06080f;padding:18px 0;border-bottom:1px solid rgba(255,255,255,0.07)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;max-width:1100px;margin:0 auto;padding:0 28px}
+.nav-logo{font-family:'Manrope',sans-serif;font-size:18px;font-weight:800;color:#e8eaf0}
+.nav-logo span{color:#00e5c3}
+.nav-links{list-style:none;display:flex;gap:28px;align-items:center}
+.nav-links a{color:#7b8499;font-size:14px;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:#e8eaf0}
+.nav-links a.active{color:#00e5c3}
+.nav-cta{background:#00e5c3;color:#06080f!important;padding:9px 20px;border-radius:6px;font-weight:700!important;font-size:13px!important}
+.article-hero{background:#fff;border-bottom:1px solid #e5e7eb;padding:52px 0 44px}
+.article-hero-inner{max-width:760px;margin:0 auto;padding:0 28px}
+.breadcrumb{font-size:13px;color:#9ca3af;margin-bottom:20px;display:flex;align-items:center;gap:8px}
+.breadcrumb a{color:#00b89e;font-weight:500}
+.breadcrumb-sep{color:#d1d5db}
+.art-tag{display:inline-flex;align-items:center;gap:6px;background:#e6faf6;border:1px solid #b3f0e0;border-radius:100px;padding:5px 14px;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#0f6e56;margin-bottom:20px}
+.art-tag-dot{width:6px;height:6px;border-radius:50%;background:#00e5c3}
+.article-title{font-size:clamp(24px,4vw,38px);font-weight:800;line-height:1.2;color:#0f172a;margin-bottom:20px;letter-spacing:-.025em}
+.article-meta{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.meta-avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#00e5c3,#4f8cff);display:flex;align-items:center;justify-content:center;font-family:'Manrope',sans-serif;font-weight:800;font-size:11px;color:#fff;flex-shrink:0}
+.meta-info{display:flex;flex-direction:column;gap:2px}
+.meta-name{font-size:14px;font-weight:700;color:#374151}
+.meta-details{font-size:12px;color:#9ca3af}
+.article-layout{display:grid;grid-template-columns:1fr 280px;gap:48px;max-width:1060px;margin:0 auto;padding:48px 28px 80px}
+.art-lead{font-size:19px;color:#374151;line-height:1.8;margin-bottom:36px;font-weight:400;border-left:3px solid #00e5c3;padding-left:22px}
+.art-h2{font-size:22px;font-weight:800;color:#0f172a;margin:44px 0 14px;letter-spacing:-.015em}
+.art-p{font-size:16px;color:#4b5563;line-height:1.85;margin-bottom:18px}
+.art-highlight{background:#f0fdf9;border:1px solid #ccf7eb;border-left:3px solid #00e5c3;border-radius:0 8px 8px 0;padding:18px 22px;margin:28px 0;font-size:15px;color:#065f46;line-height:1.75}
+.art-highlight strong{font-weight:700;color:#047857}
+.art-tip{background:#fffbeb;border:1px solid #fde68a;border-left:3px solid #f59e0b;border-radius:0 8px 8px 0;padding:18px 22px;margin:24px 0;font-size:14px;color:#92400e;line-height:1.7}
+.art-tip strong{font-weight:700}
+.art-divider{border:none;border-top:1px solid #f0f0f0;margin:40px 0}
+.art-quote{background:#f8fafb;border-left:3px solid #00e5c3;border-radius:0 8px 8px 0;padding:20px 24px;margin:32px 0;font-size:17px;font-style:italic;color:#374151;line-height:1.75}
+.funcao-cards{display:flex;flex-direction:column;gap:16px;margin:28px 0}
+.funcao-card{background:#fff;border:1px solid #e5e7eb;border-radius:16px;overflow:hidden}
+.funcao-card-header{display:flex;align-items:center;gap:16px;padding:18px 22px;background:#0f172a}
+.funcao-card-icon{font-size:22px;flex-shrink:0}
+.funcao-card-title{font-family:'Manrope',sans-serif;font-size:15px;font-weight:800;color:#fff}
+.funcao-card-subtitle{font-size:12px;color:#9ca3af;margin-top:2px}
+.funcao-card-body{padding:18px 22px}
+.funcao-card-body p{font-size:14px;color:#4b5563;line-height:1.75;margin-bottom:10px}
+.funcao-card-body p:last-child{margin-bottom:0}
+.chat-demo{background:#e8f5e9;border-radius:12px;padding:16px 18px;margin:12px 0}
+.chat-demo-label{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#388e3c;margin-bottom:10px}
+.chat-msg{display:flex;gap:8px;margin-bottom:8px;align-items:flex-start}
+.chat-msg:last-child{margin-bottom:0}
+.chat-msg.received .bubble{background:#fff;border-radius:0 10px 10px 10px;padding:8px 12px;font-size:13px;color:#374151;max-width:85%;line-height:1.5;box-shadow:0 1px 2px rgba(0,0,0,.08)}
+.chat-msg.sent{justify-content:flex-end}
+.chat-msg.sent .bubble{background:#dcf8c6;border-radius:10px 0 10px 10px;padding:8px 12px;font-size:13px;color:#374151;max-width:85%;line-height:1.5}
+.combo-box{background:#f0fdf9;border:1px solid #ccf7eb;border-radius:12px;padding:18px 20px;margin:16px 0}
+.combo-box h4{font-family:'Manrope',sans-serif;font-size:14px;font-weight:700;color:#065f46;margin-bottom:8px}
+.combo-box p{font-size:13px;color:#047857;line-height:1.65;margin:0}
+.cta-inline{background:#0f172a;border-radius:16px;padding:32px;margin:44px 0;text-align:center}
+.cta-inline h3{font-family:'Manrope',sans-serif;font-size:20px;font-weight:800;color:#fff;margin-bottom:10px}
+.cta-inline p{font-size:14px;color:#9ca3af;margin-bottom:22px;line-height:1.65}
+.btn-wa{display:inline-flex;align-items:center;gap:10px;background:#25D366;color:#fff;padding:13px 26px;border-radius:8px;font-family:'Manrope',sans-serif;font-weight:700;font-size:14px;transition:opacity .2s}
+.btn-wa:hover{opacity:.9}
+.btn-wa svg{width:18px;height:18px;fill:#fff;flex-shrink:0}
+.author-box{background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:24px;margin-top:48px}
+.author-box-inner{display:flex;gap:16px;align-items:flex-start}
+.author-box-avatar{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#00e5c3,#4f8cff);display:flex;align-items:center;justify-content:center;font-family:'Manrope',sans-serif;font-weight:800;font-size:14px;color:#fff;flex-shrink:0}
+.author-box h4{font-size:15px;font-weight:800;color:#0f172a;margin-bottom:4px}
+.author-box p{font-size:13px;color:#6b7280;line-height:1.6}
+.sidebar-sticky{position:sticky;top:28px}
+.sidebar-card{background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:22px;margin-bottom:20px}
+.sidebar-card h4{font-family:'Manrope',sans-serif;font-size:13px;font-weight:700;color:#0f172a;margin-bottom:16px;letter-spacing:.02em;text-transform:uppercase}
+.toc-list{list-style:none;display:flex;flex-direction:column;gap:10px}
+.toc-list a{font-size:13px;color:#6b7280;line-height:1.4;transition:color .2s;display:block}
+.toc-list a:hover{color:#00b89e}
+.sidebar-cta{background:#0f172a;border-radius:16px;padding:22px;text-align:center}
+.sidebar-cta p{font-size:13px;color:#9ca3af;margin-bottom:16px;line-height:1.6}
+.sidebar-cta h4{font-family:'Manrope',sans-serif;font-size:15px;font-weight:800;color:#fff;margin-bottom:10px}
+.btn-wa-sm{display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#fff;padding:11px 18px;border-radius:8px;font-family:'Manrope',sans-serif;font-weight:700;font-size:13px;width:100%;justify-content:center}
+footer{background:#06080f;border-top:1px solid rgba(255,255,255,0.07);padding:32px 0}
+.footer-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.footer-logo{font-family:'Manrope',sans-serif;font-weight:800;font-size:15px;color:#e8eaf0}
+.footer-logo span{color:#00e5c3}
+footer p{color:#7b8499;font-size:13px}
+@media(max-width:900px){.article-layout{grid-template-columns:1fr}.sidebar{display:none}.nav-links{display:none}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">Altum<span>.</span>Digital</a>
+    <ul class="nav-links">
+      <li><a href="/#services">Serviços</a></li>
+      <li><a href="/#projects">Projetos</a></li>
+      <li><a href="/#method">Metodologia</a></li>
+      <li><a href="/blog" class="active">Blog</a></li>
+      <li><a href="/#cta" class="nav-cta">Falar com Talita</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="article-hero">
+  <div class="article-hero-inner">
+    <div class="breadcrumb">
+      <a href="/">Altum Digital</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="/blog">Blog</a>
+      <span class="breadcrumb-sep">›</span>
+      <span>Bling + WhatsApp</span>
+    </div>
+    <div class="art-tag"><div class="art-tag-dot"></div>Bling · Automação Financeira</div>
+    <h1 class="article-title">Bling e WhatsApp: como automatizar cobranças, notificações de vencimento e consultas pelo cliente final</h1>
+    <div class="article-meta">
+      <div class="meta-avatar">TB</div>
+      <div class="meta-info">
+        <span class="meta-name">Talita Bispo · Altum Digital</span>
+        <span class="meta-details">2 de maio de 2026 · 9 min de leitura</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="article-layout">
+  <article class="article-content">
+
+    <p class="art-lead">O Bling é o ERP de escolha de uma enorme fatia das pequenas e médias empresas brasileiras — especialmente e-commerces, distribuidoras e empresas que precisam emitir nota fiscal integrada à gestão de estoque e financeiro. Quem usa o Bling já tem toda a base de dados necessária para uma cobrança automatizada eficiente. O que falta é conectar esse universo ao WhatsApp.</p>
+
+    <p class="art-p">Clientes com boletos vencendo hoje. Pedidos faturados aguardando pagamento. Contas a receber que alguém precisaria monitorar manualmente para fazer o follow-up. Tudo isso existe dentro do Bling — e pode ser automatizado para funcionar no piloto automático, via o canal que seus clientes realmente usam.</p>
+
+    <hr class="art-divider">
+
+    <h2 class="art-h2" id="bling-contexto">O Bling no contexto do e-commerce e do B2B pequeno e médio</h2>
+
+    <p class="art-p">O Bling é especialmente forte em dois perfis de empresa: e-commerces que vendem para pessoas físicas e pequenas empresas B2B que vendem para lojistas, revendedores e clientes recorrentes. Em ambos os casos, a cobrança por e-mail tem resultado cada vez pior — e o WhatsApp se tornou o canal mais eficiente para garantir que a informação chegue e seja vista.</p>
+
+    <p class="art-p">Para o e-commerce, o problema mais comum é o boleto gerado no momento do pedido que não é pago — o cliente fez o pedido, recebeu o boleto por e-mail, não abriu o e-mail, o boleto venceu. A venda se perdeu não porque o cliente não queria comprar, mas porque o lembrete nunca chegou no canal certo.</p>
+
+    <p class="art-p">Para o B2B, o problema é diferente: clientes com histórico de compra recorrente, contas a receber que se acumulam, e uma equipe financeira que passa tempo demais fazendo cobranças que poderiam ser automáticas.</p>
+
+    <div class="art-quote">
+      "Meu cliente comprou, gerou o boleto, não pagou — e eu só fui descobrir 3 dias depois. Aí já era, o pedido ficou parado."
+    </div>
+
+    <h2 class="art-h2" id="as-tres-funcoes">As três funções da automação Bling + WhatsApp</h2>
+
+    <div class="funcao-cards">
+
+      <div class="funcao-card">
+        <div class="funcao-card-header">
+          <div class="funcao-card-icon">🔔</div>
+          <div>
+            <div class="funcao-card-title">Notificação no dia do vencimento</div>
+            <div class="funcao-card-subtitle">Automático · Personalizado · Boleto ou PIX com um clique</div>
+          </div>
+        </div>
+        <div class="funcao-card-body">
+          <p>Todos os dias, a automação consulta o Bling e identifica os títulos a receber com vencimento naquele dia. Para cada um, verifica se há boleto emitido, busca o link e dispara uma mensagem personalizada no WhatsApp do cliente — com o nome dele, o valor, a referência do pedido ou da fatura, e o link direto para pagamento.</p>
+          <p>Para e-commerces com pedidos B2B, isso significa que o comprador recebe o lembrete no momento certo — quando o boleto vence — sem depender de que ele se lembre de verificar o e-mail que recebeu dias atrás.</p>
+          <div class="chat-demo">
+            <div class="chat-demo-label">Exemplo para pedido B2B</div>
+            <div class="chat-msg received">
+              <div class="bubble">Olá, Marcos! 👋 O boleto referente ao pedido #8741 (R$ 1.890,00) vence hoje. Segue o link para pagamento: [link]. Assim que identificarmos o pagamento, seguimos com a separação do pedido. Qualquer dúvida é só responder aqui.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="funcao-card">
+        <div class="funcao-card-header">
+          <div class="funcao-card-icon">💬</div>
+          <div>
+            <div class="funcao-card-title">Chatbot de consulta pelo cliente final</div>
+            <div class="funcao-card-subtitle">Sem acionar equipe · Resposta imediata · Disponível 24h</div>
+          </div>
+        </div>
+        <div class="funcao-card-body">
+          <p>Quando o cliente pergunta sobre uma fatura — "me manda o boleto do pedido X", "qual o status do meu pagamento", "venceu meu boleto, como faço" — o chatbot consulta o Bling e responde com as informações precisas e o link atualizado. Nenhum membro da equipe precisa abrir o sistema.</p>
+          <p>Para distribuidoras com muitos revendedores, isso é especialmente valioso: representantes que fazem pedidos com frequência não precisam entrar em contato com o comercial ou o financeiro para obter uma segunda via — resolvem direto pelo WhatsApp a qualquer hora.</p>
+          <div class="chat-demo">
+            <div class="chat-demo-label">Exemplo de consulta por revendedor</div>
+            <div class="chat-msg sent"><div class="bubble">Oi, preciso do boleto do pedido de segunda-feira.</div></div>
+            <div class="chat-msg received"><div class="bubble">Oi, Marcos! Encontrei o pedido #8741 de segunda, R$ 1.890,00. O boleto vence hoje. Segue o link atualizado: [link]. Se já pagou e precisa de confirmação, me avisa que verifico aqui.</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="funcao-card">
+        <div class="funcao-card-header">
+          <div class="funcao-card-icon">📋</div>
+          <div>
+            <div class="funcao-card-title">Cobrança automática pós-vencimento</div>
+            <div class="funcao-card-subtitle">Cadência progressiva · Boleto sempre atualizado · Escala com o volume</div>
+          </div>
+        </div>
+        <div class="funcao-card-body">
+          <p>Para títulos vencidos e não pagos, a automação inicia uma cadência de cobrança progressiva no dia seguinte ao vencimento. Cada mensagem traz o boleto atualizado — porque boleto vencido precisa ser reemitido, e a automação já cuida disso automaticamente antes de disparar.</p>
+          <p>Para e-commerces, essa cadência tem um papel extra: o pedido fica em espera enquanto o pagamento não é confirmado, e a cobrança automática acelera a resolução sem precisar que alguém do time comercial faça follow-up manual de cada pedido pendente.</p>
+          <div class="chat-demo">
+            <div class="chat-demo-label">Exemplo D+1 — pedido aguardando pagamento</div>
+            <div class="chat-msg received"><div class="bubble">Marcos, o boleto do pedido #8741 venceu ontem sem registro de pagamento. Reemitimos o boleto com os valores atualizados: [link]. Assim que confirmado o pagamento, seguimos imediatamente com a separação.</div></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <h2 class="art-h2" id="bling-ecommerce">O ganho específico para e-commerces que usam o Bling</h2>
+
+    <p class="art-p">No e-commerce, o boleto tem um desafio adicional que o cartão não tem: o cliente precisa tomar uma ação para pagar. Isso cria uma janela de abandono entre o pedido e o pagamento — e sem um lembrete no momento certo, essa janela vira inadimplência.</p>
+
+    <div class="combo-box">
+      <h4>O ciclo completo no e-commerce com Bling</h4>
+      <p>Pedido feito → boleto gerado no Bling → notificação imediata no WhatsApp com link → lembrete no dia do vencimento → cobrança automática se não pago → assim que confirmado o pagamento no Bling, o pedido avança automaticamente para separação. Tudo sem intervenção humana no fluxo padrão.</p>
+    </div>
+
+    <p class="art-p">O ganho não é só na inadimplência — é no tempo do time operacional. Quando o pagamento e o andamento do pedido são automatizados, a equipe foca na exceção, não na regra. Menos tempo verificando "esse cliente pagou?" e mais tempo resolvendo os casos que realmente precisam de atenção.</p>
+
+    <div class="art-tip">
+      <strong>Para quem o Bling + WhatsApp faz mais sentido:</strong> e-commerces B2B com pedidos de valor médio-alto que dependem de boleto, distribuidoras com rede de revendedores, fabricantes com clientes recorrentes, e qualquer empresa que usa o Bling para faturar e hoje faz cobrança de boleto manualmente por e-mail ou telefone.
+    </div>
+
+    <div class="art-highlight">
+      <strong>Uma observação importante sobre o Bling:</strong> o Bling passou por uma grande atualização de plataforma nos últimos anos, e a versão atual tem uma API significativamente mais robusta do que a versão anterior. Se você usa o Bling há muito tempo e acha que a integração seria limitada, vale revisar essa percepção — a API atual suporta muito mais do que a versão antiga.
+    </div>
+
+    <div class="cta-inline">
+      <h3>Usa o Bling e quer automatizar sua cobrança no WhatsApp?</h3>
+      <p>Em 30 minutos consigo mapear como seria a integração para a sua operação específica — e-commerce, distribuidora ou B2B recorrente.</p>
+      <a href="https://wa.me/5511954715571?text=Oi%20Talita!%20Li%20seu%20artigo%20sobre%20Bling%20e%20WhatsApp%20e%20quero%20entender%20como%20ficaria%20para%20minha%20empresa" class="btn-wa" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Falar com Talita no WhatsApp
+      </a>
+    </div>
+
+    <div class="author-box">
+      <div class="author-box-inner">
+        <div class="author-box-avatar">TB</div>
+        <div>
+          <h4>Talita Bispo</h4>
+          <p>Fundadora da Altum Digital e especialista em automação estratégica com WhatsApp API Oficial, agentes de IA e integrações de sistemas. Com 11 anos de experiência em consultoria enterprise na Accenture e mais de 30 projetos entregues, ajuda empresas a escalar operações sem aumentar equipe. São Paulo/SP — atendimento para todo o Brasil e exterior.</p>
+        </div>
+      </div>
+    </div>
+
+  </article>
+
+  <aside class="sidebar">
+    <div class="sidebar-sticky">
+      <div class="sidebar-card">
+        <h4>Neste artigo</h4>
+        <ul class="toc-list">
+          <li><a href="#bling-contexto">O Bling no e-commerce e B2B</a></li>
+          <li><a href="#as-tres-funcoes">As três funções da automação</a></li>
+          <li><a href="#bling-ecommerce">O ganho para e-commerces</a></li>
+        </ul>
+      </div>
+      <div class="sidebar-cta">
+        <h4>Usa o Bling?</h4>
+        <p>Mapeio como seria a automação para sua operação em 30 minutos.</p>
+        <a href="https://wa.me/5511954715571?text=Oi%20Talita!%20Li%20seu%20artigo%20sobre%20Bling%20e%20WhatsApp%20e%20quero%20entender%20como%20ficaria%20para%20minha%20empresa" class="btn-wa-sm" target="_blank">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.os-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Falar com Talita
+        </a>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-logo">Altum<span>.</span>Digital</div>
+      <p>© 2025 Talita Bispo · Altum Digital Soluções LTDA</p>
+      <p>São Paulo, SP · Brasil</p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,5 @@
+# Deploy do site altumdigital.com.br
+# Site estático puro: sem build, publica a raiz do repositório.
+[build]
+  publish = "."
+  command = ""

@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="google-site-verification" content="o9atsKrdigbQbduLkOYRw-eHxLQw4ysKef4Cs3bHQDY" />
+<title>Talita Bispo — Altum Digital | Automação Estratégica & IA</title>
+<meta name="description" content="Automação estratégica com WhatsApp API Oficial, agentes de IA e integrações de sistemas. 11 anos Accenture + 30+ projetos entregues. São Paulo, SP.">
+<meta property="og:title" content="Talita Bispo — Altum Digital | Automação Estratégica & IA">
+<meta property="og:description" content="Transformo processos complexos em operações eficientes e escaláveis — com rigor enterprise e agilidade digital.">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Altum Digital">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#ffffff;
+  --surface:#f8fafb;
+  --surface2:#f0f4f8;
+  --card:#ffffff;
+  --accent:#00b89e;
+  --accent-light:#e6faf6;
+  --accent-border:rgba(0,184,158,0.2);
+  --accent2:#4f8cff;
+  --text:#0f172a;
+  --muted:#64748b;
+  --muted2:#94a3b8;
+  --border:#e5e7eb;
+  --border-dark:#d1d5db;
+  --dark:#0f172a;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-size:17px;line-height:1.75;overflow-x:hidden}
+h1,h2,h3,h4,h5{font-family:'Manrope',sans-serif;line-height:1.2}
+a{text-decoration:none;color:inherit}
+.container{max-width:1100px;margin:0 auto;padding:0 28px}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0;background:rgba(255,255,255,0.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;max-width:1100px;margin:0 auto;padding:0 28px;height:64px}
+.nav-logo{font-family:'Manrope',sans-serif;font-size:18px;font-weight:800;color:var(--text)}
+.nav-logo span{color:var(--accent)}
+.nav-links{list-style:none;display:flex;gap:32px;align-items:center}
+.nav-links a{color:var(--muted);font-size:14px;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:var(--text)}
+.nav-cta{background:var(--dark)!important;color:#fff!important;padding:9px 20px!important;border-radius:6px;font-weight:700!important;font-size:13px!important}
+.nav-cta:hover{opacity:.88}
+
+/* HERO */
+#hero{padding:120px 0 80px;position:relative;overflow:hidden;background:#0f172a}
+.hero-accent-bar{position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#00e5c3,#4f8cff)}
+.hero-grid{display:grid;grid-template-columns:1fr 440px;gap:80px;align-items:center}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(0,184,158,.12);border:1px solid rgba(0,184,158,.3);border-radius:100px;padding:6px 16px;margin-bottom:28px}
+.hero-eyebrow-dot{width:6px;height:6px;border-radius:50%;background:var(--accent);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.hero-eyebrow span{font-family:'Manrope',sans-serif;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+.hero-name{font-size:clamp(38px,5vw,62px);font-weight:800;letter-spacing:-.03em;line-height:1.05;margin-bottom:6px;color:#fff}
+.hero-name-brand{display:block;background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-sub{font-size:20px;color:rgba(255,255,255,.5);font-weight:400;margin-bottom:24px}
+.hero-desc{color:rgba(255,255,255,.55);font-size:17px;max-width:480px;margin-bottom:40px;line-height:1.9}
+.hero-desc strong{color:#e8eaf0;font-weight:600}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+.btn-primary{display:inline-flex;align-items:center;gap:10px;background:var(--dark);color:#fff;padding:13px 26px;border-radius:8px;font-family:'Manrope',sans-serif;font-weight:700;font-size:14px;transition:all .2s}
+.btn-primary:hover{background:#1e293b;transform:translateY(-1px)}
+.btn-ghost{display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(255,255,255,.2);color:#e8eaf0;padding:13px 24px;border-radius:8px;font-family:'Manrope',sans-serif;font-weight:600;font-size:14px;transition:all .2s}
+.btn-ghost:hover{border-color:#00e5c3;color:#00e5c3}
+
+/* HERO CARD */
+.hero-card{background:var(--dark);border-radius:20px;padding:32px;position:relative;overflow:hidden}
+.hero-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent2),#a78bfa)}
+.hero-card-label{font-family:'Manrope',sans-serif;font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:18px}
+.hero-card-name{font-family:'Manrope',sans-serif;font-size:22px;font-weight:800;color:#fff;margin-bottom:4px}
+.hero-card-role{font-size:13px;color:var(--accent);font-weight:500;margin-bottom:22px}
+.hero-badges{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:26px}
+.hero-badge{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:6px;padding:6px 13px;font-size:13px;color:rgba(255,255,255,.6);font-weight:500}
+.hero-badge.hi{background:rgba(0,184,158,.1);border-color:rgba(0,184,158,.3);color:var(--accent)}
+.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid rgba(255,255,255,.08);padding-top:22px;gap:0}
+.hero-stat{text-align:center;padding:0 8px}
+.hero-stat+.hero-stat{border-left:1px solid rgba(255,255,255,.08)}
+.hero-stat-n{font-family:'Manrope',sans-serif;font-size:26px;font-weight:800;color:var(--accent);line-height:1;margin-bottom:6px}
+.hero-stat-l{font-size:12px;color:rgba(255,255,255,.4);line-height:1.4}
+
+/* AUTHORITY */
+#authority{padding:72px 0;background:#f8fafb;border-top:1px solid #e5e7eb;border-bottom:1px solid #e5e7eb}
+.authority-grid{display:grid;grid-template-columns:300px 1fr;gap:72px;align-items:start}
+.authority-eyebrow{font-family:'Manrope',sans-serif;font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+.authority-title{font-size:32px;font-weight:800;letter-spacing:-.025em;line-height:1.2;color:var(--text)}
+.authority-title em{font-style:normal;color:var(--accent)}
+.companies-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.company-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px;transition:border-color .2s}
+.company-card:hover{border-color:var(--accent)}
+.company-card h4{font-family:'Manrope',sans-serif;font-size:16px;font-weight:700;color:var(--text);margin-bottom:7px}
+.company-card p{font-size:15px;color:var(--muted);line-height:1.7}
+.company-years{display:inline-block;margin-top:10px;font-family:'Manrope',sans-serif;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+
+/* SECTION HEADER */
+.section-header{margin-bottom:56px}
+.section-header.centered{text-align:center}
+.section-label{font-family:'Manrope',sans-serif;font-size:12px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:14px}
+.section-title{font-size:clamp(28px,3.5vw,42px);font-weight:800;letter-spacing:-.025em;color:var(--text);margin-bottom:16px}
+.section-desc{color:var(--muted);font-size:17px;line-height:1.85}
+.section-header.centered .section-desc{max-width:520px;margin:0 auto}
+
+/* SERVICES */
+#services{padding:96px 0;background:#0f172a}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.service-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:28px;transition:all .25s}
+.service-card:hover{border-color:var(--accent);box-shadow:0 8px 32px rgba(0,0,0,.06);transform:translateY(-3px)}
+.service-icon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;font-size:20px}
+.service-card h3{font-family:'Manrope',sans-serif;font-size:18px;font-weight:700;color:var(--text);margin-bottom:12px}
+.service-card p{font-size:15px;color:var(--muted);line-height:1.8}
+.service-checks{display:flex;flex-direction:column;gap:7px;margin-top:16px}
+.service-check{display:flex;align-items:flex-start;gap:8px;font-size:15px;color:var(--muted);line-height:1.6}
+.service-check-icon{color:#25D366;font-weight:700;flex-shrink:0;margin-top:1px;font-size:14px}
+.service-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
+.s-tag{font-size:12px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);border:1px solid var(--border);border-radius:4px;padding:5px 10px}
+.service-card.featured-card{border-color:rgba(37,211,102,0.25);background:linear-gradient(135deg,rgba(37,211,102,0.03),#fff)}
+
+/* PROJECTS */
+#projects{padding:96px 0;background:var(--surface);border-top:1px solid var(--border)}
+.cases-divider{display:flex;align-items:center;gap:20px;margin:56px 0 36px;font-family:'Manrope',sans-serif;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted2)}
+.cases-divider-line{flex:1;height:1px;background:var(--border)}
+.case-block{background:var(--card);border:1px solid var(--border);border-radius:18px;overflow:hidden;margin-bottom:18px;transition:border-color .25s}
+.case-block:hover{border-color:var(--accent)}
+.case-header{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;padding:30px 34px 0;flex-wrap:wrap}
+.case-segment{font-family:'Manrope',sans-serif;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+.case-header h3{font-size:21px;font-weight:800;letter-spacing:-.02em;color:var(--text);max-width:600px}
+.case-badge{flex-shrink:0;background:var(--accent-light);border:1px solid var(--accent-border);border-radius:100px;padding:7px 16px;font-family:'Manrope',sans-serif;font-size:12px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--accent);margin-top:4px}
+.case-body{display:grid;grid-template-columns:1fr 1fr;padding:26px 34px 34px;gap:0}
+.case-pain{padding-right:30px;border-right:1px solid var(--border)}
+.case-solution{padding-left:30px}
+.case-col-label{font-family:'Manrope',sans-serif;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted2);margin-bottom:12px}
+.case-col-label.green{color:var(--accent)}
+.case-pain p,.case-solution p{font-size:15px;color:var(--muted);line-height:1.85;margin-bottom:16px}
+.pain-quotes{display:flex;flex-direction:column;gap:8px;margin-top:14px}
+.pain-quote{background:var(--surface);border-left:3px solid rgba(239,68,68,.35);border-radius:0 8px 8px 0;padding:12px 16px;font-size:14px;color:var(--muted);font-style:italic;line-height:1.6}
+.result-list{list-style:none;display:flex;flex-direction:column;gap:8px;margin-top:12px}
+.result-list li{display:flex;align-items:flex-start;gap:10px;font-size:15px;color:var(--muted);line-height:1.6}
+.result-list li::before{content:'✓';color:var(--accent);font-weight:700;flex-shrink:0;margin-top:1px}
+.tech-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.tech-tag{font-size:12px;padding:5px 11px;border-radius:4px;background:rgba(79,140,255,0.08);border:1px solid rgba(79,140,255,.18);color:var(--accent2);font-weight:600}
+
+/* METHODOLOGY */
+#method{padding:96px 0;background:#0f172a}
+.method-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start}
+.method-left h2{font-size:clamp(28px,3vw,40px);font-weight:800;letter-spacing:-.025em;line-height:1.2;margin-bottom:20px;color:var(--text)}
+.method-left h2 span{color:var(--accent)}
+.method-left p{color:rgba(255,255,255,.55);font-size:16px;line-height:1.9;margin-bottom:16px}
+.method-pull{background:var(--accent-light);border-left:3px solid var(--accent);border-radius:0 10px 10px 0;padding:16px 20px;margin-top:22px;font-size:15px;font-style:italic;color:var(--text);line-height:1.7}
+.steps{display:flex;flex-direction:column;gap:3px}
+.step{display:flex;gap:18px;align-items:flex-start;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px 20px;transition:all .2s}
+.step:hover{border-color:var(--accent);background:var(--accent-light)}
+.step-num{font-family:'Manrope',sans-serif;font-size:12px;font-weight:800;color:var(--accent);width:28px;flex-shrink:0;padding-top:3px}
+.step h4{font-family:'Manrope',sans-serif;font-size:16px;font-weight:700;color:var(--text);margin-bottom:5px}
+.step p{font-size:15px;color:var(--muted);line-height:1.7}
+
+/* CLIENTS */
+#clients{padding:72px 0;border-top:1px solid var(--border);background:var(--surface)}
+.clients-label{text-align:center;font-family:'Manrope',sans-serif;font-size:12px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--muted2);margin-bottom:32px}
+.clients-row{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
+.client-chip{background:var(--card);border:1px solid var(--border);border-radius:100px;padding:11px 22px;font-size:15px;font-weight:500;color:var(--muted);transition:all .2s;cursor:default}
+.client-chip:hover{border-color:var(--accent);color:var(--text)}
+
+/* CTA */
+#cta{padding:112px 0;text-align:center;background:var(--dark);position:relative;overflow:hidden}
+#cta::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 50%,rgba(0,184,158,0.12),transparent 70%)}
+#cta .container{position:relative;z-index:1}
+.cta-label{font-family:'Manrope',sans-serif;font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:20px}
+.cta-title{font-size:clamp(34px,5vw,56px);font-weight:800;letter-spacing:-.03em;line-height:1.1;color:#fff;margin-bottom:20px}
+.cta-title span{background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.cta-desc{color:rgba(255,255,255,.5);font-size:18px;max-width:480px;margin:0 auto 44px;line-height:1.8}
+.btn-whatsapp{display:inline-flex;align-items:center;gap:12px;background:#25D366;color:#fff;padding:15px 32px;border-radius:10px;font-family:'Manrope',sans-serif;font-weight:700;font-size:16px;transition:all .25s}
+.btn-whatsapp:hover{background:#20b858;transform:translateY(-2px)}
+.btn-whatsapp svg{width:20px;height:20px;fill:#fff;flex-shrink:0}
+.contact-info{margin-top:20px;color:rgba(255,255,255,.3);font-size:15px}
+.contact-info a{color:rgba(255,255,255,.3)}
+
+/* FOOTER */
+footer{background:var(--dark);border-top:1px solid rgba(255,255,255,.06);padding:36px 0}
+.footer-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px}
+.footer-logo{font-family:'Manrope',sans-serif;font-weight:800;font-size:16px;color:#fff}
+.footer-logo span{color:var(--accent)}
+footer p{color:rgba(255,255,255,.3);font-size:14px}
+
+/* BLOG LINK */
+.nav-blog{display:flex;align-items:center;gap:7px;font-size:13px;font-weight:600;color:var(--accent)!important;border:1px solid var(--accent-border);border-radius:100px;padding:6px 14px}
+.nav-blog:hover{background:var(--accent-light)}
+
+
+/* DARK SECTIONS */
+.section-dark{background:#0f172a;color:#e8eaf0}
+.section-dark .section-label{color:#00e5c3}
+.section-dark .section-title{color:#e8eaf0}
+.section-dark .section-desc{color:rgba(255,255,255,.5)}
+.section-dark .section-header.centered .section-desc{color:rgba(255,255,255,.5)}
+
+/* Dark services */
+.section-dark .service-card{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.08);color:#e8eaf0}
+.section-dark .service-card:hover{border-color:#00b89e;background:rgba(0,184,158,.06)}
+.section-dark .service-card h3{color:#e8eaf0}
+.section-dark .service-card p{color:rgba(255,255,255,.5)}
+.section-dark .s-tag{color:rgba(255,255,255,.4);border-color:rgba(255,255,255,.1)}
+.section-dark .service-checks .service-check{color:rgba(255,255,255,.5)}
+.section-dark .featured-card{background:rgba(37,211,102,.06);border-color:rgba(37,211,102,.2)}
+
+/* Dark methodology */
+.section-dark .method-left h2{color:#e8eaf0}
+.section-dark .method-left h2 span{color:#00e5c3}
+.section-dark .method-left p{color:rgba(255,255,255,.5)}
+.section-dark .method-pull{background:rgba(0,184,158,.08);border-color:#00b89e;color:#e8eaf0;font-size:16px}
+.section-dark .step{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.08)}
+.section-dark .step:hover{border-color:#00b89e;background:rgba(0,184,158,.06)}
+.section-dark .step h4{color:#e8eaf0}
+.section-dark .step p{color:rgba(255,255,255,.5)}
+.section-dark .step-num{color:#00e5c3}
+
+/* ANIMATIONS */
+.fade-up{opacity:1;transform:translateY(0)}
+
+/* RESPONSIVE */
+@media(max-width:1000px){
+  .hero-grid{grid-template-columns:1fr}
+  .hero-card{display:none}
+  .authority-grid{grid-template-columns:1fr}
+  .method-grid{grid-template-columns:1fr}
+  .services-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:700px){
+  .nav-links{display:none}
+  .services-grid{grid-template-columns:1fr}
+  .companies-grid{grid-template-columns:1fr}
+  .case-body{grid-template-columns:1fr;padding:20px 22px 28px}
+  .case-header{padding:22px 22px 0}
+  .case-pain{padding-right:0;border-right:none;border-bottom:1px solid var(--border);padding-bottom:22px;margin-bottom:22px}
+  .case-solution{padding-left:0}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo">Altum<span>.</span>Digital</div>
+    <ul class="nav-links">
+      <li><a href="#services">Serviços</a></li>
+      <li><a href="#projects">Projetos</a></li>
+      <li><a href="#method">Metodologia</a></li>
+      <li><a href="/blog" class="nav-blog">Blog →</a></li>
+      <li><a href="#cta" class="nav-cta">Falar com Talita</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section id="hero" class="section-dark">
+  <div class="hero-accent-bar"></div>
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-eyebrow">
+          <div class="hero-eyebrow-dot"></div>
+          <span>Disponível para novos projetos</span>
+        </div>
+        <h1 class="hero-name">
+          Talita Bispo
+          <span class="hero-name-brand">Altum Digital</span>
+        </h1>
+        <p class="hero-sub">Automação Estratégica &amp; Inteligência Artificial</p>
+        <p class="hero-desc">
+          Transformo processos complexos em operações eficientes e escaláveis — com a rigorosidade técnica de quem passou <strong style="white-space:nowrap">11 anos na Accenture</strong> e a agilidade de quem vive o mercado digital.
+        </p>
+        <div class="hero-actions">
+          <a href="https://wa.me/5511954715571" class="btn-primary" target="_blank">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Falar no WhatsApp
+          </a>
+          <a href="#projects" class="btn-ghost">Ver Projetos →</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="hero-card-label">Especialista em</div>
+        <div class="hero-card-name">Talita Bispo</div>
+        <div class="hero-card-role">Founder · Altum Digital</div>
+        <div class="hero-badges">
+          <span class="hero-badge hi">IA Generativa</span>
+          <span class="hero-badge hi">WhatsApp API</span>
+          <span class="hero-badge">N8N</span>
+          <span class="hero-badge">Automação</span>
+          <span class="hero-badge">CRM</span>
+          <span class="hero-badge">Integrações</span>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <div class="hero-stat-n">11+</div>
+            <div class="hero-stat-l">Anos Accenture</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-n">30+</div>
+            <div class="hero-stat-l">Projetos entregues</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-n">+200k</div>
+            <div class="hero-stat-l">Mensagens via API Oficial</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="authority">
+  <div class="container">
+    <div class="authority-grid">
+      <div>
+        <div class="authority-eyebrow">Trajetória</div>
+        <h2 class="authority-title">Rigor enterprise.<br><em>Velocidade</em> digital.</h2>
+      </div>
+      <div class="companies-grid">
+        <div class="company-card">
+          <h4>Accenture</h4>
+          <p>Consultora em projetos de alta complexidade para TIM, SKY/AT&T, SEFAZ e Johnson &amp; Johnson. Liderança funcional, QA, mapeamento AS-IS/TO-BE.</p>
+          <span class="company-years">11 anos</span>
+        </div>
+        <div class="company-card">
+          <h4>MCC Soluções Digitais</h4>
+          <p>Diretora de Operações. Estruturou lançamentos com múltiplos 6 em 7 e +R$1M em vendas. Criou as primeiras automações de recuperação de vendas via WhatsApp.</p>
+          <span class="company-years">5 anos</span>
+        </div>
+        <div class="company-card">
+          <h4>Altum Digital</h4>
+          <p>Fundadora. Entrega automação estratégica e agentes de IA para e-commerces, operações físicas e infoprodutores que precisam escalar sem aumentar equipe.</p>
+          <span class="company-years">Fundadora</span>
+        </div>
+        <div class="company-card">
+          <h4>Formação</h4>
+          <p>Cientista da Computação · UNISANTA. Especialização em Automação de Processos Empresariais, Inteligência Artificial e Estrategista Conversacional via API Oficial.</p>
+          <span class="company-years">Base técnica sólida</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services" class="section-dark">
+  <div class="container">
+    <div class="section-header centered">
+      <span class="section-label">O que eu ofereço</span>
+      <h2 class="section-title">Soluções que realmente<br>mudam a operação</h2>
+      <p class="section-desc">Não vendo pacotes prontos. Cada solução é construída do zero para o seu contexto, com levantamento de requisitos, escopo formal e suporte pós go-live.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon" style="background:rgba(0,184,158,0.1)">🤖</div>
+        <h3>Agentes de IA</h3>
+        <p>Agentes conversacionais humanizados que vendem, suportam e qualificam leads via WhatsApp, Instagram e site — 24 horas por dia, sem intervenção humana.</p>
+        <div class="service-tags"><span class="s-tag">IA Generativa</span><span class="s-tag">Omnichannel</span><span class="s-tag">24/7</span></div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon" style="background:rgba(79,140,255,0.1)">⚡</div>
+        <h3>Automação de Vendas</h3>
+        <p>Recuperação de carrinho abandonado, boleto expirado e pagamento recusado. Cadências inteligentes com follow-up em múltiplas etapas e gatilhos por comportamento.</p>
+        <div class="service-tags"><span class="s-tag">Recuperação</span><span class="s-tag">Cadências</span><span class="s-tag">Gateways</span></div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon" style="background:rgba(167,139,250,0.1)">🔗</div>
+        <h3>Integrações de Sistemas</h3>
+        <p>Conexão entre plataformas de venda, ERPs, CRMs, gateways e APIs externas. Regras de negócio configuráveis de forma autônoma — sem precisar de suporte técnico para atualizar.</p>
+        <div class="service-tags"><span class="s-tag">Integrações API</span><span class="s-tag">ERPs</span><span class="s-tag">Gateways</span></div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon" style="background:rgba(0,184,158,0.1)">📊</div>
+        <h3>Automação para Lançamentos</h3>
+        <p>Captação, aquecimento, disparo via API Oficial do WhatsApp, onboarding pós-venda e suporte automatizado — do zero ao go-live com processo estruturado.</p>
+        <div class="service-tags"><span class="s-tag">API Oficial</span><span class="s-tag">Templates</span><span class="s-tag">Onboarding</span></div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon" style="background:rgba(79,140,255,0.1)">🏭</div>
+        <h3>Automação Logística</h3>
+        <p>Geração automática de lotes para Correios, rastreamento em tempo real com notificações via WhatsApp, gestão de reembolsos e chatbots de reentrega.</p>
+        <div class="service-tags"><span class="s-tag">Correios API</span><span class="s-tag">Rastreamento</span><span class="s-tag">Reembolsos</span></div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon" style="background:rgba(167,139,250,0.1)">💬</div>
+        <h3>CRM &amp; Chatbots</h3>
+        <p>Pipelines estruturados do zero, atribuição de leads em round-robin, chatbots simples ou com IA embarcada. Operação organizada, rastreável e escalável.</p>
+        <div class="service-tags"><span class="s-tag">CRM</span><span class="s-tag">Pipelines</span><span class="s-tag">Round-robin</span></div>
+      </div>
+      <div class="service-card featured-card" style="grid-column:span 3">
+        <div style="display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:start">
+          <div class="service-icon" style="background:rgba(37,211,102,0.1)">📲</div>
+          <div>
+            <h3>API Oficial do WhatsApp</h3>
+            <p style="margin-bottom:16px">Chega de soluções não-oficiais que bloqueiam o número, limitam envios e ficam fora do ar. A API Oficial da Meta garante conformidade, escala real e entregas confiáveis — sem risco de ban.</p>
+            <div class="service-checks">
+              <div class="service-check"><span class="service-check-icon">✓</span>Número da empresa nunca é bloqueado ou banido pela Meta</div>
+              <div class="service-check"><span class="service-check-icon">✓</span>Templates aprovados — mensagens ativas com altíssima taxa de entrega</div>
+              <div class="service-check"><span class="service-check-icon">✓</span>Envio em escala para milhares de contatos sem travamento</div>
+              <div class="service-check"><span class="service-check-icon">✓</span>Múltiplos atendentes e automações num único número oficial</div>
+              <div class="service-check"><span class="service-check-icon">✓</span>Conformidade total com as políticas da Meta — operação protegida</div>
+            </div>
+            <div class="service-tags" style="margin-top:16px"><span class="s-tag" style="border-color:rgba(37,211,102,0.3);color:#1a9e4a">Meta Business</span><span class="s-tag">API Oficial</span><span class="s-tag">Templates</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Casos reais</span>
+      <h2 class="section-title">Projetos entregues</h2>
+      <p class="section-desc">Cada projeto começa entendendo a dor real da equipe — não o sistema. O que foi automatizado aqui era rotina manual que consumia tempo, gerava erro e impedia o crescimento.</p>
+    </div>
+
+    <div class="cases-divider">
+      <div class="cases-divider-line"></div>
+      <span>Empresas com operação física e digital</span>
+      <div class="cases-divider-line"></div>
+    </div>
+
+    <div class="case-block">
+      <div class="case-header">
+        <div>
+          <div class="case-segment">Moda · Varejo de Luxo</div>
+          <h3>ForYou Luxury — IA que substituiu o ERP no ponto de venda</h3>
+        </div>
+        <div class="case-badge">Empresa convencional</div>
+      </div>
+      <div class="case-body">
+        <div class="case-pain">
+          <div class="case-col-label">Como era antes</div>
+          <p>A loja usava o ERP Tiny Olist para tudo: estoque, clientes, pedidos e cadastro de vendas. O problema? Nem todas as vendedoras sabiam operar o sistema. Consultar se um produto tinha estoque exigia abrir o ERP, navegar pelos menus e esperar — enquanto o cliente aguardava na frente. Erros de cadastro eram frequentes. Quem não dominava a ferramenta dependia de outra pessoa para qualquer coisa simples.</p>
+          <div class="pain-quotes">
+            <div class="pain-quote">"Perco a venda porque quando vou confirmar o estoque o cliente já foi embora."</div>
+            <div class="pain-quote">"Cadastrei o cliente errado no sistema e tive que refazer tudo depois."</div>
+            <div class="pain-quote">"Só a gerente sabe usar direito o ERP. Quando ela não está, trava tudo."</div>
+          </div>
+        </div>
+        <div class="case-solution">
+          <div class="case-col-label green">O que mudou com a solução</div>
+          <p>Um agente de IA conectado ao ERP, acessível pelo WhatsApp — por texto ou por voz. A vendedora fala naturalmente: <em>"Tem o vestido azul M da Zara?"</em> e recebe foto, preço, estoque e fornecedor em segundos. Para registrar uma venda no PDV, basta descrever o produto e o cliente.</p>
+          <ul class="result-list">
+            <li>Toda a equipe opera o ERP sem precisar abrir o sistema — por voz ou texto</li>
+            <li>Consulta de estoque, pedido, cliente e fornecedor respondida em segundos</li>
+            <li>Cadastro de clientes, fornecedores e vendas direto pela conversa</li>
+            <li>Confirmação obrigatória antes de qualquer registro — erro virou coisa do passado</li>
+            <li>Gerente liberada das interrupções constantes para focar no estratégico</li>
+          </ul>
+          <div class="tech-tags"><span class="tech-tag">IA Generativa</span><span class="tech-tag">Tiny Olist ERP</span><span class="tech-tag">Voz</span><span class="tech-tag">N8N</span><span class="tech-tag">WhatsApp API</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="case-block">
+      <div class="case-header">
+        <div>
+          <div class="case-segment">Locação de Equipamentos · São Paulo/SP</div>
+          <h3>Café Prático — Atendimento financeiro automatizado e inadimplência em queda</h3>
+        </div>
+        <div class="case-badge">Empresa convencional</div>
+      </div>
+      <div class="case-body">
+        <div class="case-pain">
+          <div class="case-col-label">Como era antes</div>
+          <p>O atendimento financeiro era 100% manual. Quando um cliente entrava em contato solicitando uma fatura, alguém precisava abrir o sistema, localizar o registro, copiar os dados e responder. O controle de vencimentos era feito manualmente — cobranças atrasavam porque ninguém tinha visibilidade proativa do que estava vencendo.</p>
+          <div class="pain-quotes">
+            <div class="pain-quote">"O cliente manda mensagem pedindo boleto e a gente precisa parar tudo pra localizar e enviar."</div>
+            <div class="pain-quote">"Não temos como avisar todo mundo que está vencendo. Alguns pagam, outros deixam passar."</div>
+            <div class="pain-quote">"A equipe gasta horas por dia respondendo as mesmas perguntas financeiras no WhatsApp."</div>
+          </div>
+        </div>
+        <div class="case-solution">
+          <div class="case-col-label green">O que mudou com a solução</div>
+          <p>Um chatbot integrado ao Conta Azul via API que atende o cliente final diretamente — sem nenhuma intervenção humana. O cliente recebe a fatura atualizada em tempo real. Além do atendimento reativo, foi implementado um mecanismo proativo de lembrete de vencimento.</p>
+          <ul class="result-list">
+            <li>Atendimento financeiro ao cliente final 100% automatizado</li>
+            <li>Cliente consulta e recebe sua fatura diretamente pelo WhatsApp, a qualquer hora</li>
+            <li>Lembretes automáticos de vencimento disparados proativamente para toda a base</li>
+            <li>Redução da inadimplência pelo acompanhamento automatizado dos vencimentos</li>
+            <li>Escala real: mais clientes não significa mais trabalho para a equipe</li>
+          </ul>
+          <div class="tech-tags"><span class="tech-tag">Conta Azul API</span><span class="tech-tag">WhatsApp API</span><span class="tech-tag">Chatbot</span><span class="tech-tag">Automação Financeira</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="case-block">
+      <div class="case-header">
+        <div>
+          <div class="case-segment">E-commerce + Salão Físico · Beleza · Joinville/SC</div>
+          <h3>Super Cacheada — SAC 100% automatizado, equipe menor e cliente mais bem atendido</h3>
+        </div>
+        <div class="case-badge">Empresa convencional</div>
+      </div>
+      <div class="case-body">
+        <div class="case-pain">
+          <div class="case-col-label">Como era antes</div>
+          <p>O SAC era 100% manual. Cada mensagem no WhatsApp, Instagram e site precisava de uma pessoa para responder. No e-commerce, a pergunta mais frequente era "cadê meu pedido?", respondida manualmente uma a uma. No salão físico, o agendamento era por mensagem avulsa, sem confirmação automática e sem lembrete.</p>
+          <div class="pain-quotes">
+            <div class="pain-quote">"Passo o dia todo respondendo sobre pedidos. Não sobra tempo pra cuidar de mais nada."</div>
+            <div class="pain-quote">"Cliente confirmou o horário, mas não apareceu. Acontece toda semana."</div>
+            <div class="pain-quote">"Chegam mensagens no Instagram, no WhatsApp e no site ao mesmo tempo. É impossível dar conta."</div>
+          </div>
+        </div>
+        <div class="case-solution">
+          <div class="case-col-label green">O que mudou com a solução</div>
+          <p>Dois agentes de IA independentes: um para o e-commerce e outro para o salão. Hoje, <strong>apenas 20% dos contatos são transferidos para atendimento humano</strong>. Um dado revelador: <strong>50% de todos os atendimentos acontecem fora do expediente comercial</strong> — horário em que antes ninguém respondia.</p>
+          <ul class="result-list">
+            <li>SAC de 100% manual para 80% automatizado — equipe focada só no complexo</li>
+            <li>Atendimento 24/7 — 50% dos contatos ocorrem fora do horário comercial</li>
+            <li>Consulta de pedidos e rastreio em tempo real integrado ao e-commerce e ERP</li>
+            <li>Agendamentos do salão com confirmação e lembrete automático</li>
+            <li>Cliente reduziu o tamanho da equipe de atendimento sem perder qualidade</li>
+          </ul>
+          <div class="tech-tags"><span class="tech-tag">IA Generativa</span><span class="tech-tag">E-commerce API</span><span class="tech-tag">WhatsApp API</span><span class="tech-tag">Instagram API</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cases-divider" style="margin-top:64px">
+      <div class="cases-divider-line"></div>
+      <span>Empresas digitais &amp; infoprodutores</span>
+      <div class="cases-divider-line"></div>
+    </div>
+
+    <div class="case-block">
+      <div class="case-header">
+        <div>
+          <div class="case-segment">Preparatório para Concursos · Produto Digital + Físico</div>
+          <h3>Aprovasim / Brabo Concursos — Operação logística de 5 pessoas automatizada end-to-end</h3>
+        </div>
+        <div class="case-badge">Empresa digital</div>
+      </div>
+      <div class="case-body">
+        <div class="case-pain">
+          <div class="case-col-label">Como era antes</div>
+          <p>A empresa envia kits físicos para os alunos. O processo logístico inteiro era manual — envolvia cerca de 5 pessoas dedicadas diariamente: monitorar vendas nos gateways, normalizar dados, decidir qual kit correspondia a qual produto, gerar etiquetas dos Correios e acompanhar entregas.</p>
+          <div class="pain-quotes">
+            <div class="pain-quote">"São 5 pessoas paradas fazendo etiqueta manualmente todo dia. É inviável escalar assim."</div>
+            <div class="pain-quote">"Se errar o produto no envio, o aluno reclama, a gente tem que reenviar e perder dinheiro."</div>
+            <div class="pain-quote">"Quando alguém pede reembolso e a etiqueta já foi gerada, ninguém sabe o que fazer."</div>
+          </div>
+        </div>
+        <div class="case-solution">
+          <div class="case-col-label green">O que mudou com a solução</div>
+          <p>Um pipeline automatizado completo: os 4 gateways de venda são monitorados em tempo real via webhooks. Uma camada de normalização aplica automaticamente as regras de negócio. Lotes diários para os Correios gerados automaticamente. Rastreamento 3x ao dia com notificações proativas ao aluno.</p>
+          <ul class="result-list">
+            <li>Monitoramento automático de 4 gateways com normalização e regras de negócio</li>
+            <li>Lotes diários para os Correios gerados automaticamente em horários fixos</li>
+            <li>Rastreamento 3x ao dia com notificações proativas via WhatsApp</li>
+            <li>Gestão de reembolsos: cancelamento automático pré-postagem</li>
+            <li>Operação de 5 pessoas diárias passou a funcionar quase sem intervenção humana</li>
+          </ul>
+          <div class="tech-tags"><span class="tech-tag">4 Gateways</span><span class="tech-tag">API Correios</span><span class="tech-tag">WhatsApp API</span><span class="tech-tag">Webhooks</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="case-block">
+      <div class="case-header">
+        <div>
+          <div class="case-segment">Infoprodutos · Cursos Online · Culinária Saudável</div>
+          <h3>Renata Iglesias — Novo CRM, 4 gateways integrados e recuperação de vendas em piloto automático</h3>
+        </div>
+        <div class="case-badge">Empresa digital</div>
+      </div>
+      <div class="case-body">
+        <div class="case-pain">
+          <div class="case-col-label">Como era antes</div>
+          <p>Gateways de venda desconectados, CRM desorganizado sem pipelines definidos e nenhuma automação para recuperar vendas perdidas — boletos vencidos, carrinhos abandonados e pagamentos recusados ficavam sem follow-up. Dinheiro sendo deixado na mesa todos os dias.</p>
+          <div class="pain-quotes">
+            <div class="pain-quote">"Vendas sendo perdidas porque ninguém consegue fazer follow-up de boleto vencido a tempo."</div>
+            <div class="pain-quote">"Nosso CRM não separa suporte de comercial. Tudo vira uma bagunça nas campanhas."</div>
+            <div class="pain-quote">"A migração do sistema antigo é arriscada. Com medo de perder leads já na esteira."</div>
+          </div>
+        </div>
+        <div class="case-solution">
+          <div class="case-col-label green">O que mudou com a solução</div>
+          <p>Implantação completa da API Oficial do WhatsApp, migração para novo CRM e integração de 4 gateways. Foram estruturados do zero 3 pipelines — Comercial, Suporte e Lançamentos — com cadência de recuperação em 4 etapas e atribuição automática de leads em round-robin.</p>
+          <ul class="result-list">
+            <li>API Oficial do WhatsApp com templates aprovados e dois números integrados</li>
+            <li>4 gateways integrados com normalização automática dos pipelines</li>
+            <li>3 pipelines de CRM estruturados do zero: Comercial, Suporte e Lançamentos</li>
+            <li>Cadência de recuperação em 4 etapas para boleto, PIX e carrinho abandonado</li>
+            <li>Migração do CRM anterior sem perda de dados — operação sem interrupção</li>
+          </ul>
+          <div class="tech-tags"><span class="tech-tag">WhatsApp API Oficial</span><span class="tech-tag">CRM</span><span class="tech-tag">4 Gateways</span><span class="tech-tag">Recuperação de Vendas</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="case-block">
+      <div class="case-header">
+        <div>
+          <div class="case-segment">Finanças · Infoprodutos · Lançamentos Digitais</div>
+          <h3>Hey Investidor — IA de vendas, CRM de lançamento e webinar semanal no piloto automático</h3>
+        </div>
+        <div class="case-badge">Empresa digital</div>
+      </div>
+      <div class="case-body">
+        <div class="case-pain">
+          <div class="case-col-label">Como era antes</div>
+          <p>Diversas demandas críticas sendo gerenciadas de forma manual: a recuperação de vendas dependia de ação humana, não havia visibilidade da jornada do lead durante lançamentos, e a estrutura de webinar semanal exigia trabalho operacional toda semana para ser executada.</p>
+          <div class="pain-quotes">
+            <div class="pain-quote">"Boleto vencido e a gente só descobre quando o lead some. Não tem como fazer follow-up manual."</div>
+            <div class="pain-quote">"Durante o lançamento, não consigo ver onde está cada lead na esteira. É tudo no escuro."</div>
+            <div class="pain-quote">"O webinar semanal gera venda, mas preparar tudo manualmente toda semana é insustentável."</div>
+          </div>
+        </div>
+        <div class="case-solution">
+          <div class="case-col-label green">O que foi entregue</div>
+          <p>IA de recuperação de vendas para todos os gatilhos, CRM estruturado que acompanha visualmente a jornada do lead, fluxo automatizado que alimenta o webinar semanal, e duas campanhas completas de Black Friday com captação e acompanhamento em tempo real.</p>
+          <ul class="result-list">
+            <li>IA de recuperação ativa 24/7 para boleto, PIX, carrinho e pagamento recusado</li>
+            <li>CRM de lançamento com pipeline visual da jornada do lead</li>
+            <li>Fluxo automatizado que alimenta o webinar semanal sem intervenção manual</li>
+            <li>2 campanhas de Black Friday executadas com captação e acompanhamento em tempo real</li>
+            <li>Toda a operação comercial visível, rastreável e no piloto automático</li>
+          </ul>
+          <div class="tech-tags"><span class="tech-tag">IA de Vendas</span><span class="tech-tag">CRM de Lançamento</span><span class="tech-tag">WhatsApp API</span><span class="tech-tag">Webinar Automation</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="method" class="section-dark">
+  <div class="container">
+    <div class="method-grid">
+      <div class="method-left">
+        <span class="section-label" style="display:block;margin-bottom:16px">Como trabalho</span>
+        <h2>Não é freelancer.<br>É consultoria com<br><span>execução técnica.</span></h2>
+        <p>A maioria dos especialistas em automação entrega um fluxo no N8N e some. Eu trago a metodologia que aprendi em 11 anos na Accenture — levantamento de requisitos estruturado, escopo formal, testes integrados e suporte pós go-live.</p>
+        <p>Cada projeto tem um <strong>Documento de Escopo Técnico Detalhado</strong> como referência oficial. Nada é feito sem alinhamento prévio.</p>
+        <div class="method-pull">"Poucos consultores de automação têm background em consultoria enterprise. Esse é o diferencial que meus clientes percebem desde a primeira reunião."</div>
+      </div>
+      <div class="steps">
+        <div class="step"><div class="step-num">01</div><div><h4>Levantamento de Requisitos</h4><p>Entendo o seu processo atual, os gargalos, os sistemas e os objetivos antes de escrever uma linha de código.</p></div></div>
+        <div class="step"><div class="step-num">02</div><div><h4>Escopo Técnico Detalhado</h4><p>Documento formal com tudo que será entregue, tecnologias, integrações e cronograma. Você aprova antes de começar.</p></div></div>
+        <div class="step"><div class="step-num">03</div><div><h4>Desenvolvimento e Testes</h4><p>Construção com testes end-to-end em todos os cenários mapeados. Sem surpresas no go-live.</p></div></div>
+        <div class="step"><div class="step-num">04</div><div><h4>Homologação com o Cliente</h4><p>Você valida junto comigo antes da entrega final. Processo formal como em grandes projetos corporativos.</p></div></div>
+        <div class="step"><div class="step-num">05</div><div><h4>Go-live + Suporte Pós-entrega</h4><p>Suporte dedicado após o lançamento. A operação não para com bugs — fico até estar estável.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="clients">
+  <div class="container">
+    <div class="clients-label">Clientes &amp; parceiros</div>
+    <div class="clients-row">
+      <div class="client-chip">Renata Iglesias</div>
+      <div class="client-chip">Aprovasim / Brabo Concursos</div>
+      <div class="client-chip">Hey Investidor</div>
+      <div class="client-chip">Super Cacheada</div>
+      <div class="client-chip">ForYou Luxury</div>
+      <div class="client-chip">Grupo Comporte</div>
+      <div class="client-chip">Satech Ambiental</div>
+      <div class="client-chip">Prosperum</div>
+      <div class="client-chip">Café Prático</div>
+    </div>
+  </div>
+</section>
+
+<section id="cta">
+  <div class="container">
+    <span class="cta-label">Pronto para começar?</span>
+    <h2 class="cta-title">Vamos automatizar<br><span>a sua operação</span></h2>
+    <p class="cta-desc">Me conta o seu processo. Em 30 minutos já consigo mapear o que pode ser automatizado e o impacto que isso teria no seu negócio.</p>
+    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
+      <a href="https://wa.me/5511954715571?text=Oi%20Talita!%20Vi%20seu%20site%20e%20quero%20conversar%20sobre%20automa%C3%A7%C3%A3o" class="btn-whatsapp" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Falar com Talita no WhatsApp
+      </a>
+    </div>
+    <p class="contact-info">(11) 95471-5571 · talitabispo@altumdigital.com.br</p>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-logo">Altum<span>.</span>Digital</div>
+      <p>© 2025 Talita Bispo · Altum Digital Soluções LTDA</p>
+      <p>São Paulo, SP · Brasil</p>
+      <p>CNPJ 61.287.916/0001-69</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

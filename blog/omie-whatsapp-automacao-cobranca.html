@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Omie e WhatsApp: como automatizar cobranças, vencimentos e consultas de boleto | Altum Digital</title>
+<meta name="description" content="Como integrar o Omie ao WhatsApp API Oficial para notificar clientes no dia do vencimento, permitir consulta de boletos sem acionar equipe e cobrar automaticamente após o vencimento.">
+<meta name="author" content="Talita Bispo — Altum Digital">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://altumdigital.com.br/blog/omie-whatsapp-automacao-cobranca">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://altumdigital.com.br/blog/omie-whatsapp-automacao-cobranca">
+<meta property="og:title" content="Omie e WhatsApp: como automatizar cobranças, vencimentos e consultas de boleto">
+<meta property="og:description" content="Integre o Omie ao WhatsApp API Oficial e automatize notificações de vencimento, consultas pelo cliente final e cobranças pós-vencimento.">
+<meta property="og:image" content="https://altumdigital.com.br/og-image.jpg">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Altum Digital">
+<meta property="article:author" content="Talita Bispo">
+<meta property="article:published_time" content="2026-04-28">
+<meta property="article:tag" content="Omie">
+<meta property="article:tag" content="WhatsApp API">
+<meta property="article:tag" content="Automação Financeira">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Omie e WhatsApp: como automatizar cobranças, vencimentos e consultas de boleto",
+  "description": "Como integrar o Omie ao WhatsApp API Oficial para notificações de vencimento, chatbot de consulta e cobrança pós-vencimento automatizada.",
+  "author": {"@type": "Person", "name": "Talita Bispo", "url": "https://altumdigital.com.br"},
+  "publisher": {"@type": "Organization", "name": "Altum Digital", "url": "https://altumdigital.com.br"},
+  "datePublished": "2026-04-28",
+  "dateModified": "2026-04-28",
+  "mainEntityOfPage": "https://altumdigital.com.br/blog/omie-whatsapp-automacao-cobranca",
+  "keywords": ["Omie WhatsApp", "automação cobrança Omie", "notificação vencimento Omie", "integração Omie WhatsApp", "Omie API automação boleto"]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:#f8fafb;color:#0f172a;font-family:'DM Sans',sans-serif;font-size:16px;line-height:1.7}
+h1,h2,h3,h4{font-family:'Manrope',sans-serif}
+a{text-decoration:none;color:inherit}
+.container{max-width:1100px;margin:0 auto;padding:0 28px}
+nav{background:#06080f;padding:18px 0;border-bottom:1px solid rgba(255,255,255,0.07)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;max-width:1100px;margin:0 auto;padding:0 28px}
+.nav-logo{font-family:'Manrope',sans-serif;font-size:18px;font-weight:800;color:#e8eaf0}
+.nav-logo span{color:#00e5c3}
+.nav-links{list-style:none;display:flex;gap:28px;align-items:center}
+.nav-links a{color:#7b8499;font-size:14px;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:#e8eaf0}
+.nav-links a.active{color:#00e5c3}
+.nav-cta{background:#00e5c3;color:#06080f!important;padding:9px 20px;border-radius:6px;font-weight:700!important;font-size:13px!important}
+.article-hero{background:#fff;border-bottom:1px solid #e5e7eb;padding:52px 0 44px}
+.article-hero-inner{max-width:760px;margin:0 auto;padding:0 28px}
+.breadcrumb{font-size:13px;color:#9ca3af;margin-bottom:20px;display:flex;align-items:center;gap:8px}
+.breadcrumb a{color:#00b89e;font-weight:500}
+.breadcrumb-sep{color:#d1d5db}
+.art-tag{display:inline-flex;align-items:center;gap:6px;background:#e6faf6;border:1px solid #b3f0e0;border-radius:100px;padding:5px 14px;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#0f6e56;margin-bottom:20px}
+.art-tag-dot{width:6px;height:6px;border-radius:50%;background:#00e5c3}
+.article-title{font-size:clamp(24px,4vw,38px);font-weight:800;line-height:1.2;color:#0f172a;margin-bottom:20px;letter-spacing:-.025em}
+.article-meta{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.meta-avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#00e5c3,#4f8cff);display:flex;align-items:center;justify-content:center;font-family:'Manrope',sans-serif;font-weight:800;font-size:11px;color:#fff;flex-shrink:0}
+.meta-info{display:flex;flex-direction:column;gap:2px}
+.meta-name{font-size:14px;font-weight:700;color:#374151}
+.meta-details{font-size:12px;color:#9ca3af}
+.article-layout{display:grid;grid-template-columns:1fr 280px;gap:48px;max-width:1060px;margin:0 auto;padding:48px 28px 80px}
+.art-lead{font-size:19px;color:#374151;line-height:1.8;margin-bottom:36px;font-weight:400;border-left:3px solid #00e5c3;padding-left:22px}
+.art-h2{font-size:22px;font-weight:800;color:#0f172a;margin:44px 0 14px;letter-spacing:-.015em}
+.art-h3{font-size:17px;font-weight:700;color:#0f172a;margin:28px 0 10px}
+.art-p{font-size:16px;color:#4b5563;line-height:1.85;margin-bottom:18px}
+.art-highlight{background:#f0fdf9;border:1px solid #ccf7eb;border-left:3px solid #00e5c3;border-radius:0 8px 8px 0;padding:18px 22px;margin:28px 0;font-size:15px;color:#065f46;line-height:1.75}
+.art-highlight strong{font-weight:700;color:#047857}
+.art-tip{background:#fffbeb;border:1px solid #fde68a;border-left:3px solid #f59e0b;border-radius:0 8px 8px 0;padding:18px 22px;margin:24px 0;font-size:14px;color:#92400e;line-height:1.7}
+.art-tip strong{font-weight:700}
+.art-warning{background:#fef2f2;border:1px solid #fecaca;border-left:3px solid #ef4444;border-radius:0 8px 8px 0;padding:18px 22px;margin:24px 0;font-size:14px;color:#991b1b;line-height:1.7}
+.art-warning strong{font-weight:700}
+.art-divider{border:none;border-top:1px solid #f0f0f0;margin:40px 0}
+.art-quote{background:#f8fafb;border-left:3px solid #00e5c3;border-radius:0 8px 8px 0;padding:20px 24px;margin:32px 0;font-size:17px;font-style:italic;color:#374151;line-height:1.75}
+.funcao-cards{display:flex;flex-direction:column;gap:16px;margin:28px 0}
+.funcao-card{background:#fff;border:1px solid #e5e7eb;border-radius:16px;overflow:hidden}
+.funcao-card-header{display:flex;align-items:center;gap:16px;padding:18px 22px;background:#0f172a}
+.funcao-card-icon{font-size:22px;flex-shrink:0}
+.funcao-card-title{font-family:'Manrope',sans-serif;font-size:15px;font-weight:800;color:#fff}
+.funcao-card-subtitle{font-size:12px;color:#9ca3af;margin-top:2px}
+.funcao-card-body{padding:18px 22px}
+.funcao-card-body p{font-size:14px;color:#4b5563;line-height:1.75;margin-bottom:10px}
+.funcao-card-body p:last-child{margin-bottom:0}
+.chat-demo{background:#e8f5e9;border-radius:12px;padding:16px 18px;margin:12px 0}
+.chat-demo-label{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#388e3c;margin-bottom:10px}
+.chat-msg{display:flex;gap:8px;margin-bottom:8px;align-items:flex-start}
+.chat-msg:last-child{margin-bottom:0}
+.chat-msg.received .bubble{background:#fff;border-radius:0 10px 10px 10px;padding:8px 12px;font-size:13px;color:#374151;max-width:85%;line-height:1.5;box-shadow:0 1px 2px rgba(0,0,0,.08)}
+.chat-msg.sent{justify-content:flex-end}
+.chat-msg.sent .bubble{background:#dcf8c6;border-radius:10px 0 10px 10px;padding:8px 12px;font-size:13px;color:#374151;max-width:85%;line-height:1.5}
+.workflow-visual{background:#0f172a;border-radius:16px;padding:24px;margin:28px 0}
+.workflow-visual h4{font-family:'Manrope',sans-serif;font-size:13px;font-weight:700;color:#00e5c3;letter-spacing:.1em;text-transform:uppercase;margin-bottom:16px}
+.workflow-row{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:10px}
+.workflow-row:last-child{margin-bottom:0}
+.wf-step{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);border-radius:8px;padding:8px 14px;font-size:12px;color:#e8eaf0;white-space:nowrap}
+.wf-arrow{color:#00e5c3;font-size:16px;flex-shrink:0}
+.workflow-label{font-size:11px;color:#9ca3af;margin-bottom:8px;font-style:italic}
+.cta-inline{background:#0f172a;border-radius:16px;padding:32px;margin:44px 0;text-align:center}
+.cta-inline h3{font-family:'Manrope',sans-serif;font-size:20px;font-weight:800;color:#fff;margin-bottom:10px}
+.cta-inline p{font-size:14px;color:#9ca3af;margin-bottom:22px;line-height:1.65}
+.btn-wa{display:inline-flex;align-items:center;gap:10px;background:#25D366;color:#fff;padding:13px 26px;border-radius:8px;font-family:'Manrope',sans-serif;font-weight:700;font-size:14px;transition:opacity .2s}
+.btn-wa:hover{opacity:.9}
+.btn-wa svg{width:18px;height:18px;fill:#fff;flex-shrink:0}
+.author-box{background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:24px;margin-top:48px}
+.author-box-inner{display:flex;gap:16px;align-items:flex-start}
+.author-box-avatar{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#00e5c3,#4f8cff);display:flex;align-items:center;justify-content:center;font-family:'Manrope',sans-serif;font-weight:800;font-size:14px;color:#fff;flex-shrink:0}
+.author-box h4{font-size:15px;font-weight:800;color:#0f172a;margin-bottom:4px}
+.author-box p{font-size:13px;color:#6b7280;line-height:1.6}
+.sidebar-sticky{position:sticky;top:28px}
+.sidebar-card{background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:22px;margin-bottom:20px}
+.sidebar-card h4{font-family:'Manrope',sans-serif;font-size:13px;font-weight:700;color:#0f172a;margin-bottom:16px;letter-spacing:.02em;text-transform:uppercase}
+.toc-list{list-style:none;display:flex;flex-direction:column;gap:10px}
+.toc-list a{font-size:13px;color:#6b7280;line-height:1.4;transition:color .2s;display:block}
+.toc-list a:hover{color:#00b89e}
+.sidebar-cta{background:#0f172a;border-radius:16px;padding:22px;text-align:center}
+.sidebar-cta p{font-size:13px;color:#9ca3af;margin-bottom:16px;line-height:1.6}
+.sidebar-cta h4{font-family:'Manrope',sans-serif;font-size:15px;font-weight:800;color:#fff;margin-bottom:10px}
+.btn-wa-sm{display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#fff;padding:11px 18px;border-radius:8px;font-family:'Manrope',sans-serif;font-weight:700;font-size:13px;width:100%;justify-content:center}
+footer{background:#06080f;border-top:1px solid rgba(255,255,255,0.07);padding:32px 0}
+.footer-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.footer-logo{font-family:'Manrope',sans-serif;font-weight:800;font-size:15px;color:#e8eaf0}
+.footer-logo span{color:#00e5c3}
+footer p{color:#7b8499;font-size:13px}
+@media(max-width:900px){.article-layout{grid-template-columns:1fr}.sidebar{display:none}.nav-links{display:none}.workflow-row{gap:6px}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">Altum<span>.</span>Digital</a>
+    <ul class="nav-links">
+      <li><a href="/#services">Serviços</a></li>
+      <li><a href="/#projects">Projetos</a></li>
+      <li><a href="/#method">Metodologia</a></li>
+      <li><a href="/blog" class="active">Blog</a></li>
+      <li><a href="/#cta" class="nav-cta">Falar com Talita</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="article-hero">
+  <div class="article-hero-inner">
+    <div class="breadcrumb">
+      <a href="/">Altum Digital</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="/blog">Blog</a>
+      <span class="breadcrumb-sep">›</span>
+      <span>Omie + WhatsApp</span>
+    </div>
+    <div class="art-tag"><div class="art-tag-dot"></div>Omie · Automação Financeira</div>
+    <h1 class="article-title">Omie e WhatsApp: como automatizar cobranças, notificações de vencimento e consultas de boleto pelo cliente final</h1>
+    <div class="article-meta">
+      <div class="meta-avatar">TB</div>
+      <div class="meta-info">
+        <span class="meta-name">Talita Bispo · Altum Digital</span>
+        <span class="meta-details">28 de abril de 2026 · 10 min de leitura</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="article-layout">
+  <article class="article-content">
+
+    <p class="art-lead">O Omie é um dos ERPs mais completos do mercado para empresas brasileiras de médio porte — financeiro, estoque, CRM, serviços, tudo num lugar só. E é exatamente essa completude que cria uma oportunidade que a maioria das empresas que usa o Omie ainda não descobriu: todos os dados necessários para uma cobrança automatizada perfeita já estão lá dentro.</p>
+
+    <p class="art-p">O cliente está cadastrado. A fatura está gerada. O boleto está emitido. A data de vencimento está registrada. O que falta é a ponte entre esse universo de informação e o WhatsApp do seu cliente — o canal onde ele realmente vai ver e responder.</p>
+
+    <p class="art-p">Este artigo mostra como essa ponte é construída, o que ela faz nas três situações mais críticas do ciclo de cobrança, e por que é mais complexo — e mais valioso — do que parece à primeira vista.</p>
+
+    <hr class="art-divider">
+
+    <h2 class="art-h2" id="o-que-o-omie-ja-tem">O que o Omie já tem — e o que ainda falta</h2>
+
+    <p class="art-p">O Omie tem uma API robusta e bem documentada. Isso significa que é tecnicamente possível acessar todas as informações do sistema de fora — consultar contas a receber, verificar status de cada título, buscar o link do boleto para cada fatura. Toda essa inteligência já existe dentro do sistema.</p>
+
+    <p class="art-p">O que o Omie não faz — e nem deveria fazer, pois não é um sistema de comunicação — é contatar seus clientes no WhatsApp de forma proativa, processada e automatizada. Ele não sabe que seu cliente prefere WhatsApp a e-mail. Ele não dispara lembretes no horário certo. Ele não responde quando o cliente pergunta sobre uma fatura às 22h.</p>
+
+    <p class="art-p">A integração preenche exatamente essa lacuna: um sistema que faz a ponte entre as informações vivas do Omie e o canal de comunicação que seu cliente realmente usa.</p>
+
+    <h2 class="art-h2" id="as-tres-funcoes">As três funções da automação Omie + WhatsApp</h2>
+
+    <div class="funcao-cards">
+
+      <div class="funcao-card">
+        <div class="funcao-card-header">
+          <div class="funcao-card-icon">🔔</div>
+          <div>
+            <div class="funcao-card-title">Notificação no dia do vencimento</div>
+            <div class="funcao-card-subtitle">Roda automaticamente · Todo dia útil · Sem ação humana</div>
+          </div>
+        </div>
+        <div class="funcao-card-body">
+          <p>Todos os dias pela manhã, a automação consulta o Omie e identifica todas as contas a receber com vencimento naquele dia. Para cada uma, verifica se há boleto emitido e, quando existe, busca o link direto do PDF do boleto. Com essas informações em mãos, dispara uma mensagem personalizada no WhatsApp de cada cliente.</p>
+          <p>O cliente recebe o nome dele na mensagem, o valor exato da fatura, a data de vencimento e o link do boleto com um clique — ou a opção de pagar via PIX. Tudo isso antes que o dia comece a correr e o pagamento caia no esquecimento.</p>
+          <div class="chat-demo">
+            <div class="chat-demo-label">Exemplo de notificação automática</div>
+            <div class="chat-msg received">
+              <div class="bubble">Bom dia, Ana! 👋 Sua fatura referente ao mês de abril vence hoje — R$ 2.340,00. Segue o boleto: [link]. Se preferir PIX, a chave é nosso CNPJ. Qualquer dúvida é só responder aqui.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="funcao-card">
+        <div class="funcao-card-header">
+          <div class="funcao-card-icon">💬</div>
+          <div>
+            <div class="funcao-card-title">Chatbot de consulta pelo cliente final</div>
+            <div class="funcao-card-subtitle">Autoatendimento 24h · Resposta imediata · Zero acionamento da equipe</div>
+          </div>
+        </div>
+        <div class="funcao-card-body">
+          <p>Quando o cliente entra em contato — seja porque perdeu o boleto, seja porque quer confirmar o que está em aberto, seja porque tem dúvida sobre o valor — o chatbot consulta o Omie em tempo real e responde com as informações precisas. Faturas abertas, valores, datas de vencimento, boleto atualizado.</p>
+          <p>O cliente não precisa ligar, não precisa mandar e-mail, não precisa esperar o horário comercial. Ele pergunta no WhatsApp às 21h e recebe a resposta em segundos. E sua equipe não precisa fazer nada — a resposta veio direto do Omie, processada pela automação.</p>
+          <div class="chat-demo">
+            <div class="chat-demo-label">Exemplo de consulta pelo cliente</div>
+            <div class="chat-msg sent"><div class="bubble">Oi, preciso do boleto de março. Perdi o email.</div></div>
+            <div class="chat-msg received"><div class="bubble">Olá, Ana! Encontrei sua fatura de março: R$ 2.100,00, vencimento em 15/03. Como já passou da data, o boleto foi atualizado com os encargos. Segue o link: [link]. Se quiser regularizar pelo PIX também consigo te passar a chave.</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="funcao-card">
+        <div class="funcao-card-header">
+          <div class="funcao-card-icon">📋</div>
+          <div>
+            <div class="funcao-card-title">Cobrança automática pós-vencimento</div>
+            <div class="funcao-card-subtitle">Cadência progressiva · Tom respeitoso · Escala com o volume</div>
+          </div>
+        </div>
+        <div class="funcao-card-body">
+          <p>Para faturas que venceram sem pagamento, a automação inicia no dia seguinte uma cadência progressiva de cobrança. A primeira mensagem é informativa e prestativa. Com o passar dos dias sem pagamento, o tom vai escalando naturalmente — mas sempre dentro de um limite que preserva o relacionamento.</p>
+          <p>Quando o cliente responde a qualquer mensagem da cadência, a conversa é imediatamente transferida para sua equipe com o histórico completo — o que foi enviado, quando, se o cliente abriu. Sua equipe entra na negociação já sabendo o contexto completo, sem precisar perguntar o que já aconteceu.</p>
+          <div class="chat-demo">
+            <div class="chat-demo-label">Exemplo D+2 pós-vencimento</div>
+            <div class="chat-msg received"><div class="bubble">Ana, sua fatura de R$ 2.340,00 está em aberto desde 26/04. Caso tenha sido um esquecimento, aqui está o link atualizado para pagamento: [link]. Se estiver passando por alguma dificuldade, responda aqui que um de nossos atendentes pode verificar opções para você.</div></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <h2 class="art-h2" id="por-dentro">Por dentro da integração — o que acontece nos bastidores</h2>
+
+    <p class="art-p">O Omie funciona de uma forma particular: para acessar os dados do sistema externamente, a automação precisa fazer consultas ativas — ela vai ao Omie buscar as informações, em vez de o Omie empurrar os dados automaticamente. Isso significa que a integração precisa ser construída com uma lógica de consulta robusta que roda de forma confiável todos os dias.</p>
+
+    <p class="art-p">Na prática, a automação executa dois fluxos diários distintos — um para as faturas que vencem hoje e outro para as que já venceram ontem e ainda não foram pagas. Cada fluxo percorre todas as contas a receber relevantes, verifica individualmente se existe boleto emitido para cada título, busca o link do boleto quando existe, e organiza tudo antes de disparar qualquer mensagem.</p>
+
+    <div class="workflow-visual">
+      <h4>Fluxo diário — vencimentos do dia</h4>
+      <div class="workflow-label">Roda automaticamente às 8h todos os dias úteis</div>
+      <div class="workflow-row">
+        <div class="wf-step">Consulta Omie</div>
+        <div class="wf-arrow">→</div>
+        <div class="wf-step">Filtra vencimentos hoje</div>
+        <div class="wf-arrow">→</div>
+        <div class="wf-step">Verifica boletos</div>
+        <div class="wf-arrow">→</div>
+        <div class="wf-step">Busca links individuais</div>
+        <div class="wf-arrow">→</div>
+        <div class="wf-step">Dispara no WhatsApp</div>
+      </div>
+    </div>
+
+    <div class="workflow-visual">
+      <h4>Fluxo diário — inadimplência</h4>
+      <div class="workflow-label">Roda automaticamente às 8h todos os dias úteis</div>
+      <div class="workflow-row">
+        <div class="wf-step">Consulta Omie</div>
+        <div class="wf-arrow">→</div>
+        <div class="wf-step">Filtra vencidos D-1</div>
+        <div class="wf-arrow">→</div>
+        <div class="wf-step">Confirma não pago</div>
+        <div class="wf-arrow">→</div>
+        <div class="wf-step">Boleto atualizado</div>
+        <div class="wf-arrow">→</div>
+        <div class="wf-step">Inicia cadência</div>
+      </div>
+    </div>
+
+    <div class="art-highlight">
+      <strong>Por que isso é mais complexo do que parece:</strong> o Omie pode ter dezenas, centenas ou milhares de faturas a receber num único dia. A automação precisa processar cada uma individualmente, verificar o status de boleto de cada título separadamente, e fazer isso com rapidez e sem falhas — todo dia. Além disso, quando o pagamento é confirmado no Omie, a automação precisa saber parar a cadência de cobrança para aquele cliente específico. É uma engenharia real, não uma automação simples de "manda mensagem".
+    </div>
+
+    <h2 class="art-h2" id="omie-diferencial">O diferencial do Omie para empresas de médio porte</h2>
+
+    <p class="art-p">O Omie é especialmente forte para empresas que têm uma operação financeira mais complexa — múltiplos centros de custo, contratos de serviço com faturamento recorrente, clientes com múltiplas faturas simultâneas. Essa complexidade, que é uma vantagem do sistema, exige que a automação de cobrança seja igualmente sofisticada.</p>
+
+    <p class="art-p">Um cliente pode ter três faturas em aberto de datas diferentes. A automação precisa tratar cada uma de forma independente — não mandar uma mensagem genérica "você tem coisas em aberto", mas sim notificar sobre cada fatura no seu momento correto, com o boleto específico de cada uma.</p>
+
+    <div class="art-tip">
+      <strong>Para quem o Omie + WhatsApp faz mais sentido:</strong> empresas de serviços com faturamento recorrente (contabilidades, escritórios, consultorias, empresas de manutenção), indústrias com carteira de clientes B2B, prestadores de serviço com contratos mensais — qualquer operação onde o financeiro hoje dedica tempo significativo para controlar quem pagou, quem não pagou e mandar cobranças manualmente.
+    </div>
+
+    <div class="cta-inline">
+      <h3>Usa o Omie e quer automatizar sua cobrança?</h3>
+      <p>Em 30 minutos consigo mapear como seria a integração para a sua operação específica e o impacto esperado no tempo da sua equipe financeira.</p>
+      <a href="https://wa.me/5511954715571?text=Oi%20Talita!%20Li%20seu%20artigo%20sobre%20Omie%20e%20WhatsApp%20e%20quero%20entender%20como%20ficaria%20para%20minha%20empresa" class="btn-wa" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Falar com Talita no WhatsApp
+      </a>
+    </div>
+
+    <div class="author-box">
+      <div class="author-box-inner">
+        <div class="author-box-avatar">TB</div>
+        <div>
+          <h4>Talita Bispo</h4>
+          <p>Fundadora da Altum Digital e especialista em automação estratégica com WhatsApp API Oficial, agentes de IA e integrações de sistemas. Com 11 anos de experiência em consultoria enterprise na Accenture e mais de 30 projetos entregues, ajuda empresas a escalar operações sem aumentar equipe. São Paulo/SP — atendimento para todo o Brasil e exterior.</p>
+        </div>
+      </div>
+    </div>
+
+  </article>
+
+  <aside class="sidebar">
+    <div class="sidebar-sticky">
+      <div class="sidebar-card">
+        <h4>Neste artigo</h4>
+        <ul class="toc-list">
+          <li><a href="#o-que-o-omie-ja-tem">O que o Omie já tem</a></li>
+          <li><a href="#as-tres-funcoes">As três funções da automação</a></li>
+          <li><a href="#por-dentro">Por dentro da integração</a></li>
+          <li><a href="#omie-diferencial">O diferencial do Omie</a></li>
+        </ul>
+      </div>
+      <div class="sidebar-cta">
+        <h4>Usa o Omie?</h4>
+        <p>Mapeio como seria a automação para sua operação em 30 minutos.</p>
+        <a href="https://wa.me/5511954715571?text=Oi%20Talita!%20Li%20seu%20artigo%20sobre%20Omie%20e%20WhatsApp%20e%20quero%20entender%20como%20ficaria%20para%20minha%20empresa" class="btn-wa-sm" target="_blank">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Falar com Talita
+        </a>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-logo">Altum<span>.</span>Digital</div>
+      <p>© 2025 Talita Bispo · Altum Digital Soluções LTDA</p>
+      <p>São Paulo, SP · Brasil</p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Conta Azul e WhatsApp: como automatizar cobranças e notificações de vencimento | Altum Digital</title>
+<meta name="description" content="Como integrar o Conta Azul ao WhatsApp API Oficial para enviar notificações de vencimento, permitir consultas pelo cliente final e cobrar automaticamente após o vencimento — sem sobrecarregar sua equipe financeira.">
+<meta name="author" content="Talita Bispo — Altum Digital">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://altumdigital.com.br/blog/conta-azul-whatsapp-automacao-cobranca">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://altumdigital.com.br/blog/conta-azul-whatsapp-automacao-cobranca">
+<meta property="og:title" content="Conta Azul e WhatsApp: como automatizar cobranças e notificações de vencimento">
+<meta property="og:description" content="Integre o Conta Azul ao WhatsApp API Oficial e automatize lembretes de vencimento, consultas pelo cliente final e cobranças pós-vencimento.">
+<meta property="og:image" content="https://altumdigital.com.br/og-image.jpg">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Altum Digital">
+<meta property="article:author" content="Talita Bispo">
+<meta property="article:published_time" content="2026-04-26">
+<meta property="article:tag" content="Conta Azul">
+<meta property="article:tag" content="WhatsApp API">
+<meta property="article:tag" content="Automação Financeira">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Conta Azul e WhatsApp: como automatizar cobranças e notificações de vencimento",
+  "description": "Como integrar o Conta Azul ao WhatsApp API Oficial para automatizar notificações de vencimento, consultas e cobranças pós-vencimento.",
+  "author": {"@type": "Person", "name": "Talita Bispo", "url": "https://altumdigital.com.br"},
+  "publisher": {"@type": "Organization", "name": "Altum Digital", "url": "https://altumdigital.com.br"},
+  "datePublished": "2026-04-26",
+  "dateModified": "2026-04-26",
+  "mainEntityOfPage": "https://altumdigital.com.br/blog/conta-azul-whatsapp-automacao-cobranca",
+  "keywords": ["Conta Azul WhatsApp", "automação cobrança Conta Azul", "notificação vencimento Conta Azul", "integração Conta Azul WhatsApp", "Conta Azul API automação"]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:#f8fafb;color:#0f172a;font-family:'DM Sans',sans-serif;font-size:16px;line-height:1.7}
+h1,h2,h3,h4{font-family:'Manrope',sans-serif}
+a{text-decoration:none;color:inherit}
+.container{max-width:1100px;margin:0 auto;padding:0 28px}
+nav{background:#06080f;padding:18px 0;border-bottom:1px solid rgba(255,255,255,0.07)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;max-width:1100px;margin:0 auto;padding:0 28px}
+.nav-logo{font-family:'Manrope',sans-serif;font-size:18px;font-weight:800;color:#e8eaf0}
+.nav-logo span{color:#00e5c3}
+.nav-links{list-style:none;display:flex;gap:28px;align-items:center}
+.nav-links a{color:#7b8499;font-size:14px;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:#e8eaf0}
+.nav-links a.active{color:#00e5c3}
+.nav-cta{background:#00e5c3;color:#06080f!important;padding:9px 20px;border-radius:6px;font-weight:700!important;font-size:13px!important}
+.article-hero{background:#fff;border-bottom:1px solid #e5e7eb;padding:52px 0 44px}
+.article-hero-inner{max-width:760px;margin:0 auto;padding:0 28px}
+.breadcrumb{font-size:13px;color:#9ca3af;margin-bottom:20px;display:flex;align-items:center;gap:8px}
+.breadcrumb a{color:#00b89e;font-weight:500}
+.breadcrumb-sep{color:#d1d5db}
+.art-tag{display:inline-flex;align-items:center;gap:6px;background:#e6faf6;border:1px solid #b3f0e0;border-radius:100px;padding:5px 14px;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#0f6e56;margin-bottom:20px}
+.art-tag-dot{width:6px;height:6px;border-radius:50%;background:#00e5c3}
+.article-title{font-size:clamp(24px,4vw,38px);font-weight:800;line-height:1.2;color:#0f172a;margin-bottom:20px;letter-spacing:-.025em}
+.article-meta{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.meta-avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#00e5c3,#4f8cff);display:flex;align-items:center;justify-content:center;font-family:'Manrope',sans-serif;font-weight:800;font-size:11px;color:#fff;flex-shrink:0}
+.meta-info{display:flex;flex-direction:column;gap:2px}
+.meta-name{font-size:14px;font-weight:700;color:#374151}
+.meta-details{font-size:12px;color:#9ca3af}
+.article-layout{display:grid;grid-template-columns:1fr 280px;gap:48px;max-width:1060px;margin:0 auto;padding:48px 28px 80px}
+.art-lead{font-size:19px;color:#374151;line-height:1.8;margin-bottom:36px;font-weight:400;border-left:3px solid #00e5c3;padding-left:22px}
+.art-h2{font-size:22px;font-weight:800;color:#0f172a;margin:44px 0 14px;letter-spacing:-.015em}
+.art-h3{font-size:17px;font-weight:700;color:#0f172a;margin:28px 0 10px}
+.art-p{font-size:16px;color:#4b5563;line-height:1.85;margin-bottom:18px}
+.art-highlight{background:#f0fdf9;border:1px solid #ccf7eb;border-left:3px solid #00e5c3;border-radius:0 8px 8px 0;padding:18px 22px;margin:28px 0;font-size:15px;color:#065f46;line-height:1.75}
+.art-highlight strong{font-weight:700;color:#047857}
+.art-tip{background:#fffbeb;border:1px solid #fde68a;border-left:3px solid #f59e0b;border-radius:0 8px 8px 0;padding:18px 22px;margin:24px 0;font-size:14px;color:#92400e;line-height:1.7}
+.art-tip strong{font-weight:700}
+.art-divider{border:none;border-top:1px solid #f0f0f0;margin:40px 0}
+.art-quote{background:#f8fafb;border-left:3px solid #00e5c3;border-radius:0 8px 8px 0;padding:20px 24px;margin:32px 0;font-size:17px;font-style:italic;color:#374151;line-height:1.75}
+.funcao-cards{display:flex;flex-direction:column;gap:16px;margin:28px 0}
+.funcao-card{background:#fff;border:1px solid #e5e7eb;border-radius:16px;overflow:hidden}
+.funcao-card-header{display:flex;align-items:center;gap:16px;padding:18px 22px;background:#0f172a}
+.funcao-card-icon{font-size:22px;flex-shrink:0}
+.funcao-card-title{font-family:'Manrope',sans-serif;font-size:15px;font-weight:800;color:#fff}
+.funcao-card-subtitle{font-size:12px;color:#9ca3af;margin-top:2px}
+.funcao-card-body{padding:18px 22px}
+.funcao-card-body p{font-size:14px;color:#4b5563;line-height:1.75;margin-bottom:10px}
+.funcao-card-body p:last-child{margin-bottom:0}
+.chat-demo{background:#e8f5e9;border-radius:12px;padding:16px 18px;margin:12px 0}
+.chat-demo-label{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#388e3c;margin-bottom:10px}
+.chat-msg{display:flex;gap:8px;margin-bottom:8px;align-items:flex-start}
+.chat-msg:last-child{margin-bottom:0}
+.chat-msg.received .bubble{background:#fff;border-radius:0 10px 10px 10px;padding:8px 12px;font-size:13px;color:#374151;max-width:85%;line-height:1.5;box-shadow:0 1px 2px rgba(0,0,0,.08)}
+.chat-msg.sent{justify-content:flex-end}
+.chat-msg.sent .bubble{background:#dcf8c6;border-radius:10px 0 10px 10px;padding:8px 12px;font-size:13px;color:#374151;max-width:85%;line-height:1.5}
+.chat-label{font-size:10px;color:#9ca3af;margin-top:2px;flex-shrink:0}
+.metrics-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:28px 0}
+.metric-box{background:#0f172a;border-radius:12px;padding:20px;text-align:center}
+.metric-box .m-num{font-family:'Manrope',sans-serif;font-size:28px;font-weight:800;color:#00e5c3;line-height:1;margin-bottom:6px}
+.metric-box .m-label{font-size:12px;color:#9ca3af;line-height:1.4}
+.cta-inline{background:#0f172a;border-radius:16px;padding:32px;margin:44px 0;text-align:center}
+.cta-inline h3{font-family:'Manrope',sans-serif;font-size:20px;font-weight:800;color:#fff;margin-bottom:10px}
+.cta-inline p{font-size:14px;color:#9ca3af;margin-bottom:22px;line-height:1.65}
+.btn-wa{display:inline-flex;align-items:center;gap:10px;background:#25D366;color:#fff;padding:13px 26px;border-radius:8px;font-family:'Manrope',sans-serif;font-weight:700;font-size:14px;transition:opacity .2s}
+.btn-wa:hover{opacity:.9}
+.btn-wa svg{width:18px;height:18px;fill:#fff;flex-shrink:0}
+.author-box{background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:24px;margin-top:48px}
+.author-box-inner{display:flex;gap:16px;align-items:flex-start}
+.author-box-avatar{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#00e5c3,#4f8cff);display:flex;align-items:center;justify-content:center;font-family:'Manrope',sans-serif;font-weight:800;font-size:14px;color:#fff;flex-shrink:0}
+.author-box h4{font-size:15px;font-weight:800;color:#0f172a;margin-bottom:4px}
+.author-box p{font-size:13px;color:#6b7280;line-height:1.6}
+.sidebar-sticky{position:sticky;top:28px}
+.sidebar-card{background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:22px;margin-bottom:20px}
+.sidebar-card h4{font-family:'Manrope',sans-serif;font-size:13px;font-weight:700;color:#0f172a;margin-bottom:16px;letter-spacing:.02em;text-transform:uppercase}
+.toc-list{list-style:none;display:flex;flex-direction:column;gap:10px}
+.toc-list a{font-size:13px;color:#6b7280;line-height:1.4;transition:color .2s;display:block}
+.toc-list a:hover{color:#00b89e}
+.sidebar-cta{background:#0f172a;border-radius:16px;padding:22px;text-align:center}
+.sidebar-cta p{font-size:13px;color:#9ca3af;margin-bottom:16px;line-height:1.6}
+.sidebar-cta h4{font-family:'Manrope',sans-serif;font-size:15px;font-weight:800;color:#fff;margin-bottom:10px}
+.btn-wa-sm{display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#fff;padding:11px 18px;border-radius:8px;font-family:'Manrope',sans-serif;font-weight:700;font-size:13px;width:100%;justify-content:center}
+footer{background:#06080f;border-top:1px solid rgba(255,255,255,0.07);padding:32px 0}
+.footer-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.footer-logo{font-family:'Manrope',sans-serif;font-weight:800;font-size:15px;color:#e8eaf0}
+.footer-logo span{color:#00e5c3}
+footer p{color:#7b8499;font-size:13px}
+@media(max-width:900px){.article-layout{grid-template-columns:1fr}.sidebar{display:none}.nav-links{display:none}.metrics-row{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">Altum<span>.</span>Digital</a>
+    <ul class="nav-links">
+      <li><a href="/#services">Serviços</a></li>
+      <li><a href="/#projects">Projetos</a></li>
+      <li><a href="/#method">Metodologia</a></li>
+      <li><a href="/blog" class="active">Blog</a></li>
+      <li><a href="/#cta" class="nav-cta">Falar com Talita</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="article-hero">
+  <div class="article-hero-inner">
+    <div class="breadcrumb">
+      <a href="/">Altum Digital</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="/blog">Blog</a>
+      <span class="breadcrumb-sep">›</span>
+      <span>Conta Azul + WhatsApp</span>
+    </div>
+    <div class="art-tag"><div class="art-tag-dot"></div>Conta Azul · Automação Financeira</div>
+    <h1 class="article-title">Conta Azul e WhatsApp: como automatizar cobranças, notificações de vencimento e consultas do cliente final</h1>
+    <div class="article-meta">
+      <div class="meta-avatar">TB</div>
+      <div class="meta-info">
+        <span class="meta-name">Talita Bispo · Altum Digital</span>
+        <span class="meta-details">26 de abril de 2026 · 9 min de leitura</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="article-layout">
+  <article class="article-content">
+
+    <p class="art-lead">O Conta Azul já tem tudo: os clientes cadastrados, as faturas geradas, os boletos emitidos, as datas de vencimento. O que ele não faz — e nunca vai fazer — é entrar em contato com o seu cliente no WhatsApp no momento certo para lembrar que o boleto vence amanhã, permitir que o cliente consulte o que está em aberto sem ligar para ninguém, ou cobrar automaticamente quem não pagou.</p>
+
+    <p class="art-p">Essa lacuna entre o sistema financeiro e o canal de comunicação é onde a inadimplência cresce silenciosamente. Não porque os clientes não querem pagar — mas porque a informação não chegou na hora certa, no lugar certo, do jeito certo.</p>
+
+    <p class="art-p">A integração entre Conta Azul e WhatsApp API Oficial fecha essa lacuna. Este artigo explica como funciona, o que cada parte da automação faz e o que muda na sua operação quando isso está rodando.</p>
+
+    <hr class="art-divider">
+
+    <h2 class="art-h2" id="o-problema">O ciclo que drena tempo e aumenta inadimplência</h2>
+
+    <p class="art-p">Em empresas que usam o Conta Azul para gestão financeira, o ciclo de cobrança manual tem sempre o mesmo padrão: alguém precisa entrar no sistema, identificar quem vence hoje ou já venceu, puxar os boletos um a um, e mandar mensagem no WhatsApp para cada cliente. Quando isso acontece, acontece. Quando a semana está corrida, não acontece.</p>
+
+    <p class="art-p">O cliente, do outro lado, não tem como saber por iniciativa própria que tem uma fatura vencendo — a não ser que entre no portal, lembre do login, navegue até a área financeira e procure. A maioria não faz isso. E quando a fatura vence sem que ninguém avise, o cliente que pagaria na hora com um lembrete se torna inadimplente por omissão.</p>
+
+    <div class="art-quote">
+      "A nossa inadimplência não era de cliente que não queria pagar. Era de cliente que esqueceu — e a gente também não lembrou de avisar."
+    </div>
+
+    <h2 class="art-h2" id="as-tres-funcoes">As três funções da automação</h2>
+
+    <p class="art-p">A integração entre Conta Azul e WhatsApp cobre três momentos distintos da jornada de cobrança — cada um com seu papel e seu impacto específico na operação.</p>
+
+    <div class="funcao-cards">
+
+      <div class="funcao-card">
+        <div class="funcao-card-header">
+          <div class="funcao-card-icon">🔔</div>
+          <div>
+            <div class="funcao-card-title">Notificação no dia do vencimento</div>
+            <div class="funcao-card-subtitle">Proativo · Automático · Sem intervenção humana</div>
+          </div>
+        </div>
+        <div class="funcao-card-body">
+          <p>Todos os dias, num horário configurado, a automação consulta o Conta Azul e identifica quais faturas vencem naquele dia. Para cada uma, dispara uma mensagem personalizada no WhatsApp do cliente — com o nome dele, o valor exato, a data de vencimento e o link direto do boleto ou a chave PIX para pagamento imediato.</p>
+          <p>O cliente acorda, vê a mensagem, paga com um clique. Sem precisar lembrar, sem precisar procurar o boleto, sem precisar entrar em contato com ninguém.</p>
+          <div class="chat-demo">
+            <div class="chat-demo-label">Exemplo de notificação</div>
+            <div class="chat-msg received">
+              <div class="bubble">Olá, Ricardo! 👋 Sua fatura de R$ 847,00 vence hoje, dia 26/04. Segue o link do boleto para facilitar: [link]. Se preferir pagar via PIX, a chave é nosso CNPJ. Qualquer dúvida é só responder aqui.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="funcao-card">
+        <div class="funcao-card-header">
+          <div class="funcao-card-icon">💬</div>
+          <div>
+            <div class="funcao-card-title">Chatbot de consulta pelo cliente final</div>
+            <div class="funcao-card-subtitle">Autoatendimento · 24h por dia · Sem acionar equipe</div>
+          </div>
+        </div>
+        <div class="funcao-card-body">
+          <p>Quando o cliente entra em contato perguntando sobre uma fatura — seja porque recebeu a notificação e quer confirmar, seja porque perdeu o boleto, seja porque simplesmente quer saber o que está em aberto — o chatbot consulta o Conta Azul em tempo real e responde com as informações precisas, incluindo o link do boleto atualizado.</p>
+          <p>Nenhuma pessoa da sua equipe precisa abrir o sistema, localizar o cliente, puxar a fatura e responder. O cliente pergunta, o sistema responde, o cliente paga.</p>
+          <div class="chat-demo">
+            <div class="chat-demo-label">Exemplo de consulta</div>
+            <div class="chat-msg sent"><div class="bubble">Oi, perdi meu boleto. Pode me mandar de novo?</div></div>
+            <div class="chat-msg received"><div class="bubble">Claro, Ricardo! Encontrei sua fatura em aberto: R$ 847,00 com vencimento em 26/04. Aqui está o link atualizado: [link]. Se já venceu, o boleto foi reemitido com os valores atualizados.</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="funcao-card">
+        <div class="funcao-card-header">
+          <div class="funcao-card-icon">📋</div>
+          <div>
+            <div class="funcao-card-title">Cobrança pós-vencimento</div>
+            <div class="funcao-card-subtitle">Cadência progressiva · Tom respeitoso · Escalável</div>
+          </div>
+        </div>
+        <div class="funcao-card-body">
+          <p>Para faturas que venceram e não foram pagas, a automação inicia uma cadência de cobrança progressiva. A primeira mensagem, no dia seguinte ao vencimento, é neutra e prestativa — informa que a fatura venceu e oferece o link para pagamento. O tom vai escalando suavemente ao longo dos dias seguintes, sempre preservando o relacionamento.</p>
+          <p>Quando o cliente responde — com uma dúvida, uma justificativa ou um pedido de negociação — a conversa é transferida para sua equipe com todo o histórico visível. O humano entra exatamente onde faz diferença, sem precisar reconstruir o contexto do zero.</p>
+          <div class="chat-demo">
+            <div class="chat-demo-label">Exemplo D+1 pós-vencimento</div>
+            <div class="chat-msg received"><div class="bubble">Ricardo, identificamos que sua fatura de R$ 847,00 venceu ontem, dia 26/04. Caso tenha sido um esquecimento, segue o link para pagamento: [link]. Se precisar de algum ajuste, é só responder aqui.</div></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <h2 class="art-h2" id="como-funciona">Como a integração funciona por dentro</h2>
+
+    <p class="art-p">O Conta Azul disponibiliza uma API completa que permite acessar em tempo real todos os dados financeiros cadastrados no sistema — clientes, faturas, boletos, status de pagamento. A integração funciona como uma ponte inteligente entre esses dados e o WhatsApp.</p>
+
+    <p class="art-p">Do lado do Conta Azul: a automação consulta as contas a receber, identifica os vencimentos do dia, verifica se há boleto gerado para cada fatura e busca o link direto do boleto quando existe. Tudo isso acontece automaticamente, sem ninguém abrir o sistema.</p>
+
+    <p class="art-p">Do lado do WhatsApp: as mensagens são enviadas pela API Oficial — o que garante que o número não será banido, que as mensagens têm alta taxa de entrega e que toda a comunicação fica registrada numa plataforma de CRM, com histórico completo por cliente.</p>
+
+    <div class="art-highlight">
+      <strong>O que torna essa integração mais complexa do que parece:</strong> o Conta Azul não "empurra" informações automaticamente — a automação precisa consultar o sistema ativamente, tratar os diferentes status de cada fatura, lidar com clientes que têm múltiplas faturas em aberto, verificar quais têm boleto gerado, buscar o link de cada boleto individualmente e organizar tudo isso antes de disparar qualquer mensagem. É um trabalho de engenharia real — e é exatamente por isso que o resultado final para o cliente é fluido e sem erros.
+    </div>
+
+    <h2 class="art-h2" id="caso-real">Como funciona na prática — o caso real</h2>
+
+    <p class="art-p">Implementei essa integração para uma empresa que fornece máquinas de café e insumos para escritórios em São Paulo. O modelo de negócio é de contratos mensais — cada cliente paga uma mensalidade pelo aluguel das máquinas e pelos insumos consumidos no mês.</p>
+
+    <p class="art-p">Antes da automação, o processo era inteiramente manual. Uma pessoa do financeiro precisava entrar no Conta Azul todos os dias, verificar os vencimentos, gerar os boletos manualmente e mandar mensagem no WhatsApp para cada cliente. Quando essa pessoa estava ocupada ou ausente, os lembretes simplesmente não saíam.</p>
+
+    <p class="art-p">A inadimplência não era de clientes problemáticos — era de clientes que simplesmente não tinham recebido o aviso no momento certo. O boleto chegava por e-mail, ficava enterrado na caixa de entrada, e quando alguém lembrava de pagar já estava vencido.</p>
+
+    <p class="art-p">Com a automação rodando, o cliente passa a receber a notificação no WhatsApp no próprio dia do vencimento — no canal que ele realmente abre. Quando tem dúvida sobre uma fatura, consulta pelo próprio WhatsApp sem precisar ligar ou mandar e-mail. E quando vence sem pagamento, a cobrança começa automaticamente no dia seguinte, com um tom que não constrange nem desgasta o relacionamento.</p>
+
+    <div class="metrics-row">
+      <div class="metric-box">
+        <div class="m-num">0</div>
+        <div class="m-label">lembretes enviados manualmente por dia</div>
+      </div>
+      <div class="metric-box">
+        <div class="m-num">24h</div>
+        <div class="m-label">funcionamento — inclusive fora do expediente</div>
+      </div>
+      <div class="metric-box">
+        <div class="m-num">↓</div>
+        <div class="m-label">inadimplência por esquecimento</div>
+      </div>
+    </div>
+
+    <h2 class="art-h2" id="para-quem">Para quem essa integração faz mais sentido</h2>
+
+    <p class="art-p">Qualquer empresa que usa o Conta Azul e tem clientes recorrentes — mensalistas, contratos, assinaturas, fornecimento regular — tem potencial claro para essa automação. O ganho é proporcional ao volume de faturas mensais e ao quanto a equipe financeira hoje dedica tempo para cobranças manuais.</p>
+
+    <div class="art-tip">
+      <strong>Perfis com retorno mais imediato:</strong> empresas de serviços com base de clientes fixos (contabilidades, escritórios de advocacia, consultorias, fornecedores B2B), locadoras de equipamentos, empresas de manutenção com contratos recorrentes, e qualquer negócio onde a inadimplência por esquecimento é um problema real e mensurável.
+    </div>
+
+    <div class="cta-inline">
+      <h3>Usa o Conta Azul e quer automatizar sua cobrança?</h3>
+      <p>Em 30 minutos consigo mapear como seria a integração para a sua operação específica — e estimar o impacto na inadimplência e no tempo da sua equipe.</p>
+      <a href="https://wa.me/5511954715571?text=Oi%20Talita!%20Li%20seu%20artigo%20sobre%20Conta%20Azul%20e%20WhatsApp%20e%20quero%20entender%20como%20ficaria%20para%20minha%20empresa" class="btn-wa" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Falar com Talita no WhatsApp
+      </a>
+    </div>
+
+    <div class="author-box">
+      <div class="author-box-inner">
+        <div class="author-box-avatar">TB</div>
+        <div>
+          <h4>Talita Bispo</h4>
+          <p>Fundadora da Altum Digital e especialista em automação estratégica com WhatsApp API Oficial, agentes de IA e integrações de sistemas. Com 11 anos de experiência em consultoria enterprise na Accenture e mais de 30 projetos entregues, ajuda empresas a escalar operações sem aumentar equipe. São Paulo/SP — atendimento para todo o Brasil e exterior.</p>
+        </div>
+      </div>
+    </div>
+
+  </article>
+
+  <aside class="sidebar">
+    <div class="sidebar-sticky">
+      <div class="sidebar-card">
+        <h4>Neste artigo</h4>
+        <ul class="toc-list">
+          <li><a href="#o-problema">O ciclo que drena tempo</a></li>
+          <li><a href="#as-tres-funcoes">As três funções da automação</a></li>
+          <li><a href="#como-funciona">Como a integração funciona</a></li>
+          <li><a href="#caso-real">O caso real</a></li>
+          <li><a href="#para-quem">Para quem faz mais sentido</a></li>
+        </ul>
+      </div>
+      <div class="sidebar-cta">
+        <h4>Usa o Conta Azul?</h4>
+        <p>Mapeio como seria a automação para sua operação em 30 minutos.</p>
+        <a href="https://wa.me/5511954715571?text=Oi%20Talita!%20Li%20seu%20artigo%20sobre%20Conta%20Azul%20e%20WhatsApp%20e%20quero%20entender%20como%20ficaria%20para%20minha%20empresa" class="btn-wa-sm" target="_blank">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Falar com Talita
+        </a>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-logo">Altum<span>.</span>Digital</div>
+      <p>© 2025 Talita Bispo · Altum Digital Soluções LTDA</p>
+      <p>São Paulo, SP · Brasil</p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

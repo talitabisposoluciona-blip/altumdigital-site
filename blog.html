@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog — Automação, IA e WhatsApp API | Altum Digital</title>
+<meta name="description" content="Artigos sobre automação estratégica, agentes de IA, WhatsApp API Oficial e como empresas estão escalando operações sem aumentar equipe. Por Talita Bispo, fundadora da Altum Digital.">
+<meta name="author" content="Talita Bispo — Altum Digital">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://altumdigital.com.br/blog">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://altumdigital.com.br/blog">
+<meta property="og:title" content="Blog — Automação, IA e WhatsApp API | Altum Digital">
+<meta property="og:description" content="Artigos sobre automação estratégica, agentes de IA e WhatsApp API Oficial. Por Talita Bispo, 11 anos Accenture, fundadora da Altum Digital.">
+<meta property="og:image" content="https://altumdigital.com.br/og-image.jpg">
+<meta property="og:locale" content="pt_BR">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:#f8fafb;color:#0f172a;font-family:'DM Sans',sans-serif;font-size:16px;line-height:1.7}
+h1,h2,h3,h4{font-family:'Manrope',sans-serif}
+a{text-decoration:none;color:inherit}
+.container{max-width:1100px;margin:0 auto;padding:0 28px}
+
+nav{background:#06080f;padding:18px 0;border-bottom:1px solid rgba(255,255,255,0.07)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;max-width:1100px;margin:0 auto;padding:0 28px}
+.nav-logo{font-family:'Manrope',sans-serif;font-size:18px;font-weight:800;color:#e8eaf0}
+.nav-logo span{color:#00e5c3}
+.nav-links{list-style:none;display:flex;gap:28px;align-items:center}
+.nav-links a{color:#7b8499;font-size:14px;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:#e8eaf0}
+.nav-links a.active{color:#00e5c3}
+.nav-cta{background:#00e5c3;color:#06080f!important;padding:9px 20px;border-radius:6px;font-weight:700!important;font-size:13px!important}
+
+.blog-hero{background:#fff;border-bottom:1px solid #e5e7eb;padding:56px 0 48px}
+.blog-hero-label{font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#00b89e;margin-bottom:16px}
+.blog-hero h1{font-size:clamp(28px,4vw,44px);font-weight:800;letter-spacing:-.02em;color:#0f172a;margin-bottom:16px;line-height:1.15}
+.blog-hero p{color:#6b7280;font-size:17px;max-width:540px;line-height:1.7}
+
+.blog-grid-section{padding:56px 0 80px}
+.section-label{font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#9ca3af;margin-bottom:28px}
+.articles-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.article-card{background:#fff;border:1px solid #e5e7eb;border-radius:16px;overflow:hidden;transition:all .25s;display:flex;flex-direction:column}
+.article-card:hover{border-color:#00e5c3;transform:translateY(-3px);box-shadow:0 8px 30px rgba(0,229,195,0.1)}
+.card-tag{display:inline-flex;align-items:center;gap:6px;background:#e6faf6;border-radius:100px;padding:5px 12px;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#0f6e56}
+.card-tag-dot{width:5px;height:5px;border-radius:50%;background:#00e5c3}
+.card-body{padding:24px}
+.card-body h2{font-size:17px;font-weight:800;line-height:1.35;color:#0f172a;margin:12px 0 10px;letter-spacing:-.01em}
+.card-body p{font-size:14px;color:#6b7280;line-height:1.7;margin-bottom:20px}
+.card-meta{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:16px;border-top:1px solid #f3f4f6}
+.card-author{display:flex;align-items:center;gap:8px}
+.card-avatar{width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#00e5c3,#4f8cff);display:flex;align-items:center;justify-content:center;font-family:'Manrope',sans-serif;font-weight:800;font-size:9px;color:#fff;flex-shrink:0}
+.card-author-name{font-size:12px;font-weight:600;color:#374151}
+.card-read{font-size:12px;color:#9ca3af}
+.card-link-row{padding:0 24px 24px}
+.card-link{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;color:#00b89e;transition:gap .2s}
+.card-link:hover{gap:10px}
+
+.cta-strip{background:#0f172a;padding:64px 0;text-align:center}
+.cta-strip h2{font-family:'Manrope',sans-serif;font-size:clamp(24px,3vw,36px);font-weight:800;color:#fff;margin-bottom:14px;letter-spacing:-.02em}
+.cta-strip p{color:#9ca3af;font-size:16px;max-width:480px;margin:0 auto 32px}
+.btn-wa{display:inline-flex;align-items:center;gap:10px;background:#25D366;color:#fff;padding:14px 30px;border-radius:8px;font-family:'Manrope',sans-serif;font-weight:700;font-size:15px;transition:opacity .2s}
+.btn-wa:hover{opacity:.9}
+.btn-wa svg{width:18px;height:18px;fill:#fff;flex-shrink:0}
+
+footer{background:#06080f;border-top:1px solid rgba(255,255,255,0.07);padding:32px 0}
+.footer-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.footer-logo{font-family:'Manrope',sans-serif;font-weight:800;font-size:15px;color:#e8eaf0}
+.footer-logo span{color:#00e5c3}
+footer p{color:#7b8499;font-size:13px}
+
+@media(max-width:900px){
+  .articles-grid{grid-template-columns:1fr 1fr}
+  .nav-links{display:none}
+}
+@media(max-width:600px){
+  .articles-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">Altum<span>.</span>Digital</a>
+    <ul class="nav-links">
+      <li><a href="/#services">Serviços</a></li>
+      <li><a href="/#projects">Projetos</a></li>
+      <li><a href="/#method">Metodologia</a></li>
+      <li><a href="/blog" class="active">Blog</a></li>
+      <li><a href="/#cta" class="nav-cta">Falar com Talita</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="blog-hero">
+  <div class="container">
+    <div class="blog-hero-label">Conteúdo</div>
+    <h1>Automação, IA e<br>WhatsApp API na prática</h1>
+    <p>Artigos diretos ao ponto sobre como empresas estão automatizando operações, implementando agentes de IA e colocando a API Oficial do WhatsApp para funcionar de verdade.</p>
+  </div>
+</section>
+
+<section class="blog-grid-section">
+  <div class="container">
+    <div class="section-label">Artigos publicados</div>
+    <div class="articles-grid">
+
+      <div class="article-card">
+        <div class="card-body">
+          <span class="card-tag"><span class="card-tag-dot"></span>WhatsApp API</span>
+          <h2>WhatsApp Business, API Não-Oficial ou API Oficial: qual a diferença real — e por que a escolha errada pode banir seu número</h2>
+          <p>Três opções, riscos completamente diferentes. Entenda qual se aplica ao seu momento antes de investir tempo e dinheiro na direção errada.</p>
+          <div class="card-meta">
+            <div class="card-author"><div class="card-avatar">TB</div><span class="card-author-name">Talita Bispo</span></div>
+            <span class="card-read">9 min de leitura</span>
+          </div>
+        </div>
+        <div class="card-link-row"><a href="/blog/whatsapp-business-vs-api-oficial" class="card-link">Ler artigo →</a></div>
+      </div>
+
+      <div class="article-card">
+        <div class="card-body">
+          <span class="card-tag"><span class="card-tag-dot"></span>Agentes de IA</span>
+          <h2>Como uma empresa com alto volume de atendimento reduziu 80% das respostas manuais no WhatsApp — sem demitir ninguém</h2>
+          <p>O caso real de um e-commerce que passou de SAC 100% manual para 80% automatizado — e descobriu que 50% dos atendimentos acontecem fora do horário comercial.</p>
+          <div class="card-meta">
+            <div class="card-author"><div class="card-avatar">TB</div><span class="card-author-name">Talita Bispo</span></div>
+            <span class="card-read">10 min de leitura</span>
+          </div>
+        </div>
+        <div class="card-link-row"><a href="/blog/automatizar-sac-whatsapp-empresa" class="card-link">Ler artigo →</a></div>
+      </div>
+
+      <div class="article-card">
+        <div class="card-body">
+          <span class="card-tag"><span class="card-tag-dot"></span>Automação de Vendas</span>
+          <h2>Como infoprodutores estão recuperando vendas perdidas no boleto, carrinho e PIX — sem depender de equipe</h2>
+          <p>A estrutura de automação que age no momento certo para recuperar boletos vencidos, carrinhos abandonados e PIX não pagos — 24 horas por dia.</p>
+          <div class="card-meta">
+            <div class="card-author"><div class="card-avatar">TB</div><span class="card-author-name">Talita Bispo</span></div>
+            <span class="card-read">9 min de leitura</span>
+          </div>
+        </div>
+        <div class="card-link-row"><a href="/blog/recuperacao-vendas-infoprodutores-whatsapp" class="card-link">Ler artigo →</a></div>
+      </div>
+
+      <div class="article-card">
+        <div class="card-body">
+          <span class="card-tag"><span class="card-tag-dot"></span>Consultoria</span>
+          <h2>Consultoria de automação com WhatsApp API: o que avaliar antes de contratar — e os erros que custam caro</h2>
+          <p>Os critérios que separam uma consultoria séria de um freelancer que some após a entrega — e as perguntas certas para fazer na primeira reunião.</p>
+          <div class="card-meta">
+            <div class="card-author"><div class="card-avatar">TB</div><span class="card-author-name">Talita Bispo</span></div>
+            <span class="card-read">8 min de leitura</span>
+          </div>
+        </div>
+        <div class="card-link-row"><a href="/blog/consultoria-automacao-whatsapp-o-que-avaliar" class="card-link">Ler artigo →</a></div>
+      </div>
+
+      <div class="article-card">
+        <div class="card-body">
+          <span class="card-tag"><span class="card-tag-dot"></span>E-commerce · Retenção</span>
+          <h2>A recompra que ninguém está fazendo: e-commerces de suplementos e a venda mais fácil do mês</h2>
+          <p>Seu cliente vai recomprar em 30 dias. A questão é se vai ser de você ou do concorrente que apareceu primeiro. Como automatizar essa venda via WhatsApp.</p>
+          <div class="card-meta">
+            <div class="card-author"><div class="card-avatar">TB</div><span class="card-author-name">Talita Bispo</span></div>
+            <span class="card-read">9 min de leitura</span>
+          </div>
+        </div>
+        <div class="card-link-row"><a href="/blog/recompra-automatizada-ecommerce-suplementos" class="card-link">Ler artigo →</a></div>
+      </div>
+
+      <div class="article-card">
+        <div class="card-body">
+          <span class="card-tag"><span class="card-tag-dot"></span>Inteligência Artificial</span>
+          <h2>O que é um agente de IA — e como ele é diferente de um chatbot comum</h2>
+          <p>Chatbot responde perguntas com respostas pré-definidas. Agente de IA entende contexto, decide e age. A diferença muda tudo o que é possível automatizar.</p>
+          <div class="card-meta">
+            <div class="card-author"><div class="card-avatar">TB</div><span class="card-author-name">Talita Bispo</span></div>
+            <span class="card-read">8 min de leitura</span>
+          </div>
+        </div>
+        <div class="card-link-row"><a href="/blog/o-que-e-agente-de-ia-diferenca-chatbot" class="card-link">Ler artigo →</a></div>
+      </div>
+
+      <div class="article-card">
+        <div class="card-body">
+          <span class="card-tag"><span class="card-tag-dot"></span>Automação · Preços</span>
+          <h2>Quanto custa uma automação com WhatsApp API Oficial? O que entra no preço</h2>
+          <p>O que compõe o valor real de uma implementação — da configuração ao custo mensal de operação — e como avaliar qualquer proposta com critério.</p>
+          <div class="card-meta">
+            <div class="card-author"><div class="card-avatar">TB</div><span class="card-author-name">Talita Bispo</span></div>
+            <span class="card-read">9 min de leitura</span>
+          </div>
+        </div>
+        <div class="card-link-row"><a href="/blog/quanto-custa-automacao-whatsapp-api" class="card-link">Ler artigo →</a></div>
+      </div>
+
+      <div class="article-card">
+        <div class="card-body">
+          <span class="card-tag"><span class="card-tag-dot"></span>Integrações · ERP</span>
+          <h2>Como integrar o WhatsApp ao ERP da sua empresa — e o que muda na operação quando isso acontece</h2>
+          <p>Seu ERP tem os dados. O WhatsApp tem a atenção do cliente. Como conectar os dois e dar a toda a equipe acesso ao sistema sem precisar abrir nenhuma tela.</p>
+          <div class="card-meta">
+            <div class="card-author"><div class="card-avatar">TB</div><span class="card-author-name">Talita Bispo</span></div>
+            <span class="card-read">9 min de leitura</span>
+          </div>
+        </div>
+        <div class="card-link-row"><a href="/blog/integrar-whatsapp-erp-empresa" class="card-link">Ler artigo →</a></div>
+      </div>
+
+      <div class="article-card">
+        <div class="card-body">
+          <span class="card-tag"><span class="card-tag-dot"></span>Automação Financeira</span>
+          <h2>Automação de cobrança no WhatsApp: como reduzir a inadimplência sem constranger o cliente</h2>
+          <p>A cadência progressiva que começa antes do vencimento, escala com o tempo de atraso e libera sua equipe financeira do trabalho repetitivo.</p>
+          <div class="card-meta">
+            <div class="card-author"><div class="card-avatar">TB</div><span class="card-author-name">Talita Bispo</span></div>
+            <span class="card-read">9 min de leitura</span>
+          </div>
+        </div>
+        <div class="card-link-row"><a href="/blog/automacao-cobranca-whatsapp-inadimplencia" class="card-link">Ler artigo →</a></div>
+      </div>
+
+      <div class="article-card">
+        <div class="card-body">
+          <span class="card-tag"><span class="card-tag-dot"></span>Lançamento Digital</span>
+          <h2>Como automatizar um lançamento digital do zero ao go-live: a estrutura que usamos nos bastidores</h2>
+          <p>As 6 fases de um lançamento automatizado — da captação ao onboarding — e o que cada etapa faz para que a operação escale sem depender de braço humano.</p>
+          <div class="card-meta">
+            <div class="card-author"><div class="card-avatar">TB</div><span class="card-author-name">Talita Bispo</span></div>
+            <span class="card-read">11 min de leitura</span>
+          </div>
+        </div>
+        <div class="card-link-row"><a href="/blog/automatizar-lancamento-digital-estrutura" class="card-link">Ler artigo →</a></div>
+      </div>
+      <div class="article-card">
+        <div class="card-body">
+          <span class="card-tag"><span class="card-tag-dot"></span>Ferramentas · Automação</span>
+          <h2>N8N, Make ou Zapier: qual escolher para automatizar a operação da sua empresa</h2>
+          <p>As diferenças reais entre as três plataformas — custo, complexidade, limites — e qual faz mais sentido dependendo do que você precisa automatizar.</p>
+          <div class="card-meta">
+            <div class="card-author"><div class="card-avatar">TB</div><span class="card-author-name">Talita Bispo</span></div>
+            <span class="card-read">9 min de leitura</span>
+          </div>
+        </div>
+        <div class="card-link-row"><a href="/blog/n8n-make-zapier-qual-escolher" class="card-link">Ler artigo →</a></div>
+      </div>
+
+      <div class="article-card">
+        <div class="card-body">
+          <span class="card-tag"><span class="card-tag-dot"></span>Diagnóstico · Automação</span>
+          <h2>5 sinais de que sua operação está pronta para automação — e 3 sinais de que ainda não está</h2>
+          <p>Um diagnóstico que você pode fazer sozinho para saber se é o momento certo — e o que fazer dependendo do que encontrar.</p>
+          <div class="card-meta">
+            <div class="card-author"><div class="card-avatar">TB</div><span class="card-author-name">Talita Bispo</span></div>
+            <span class="card-read">8 min de leitura</span>
+          </div>
+        </div>
+        <div class="card-link-row"><a href="/blog/sinais-operacao-pronta-automacao" class="card-link">Ler artigo →</a></div>
+      </div>
+
+      <div class="article-card">
+        <div class="card-body">
+          <span class="card-tag"><span class="card-tag-dot"></span>WhatsApp API · Pós-implementação</span>
+          <h2>O que acontece nos primeiros 30 dias após implementar a API Oficial do WhatsApp</h2>
+          <p>Um guia honesto semana a semana — o que é normal, o que exige atenção e quando os primeiros resultados aparecem.</p>
+          <div class="card-meta">
+            <div class="card-author"><div class="card-avatar">TB</div><span class="card-author-name">Talita Bispo</span></div>
+            <span class="card-read">8 min de leitura</span>
+          </div>
+        </div>
+        <div class="card-link-row"><a href="/blog/primeiros-30-dias-api-oficial-whatsapp" class="card-link">Ler artigo →</a></div>
+      </div>
+
+      <div class="article-card">
+        <div class="card-body">
+          <span class="card-tag"><span class="card-tag-dot"></span>Automação Logística</span>
+          <h2>Como uma empresa de cursos zerou as mensagens manuais de "cadê meu produto" com automação logística</h2>
+          <p>Uma operação que ocupava 5 pessoas diariamente passou a funcionar quase sem intervenção humana. O que foi implementado e como funciona.</p>
+          <div class="card-meta">
+            <div class="card-author"><div class="card-avatar">TB</div><span class="card-author-name">Talita Bispo</span></div>
+            <span class="card-read">9 min de leitura</span>
+          </div>
+        </div>
+        <div class="card-link-row"><a href="/blog/automacao-logistica-rastreamento-entregas" class="card-link">Ler artigo →</a></div>
+      </div>
+      <div class="article-card">
+        <div class="card-body">
+          <span class="card-tag"><span class="card-tag-dot"></span>Conta Azul · Automação Financeira</span>
+          <h2>Conta Azul e WhatsApp: como automatizar cobranças, notificações de vencimento e consultas do cliente final</h2>
+          <p>O Conta Azul já tem os dados. O que falta é a ponte para o WhatsApp — e o que muda quando essa ponte existe: lembrete no vencimento, chatbot de consulta e cobrança automática pós-vencimento.</p>
+          <div class="card-meta">
+            <div class="card-author"><div class="card-avatar">TB</div><span class="card-author-name">Talita Bispo</span></div>
+            <span class="card-read">9 min de leitura</span>
+          </div>
+        </div>
+        <div class="card-link-row"><a href="/blog/conta-azul-whatsapp-automacao-cobranca" class="card-link">Ler artigo →</a></div>
+      </div>
+
+      <div class="article-card">
+        <div class="card-body">
+          <span class="card-tag"><span class="card-tag-dot"></span>Omie · Automação Financeira</span>
+          <h2>Omie e WhatsApp: como automatizar cobranças, notificações de vencimento e consultas de boleto</h2>
+          <p>Como transformar os dados financeiros do Omie em notificações proativas, consultas automáticas pelo cliente final e cobrança pós-vencimento — sem intervenção humana.</p>
+          <div class="card-meta">
+            <div class="card-author"><div class="card-avatar">TB</div><span class="card-author-name">Talita Bispo</span></div>
+            <span class="card-read">10 min de leitura</span>
+          </div>
+        </div>
+        <div class="card-link-row"><a href="/blog/omie-whatsapp-automacao-cobranca" class="card-link">Ler artigo →</a></div>
+      </div>
+
+      <div class="article-card">
+        <div class="card-body">
+          <span class="card-tag"><span class="card-tag-dot"></span>Asaas · Automação Financeira</span>
+          <h2>Asaas e WhatsApp: como automatizar cobranças, notificações de vencimento e consultas pelo cliente</h2>
+          <p>O Asaas já notifica por e-mail e SMS — mas o WhatsApp tem 98% de taxa de abertura. Como integrar os dois e recuperar churn involuntário por esquecimento.</p>
+          <div class="card-meta">
+            <div class="card-author"><div class="card-avatar">TB</div><span class="card-author-name">Talita Bispo</span></div>
+            <span class="card-read">9 min de leitura</span>
+          </div>
+        </div>
+        <div class="card-link-row"><a href="/blog/asaas-whatsapp-automacao-cobranca" class="card-link">Ler artigo →</a></div>
+      </div>
+
+      <div class="article-card">
+        <div class="card-body">
+          <span class="card-tag"><span class="card-tag-dot"></span>Bling · Automação Financeira</span>
+          <h2>Bling e WhatsApp: como automatizar cobranças, notificações de vencimento e consultas pelo cliente final</h2>
+          <p>Para e-commerces e distribuidoras que usam o Bling: como fechar o ciclo boleto→pagamento→separação automaticamente via WhatsApp, sem follow-up manual.</p>
+          <div class="card-meta">
+            <div class="card-author"><div class="card-avatar">TB</div><span class="card-author-name">Talita Bispo</span></div>
+            <span class="card-read">9 min de leitura</span>
+          </div>
+        </div>
+        <div class="card-link-row"><a href="/blog/bling-whatsapp-automacao-cobranca" class="card-link">Ler artigo →</a></div>
+      </div>
+
+    </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="cta-strip">
+  <div class="container">
+    <h2>Tem um processo que precisa ser automatizado?</h2>
+    <p>Em 30 minutos já consigo mapear o que pode ser automatizado e o impacto real na sua operação.</p>
+    <a href="https://wa.me/5511954715571?text=Oi%20Talita!%20Li%20seu%20blog%20e%20quero%20conversar%20sobre%20automa%C3%A7%C3%A3o" class="btn-wa" target="_blank">
+      <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Falar com Talita no WhatsApp
+    </a>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-logo">Altum<span>.</span>Digital</div>
+      <p>© 2025 Talita Bispo · Altum Digital Soluções LTDA</p>
+      <p>São Paulo, SP · Brasil</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
