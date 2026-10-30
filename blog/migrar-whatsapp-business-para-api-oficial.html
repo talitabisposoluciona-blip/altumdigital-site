@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Migrar do app WhatsApp Business para a API Oficial</title>
+<meta name="description" content="Migrar do WhatsApp Business para a API Oficial sem perder o número: os 2 caminhos da Meta, o que se perde em cada um, pré-requisitos e cuidados.">
+<meta name="author" content="Talita Bispo — Altum Digital">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://altumdigital.com.br/blog/migrar-whatsapp-business-para-api-oficial">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://altumdigital.com.br/blog/migrar-whatsapp-business-para-api-oficial">
+<meta property="og:title" content="Migrar do app WhatsApp Business para a API Oficial">
+<meta property="og:description" content="Migrar do WhatsApp Business para a API Oficial sem perder o número: os 2 caminhos da Meta, o que se perde em cada um, pré-requisitos e cuidados.">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Altum Digital">
+<meta property="article:author" content="Talita Bispo">
+<meta property="article:published_time" content="2026-10-30">
+<meta property="article:tag" content="WhatsApp API">
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:#f8fafb;color:#0f172a;font-family:'DM Sans',sans-serif;font-size:16px;line-height:1.7}
+h1,h2,h3,h4{font-family:'Manrope',sans-serif}
+a{text-decoration:none;color:inherit}
+.container{max-width:1100px;margin:0 auto;padding:0 28px}
+nav{background:#06080f;padding:18px 0;border-bottom:1px solid rgba(255,255,255,0.07)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;max-width:1100px;margin:0 auto;padding:0 28px}
+.nav-logo{font-family:'Manrope',sans-serif;font-size:18px;font-weight:800;color:#e8eaf0}
+.nav-logo span{color:#00e5c3}
+.nav-links{list-style:none;display:flex;gap:28px;align-items:center}
+.nav-links a{color:#7b8499;font-size:14px;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:#e8eaf0}
+.nav-links a.active{color:#00e5c3}
+.nav-cta{background:#00e5c3;color:#06080f!important;padding:9px 20px;border-radius:6px;font-weight:700!important;font-size:13px!important}
+.article-hero{background:#fff;border-bottom:1px solid #e5e7eb;padding:52px 0 44px}
+.article-hero-inner{max-width:760px;margin:0 auto;padding:0 28px}
+.breadcrumb{font-size:13px;color:#9ca3af;margin-bottom:20px;display:flex;align-items:center;gap:8px}
+.breadcrumb a{color:#00b89e;font-weight:500}
+.breadcrumb-sep{color:#d1d5db}
+.art-tag{display:inline-flex;align-items:center;gap:6px;background:#e6faf6;border:1px solid #b3f0e0;border-radius:100px;padding:5px 14px;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#0f6e56;margin-bottom:20px}
+.art-tag-dot{width:6px;height:6px;border-radius:50%;background:#00e5c3}
+.article-title{font-size:clamp(24px,4vw,38px);font-weight:800;line-height:1.2;color:#0f172a;margin-bottom:20px;letter-spacing:-.025em}
+.article-meta{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.meta-avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#00e5c3,#4f8cff);display:flex;align-items:center;justify-content:center;font-family:'Manrope',sans-serif;font-weight:800;font-size:11px;color:#fff;flex-shrink:0}
+.meta-info{display:flex;flex-direction:column;gap:2px}
+.meta-name{font-size:14px;font-weight:700;color:#374151}
+.meta-details{font-size:12px;color:#9ca3af}
+.article-layout{display:grid;grid-template-columns:1fr 280px;gap:48px;max-width:1060px;margin:0 auto;padding:48px 28px 80px}
+.art-lead{font-size:19px;color:#374151;line-height:1.8;margin-bottom:36px;font-weight:400;border-left:3px solid #00e5c3;padding-left:22px}
+.art-h2{font-size:22px;font-weight:800;color:#0f172a;margin:44px 0 14px;letter-spacing:-.015em}
+.art-h3{font-size:17px;font-weight:700;color:#0f172a;margin:28px 0 10px}
+.art-p{font-size:16px;color:#4b5563;line-height:1.85;margin-bottom:18px}
+.art-highlight{background:#f0fdf9;border:1px solid #ccf7eb;border-left:3px solid #00e5c3;border-radius:0 8px 8px 0;padding:18px 22px;margin:28px 0;font-size:15px;color:#065f46;line-height:1.75}
+.art-highlight strong{font-weight:700;color:#047857}
+.art-tip{background:#fffbeb;border:1px solid #fde68a;border-left:3px solid #f59e0b;border-radius:0 8px 8px 0;padding:18px 22px;margin:24px 0;font-size:14px;color:#92400e;line-height:1.7}
+.art-tip strong{font-weight:700}
+.art-divider{border:none;border-top:1px solid #f0f0f0;margin:40px 0}
+.art-quote{background:#f8fafb;border-left:3px solid #00e5c3;border-radius:0 8px 8px 0;padding:20px 24px;margin:32px 0;font-size:17px;font-style:italic;color:#374151;line-height:1.75}
+.metrics-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:28px 0}
+.metric-card{background:#0f172a;border-radius:12px;padding:20px;text-align:center}
+.metric-number{font-family:'Manrope',sans-serif;font-size:36px;font-weight:800;color:#00e5c3;line-height:1;margin-bottom:6px}
+.metric-label{font-size:13px;color:#9ca3af;line-height:1.4}
+.cta-inline{background:#0f172a;border-radius:16px;padding:32px;margin:44px 0;text-align:center}
+.cta-inline h3{font-family:'Manrope',sans-serif;font-size:20px;font-weight:800;color:#fff;margin-bottom:10px}
+.cta-inline p{font-size:14px;color:#9ca3af;margin-bottom:22px;line-height:1.65}
+.btn-wa{display:inline-flex;align-items:center;gap:10px;background:#25D366;color:#fff;padding:13px 26px;border-radius:8px;font-family:'Manrope',sans-serif;font-weight:700;font-size:14px;transition:opacity .2s}
+.btn-wa:hover{opacity:.9}
+.btn-wa svg{width:18px;height:18px;fill:#fff;flex-shrink:0}
+.author-box{background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:24px;margin-top:48px}
+.author-box-inner{display:flex;gap:16px;align-items:flex-start}
+.author-box-avatar{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#00e5c3,#4f8cff);display:flex;align-items:center;justify-content:center;font-family:'Manrope',sans-serif;font-weight:800;font-size:14px;color:#fff;flex-shrink:0}
+.author-box h4{font-size:15px;font-weight:800;color:#0f172a;margin-bottom:4px}
+.author-box p{font-size:13px;color:#6b7280;line-height:1.6}
+.sidebar-sticky{position:sticky;top:28px}
+.sidebar-card{background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:22px;margin-bottom:20px}
+.sidebar-card h4{font-family:'Manrope',sans-serif;font-size:13px;font-weight:700;color:#0f172a;margin-bottom:16px;letter-spacing:.02em;text-transform:uppercase}
+.toc-list{list-style:none;display:flex;flex-direction:column;gap:10px}
+.toc-list a{font-size:13px;color:#6b7280;line-height:1.4;transition:color .2s;display:block}
+.toc-list a:hover{color:#00b89e}
+.sidebar-cta{background:#0f172a;border-radius:16px;padding:22px;text-align:center}
+.sidebar-cta p{font-size:13px;color:#9ca3af;margin-bottom:16px;line-height:1.6}
+.sidebar-cta h4{font-family:'Manrope',sans-serif;font-size:15px;font-weight:800;color:#fff;margin-bottom:10px}
+.btn-wa-sm{display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#fff;padding:11px 18px;border-radius:8px;font-family:'Manrope',sans-serif;font-weight:700;font-size:13px;width:100%;justify-content:center}
+footer{background:#06080f;border-top:1px solid rgba(255,255,255,0.07);padding:32px 0}
+.footer-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.footer-logo{font-family:'Manrope',sans-serif;font-weight:800;font-size:15px;color:#e8eaf0}
+.footer-logo span{color:#00e5c3}
+footer p{color:#7b8499;font-size:13px}
+@media(max-width:900px){.article-layout{grid-template-columns:1fr}.sidebar{display:none}.nav-links{display:none}.metrics-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:500px){.metrics-grid{grid-template-columns:1fr}}
+
+/* === Blocos SEO/GEO (TLDR + FAQ + Related) — alinhado com paleta atual === */
+.tldr{background:#f0fdf9;border:1px solid #ccf7eb;border-left:4px solid #00b89e;border-radius:0 8px 8px 0;padding:22px 26px;margin:0 0 36px 0;font-family:'DM Sans',sans-serif;}
+.tldr__heading{font-family:'Manrope',sans-serif;font-size:13px;font-weight:700;color:#0f6e56;text-transform:uppercase;letter-spacing:.1em;margin:0 0 14px 0;}
+.tldr__list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;}
+.tldr__list li{font-size:15px;color:#065f46;line-height:1.65;padding-left:22px;position:relative;}
+.tldr__list li::before{content:"\2192";position:absolute;left:0;color:#00b89e;font-weight:700;}
+.tldr__meta{margin-top:18px;padding-top:14px;border-top:1px solid #ccf7eb;font-size:12px;color:#0f6e56;display:flex;gap:10px;flex-wrap:wrap;align-items:center;}
+.faq-q{font-family:'Manrope',sans-serif;font-size:17px;font-weight:700;color:#0f172a;margin:26px 0 8px;line-height:1.4}
+.faq{margin:48px 0 40px;}
+.faq__heading{font-family:'Manrope',sans-serif;font-size:22px;font-weight:800;color:#0f172a;margin:0 0 20px 0;letter-spacing:-.015em;}
+.faq__item{border-bottom:1px solid #e5e7eb;padding:16px 0;cursor:pointer;}
+.faq__item:last-child{border-bottom:none;}
+.faq__question{font-family:'Manrope',sans-serif;font-size:16px;font-weight:700;color:#0f172a;list-style:none;position:relative;padding-right:32px;cursor:pointer;}
+.faq__question::-webkit-details-marker{display:none;}
+.faq__question::after{content:"+";position:absolute;right:0;top:-3px;font-size:22px;color:#00b89e;font-weight:400;transition:transform .2s;}
+.faq__item[open] .faq__question::after{content:"\2212";}
+.faq__answer{padding-top:12px;color:#4b5563;line-height:1.7;font-size:14px;}
+.related-posts{margin:48px 0 0 0;padding-top:32px;border-top:1px solid #e5e7eb;}
+.related-posts__heading{font-family:'Manrope',sans-serif;font-size:20px;font-weight:800;color:#0f172a;margin:0 0 20px 0;letter-spacing:-.015em;}
+.related-posts__list{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+.related-posts__link{display:block;padding:18px 20px;background:#fff;border:1px solid #e5e7eb;border-radius:12px;text-decoration:none;transition:border-color .2s,transform .2s;}
+.related-posts__link:hover{border-color:#00b89e;transform:translateY(-2px);}
+.related-posts__title{font-family:'Manrope',sans-serif;font-size:14px;font-weight:700;color:#0f172a;margin:0 0 6px;line-height:1.35;}
+.related-posts__relation{font-size:12px;color:#6b7280;margin:0;line-height:1.5;}
+@media(max-width:640px){.related-posts__list{grid-template-columns:1fr;}}
+.art-p a,.article-content li a:not([class]){color:#00b89e;font-weight:600;text-decoration:underline}
+</style>
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Migrar do app WhatsApp Business para a API Oficial">
+<meta name="twitter:description" content="Migrar do WhatsApp Business para a API Oficial sem perder o número: os 2 caminhos da Meta, o que se perde em cada um, pré-requisitos e cuidados.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Migrar do app WhatsApp Business para a API Oficial",
+  "description": "Migrar do WhatsApp Business para a API Oficial sem perder o número: os 2 caminhos da Meta, o que se perde em cada um, pré-requisitos e cuidados.",
+  "author": {"@type": "Person", "@id": "https://altumdigital.com.br/#talita-bispo", "name": "Talita Bispo", "url": "https://altumdigital.com.br/"},
+  "publisher": {"@type": "Organization", "@id": "https://altumdigital.com.br/#organizacao", "name": "Altum Digital", "url": "https://altumdigital.com.br/"},
+  "datePublished": "2026-10-30T00:00:00-03:00",
+  "dateModified": "2026-10-30T00:00:00-03:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://altumdigital.com.br/blog/migrar-whatsapp-business-para-api-oficial"
+  },
+  "articleSection": "WhatsApp API",
+  "keywords": [
+    "migrar WhatsApp Business para API Oficial",
+    "migração para API Oficial do WhatsApp sem perder o número",
+    "perder histórico ao migrar para API Oficial",
+    "coexistência WhatsApp Business e API Oficial",
+    "como migrar número do WhatsApp Business para a Cloud API"
+  ],
+  "wordCount": 2435,
+  "inLanguage": "pt-BR"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Altum Digital",
+      "item": "https://altumdigital.com.br/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "https://altumdigital.com.br/blog"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Migrar do app WhatsApp Business para a API Oficial"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Vou perder meu número se migrar do WhatsApp Business para a API Oficial?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Não precisa perder. A Meta documenta dois caminhos que mantêm o mesmo número: excluir a conta no aplicativo WhatsApp Business e registrar o número na API, ou conectar o número por coexistência através de um parceiro da Meta. Nos dois casos o número continua seu. O que muda entre eles é o histórico de conversas, os recursos do aplicativo e se a equipe continua usando o celular."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Perco o histórico de conversas ao migrar para a API Oficial?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Depende do caminho. Se você excluir a conta do aplicativo e registrar o número na API, a Meta afirma que o histórico de mensagens existente é perdido, por isso ela recomenda fazer backup antes. Na coexistência, o histórico continua no celular. A Meta permite sincronizar até 6 meses de conversas, mas, nas plataformas que conheço, só aparecem as mensagens trocadas depois da conexão."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Posso continuar usando o aplicativo WhatsApp Business depois de migrar?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Só na coexistência. Nesse caminho, o aplicativo continua no celular para conversas individuais e a API recebe automações e envios em volume, com as mensagens espelhadas entre os dois. Algumas funções mudam: listas de transmissão são desativadas e mensagens temporárias, de visualização única e localização em tempo real ficam desligadas nas conversas individuais. Na migração completa, o número sai do aplicativo."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "O que preciso ter pronto antes de migrar o número para a API Oficial?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Um portfólio empresarial no Meta Business Manager com alguém com acesso de administrador, o nome de exibição que vai aparecer para o cliente, uma forma de pagamento configurada para mensagens cobradas e o chip ativo para receber o código por SMS ou ligação. O número não pode estar banido. Verificar a empresa não é obrigatório para começar, mas é um dos caminhos para subir o limite inicial de envio."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Dá para voltar para o aplicativo depois de migrar para a API?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Dá, com condições. Na migração completa, o número só volta para o aplicativo WhatsApp Business se for desregistrado da API, e um número que enviou mensagens pagas nos últimos 30 dias não pode ser excluído da plataforma. Na coexistência, o próprio dono desconecta pelo aplicativo, em Configurações, Conta, Business Platform, Desconectar conta, porque a API de desregistro não funciona nesse caso."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quanto tempo leva a migração para a API Oficial?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A troca do número em si é a menor parte. O que define o calendário é o que vem antes: acesso de administrador ao portfólio, forma de pagamento, nome de exibição, templates aprovados e a plataforma de atendimento conectada e testada. É um projeto, não uma configuração, e um projeto bem planejado leva algumas semanas até o go-live."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Preciso de um PIN de verificação em duas etapas para migrar?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Depende do seu número. A Meta está descontinuando o PIN de 6 dígitos para números elegíveis da Cloud API, em liberação gradual desde setembro de 2026. Se a aba de verificação em duas etapas ainda aparece no WhatsApp Manager para o seu número, o PIN continua valendo e precisa ficar guardado no cofre de senhas da empresa."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Posso trocar de parceiro ou plataforma depois de migrar?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sim. Com o novo modelo de contas da Meta, em liberação desde setembro de 2026, o número fica numa conta do WhatsApp que pode ser compartilhada com mais de um parceiro, e mudar de parceiro deixa de exigir migração do número."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">Altum<span>.</span>Digital</a>
+    <ul class="nav-links">
+      <li><a href="/#services">Serviços</a></li>
+      <li><a href="/#projects">Projetos</a></li>
+      <li><a href="/#method">Metodologia</a></li>
+      <li><a href="/blog" class="active">Blog</a></li>
+      <li><a href="/#cta" class="nav-cta">Falar com Talita</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="article-hero">
+  <div class="article-hero-inner">
+    <div class="breadcrumb">
+      <a href="/">Altum Digital</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="/blog">Blog</a>
+      <span class="breadcrumb-sep">›</span>
+      <span>Migrar para a API Oficial</span>
+    </div>
+    <div class="art-tag"><div class="art-tag-dot"></div>WhatsApp API</div>
+    <h1 class="article-title">Migrar do WhatsApp Business para a API Oficial sem perder o número</h1>
+    <div class="article-meta">
+      <div class="meta-avatar">TB</div>
+      <div class="meta-info">
+        <span class="meta-name">Talita Bispo · Altum Digital</span>
+        <span class="meta-details">30 de outubro de 2026 · 10 min de leitura</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="article-layout">
+  <article class="article-content">
+
+
+    
+    <aside class="tldr" role="complementary" aria-labelledby="tldr-heading">
+  <h2 id="tldr-heading" class="tldr__heading">Resumo: o que você vai aprender</h2>
+  <ul class="tldr__list">
+    <li>Dá para levar o mesmo número do aplicativo WhatsApp Business para a API Oficial. A Meta documenta dois caminhos: excluir a conta do aplicativo e registrar o número na API, ou conectar o número por coexistência através de um parceiro da Meta.</li>
+    <li>Na migração completa, o histórico de conversas do aplicativo é perdido e o número só volta ao aplicativo se for desregistrado da API. A Meta recomenda fazer backup antes de excluir a conta.</li>
+    <li>Na coexistência, o aplicativo e a API funcionam juntos no mesmo número; o histórico antigo fica no celular e, nas plataformas que conheço, só aparecem as mensagens trocadas depois da conexão.</li>
+    <li>Antes de mexer no número, deixe prontos o portfólio no Meta Business Manager com acesso de administrador, o nome de exibição, a forma de pagamento e o chip para receber o código. Número banido só pode ser registrado depois de desbanido por recurso.</li>
+    <li>Migração completa serve para operações com vários atendentes e automação em todas as conversas. Coexistência serve quando alguém ainda precisa responder pelo celular e o histórico recente tem valor comercial.</li>
+  </ul>
+  <p class="tldr__meta">
+    <span>📖 Leitura de 10 minutos</span>
+    <span>·</span>
+    <time datetime="2026-10-30">Publicado em 30 de outubro de 2026</time>
+  </p>
+</aside>
+
+    <p class="art-lead">Seu número está no aplicativo WhatsApp Business há anos, os clientes conhecem e agora a operação precisa da API Oficial. Dá para levar o mesmo número. O que pouca gente avisa: dependendo do caminho, o histórico de conversas do aplicativo fica para trás.</p>
+
+    <p class="art-p">Isso acontece porque a Meta não deixa um número funcionar ao mesmo tempo no aplicativo e na API, a não ser por um caminho específico, a coexistência. Quem não sabe disso exclui a conta do aplicativo no impulso, registra o número na API e só depois descobre que anos de conversas com clientes não foram junto.</p>
+
+    <p class="art-p">Neste artigo eu mostro os dois caminhos que a Meta documenta, o que se perde em cada um, o que precisa estar pronto antes de tocar no número e os cuidados que evitam travar o processo no meio. Se você ainda está decidindo se a API Oficial é para você, comece pela <a href="/blog/whatsapp-business-vs-api-oficial">comparação entre WhatsApp Business, API não oficial e API Oficial</a>.</p>
+
+    <hr class="art-divider">
+
+    <h2 class="art-h2" id="por-que-o-numero-nao-fica-nos-dois">Por que o número não pode ficar no aplicativo e na API ao mesmo tempo</h2>
+    <p class="art-p">A regra da Meta é direta. A <a href="https://developers.facebook.com/documentation/business-messaging/whatsapp/business-phone-numbers/phone-numbers" target="_blank" rel="noopener">documentação da Cloud API</a> diz que números já em uso no WhatsApp não podem ser registrados na API sem que a conta seja excluída antes. Enquanto o número estiver ativo no aplicativo do seu celular, a API recusa o registro.</p>
+    <p class="art-p">Para quem usa o aplicativo WhatsApp Business, existe uma exceção. A <a href="https://developers.facebook.com/documentation/business-messaging/whatsapp/solution-providers/migrate-existing-whatsapp-number-to-a-business-account" target="_blank" rel="noopener">página oficial sobre usar um número existente</a> diz que você tem duas opções: excluir a conta do aplicativo ou fazer a conexão por um parceiro da Meta que aceite números do aplicativo Business. Esse segundo caminho é o que a Meta e o mercado chamam de coexistência.</p>
+    <p class="art-p">Na prática, a pergunta "vou perder meu número?" tem resposta curta: não precisa perder. O número continua sendo seu nos dois caminhos. A pergunta que decide a migração é outra: o que acontece com as conversas antigas, com os recursos do aplicativo e com a rotina da equipe em cada caminho.</p>
+    <p class="art-p">Um exemplo para deixar concreto: uma clínica com o mesmo número há seis anos, impresso no receituário e na fachada. Trocar de número significaria meses de pacientes mandando mensagem para o número antigo. Migrar o mesmo número resolve isso. Só que a recepcionista que hoje responde pelo celular precisa saber, antes do dia da troca, se vai continuar com o aplicativo na mão ou se todo o atendimento passa para a plataforma conectada à API.</p>
+
+    <h2 class="art-h2" id="dois-caminhos">Os dois caminhos: migração completa ou coexistência</h2>
+
+    <h3 class="art-h3">Migração completa</h3>
+    <p class="art-p">Você exclui a conta do número no aplicativo, adiciona o número na sua conta do WhatsApp dentro do Meta Business Manager, confirma a posse com um código e registra o número na API. A partir daí, o número vive só na API Oficial. A equipe atende por uma plataforma de atendimento conectada à API, e o aplicativo no celular deixa de existir para aquele número.</p>
+    <p class="art-p">É o caminho que libera tudo o que a API oferece no número inteiro: vários atendentes, atendente de IA, automações e integrações com CRM e ERP. O preço desse caminho é o histórico do aplicativo, que não vai junto.</p>
+
+    <h3 class="art-h3">Coexistência</h3>
+    <p class="art-p">Você conecta o número que já está no aplicativo WhatsApp Business à API Oficial por meio de um parceiro da Meta que tenha esse fluxo habilitado. O número passa a funcionar nos dois lugares: o aplicativo continua no celular para conversas individuais, e a API recebe as automações, o atendente de IA e os envios em volume. Segundo a Meta, nesse caminho o histórico é preservado e as mensagens ficam espelhadas entre o aplicativo e a API.</p>
+    <p class="art-p">Eu explico a coexistência em detalhe, com requisitos, limitações e cobrança, no post sobre <a href="/blog/coexistencia-whatsapp-app-api-oficial">coexistência no WhatsApp: usar o app e a API Oficial no mesmo número</a>. Aqui o foco é a decisão de migrar.</p>
+
+    <div class="art-quote">
+      "Se você excluir o número do WhatsApp Business app e registrá-lo na Cloud API, o seu histórico de mensagens existente será perdido." Documentação da Meta para desenvolvedores, tradução livre.
+    </div>
+
+    <h2 class="art-h2" id="o-que-se-perde">O que você perde em cada caminho</h2>
+
+    <h3 class="art-h3">Na migração completa</h3>
+    <p class="art-p">Você perde o histórico de conversas do aplicativo. As conversas antigas não aparecem na plataforma conectada à API. A Meta recomenda fazer o backup do histórico do aplicativo antes de excluir a conta, com <a href="https://faq.whatsapp.com/744445782709185" target="_blank" rel="noopener">guia para Android</a> e <a href="https://faq.whatsapp.com/180225246548988" target="_blank" rel="noopener">guia para iPhone</a> na Central de Ajuda do WhatsApp. Esse backup fica como a sua cópia de arquivo.</p>
+    <p class="art-p">Você também deixa de usar o número no aplicativo. Segundo a documentação, o número só volta para o WhatsApp Business app se for desregistrado da API. O chip continua funcionando para ligações e SMS comuns, só não no WhatsApp do celular.</p>
+
+    <h3 class="art-h3">Na coexistência</h3>
+    <p class="art-p">O histórico das conversas individuais fica no celular, e a <a href="https://developers.facebook.com/documentation/business-messaging/whatsapp/embedded-signup/onboarding-business-app-users" target="_blank" rel="noopener">documentação de coexistência</a> diz que as mensagens dos 6 meses mais recentes podem ser sincronizadas, assim como os contatos que têm WhatsApp. Conversas de grupo ficam de fora da sincronização. Na prática, porém, essa importação do histórico não acontece nas plataformas de atendimento que conheço. O histórico antigo continua no celular, e na plataforma aparecem as mensagens trocadas a partir da conexão, inclusive em conversas antigas, quando o cliente volta a escrever. Antes de conectar, pergunte ao seu parceiro se ele importa o histórico.</p>
+    <p class="art-p">Alguns recursos do aplicativo mudam depois da conexão. Pela tabela oficial: as listas de transmissão são desativadas e as existentes ficam só para leitura; mensagens temporárias, mensagens de visualização única e localização em tempo real são desligadas nas conversas individuais. Os aparelhos conectados (WhatsApp Web, tablet) são desvinculados na hora da conexão e podem ser conectados de novo, exceto o WhatsApp para Windows e para WearOS, que não são suportados.</p>
+    <p class="art-p">Existe ainda um limite técnico: números em coexistência têm vazão fixa de 20 mensagens por segundo. Para atendimento isso sobra. Para quem planeja disparar para dezenas de milhares de contatos em poucos minutos, é um dado que entra no planejamento.</p>
+
+    <div class="art-highlight">
+      <strong>Resumo prático:</strong> na migração completa, você troca o histórico do aplicativo por uma operação inteira na API. Na coexistência, você mantém o histórico recente e o aplicativo, mas abre mão das listas de transmissão e de alguns recursos das conversas individuais. Nos dois caminhos, o número continua o mesmo.
+    </div>
+
+    <h2 class="art-h2" id="pre-requisitos">O que precisa estar pronto antes de mexer no número</h2>
+    <p class="art-p">Excluir a conta do aplicativo é a etapa mais curta de todo o processo. O que trava uma migração é chegar nesse momento sem o resto pronto, com o número já fora do aplicativo e ainda sem funcionar na API. Esta é a lista que eu confiro antes de qualquer troca:</p>
+
+    <div class="art-tip">
+      <strong>Portfólio empresarial no Meta Business Manager:</strong> é onde ficam a conta do WhatsApp, os números e a forma de pagamento. Alguém da empresa precisa ter acesso de administrador, porque várias etapas só aparecem para admin.<br><br>
+      <strong>Número sem banimento:</strong> a Meta diz que número banido só pode ser registrado depois de desbanido pelo processo de recurso. Se esse é o seu caso, leia antes <a href="/blog/numero-whatsapp-banido-como-recuperar">número do WhatsApp banido: por que acontece e como recuperar (ou não)</a>.<br><br>
+      <strong>Nome de exibição:</strong> é obrigatório no registro e passa por verificação conforme as diretrizes da Meta. Nome recusado fica com status DECLINED e precisa ser ajustado. Use o nome que o cliente já reconhece.<br><br>
+      <strong>Forma de pagamento:</strong> a conta precisa de método de pagamento configurado para enviar mensagens cobradas. Sem ele, o envio falha com o erro de pagamento 131042.<br><br>
+      <strong>Chip à mão:</strong> a posse do número é confirmada por código enviado por SMS ou ligação de voz. O chip precisa estar ativo e com alguém para receber o código.
+    </div>
+
+    <p class="art-p">Sobre a verificação da empresa: ela não é obrigatória para começar, mas pesa. Pela <a href="https://developers.facebook.com/documentation/business-messaging/whatsapp/messaging-limits" target="_blank" rel="noopener">documentação de limites</a>, portfólios novos começam com limite de 250 destinatários únicos em 24 horas para mensagens que a empresa inicia, e com teto de 2 números registrados. Verificar a empresa é um dos caminhos para subir o limite para 2.000 e o teto para 20 números. Eu explico como esses níveis funcionam no post sobre <a href="/blog/pontuacao-qualidade-limite-envio-whatsapp">pontuação de qualidade e limite de envio</a>.</p>
+
+    <h2 class="art-h2" id="passo-a-passo">O passo a passo de cada caminho</h2>
+    <p class="art-p">Antes das etapas, três números da documentação oficial que ajudam a planejar o dia da troca:</p>
+
+    <div class="metrics-grid">
+      <div class="metric-card">
+        <div class="metric-number">3 min</div>
+        <div class="metric-label">tempo máximo para o número ficar livre após excluir a conta</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-number">6 meses</div>
+        <div class="metric-label">de conversas individuais que a Meta permite sincronizar na coexistência</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-number">10 em 72h</div>
+        <div class="metric-label">tentativas de registro por número antes do bloqueio</div>
+      </div>
+    </div>
+
+    <h3 class="art-h3">Migração completa, em seis etapas</h3>
+    <p class="art-p"><strong>1. Backup.</strong> Faça o backup do histórico no aplicativo, seguindo o guia oficial do WhatsApp para o seu sistema.</p>
+    <p class="art-p"><strong>2. Exclusão da conta.</strong> No aplicativo, vá em Configurações, Conta, Excluir minha conta. É excluir a conta, não só desinstalar o aplicativo. A Meta informa que as mensagens enviadas para o número ficam em fila nesse meio tempo e que o número pode levar até 3 minutos para ficar disponível.</p>
+    <p class="art-p"><strong>3. Adicionar o número.</strong> No WhatsApp Manager, adicione o número à conta do WhatsApp com o nome de exibição.</p>
+    <p class="art-p"><strong>4. Verificar a posse.</strong> Receba o código por SMS ou ligação e confirme.</p>
+    <p class="art-p"><strong>5. Registrar na Cloud API.</strong> O <a href="https://developers.facebook.com/documentation/business-messaging/whatsapp/business-phone-numbers/registration" target="_blank" rel="noopener">registro</a> é feito por chamada de API, não pelo painel. A Meta aceita até 10 tentativas por número em 72 horas. Passou disso, o número fica bloqueado para registro pelas 72 horas seguintes (erro 133016).</p>
+    <p class="art-p"><strong>6. Conectar a operação.</strong> Ligue a plataforma de atendimento, cadastre os templates e teste antes de avisar a equipe. Daqui em diante vale o roteiro dos <a href="/blog/primeiros-30-dias-api-oficial-whatsapp">primeiros 30 dias com a API Oficial</a>.</p>
+    <p class="art-p">A etapa 5 é onde eu mais vejo gente travar, porque quem faz pela primeira vez acha que adicionar e verificar o número no painel já basta. Não basta: a própria Meta afirma que o registro só se completa com a chamada ao endpoint de registro. Os outros pontos onde a configuração costuma emperrar estão em <a href="/blog/api-oficial-whatsapp">API Oficial do WhatsApp: por que tanta empresa trava na configuração</a>.</p>
+
+    <h3 class="art-h3">Coexistência</h3>
+    <p class="art-p">Aqui quem conduz a parte técnica é o parceiro. Você abre o fluxo de cadastro do parceiro, escolhe conectar a conta existente do WhatsApp Business, recebe no aplicativo uma mensagem da conta oficial do Facebook Business, toca em conectar, decide se compartilha o histórico e cola o código de verificação. O número não passa pela etapa de registro, porque já está registrado.</p>
+    <p class="art-p">Um detalhe que muda o dia da conexão: depois do cadastro, o parceiro tem 24 horas para sincronizar o histórico, senão o processo precisa ser refeito. A Meta orienta deixar o aplicativo aberto durante a sincronização, que pode levar vários minutos conforme o volume de conversas. O aplicativo precisa estar na versão 2.24.17 ou superior.</p>
+
+    <h2 class="art-h2" id="cuidados">Cuidados que evitam travar a migração no meio</h2>
+    <p class="art-p"><strong>PIN de verificação em duas etapas.</strong> Até pouco tempo, todo número na API exigia um PIN de 6 dígitos, pedido em novo registro e na exclusão do número. A Meta está <a href="https://developers.facebook.com/documentation/business-messaging/whatsapp/business-phone-numbers/two-step-verification" target="_blank" rel="noopener">descontinuando esse PIN</a> para números elegíveis da Cloud API, em liberação gradual desde 23 de setembro de 2026. Se a aba de verificação em duas etapas ainda aparece no WhatsApp Manager para o seu número, o PIN continua valendo e precisa ficar guardado no cofre de senhas da empresa, não no celular de um funcionário. Se a aba sumiu, a mudança já foi aplicada.</p>
+    <p class="art-p"><strong>Trava dos 30 dias.</strong> Pela documentação, um número que enviou mensagens pagas nos últimos 30 dias não pode ser excluído da plataforma. Isso pesa para quem pensa em testar e voltar atrás em poucos dias.</p>
+    <p class="art-p"><strong>Caminho de volta.</strong> Na migração completa, voltar ao aplicativo exige desregistrar o número da API. Na coexistência, a desconexão não é feita pela API: o próprio dono do número desconecta no aplicativo, em Configurações, Conta, Business Platform, Desconectar conta.</p>
+    <p class="art-p"><strong>Celular parado na coexistência.</strong> A Meta lista, entre os motivos de desconexão, o aparelho principal ficar inativo por cerca de 14 dias. Se o aplicativo fica num celular esquecido na gaveta, a conexão com a API pode cair.</p>
+    <p class="art-p"><strong>Trocar de parceiro depois.</strong> Com o <a href="https://developers.facebook.com/documentation/business-messaging/whatsapp/account-model-evolution" target="_blank" rel="noopener">novo modelo de contas da Meta</a>, em liberação desde 23 de setembro de 2026, o número fica numa conta do WhatsApp que pode ser compartilhada com mais de um parceiro. A documentação diz que mudar de parceiro deixa de exigir migração do número. Para quem tem receio de ficar preso ao primeiro fornecedor, isso reduz o risco da decisão.</p>
+
+    <h2 class="art-h2" id="qual-caminho-escolher">Qual caminho escolher para a sua operação</h2>
+    <p class="art-p">Não existe caminho certo para todo mundo. O que decide é como a sua equipe atende hoje e o que você quer automatizar no número.</p>
+
+    <div class="art-tip">
+      <strong>Migração completa faz sentido quando:</strong> vários atendentes vão responder no mesmo número por uma plataforma, você quer atendente de IA e automação em todas as conversas, e o histórico antigo pode ficar guardado só no backup.<br><br>
+      <strong>Coexistência faz sentido quando:</strong> uma pessoa ainda precisa responder pelo celular (o dono, um vendedor), o histórico recente tem valor comercial e a operação não depende das listas de transmissão do aplicativo.<br><br>
+      <strong>Nenhum dos dois agora quando:</strong> o número está banido ou em recurso, ou ninguém da empresa tem acesso de administrador ao portfólio no Meta Business Manager.
+    </div>
+
+    <p class="art-p">Sobre prazo: a troca em si, com exclusão, verificação e registro, é a menor parte do projeto. O que define o calendário é o que vem antes: acesso ao portfólio, forma de pagamento, nome de exibição, templates aprovados e a plataforma conectada e testada. Nos projetos que conduzo, isso leva algumas semanas, e por isso eu nunca marco a migração para a semana de uma campanha ou de um lançamento.</p>
+    <p class="art-p">E se a empresa tem vários números, nem todos precisam ir para a API agora. O número que dispara, cobra e recebe automação é o primeiro da fila. Números de relacionamento individual podem esperar, desde que a equipe atenda tudo num lugar só. Esse mapa está em <a href="/blog/api-oficial-e-nao-oficial-mesma-plataforma">API Oficial e não oficial na mesma plataforma</a>. Para estimar o custo das mensagens depois da migração, veja <a href="/blog/quanto-custa-api-oficial-whatsapp-2026">quanto custa a API Oficial do WhatsApp em 2026</a>.</p>
+    <p class="art-p">Migrar do aplicativo para a API Oficial sem perder o número é possível nos dois caminhos. A decisão real é sobre histórico e rotina da equipe. Tome essa decisão antes de excluir qualquer conta, porque a exclusão não devolve o histórico.</p>
+    <hr class="art-divider">
+
+    <h2 class="art-h2" id="perguntas-frequentes">Perguntas frequentes</h2>
+
+    <h3 class="faq-q">Vou perder meu número se migrar do WhatsApp Business para a API Oficial?</h3>
+    <p class="art-p">Não precisa perder. A Meta documenta dois caminhos que mantêm o mesmo número: excluir a conta no aplicativo WhatsApp Business e registrar o número na API, ou conectar o número por coexistência através de um parceiro da Meta. Nos dois casos o número continua seu. O que muda entre eles é o histórico de conversas, os recursos do aplicativo e se a equipe continua usando o celular.</p>
+
+    <h3 class="faq-q">Perco o histórico de conversas ao migrar para a API Oficial?</h3>
+    <p class="art-p">Depende do caminho. Se você excluir a conta do aplicativo e registrar o número na API, a Meta afirma que o histórico de mensagens existente é perdido, por isso ela recomenda fazer backup antes. Na coexistência, o histórico continua no celular. A Meta permite sincronizar até 6 meses de conversas, mas, nas plataformas que conheço, só aparecem as mensagens trocadas depois da conexão.</p>
+
+    <h3 class="faq-q">Posso continuar usando o aplicativo WhatsApp Business depois de migrar?</h3>
+    <p class="art-p">Só na coexistência. Nesse caminho, o aplicativo continua no celular para conversas individuais e a API recebe automações e envios em volume, com as mensagens espelhadas entre os dois. Algumas funções mudam: listas de transmissão são desativadas e mensagens temporárias, de visualização única e localização em tempo real ficam desligadas nas conversas individuais. Na migração completa, o número sai do aplicativo.</p>
+
+    <h3 class="faq-q">O que preciso ter pronto antes de migrar o número para a API Oficial?</h3>
+    <p class="art-p">Um portfólio empresarial no Meta Business Manager com alguém com acesso de administrador, o nome de exibição que vai aparecer para o cliente, uma forma de pagamento configurada para mensagens cobradas e o chip ativo para receber o código por SMS ou ligação. O número não pode estar banido. Verificar a empresa não é obrigatório para começar, mas é um dos caminhos para subir o limite inicial de envio.</p>
+
+    <h3 class="faq-q">Dá para voltar para o aplicativo depois de migrar para a API?</h3>
+    <p class="art-p">Dá, com condições. Na migração completa, o número só volta para o aplicativo WhatsApp Business se for desregistrado da API, e um número que enviou mensagens pagas nos últimos 30 dias não pode ser excluído da plataforma. Na coexistência, o próprio dono desconecta pelo aplicativo, em Configurações, Conta, Business Platform, Desconectar conta, porque a API de desregistro não funciona nesse caso.</p>
+
+    <h3 class="faq-q">Quanto tempo leva a migração para a API Oficial?</h3>
+    <p class="art-p">A troca do número em si é a menor parte. O que define o calendário é o que vem antes: acesso de administrador ao portfólio, forma de pagamento, nome de exibição, templates aprovados e a plataforma de atendimento conectada e testada. É um projeto, não uma configuração, e um projeto bem planejado leva algumas semanas até o go-live.</p>
+
+    <h3 class="faq-q">Preciso de um PIN de verificação em duas etapas para migrar?</h3>
+    <p class="art-p">Depende do seu número. A Meta está descontinuando o PIN de 6 dígitos para números elegíveis da Cloud API, em liberação gradual desde setembro de 2026. Se a aba de verificação em duas etapas ainda aparece no WhatsApp Manager para o seu número, o PIN continua valendo e precisa ficar guardado no cofre de senhas da empresa.</p>
+
+    <h3 class="faq-q">Posso trocar de parceiro ou plataforma depois de migrar?</h3>
+    <p class="art-p">Sim. Com o novo modelo de contas da Meta, em liberação desde setembro de 2026, o número fica numa conta do WhatsApp que pode ser compartilhada com mais de um parceiro, e mudar de parceiro deixa de exigir migração do número.</p>
+
+    <div class="art-highlight"><strong>Resumo para decidir:</strong> Se o seu número está no app WhatsApp Business há anos e a operação precisa da API Oficial, dá para levar o mesmo número por dois caminhos: migração completa (o número sai do app e o histórico fica só no backup) ou coexistência (app e API juntos). A decisão é sobre histórico e rotina da equipe, e precisa ser tomada antes de excluir qualquer conta. A Altum Digital é a consultoria de automação e IA de Talita Bispo, em São Paulo, que implementa a API Oficial do WhatsApp, agentes de IA e automações integradas aos sistemas da empresa, para negócios que faturam a partir de R$ 100 mil por mês e querem parar de depender de processo manual.</div>
+
+    <div class="cta-inline">
+      <h3>Vai migrar o número do aplicativo para a API Oficial?</h3>
+      <p>Eu reviso com você os pré-requisitos, escolhemos juntos o caminho (migração completa ou coexistência) e monto o plano da troca para o atendimento não parar no dia.</p>
+      <a href="https://wa.me/5511954715571?text=Oi%20Talita%21%20Li%20seu%20artigo%20sobre%20migrar%20do%20WhatsApp%20Business%20para%20a%20API%20Oficial%20e%20quero%20planejar%20a%20migra%C3%A7%C3%A3o%20do%20meu%20n%C3%BAmero." class="btn-wa" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Falar com Talita no WhatsApp
+      </a>
+    </div>
+
+
+    <div class="author-box">
+      <div class="author-box-inner">
+        <div class="author-box-avatar">TB</div>
+        <div>
+          <h4>Talita Bispo</h4>
+          <p>Fundadora da Altum Digital, consultoria de automação e IA em São Paulo que implementa a API Oficial do WhatsApp, agentes de IA e automações integradas aos sistemas da empresa, para negócios que faturam a partir de R$ 100 mil por mês e querem parar de depender de processo manual. Certificada Google Cloud Generative AI Leader, com 11 anos de consultoria na Accenture (TIM, SKY, SEFAZ-SP, Johnson &amp; Johnson, Getnet, Claro) e criadora do AltumChat, plataforma de atendimento e CRM no WhatsApp que roda sobre infraestrutura de Parceiro Oficial da Meta. Mais de 30 projetos entregues. Atende todo o Brasil.</p>
+        </div>
+      </div>
+    </div>
+
+    <section class="related-posts" aria-labelledby="related-heading">
+      <h2 id="related-heading" class="related-posts__heading">Artigos relacionados</h2>
+      <ul class="related-posts__list">
+    <li class="related-posts__item">
+      <a href="/blog/coexistencia-whatsapp-app-api-oficial" class="related-posts__link">
+        <h3 class="related-posts__title">Coexistência no WhatsApp: usar o app e a API Oficial no mesmo número</h3>
+        <p class="related-posts__relation">Aprofundamento: requisitos e limites do caminho que preserva o histórico.</p>
+      </a>
+    </li>
+    <li class="related-posts__item">
+      <a href="/blog/primeiros-30-dias-api-oficial-whatsapp" class="related-posts__link">
+        <h3 class="related-posts__title">O que acontece nos primeiros 30 dias após implementar a API Oficial do WhatsApp</h3>
+        <p class="related-posts__relation">Próximo passo: o que esperar depois que o número entra na API.</p>
+      </a>
+    </li>
+    <li class="related-posts__item">
+      <a href="/blog/whatsapp-business-vs-api-oficial" class="related-posts__link">
+        <h3 class="related-posts__title">WhatsApp Business, API Não-Oficial ou API Oficial: qual a diferença real</h3>
+        <p class="related-posts__relation">Conceito-base: as três versões do WhatsApp para empresas.</p>
+      </a>
+    </li>
+    <li class="related-posts__item">
+      <a href="/blog/pontuacao-qualidade-limite-envio-whatsapp" class="related-posts__link">
+        <h3 class="related-posts__title">Qualidade e limite de envio no WhatsApp: como a Meta decide seu teto</h3>
+        <p class="related-posts__relation">Depois da migração: como a Meta define quanto você pode enviar.</p>
+      </a>
+    </li>
+      </ul>
+    </section>
+    
+  </article>
+
+  <aside class="sidebar">
+    <div class="sidebar-sticky">
+      <div class="sidebar-card">
+        <h4>Neste artigo</h4>
+        <ul class="toc-list">
+          <li><a href="#por-que-o-numero-nao-fica-nos-dois">Por que não dá para ficar nos dois</a></li>
+          <li><a href="#dois-caminhos">Migração completa ou coexistência</a></li>
+          <li><a href="#o-que-se-perde">O que se perde em cada caminho</a></li>
+          <li><a href="#pre-requisitos">Pré-requisitos</a></li>
+          <li><a href="#passo-a-passo">Passo a passo</a></li>
+          <li><a href="#cuidados">Cuidados que evitam travar</a></li>
+          <li><a href="#qual-caminho-escolher">Qual caminho escolher</a></li>
+          <li><a href="#perguntas-frequentes">Perguntas frequentes</a></li>
+        </ul>
+      </div>
+      <div class="sidebar-cta">
+        <h4>Planeje a migração do número</h4>
+        <p>Reviso os pré-requisitos e escolho com você o caminho antes de excluir qualquer conta.</p>
+        <a href="https://wa.me/5511954715571?text=Oi%20Talita%21%20Li%20seu%20artigo%20sobre%20migrar%20do%20WhatsApp%20Business%20para%20a%20API%20Oficial%20e%20quero%20planejar%20a%20migra%C3%A7%C3%A3o%20do%20meu%20n%C3%BAmero." class="btn-wa-sm" target="_blank">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Falar com Talita
+        </a>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-logo">Altum<span>.</span>Digital</div>
+      <p>© 2025 Talita Bispo · Altum Digital Soluções LTDA</p>
+      <p>São Paulo, SP · Brasil</p>
+      <p>CNPJ 61.287.916/0001-69</p>
+      <p><a href="https://www.linkedin.com/in/talita-b-35b47923/" target="_blank" rel="me noopener" style="color:#9ca3af">LinkedIn</a> · <a href="https://www.instagram.com/soutalitabispo/" target="_blank" rel="me noopener" style="color:#9ca3af">Instagram @SouTalitaBispo</a></p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Limite de envio e qualidade no WhatsApp: como a Meta decide</title>
+<meta name="description" content="Pontuação de qualidade e limite de envio da API Oficial do WhatsApp: os níveis de 2026, como subir de nível e o que acontece quando a qualidade cai.">
+<meta name="author" content="Talita Bispo — Altum Digital">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://altumdigital.com.br/blog/pontuacao-qualidade-limite-envio-whatsapp">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://altumdigital.com.br/blog/pontuacao-qualidade-limite-envio-whatsapp">
+<meta property="og:title" content="Limite de envio e qualidade no WhatsApp: como a Meta decide">
+<meta property="og:description" content="Pontuação de qualidade e limite de envio da API Oficial do WhatsApp: os níveis de 2026, como subir de nível e o que acontece quando a qualidade cai.">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Altum Digital">
+<meta property="article:author" content="Talita Bispo">
+<meta property="article:published_time" content="2026-10-30">
+<meta property="article:tag" content="WhatsApp API">
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:#f8fafb;color:#0f172a;font-family:'DM Sans',sans-serif;font-size:16px;line-height:1.7}
+h1,h2,h3,h4{font-family:'Manrope',sans-serif}
+a{text-decoration:none;color:inherit}
+.container{max-width:1100px;margin:0 auto;padding:0 28px}
+nav{background:#06080f;padding:18px 0;border-bottom:1px solid rgba(255,255,255,0.07)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;max-width:1100px;margin:0 auto;padding:0 28px}
+.nav-logo{font-family:'Manrope',sans-serif;font-size:18px;font-weight:800;color:#e8eaf0}
+.nav-logo span{color:#00e5c3}
+.nav-links{list-style:none;display:flex;gap:28px;align-items:center}
+.nav-links a{color:#7b8499;font-size:14px;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:#e8eaf0}
+.nav-links a.active{color:#00e5c3}
+.nav-cta{background:#00e5c3;color:#06080f!important;padding:9px 20px;border-radius:6px;font-weight:700!important;font-size:13px!important}
+.article-hero{background:#fff;border-bottom:1px solid #e5e7eb;padding:52px 0 44px}
+.article-hero-inner{max-width:760px;margin:0 auto;padding:0 28px}
+.breadcrumb{font-size:13px;color:#9ca3af;margin-bottom:20px;display:flex;align-items:center;gap:8px}
+.breadcrumb a{color:#00b89e;font-weight:500}
+.breadcrumb-sep{color:#d1d5db}
+.art-tag{display:inline-flex;align-items:center;gap:6px;background:#e6faf6;border:1px solid #b3f0e0;border-radius:100px;padding:5px 14px;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#0f6e56;margin-bottom:20px}
+.art-tag-dot{width:6px;height:6px;border-radius:50%;background:#00e5c3}
+.article-title{font-size:clamp(24px,4vw,38px);font-weight:800;line-height:1.2;color:#0f172a;margin-bottom:20px;letter-spacing:-.025em}
+.article-meta{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.meta-avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#00e5c3,#4f8cff);display:flex;align-items:center;justify-content:center;font-family:'Manrope',sans-serif;font-weight:800;font-size:11px;color:#fff;flex-shrink:0}
+.meta-info{display:flex;flex-direction:column;gap:2px}
+.meta-name{font-size:14px;font-weight:700;color:#374151}
+.meta-details{font-size:12px;color:#9ca3af}
+.article-layout{display:grid;grid-template-columns:1fr 280px;gap:48px;max-width:1060px;margin:0 auto;padding:48px 28px 80px}
+.art-lead{font-size:19px;color:#374151;line-height:1.8;margin-bottom:36px;font-weight:400;border-left:3px solid #00e5c3;padding-left:22px}
+.art-h2{font-size:22px;font-weight:800;color:#0f172a;margin:44px 0 14px;letter-spacing:-.015em}
+.art-h3{font-size:17px;font-weight:700;color:#0f172a;margin:28px 0 10px}
+.art-p{font-size:16px;color:#4b5563;line-height:1.85;margin-bottom:18px}
+.art-highlight{background:#f0fdf9;border:1px solid #ccf7eb;border-left:3px solid #00e5c3;border-radius:0 8px 8px 0;padding:18px 22px;margin:28px 0;font-size:15px;color:#065f46;line-height:1.75}
+.art-highlight strong{font-weight:700;color:#047857}
+.art-tip{background:#fffbeb;border:1px solid #fde68a;border-left:3px solid #f59e0b;border-radius:0 8px 8px 0;padding:18px 22px;margin:24px 0;font-size:14px;color:#92400e;line-height:1.7}
+.art-tip strong{font-weight:700}
+.art-divider{border:none;border-top:1px solid #f0f0f0;margin:40px 0}
+.art-quote{background:#f8fafb;border-left:3px solid #00e5c3;border-radius:0 8px 8px 0;padding:20px 24px;margin:32px 0;font-size:17px;font-style:italic;color:#374151;line-height:1.75}
+.metrics-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:28px 0}
+.metric-card{background:#0f172a;border-radius:12px;padding:20px;text-align:center}
+.metric-number{font-family:'Manrope',sans-serif;font-size:36px;font-weight:800;color:#00e5c3;line-height:1;margin-bottom:6px}
+.metric-label{font-size:13px;color:#9ca3af;line-height:1.4}
+.cta-inline{background:#0f172a;border-radius:16px;padding:32px;margin:44px 0;text-align:center}
+.cta-inline h3{font-family:'Manrope',sans-serif;font-size:20px;font-weight:800;color:#fff;margin-bottom:10px}
+.cta-inline p{font-size:14px;color:#9ca3af;margin-bottom:22px;line-height:1.65}
+.btn-wa{display:inline-flex;align-items:center;gap:10px;background:#25D366;color:#fff;padding:13px 26px;border-radius:8px;font-family:'Manrope',sans-serif;font-weight:700;font-size:14px;transition:opacity .2s}
+.btn-wa:hover{opacity:.9}
+.btn-wa svg{width:18px;height:18px;fill:#fff;flex-shrink:0}
+.author-box{background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:24px;margin-top:48px}
+.author-box-inner{display:flex;gap:16px;align-items:flex-start}
+.author-box-avatar{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#00e5c3,#4f8cff);display:flex;align-items:center;justify-content:center;font-family:'Manrope',sans-serif;font-weight:800;font-size:14px;color:#fff;flex-shrink:0}
+.author-box h4{font-size:15px;font-weight:800;color:#0f172a;margin-bottom:4px}
+.author-box p{font-size:13px;color:#6b7280;line-height:1.6}
+.sidebar-sticky{position:sticky;top:28px}
+.sidebar-card{background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:22px;margin-bottom:20px}
+.sidebar-card h4{font-family:'Manrope',sans-serif;font-size:13px;font-weight:700;color:#0f172a;margin-bottom:16px;letter-spacing:.02em;text-transform:uppercase}
+.toc-list{list-style:none;display:flex;flex-direction:column;gap:10px}
+.toc-list a{font-size:13px;color:#6b7280;line-height:1.4;transition:color .2s;display:block}
+.toc-list a:hover{color:#00b89e}
+.sidebar-cta{background:#0f172a;border-radius:16px;padding:22px;text-align:center}
+.sidebar-cta p{font-size:13px;color:#9ca3af;margin-bottom:16px;line-height:1.6}
+.sidebar-cta h4{font-family:'Manrope',sans-serif;font-size:15px;font-weight:800;color:#fff;margin-bottom:10px}
+.btn-wa-sm{display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#fff;padding:11px 18px;border-radius:8px;font-family:'Manrope',sans-serif;font-weight:700;font-size:13px;width:100%;justify-content:center}
+footer{background:#06080f;border-top:1px solid rgba(255,255,255,0.07);padding:32px 0}
+.footer-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.footer-logo{font-family:'Manrope',sans-serif;font-weight:800;font-size:15px;color:#e8eaf0}
+.footer-logo span{color:#00e5c3}
+footer p{color:#7b8499;font-size:13px}
+@media(max-width:900px){.article-layout{grid-template-columns:1fr}.sidebar{display:none}.nav-links{display:none}.metrics-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:500px){.metrics-grid{grid-template-columns:1fr}}
+
+/* === Blocos SEO/GEO (TLDR + FAQ + Related) — alinhado com paleta atual === */
+.tldr{background:#f0fdf9;border:1px solid #ccf7eb;border-left:4px solid #00b89e;border-radius:0 8px 8px 0;padding:22px 26px;margin:0 0 36px 0;font-family:'DM Sans',sans-serif;}
+.tldr__heading{font-family:'Manrope',sans-serif;font-size:13px;font-weight:700;color:#0f6e56;text-transform:uppercase;letter-spacing:.1em;margin:0 0 14px 0;}
+.tldr__list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;}
+.tldr__list li{font-size:15px;color:#065f46;line-height:1.65;padding-left:22px;position:relative;}
+.tldr__list li::before{content:"\2192";position:absolute;left:0;color:#00b89e;font-weight:700;}
+.tldr__meta{margin-top:18px;padding-top:14px;border-top:1px solid #ccf7eb;font-size:12px;color:#0f6e56;display:flex;gap:10px;flex-wrap:wrap;align-items:center;}
+.faq-q{font-family:'Manrope',sans-serif;font-size:17px;font-weight:700;color:#0f172a;margin:26px 0 8px;line-height:1.4}
+.faq{margin:48px 0 40px;}
+.faq__heading{font-family:'Manrope',sans-serif;font-size:22px;font-weight:800;color:#0f172a;margin:0 0 20px 0;letter-spacing:-.015em;}
+.faq__item{border-bottom:1px solid #e5e7eb;padding:16px 0;cursor:pointer;}
+.faq__item:last-child{border-bottom:none;}
+.faq__question{font-family:'Manrope',sans-serif;font-size:16px;font-weight:700;color:#0f172a;list-style:none;position:relative;padding-right:32px;cursor:pointer;}
+.faq__question::-webkit-details-marker{display:none;}
+.faq__question::after{content:"+";position:absolute;right:0;top:-3px;font-size:22px;color:#00b89e;font-weight:400;transition:transform .2s;}
+.faq__item[open] .faq__question::after{content:"\2212";}
+.faq__answer{padding-top:12px;color:#4b5563;line-height:1.7;font-size:14px;}
+.related-posts{margin:48px 0 0 0;padding-top:32px;border-top:1px solid #e5e7eb;}
+.related-posts__heading{font-family:'Manrope',sans-serif;font-size:20px;font-weight:800;color:#0f172a;margin:0 0 20px 0;letter-spacing:-.015em;}
+.related-posts__list{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+.related-posts__link{display:block;padding:18px 20px;background:#fff;border:1px solid #e5e7eb;border-radius:12px;text-decoration:none;transition:border-color .2s,transform .2s;}
+.related-posts__link:hover{border-color:#00b89e;transform:translateY(-2px);}
+.related-posts__title{font-family:'Manrope',sans-serif;font-size:14px;font-weight:700;color:#0f172a;margin:0 0 6px;line-height:1.35;}
+.related-posts__relation{font-size:12px;color:#6b7280;margin:0;line-height:1.5;}
+@media(max-width:640px){.related-posts__list{grid-template-columns:1fr;}}
+.art-p a,.article-content li a:not([class]){color:#00b89e;font-weight:600;text-decoration:underline}
+</style>
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Limite de envio e qualidade no WhatsApp: como a Meta decide">
+<meta name="twitter:description" content="Pontuação de qualidade e limite de envio da API Oficial do WhatsApp: os níveis de 2026, como subir de nível e o que acontece quando a qualidade cai.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Limite de envio e qualidade no WhatsApp: como a Meta decide",
+  "description": "Pontuação de qualidade e limite de envio da API Oficial do WhatsApp: os níveis de 2026, como subir de nível e o que acontece quando a qualidade cai.",
+  "author": {"@type": "Person", "@id": "https://altumdigital.com.br/#talita-bispo", "name": "Talita Bispo", "url": "https://altumdigital.com.br/"},
+  "publisher": {"@type": "Organization", "@id": "https://altumdigital.com.br/#organizacao", "name": "Altum Digital", "url": "https://altumdigital.com.br/"},
+  "datePublished": "2026-10-30T00:00:00-03:00",
+  "dateModified": "2026-10-30T00:00:00-03:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://altumdigital.com.br/blog/pontuacao-qualidade-limite-envio-whatsapp"
+  },
+  "articleSection": "WhatsApp API",
+  "keywords": [
+    "limite de envio WhatsApp API",
+    "pontuação de qualidade WhatsApp",
+    "como aumentar limite de mensagens WhatsApp API Oficial",
+    "limite de mensagens por portfólio de negócios Meta",
+    "qualidade baixa número WhatsApp API o que acontece"
+  ],
+  "wordCount": 2370,
+  "inLanguage": "pt-BR"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Altum Digital",
+      "item": "https://altumdigital.com.br/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "https://altumdigital.com.br/blog"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Limite de envio e qualidade no WhatsApp: como a Meta decide"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "O limite de envio da API Oficial do WhatsApp é por número ou por conta?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Desde 7 de outubro de 2025 o limite é definido no portfólio de negócios da Meta, e não em cada número. Todos os números do mesmo portfólio dividem o mesmo teto de destinatários únicos em 24 horas. Na prática, se o número do marketing usar o limite inteiro numa campanha, o número da cobrança fica sem espaço para mandar templates fora da janela de atendimento naquele período. Número novo já entra com o limite do portfólio."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Mensagem respondendo cliente conta no limite de envio?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Não. O limite conta apenas as pessoas diferentes que recebem mensagens suas fora da janela de atendimento. Essa janela abre por 24 horas quando o cliente manda mensagem ou liga, e reinicia a cada nova mensagem dele. Enquanto ela está aberta, você pode responder com qualquer tipo de mensagem sem consumir limite. O que consome é o template enviado para quem não está com a janela aberta, como lembretes, cobranças e campanhas."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Como aumentar o limite de mensagens no WhatsApp API?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Para sair de 250 e ir para 2.000, basta verificar a empresa na Meta, ter a verificação feita pelo parceiro que fez o cadastro ou entregar 2.000 mensagens fora da janela para pessoas diferentes em 30 dias com templates de alta qualidade. Acima de 2.000 a subida é automática: com qualidade alta em todos os números e templates e uso de pelo menos metade do limite atual nos últimos 7 dias, o limite sobe um nível em até 6 horas."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Se a qualidade do número ficar vermelha, o limite de envio diminui?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Não na regra atual. A Meta informa que o status Flagged deixou de existir e que a queda da pontuação de qualidade não rebaixa o limite de envio. Mas a qualidade baixa impede o limite de subir, porque a subida exige qualidade alta em todos os números e templates. Ela também pode fazer templates serem pausados, com mensagens retidas descartadas, e feedback negativo excessivo pode levar a restrições da conta."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Como a Meta calcula a pontuação de qualidade do número?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A Meta avalia como os usuários receberam suas mensagens nos últimos 7 dias, dando peso maior ao que aconteceu mais recentemente. Os sinais são bloqueios, denúncias, silenciamentos, arquivamentos e os motivos informados quando a pessoa bloqueia o número. A pontuação aparece no WhatsApp Manager em verde, amarelo ou vermelho. A Meta não publica quantos bloqueios causam queda, e números com muito tráfego podem mudar de pontuação em minutos."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "O que é a janela de atendimento de 24 horas?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "É o período que abre quando o cliente manda mensagem ou liga para o seu número, e reinicia a cada nova mensagem dele. Dentro dela, a empresa responde com qualquer tipo de mensagem sem consumir o limite de envio. Fora dela, só é possível falar com a pessoa por template aprovado, e aí o envio conta no limite."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Limite de envio e velocidade de envio são a mesma coisa?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Não. O limite é quantas pessoas diferentes você alcança fora da janela em 24 horas. A velocidade é quantas mensagens por segundo o número entrega: 80 por padrão em um número só na API, e 20 em um número em coexistência com o app. Campanhas grandes precisam das duas contas."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quais sinais derrubam a pontuação de qualidade?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Bloqueios, denúncias, silenciamentos, arquivamentos e os motivos informados quando a pessoa bloqueia o número, avaliados nos últimos 7 dias com peso maior para o mais recente. Nos projetos, quase sempre a causa é lista sem opt-in, mensagem genérica ou envio demais no mesmo dia."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">Altum<span>.</span>Digital</a>
+    <ul class="nav-links">
+      <li><a href="/#services">Serviços</a></li>
+      <li><a href="/#projects">Projetos</a></li>
+      <li><a href="/#method">Metodologia</a></li>
+      <li><a href="/blog" class="active">Blog</a></li>
+      <li><a href="/#cta" class="nav-cta">Falar com Talita</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="article-hero">
+  <div class="article-hero-inner">
+    <div class="breadcrumb">
+      <a href="/">Altum Digital</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="/blog">Blog</a>
+      <span class="breadcrumb-sep">›</span>
+      <span>Qualidade e limite de envio</span>
+    </div>
+    <div class="art-tag"><div class="art-tag-dot"></div>WhatsApp API</div>
+    <h1 class="article-title">Qualidade e limite de envio no WhatsApp: como a Meta decide seu teto</h1>
+    <div class="article-meta">
+      <div class="meta-avatar">TB</div>
+      <div class="meta-info">
+        <span class="meta-name">Talita Bispo · Altum Digital</span>
+        <span class="meta-details">30 de outubro de 2026 · 10 min de leitura</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="article-layout">
+  <article class="article-content">
+
+
+    
+    <aside class="tldr" role="complementary" aria-labelledby="tldr-heading">
+  <h2 id="tldr-heading" class="tldr__heading">Resumo: o que você vai aprender</h2>
+  <ul class="tldr__list">
+    <li>Na API Oficial do WhatsApp, o limite de envio conta pessoas diferentes alcançadas fora da janela de atendimento em 24 horas móveis, não o total de mensagens.</li>
+    <li>Desde 7 de outubro de 2025, a Meta calcula o limite no portfólio de negócios e todos os números da empresa dividem o mesmo teto.</li>
+    <li>Os níveis vigentes são 250 para portfólio novo, depois 2.000, 10.000, 100.000 e ilimitado; acima de 2.000 o limite sobe um nível em até 6 horas.</li>
+    <li>Para subir automaticamente, a empresa precisa de qualidade alta em todos os números e templates e de ter usado pelo menos metade do limite atual nos últimos 7 dias.</li>
+    <li>Qualidade baixa não rebaixa mais o limite, mas congela a subida, pode pausar templates e, com feedback negativo excessivo, levar a restrições da conta.</li>
+  </ul>
+  <p class="tldr__meta">
+    <span>📖 Leitura de 10 minutos</span>
+    <span>·</span>
+    <time datetime="2026-10-30">Publicado em 30 de outubro de 2026</time>
+  </p>
+</aside>
+
+    <p class="art-lead">Na API Oficial do WhatsApp, quem decide quantas pessoas você pode alcançar por dia é a Meta. Ela olha duas coisas: quanto do seu limite atual você já usa e como os clientes reagem às suas mensagens. Entender essa regra é o que separa uma campanha que chega em todo mundo de uma que trava na metade.</p>
+
+    <p class="art-p">Imagina a cena. O time de marketing preparou a campanha de fim de ano para 8 mil clientes. O template foi aprovado, a lista está pronta, o disparo sai às 9h. Às 10h alguém percebe que só uma parte recebeu. Ninguém errou o envio. A conta simplesmente não tinha limite para 8 mil pessoas diferentes naquele dia, e ninguém olhou isso antes.</p>
+
+    <p class="art-p">Esse é o tipo de problema que aparece justamente no dia em que a empresa mais precisa do WhatsApp. Neste artigo eu vou mostrar como funciona o limite de envio no modelo que vale hoje (ele mudou em outubro de 2025), como a pontuação de qualidade é calculada, como subir de nível e o que de fato acontece quando a qualidade cai. Tudo com base na documentação oficial da Meta, com link para você conferir.</p>
+
+    <hr class="art-divider">
+
+    <h2 class="art-h2" id="o-que-e-o-limite-de-envio">O que é o limite de envio e o que ele conta</h2>
+    <p class="art-p">O limite de envio não é um limite de mensagens. É um limite de <strong>pessoas diferentes</strong>. Pela <a href="https://developers.facebook.com/documentation/business-messaging/whatsapp/messaging-limits" target="_blank" rel="noopener">documentação de limites de mensagens da Meta</a>, ele é o número máximo de usuários únicos do WhatsApp para os quais a sua empresa consegue entregar mensagens <strong>fora da janela de atendimento</strong>, dentro de um período móvel de 24 horas.</p>
+    <p class="art-p">Para entender o "fora da janela de atendimento", você precisa conhecer a janela. Quando um cliente manda mensagem ou liga para o seu número, abre uma janela de 24 horas. Se ele escrever de novo, o relógio volta para 24 horas. Enquanto essa janela está aberta, a empresa pode responder com qualquer tipo de mensagem: texto, áudio, imagem, botões, lista. Quando a janela fecha, a única forma de falar com essa pessoa é por template (HSM) aprovado, como explica a <a href="https://developers.facebook.com/documentation/business-messaging/whatsapp/messages/send-messages" target="_blank" rel="noopener">página de envio de mensagens da Meta</a>.</p>
+    <p class="art-p">Na prática, isso significa o seguinte. Se 3 mil clientes escreveram para você hoje e o seu atendente de IA respondeu todos eles, essas conversas não consomem o seu limite. O que consome é a mensagem que <strong>você</strong> manda para quem não está com a janela aberta: o lembrete de vencimento, a confirmação de pedido enviada no dia seguinte, a campanha de marketing.</p>
+    <p class="art-p">E repare na palavra "únicos". Se você manda três templates para o mesmo cliente no mesmo período de 24 horas, ele conta uma vez. Se você manda um template para 3 mil clientes diferentes, conta 3 mil. Por isso o limite pesa muito mais em campanha e régua de cobrança do que no atendimento do dia a dia.</p>
+    <p class="art-p">Conclusão prática: antes de planejar qualquer disparo, a pergunta certa não é "quantas mensagens posso mandar", e sim "quantas pessoas diferentes eu posso alcançar fora da janela nas próximas 24 horas".</p>
+
+    <h2 class="art-h2" id="os-niveis-de-limite-hoje">Os níveis de limite que valem hoje</h2>
+    <p class="art-p">A escada atual tem cinco degraus. Todo portfólio novo começa em <strong>250</strong> destinatários únicos por 24 horas. Depois sobe para <strong>2.000</strong>, <strong>10.000</strong>, <strong>100.000</strong> e, por fim, <strong>ilimitado</strong>. Esses são os níveis listados na <a href="https://developers.facebook.com/documentation/business-messaging/whatsapp/messaging-limits" target="_blank" rel="noopener">documentação oficial</a> em outubro de 2026.</p>
+
+    <h3 class="art-h3">O que mudou em outubro de 2025</h3>
+    <p class="art-p">Se você leu sobre esse assunto antes, provavelmente leu que cada número de telefone tinha o seu próprio limite. Isso mudou. Segundo a <a href="https://developers.facebook.com/documentation/business-messaging/whatsapp/upcoming-messaging-limits-changes/" target="_blank" rel="noopener">página da Meta sobre a mudança</a>, a partir de 7 de outubro de 2025 o limite passou a ser calculado e definido no <strong>portfólio de negócios</strong> (o que muita gente ainda chama de Meta Business Manager), e todos os números desse portfólio dividem o mesmo limite. O <a href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">changelog oficial</a> registra a mudança em 8 de outubro de 2025 e não traz nenhuma alteração posterior nessa regra até a data deste artigo.</p>
+    <p class="art-p">Na mesma mudança, a Meta definiu três coisas que afetam a sua operação:</p>
+    <p class="art-p"><strong>1. Portfólios antigos herdaram o maior limite.</strong> Se a empresa tinha um número em 100 mil e outros em níveis menores, o portfólio inteiro ficou em 100 mil.</p>
+    <p class="art-p"><strong>2. Número novo já nasce com o limite do portfólio.</strong> Você não precisa "aquecer" cada número do zero.</p>
+    <p class="art-p"><strong>3. Um número pode consumir o limite de todos.</strong> Se o seu portfólio está em 10.000 e o número do marketing manda campanha para 10.000 pessoas, o número da cobrança fica sem espaço fora da janela naquele período.</p>
+    <p class="art-p">O que isso muda na operação: limite agora é um orçamento compartilhado. Quem tem vários números (vendas, cobrança, suporte, filiais) precisa decidir qual área usa quanto, do mesmo jeito que decide verba de mídia.</p>
+
+    <h2 class="art-h2" id="como-subir-de-nivel">Como subir de nível sem pedir para ninguém</h2>
+
+    <div class="metrics-grid">
+      <div class="metric-card">
+        <div class="metric-number">250</div>
+        <div class="metric-label">destinatários únicos em 24h no portfólio novo</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-number">50%</div>
+        <div class="metric-label">do limite atual usado em 7 dias para subir de nível</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-number">6h</div>
+        <div class="metric-label">prazo para a Meta subir um nível após os critérios</div>
+      </div>
+    </div>
+
+    <p class="art-p">Os números acima estão na <a href="https://developers.facebook.com/documentation/business-messaging/whatsapp/messaging-limits" target="_blank" rel="noopener">documentação de limites</a>. A subida acontece em duas etapas diferentes.</p>
+    <p class="art-p"><strong>Do 250 para o 2.000.</strong> Basta cumprir um dos caminhos: verificar a empresa na Meta, ter a empresa verificada pelo parceiro que fez o seu cadastro (quando foi um parceiro que fez), ou entregar 2.000 mensagens fora da janela para pessoas diferentes em 30 dias, usando templates de alta qualidade. Depois disso a Meta analisa a qualidade das suas mensagens e, se aprovar, sobe para 2.000. Se negar, o limite fica onde está e a Meta avisa por notificação quais são os próximos passos. É por isso que a verificação da empresa aparece como etapa obrigatória quando falamos em <a href="/blog/migrar-whatsapp-business-para-api-oficial">migrar do WhatsApp Business para a API Oficial</a>.</p>
+    <p class="art-p"><strong>Do 2.000 em diante.</strong> Aqui não existe pedido nem formulário. A subida é automática e exige duas condições ao mesmo tempo: mensagens de alta qualidade em <strong>todos</strong> os números e templates do portfólio, e ter usado pelo menos metade do limite atual nos últimos 7 dias. Cumpridas as duas, o limite sobe um nível em até 6 horas.</p>
+    <p class="art-p">Um exemplo com números redondos. Seu portfólio está em 10.000. Se nos últimos 7 dias você nunca passou de 3.000 pessoas diferentes num período de 24 horas, você não sobe, porque não usou metade. Se você alcançou 5.000 ou mais e a qualidade está alta, o próximo degrau é 100.000. Quem dispara pouco e de forma irregular fica parado no mesmo nível, mesmo com qualidade perfeita.</p>
+        <p class="art-p">Em um dos nossos projetos, a estrutura de API Oficial chegou ao nível de 100 mil destinatários por dia em menos de dois meses. Pela regra da Meta, não existe atalho para pular degraus: o caminho é usar cada degrau de forma constante, com qualidade alta, até o sistema liberar o próximo.</p>
+
+    <div class="art-highlight">
+      <strong>A regra que quase ninguém conta:</strong> a qualidade é avaliada no portfólio inteiro. Um número secundário fazendo disparo para lista fria pode impedir que o limite de toda a empresa suba, porque a condição é qualidade alta em todos os números e templates.
+    </div>
+
+    <h2 class="art-h2" id="como-a-meta-mede-a-qualidade">Como a Meta mede a pontuação de qualidade</h2>
+    <p class="art-p">A pontuação de qualidade é a forma como a Meta resume a reação das pessoas às suas mensagens. Segundo a <a href="https://developers.facebook.com/documentation/business-messaging/whatsapp/messages/send-messages" target="_blank" rel="noopener">documentação oficial</a>, ela é calculada com base em como os usuários receberam suas mensagens nos <strong>últimos 7 dias</strong>, com peso maior para o que aconteceu mais recentemente. Os sinais usados são bloqueios, denúncias, silenciamentos, arquivamentos e os motivos que a pessoa informa quando bloqueia o seu número.</p>
+    <p class="art-p">Traduzindo para o dia a dia: cada cliente que recebe a sua mensagem e aperta "bloquear" ou "denunciar" está votando contra o seu número. Cada cliente que silencia ou arquiva a conversa também manda um sinal, mais fraco, de que aquilo não interessa. A Meta não publica quantos bloqueios levam a uma queda. Então ninguém sério consegue te dizer "pode ter até X bloqueios". O que dá para fazer é acompanhar a tendência.</p>
+    <p class="art-p">Existem duas pontuações diferentes, e vale olhar as duas:</p>
+    <p class="art-p"><strong>A do número.</strong> Aparece no WhatsApp Manager, na lista de números de telefone, em verde (alta), amarelo (média) ou vermelho (baixa). A Meta avisa que números com muito tráfego podem mudar de pontuação em questão de minutos.</p>
+    <p class="art-p"><strong>A de cada template.</strong> Pela <a href="https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/template-quality.md" target="_blank" rel="noopener">documentação de qualidade de templates</a>, cada modelo de mensagem tem a sua própria classificação, baseada em uso, feedback e engajamento. Além de bloqueios e denúncias, aqui entra a <strong>taxa de leitura baixa</strong>. Template novo começa sem nota até ter dados suficientes.</p>
+    <p class="art-p">O efeito disso é direto: um número pode estar verde e, ao mesmo tempo, ter um template de marketing indo mal. Quem olha só a cor do número acha que está tudo bem e descobre o problema quando a campanha para. No <a href="/blog/primeiros-30-dias-api-oficial-whatsapp">guia dos primeiros 30 dias com a API Oficial</a> eu listo as métricas para acompanhar toda semana; aqui o ponto é entender que número e template são avaliados separadamente.</p>
+
+    <h2 class="art-h2" id="o-que-acontece-quando-a-qualidade-cai">O que acontece quando a qualidade cai</h2>
+    <p class="art-p">Aqui está a mudança que mais confunde quem estudou o assunto antes de 2025. No modelo antigo, o número ficava com status "Flagged" e, se a qualidade não melhorasse em 7 dias, o limite caía um nível. Na <a href="https://developers.facebook.com/documentation/business-messaging/whatsapp/upcoming-messaging-limits-changes/" target="_blank" rel="noopener">regra atual</a>, a Meta diz duas coisas com todas as letras: o status Flagged deixou de existir, e se a pontuação de qualidade do número cair, o limite de envio <strong>não é rebaixado</strong>.</p>
+    <p class="art-p">Isso não quer dizer que qualidade baixa não custa nada. Ela custa, só que por outros caminhos:</p>
+
+    <h3 class="art-h3">O limite para de subir</h3>
+    <p class="art-p">Como a subida automática exige qualidade alta em todos os números e templates, uma qualidade ruim congela a empresa no degrau atual. Se você estava planejando chegar a 100 mil para a próxima campanha grande, não chega.</p>
+
+    <h3 class="art-h3">Templates são retidos, pausados ou desativados</h3>
+    <p class="art-p">Templates de marketing e utilidade novos, ou que ainda não têm nota verde, passam pelo <a href="https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/template-pacing.md" target="_blank" rel="noopener">pacing de template</a>: depois de um primeiro lote, as mensagens seguintes ficam retidas enquanto a Meta observa a reação de quem já recebeu. Se o feedback for negativo, o template é pausado e as mensagens retidas são descartadas, ou seja, parte da sua lista simplesmente não recebe. Feedback negativo recorrente pode levar o template a ser desativado.</p>
+
+    <h3 class="art-h3">O marketing chega em menos gente</h3>
+    <p class="art-p">A Meta também aplica um <a href="https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/marketing-templates/per-user-limits" target="_blank" rel="noopener">limite por usuário para mensagens de marketing</a>, que leva em conta a taxa de leitura recente de cada pessoa. Quem ignora seus templates tende a receber menos deles.</p>
+
+    <h3 class="art-h3">A conta pode ser restringida</h3>
+    <p class="art-p">Pela <a href="https://developers.facebook.com/documentation/business-messaging/whatsapp/policy-enforcement.md" target="_blank" rel="noopener">política de enforcement da Meta</a>, violações repetidas como spam geram restrições que vão de 1 a 3 dias sem enviar templates, depois de 5 a 30 dias sem enviar mensagem nenhuma, até bloqueio da conta. A mesma página diz que o WhatsApp pode limitar ou desligar a empresa que recebe feedback negativo excessivo dos usuários. Se isso já aconteceu com você, o caminho de revisão está explicado no artigo sobre <a href="/blog/numero-whatsapp-banido-como-recuperar">número do WhatsApp banido</a>.</p>
+
+    <h2 class="art-h2" id="antes-de-escalar-o-disparo">O que conferir antes de escalar o disparo</h2>
+    <p class="art-p">A própria Meta lista as boas práticas na <a href="https://developers.facebook.com/documentation/business-messaging/whatsapp/messages/send-messages" target="_blank" rel="noopener">documentação de envio</a>: mandar só para quem deu opt-in, personalizar a mensagem para que ela seja útil, evitar mensagens de boas-vindas genéricas e evitar mandar mensagens demais no mesmo dia. Nos projetos que acompanho, o que derruba a qualidade quase sempre é uma dessas quatro coisas, e quase sempre numa campanha feita com pressa.</p>
+    <p class="art-p">Antes de uma campanha grande, eu passo por este checklist com o cliente:</p>
+
+    <div class="art-tip">
+      <strong>Limite do portfólio versus tamanho da lista:</strong> confira em WhatsApp Manager, Ferramentas da conta, Limites de mensagens. Se a lista tem 8 mil pessoas e o limite é 2.000, divida a campanha em dias ou priorize os clientes mais engajados.<br><br>
+      <strong>Opt-in de verdade:</strong> a Meta exige opt-in antes de templates, deixando claro o nome da empresa e o tipo de mensagem. Lista comprada ou lista de quem nunca falou com você é o caminho mais curto para bloqueios.<br><br>
+      <strong>Cor do número e de cada template:</strong> número amarelo ou template com nota baixa pede ajuste de conteúdo antes de aumentar o volume.<br><br>
+      <strong>Quem mais usa o mesmo portfólio:</strong> se marketing, cobrança e suporte dividem o portfólio, combine a divisão do limite antes do disparo.<br><br>
+      <strong>Teste com um lote menor:</strong> mande primeiro para uma parte da base e acompanhe a reação por algumas horas antes de soltar o resto.
+    </div>
+
+    <p class="art-p">Dois pontos de contexto que costumam aparecer nessa conversa. Primeiro: tentar contornar o limite disparando por um número fora da API Oficial não resolve, só troca o problema de lugar. Expliquei os riscos no artigo sobre <a href="/blog/api-nao-oficial-whatsapp">API não oficial do WhatsApp</a> e no comparativo <a href="/blog/whatsapp-business-vs-api-oficial">WhatsApp Business, API não oficial ou API Oficial</a>. Segundo: o limite de envio não é a mesma coisa que velocidade de envio. A <a href="https://developers.facebook.com/documentation/business-messaging/whatsapp/throughput" target="_blank" rel="noopener">documentação de throughput</a> fixa 80 mensagens por segundo por número como padrão, e números em <a href="/blog/coexistencia-whatsapp-app-api-oficial">coexistência com o app</a> ficam em 20 por segundo. Para campanhas muito grandes, isso também entra no planejamento.</p>
+    <p class="art-p">E não esqueça o custo. Cada template entregue fora da janela tem preço por categoria, e subir de nível significa poder gastar mais num único dia. A conta completa está no artigo sobre <a href="/blog/quanto-custa-api-oficial-whatsapp-2026">quanto custa a API Oficial do WhatsApp em 2026</a>.</p>
+    <p class="art-p">Resumindo o raciocínio: o limite de envio cresce quando você usa o que já tem de forma constante e as pessoas reagem bem às suas mensagens. Qualidade baixa não derruba mais o seu limite, mas congela o crescimento, pausa templates e, se continuar, coloca a conta em risco. Quem cuida da qualidade antes de escalar chega no dia da campanha grande com espaço para alcançar a base inteira.</p>
+    <hr class="art-divider">
+
+    <h2 class="art-h2" id="perguntas-frequentes">Perguntas frequentes</h2>
+
+    <h3 class="faq-q">O limite de envio da API Oficial do WhatsApp é por número ou por conta?</h3>
+    <p class="art-p">Desde 7 de outubro de 2025 o limite é definido no portfólio de negócios da Meta, e não em cada número. Todos os números do mesmo portfólio dividem o mesmo teto de destinatários únicos em 24 horas. Na prática, se o número do marketing usar o limite inteiro numa campanha, o número da cobrança fica sem espaço para mandar templates fora da janela de atendimento naquele período. Número novo já entra com o limite do portfólio.</p>
+
+    <h3 class="faq-q">Mensagem respondendo cliente conta no limite de envio?</h3>
+    <p class="art-p">Não. O limite conta apenas as pessoas diferentes que recebem mensagens suas fora da janela de atendimento. Essa janela abre por 24 horas quando o cliente manda mensagem ou liga, e reinicia a cada nova mensagem dele. Enquanto ela está aberta, você pode responder com qualquer tipo de mensagem sem consumir limite. O que consome é o template enviado para quem não está com a janela aberta, como lembretes, cobranças e campanhas.</p>
+
+    <h3 class="faq-q">Como aumentar o limite de mensagens no WhatsApp API?</h3>
+    <p class="art-p">Para sair de 250 e ir para 2.000, basta verificar a empresa na Meta, ter a verificação feita pelo parceiro que fez o cadastro ou entregar 2.000 mensagens fora da janela para pessoas diferentes em 30 dias com templates de alta qualidade. Acima de 2.000 a subida é automática: com qualidade alta em todos os números e templates e uso de pelo menos metade do limite atual nos últimos 7 dias, o limite sobe um nível em até 6 horas.</p>
+
+    <h3 class="faq-q">Se a qualidade do número ficar vermelha, o limite de envio diminui?</h3>
+    <p class="art-p">Não na regra atual. A Meta informa que o status Flagged deixou de existir e que a queda da pontuação de qualidade não rebaixa o limite de envio. Mas a qualidade baixa impede o limite de subir, porque a subida exige qualidade alta em todos os números e templates. Ela também pode fazer templates serem pausados, com mensagens retidas descartadas, e feedback negativo excessivo pode levar a restrições da conta.</p>
+
+    <h3 class="faq-q">Como a Meta calcula a pontuação de qualidade do número?</h3>
+    <p class="art-p">A Meta avalia como os usuários receberam suas mensagens nos últimos 7 dias, dando peso maior ao que aconteceu mais recentemente. Os sinais são bloqueios, denúncias, silenciamentos, arquivamentos e os motivos informados quando a pessoa bloqueia o número. A pontuação aparece no WhatsApp Manager em verde, amarelo ou vermelho. A Meta não publica quantos bloqueios causam queda, e números com muito tráfego podem mudar de pontuação em minutos.</p>
+
+    <h3 class="faq-q">O que é a janela de atendimento de 24 horas?</h3>
+    <p class="art-p">É o período que abre quando o cliente manda mensagem ou liga para o seu número, e reinicia a cada nova mensagem dele. Dentro dela, a empresa responde com qualquer tipo de mensagem sem consumir o limite de envio. Fora dela, só é possível falar com a pessoa por template aprovado, e aí o envio conta no limite.</p>
+
+    <h3 class="faq-q">Limite de envio e velocidade de envio são a mesma coisa?</h3>
+    <p class="art-p">Não. O limite é quantas pessoas diferentes você alcança fora da janela em 24 horas. A velocidade é quantas mensagens por segundo o número entrega: 80 por padrão em um número só na API, e 20 em um número em coexistência com o app. Campanhas grandes precisam das duas contas.</p>
+
+    <h3 class="faq-q">Quais sinais derrubam a pontuação de qualidade?</h3>
+    <p class="art-p">Bloqueios, denúncias, silenciamentos, arquivamentos e os motivos informados quando a pessoa bloqueia o número, avaliados nos últimos 7 dias com peso maior para o mais recente. Nos projetos, quase sempre a causa é lista sem opt-in, mensagem genérica ou envio demais no mesmo dia.</p>
+
+    <div class="art-highlight"><strong>Resumo para decidir:</strong> Se você planeja uma campanha grande na API Oficial, duas coisas decidem se ela chega em todo mundo: o limite de destinatários únicos do seu portfólio nas 24 horas e a pontuação de qualidade do número e de cada template. O limite cresce sozinho quando você usa o que já tem de forma constante e as pessoas reagem bem; qualidade baixa congela o crescimento e pausa templates. A Altum Digital é a consultoria de automação e IA de Talita Bispo, em São Paulo, que implementa a API Oficial do WhatsApp, agentes de IA e automações integradas aos sistemas da empresa, para negócios que faturam a partir de R$ 100 mil por mês e querem parar de depender de processo manual.</div>
+
+    <div class="cta-inline">
+      <h3>Vai escalar o disparo e não sabe se o seu número aguenta?</h3>
+      <p>Eu reviso com você o limite atual do portfólio, a pontuação do número e de cada template e o tamanho da campanha que você quer fazer, e te digo o que ajustar antes de apertar o botão.</p>
+      <a href="https://wa.me/5511954715571?text=Oi%20Talita%21%20Li%20seu%20artigo%20sobre%20pontua%C3%A7%C3%A3o%20de%20qualidade%20e%20limite%20de%20envio%20no%20WhatsApp%20e%20quero%20revisar%20a%20sa%C3%BAde%20do%20meu%20n%C3%BAmero%20antes%20de%20escalar%20o%20disparo." class="btn-wa" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Falar com Talita no WhatsApp
+      </a>
+    </div>
+
+    <div class="author-box">
+      <div class="author-box-inner">
+        <div class="author-box-avatar">TB</div>
+        <div>
+          <h4>Talita Bispo</h4>
+          <p>Fundadora da Altum Digital, consultoria de automação e IA em São Paulo que implementa a API Oficial do WhatsApp, agentes de IA e automações integradas aos sistemas da empresa, para negócios que faturam a partir de R$ 100 mil por mês e querem parar de depender de processo manual. Certificada Google Cloud Generative AI Leader, com 11 anos de consultoria na Accenture (TIM, SKY, SEFAZ-SP, Johnson &amp; Johnson, Getnet, Claro) e criadora do AltumChat, plataforma de atendimento e CRM no WhatsApp que roda sobre infraestrutura de Parceiro Oficial da Meta. Mais de 30 projetos entregues. Atende todo o Brasil.</p>
+        </div>
+      </div>
+    </div>
+
+    <section class="related-posts" aria-labelledby="related-heading">
+      <h2 id="related-heading" class="related-posts__heading">Artigos relacionados</h2>
+      <ul class="related-posts__list">
+    <li class="related-posts__item">
+      <a href="/blog/numero-whatsapp-banido-como-recuperar" class="related-posts__link">
+        <h3 class="related-posts__title">Número do WhatsApp banido: por que acontece e como recuperar (ou não)</h3>
+        <p class="related-posts__relation">Quando a qualidade vira restrição: causas e caminho de revisão.</p>
+      </a>
+    </li>
+    <li class="related-posts__item">
+      <a href="/blog/quanto-custa-api-oficial-whatsapp-2026" class="related-posts__link">
+        <h3 class="related-posts__title">Quanto custa a API Oficial do WhatsApp em 2026: a tabela da Meta</h3>
+        <p class="related-posts__relation">Próximo passo: quanto custa usar o limite que você tem.</p>
+      </a>
+    </li>
+    <li class="related-posts__item">
+      <a href="/blog/primeiros-30-dias-api-oficial-whatsapp" class="related-posts__link">
+        <h3 class="related-posts__title">O que acontece nos primeiros 30 dias após implementar a API Oficial do WhatsApp</h3>
+        <p class="related-posts__relation">Conceito-base: métricas semanais para acompanhar desde o início.</p>
+      </a>
+    </li>
+    <li class="related-posts__item">
+      <a href="/blog/migrar-whatsapp-business-para-api-oficial" class="related-posts__link">
+        <h3 class="related-posts__title">Migrar do WhatsApp Business para a API Oficial sem perder o número</h3>
+        <p class="related-posts__relation">Verificação da empresa e migração antes de escalar envio.</p>
+      </a>
+    </li>
+      </ul>
+    </section>
+    
+  </article>
+
+  <aside class="sidebar">
+    <div class="sidebar-sticky">
+      <div class="sidebar-card">
+        <h4>Neste artigo</h4>
+        <ul class="toc-list">
+          <li><a href="#o-que-e-o-limite-de-envio">O que o limite conta</a></li>
+          <li><a href="#os-niveis-de-limite-hoje">Os níveis que valem hoje</a></li>
+          <li><a href="#como-subir-de-nivel">Como subir de nível</a></li>
+          <li><a href="#como-a-meta-mede-a-qualidade">Como a qualidade é medida</a></li>
+          <li><a href="#o-que-acontece-quando-a-qualidade-cai">Quando a qualidade cai</a></li>
+          <li><a href="#antes-de-escalar-o-disparo">Antes de escalar o disparo</a></li>
+          <li><a href="#perguntas-frequentes">Perguntas frequentes</a></li>
+        </ul>
+      </div>
+      <div class="sidebar-cta">
+        <h4>Seu número aguenta a campanha?</h4>
+        <p>Reviso limite, qualidade e templates antes do seu próximo disparo grande.</p>
+        <a href="https://wa.me/5511954715571?text=Oi%20Talita%21%20Li%20seu%20artigo%20sobre%20pontua%C3%A7%C3%A3o%20de%20qualidade%20e%20limite%20de%20envio%20no%20WhatsApp%20e%20quero%20revisar%20a%20sa%C3%BAde%20do%20meu%20n%C3%BAmero%20antes%20de%20escalar%20o%20disparo." class="btn-wa-sm" target="_blank">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Falar com Talita
+        </a>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-logo">Altum<span>.</span>Digital</div>
+      <p>© 2025 Talita Bispo · Altum Digital Soluções LTDA</p>
+      <p>São Paulo, SP · Brasil</p>
+      <p>CNPJ 61.287.916/0001-69</p>
+      <p><a href="https://www.linkedin.com/in/talita-b-35b47923/" target="_blank" rel="me noopener" style="color:#9ca3af">LinkedIn</a> · <a href="https://www.instagram.com/soutalitabispo/" target="_blank" rel="me noopener" style="color:#9ca3af">Instagram @SouTalitaBispo</a></p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

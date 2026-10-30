@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coexistência no WhatsApp: app e API Oficial no mesmo número</title>
+<meta name="description" content="Coexistência no WhatsApp: use o app Business e a API Oficial no mesmo número. Requisitos, o que sincroniza, o que para no app e custo.">
+<meta name="author" content="Talita Bispo — Altum Digital">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://altumdigital.com.br/blog/coexistencia-whatsapp-app-api-oficial">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://altumdigital.com.br/blog/coexistencia-whatsapp-app-api-oficial">
+<meta property="og:title" content="Coexistência no WhatsApp: app e API Oficial no mesmo número">
+<meta property="og:description" content="Coexistência no WhatsApp: use o app Business e a API Oficial no mesmo número. Requisitos, o que sincroniza, o que para no app e custo.">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Altum Digital">
+<meta property="article:author" content="Talita Bispo">
+<meta property="article:published_time" content="2026-10-30">
+<meta property="article:tag" content="WhatsApp API">
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:#f8fafb;color:#0f172a;font-family:'DM Sans',sans-serif;font-size:16px;line-height:1.7}
+h1,h2,h3,h4{font-family:'Manrope',sans-serif}
+a{text-decoration:none;color:inherit}
+.container{max-width:1100px;margin:0 auto;padding:0 28px}
+nav{background:#06080f;padding:18px 0;border-bottom:1px solid rgba(255,255,255,0.07)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;max-width:1100px;margin:0 auto;padding:0 28px}
+.nav-logo{font-family:'Manrope',sans-serif;font-size:18px;font-weight:800;color:#e8eaf0}
+.nav-logo span{color:#00e5c3}
+.nav-links{list-style:none;display:flex;gap:28px;align-items:center}
+.nav-links a{color:#7b8499;font-size:14px;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:#e8eaf0}
+.nav-links a.active{color:#00e5c3}
+.nav-cta{background:#00e5c3;color:#06080f!important;padding:9px 20px;border-radius:6px;font-weight:700!important;font-size:13px!important}
+.article-hero{background:#fff;border-bottom:1px solid #e5e7eb;padding:52px 0 44px}
+.article-hero-inner{max-width:760px;margin:0 auto;padding:0 28px}
+.breadcrumb{font-size:13px;color:#9ca3af;margin-bottom:20px;display:flex;align-items:center;gap:8px}
+.breadcrumb a{color:#00b89e;font-weight:500}
+.breadcrumb-sep{color:#d1d5db}
+.art-tag{display:inline-flex;align-items:center;gap:6px;background:#e6faf6;border:1px solid #b3f0e0;border-radius:100px;padding:5px 14px;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#0f6e56;margin-bottom:20px}
+.art-tag-dot{width:6px;height:6px;border-radius:50%;background:#00e5c3}
+.article-title{font-size:clamp(24px,4vw,38px);font-weight:800;line-height:1.2;color:#0f172a;margin-bottom:20px;letter-spacing:-.025em}
+.article-meta{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.meta-avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#00e5c3,#4f8cff);display:flex;align-items:center;justify-content:center;font-family:'Manrope',sans-serif;font-weight:800;font-size:11px;color:#fff;flex-shrink:0}
+.meta-info{display:flex;flex-direction:column;gap:2px}
+.meta-name{font-size:14px;font-weight:700;color:#374151}
+.meta-details{font-size:12px;color:#9ca3af}
+.article-layout{display:grid;grid-template-columns:1fr 280px;gap:48px;max-width:1060px;margin:0 auto;padding:48px 28px 80px}
+.art-lead{font-size:19px;color:#374151;line-height:1.8;margin-bottom:36px;font-weight:400;border-left:3px solid #00e5c3;padding-left:22px}
+.art-h2{font-size:22px;font-weight:800;color:#0f172a;margin:44px 0 14px;letter-spacing:-.015em}
+.art-h3{font-size:17px;font-weight:700;color:#0f172a;margin:28px 0 10px}
+.art-p{font-size:16px;color:#4b5563;line-height:1.85;margin-bottom:18px}
+.art-highlight{background:#f0fdf9;border:1px solid #ccf7eb;border-left:3px solid #00e5c3;border-radius:0 8px 8px 0;padding:18px 22px;margin:28px 0;font-size:15px;color:#065f46;line-height:1.75}
+.art-highlight strong{font-weight:700;color:#047857}
+.art-tip{background:#fffbeb;border:1px solid #fde68a;border-left:3px solid #f59e0b;border-radius:0 8px 8px 0;padding:18px 22px;margin:24px 0;font-size:14px;color:#92400e;line-height:1.7}
+.art-tip strong{font-weight:700}
+.art-divider{border:none;border-top:1px solid #f0f0f0;margin:40px 0}
+.art-quote{background:#f8fafb;border-left:3px solid #00e5c3;border-radius:0 8px 8px 0;padding:20px 24px;margin:32px 0;font-size:17px;font-style:italic;color:#374151;line-height:1.75}
+.metrics-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:28px 0}
+.metric-card{background:#0f172a;border-radius:12px;padding:20px;text-align:center}
+.metric-number{font-family:'Manrope',sans-serif;font-size:36px;font-weight:800;color:#00e5c3;line-height:1;margin-bottom:6px}
+.metric-label{font-size:13px;color:#9ca3af;line-height:1.4}
+.cta-inline{background:#0f172a;border-radius:16px;padding:32px;margin:44px 0;text-align:center}
+.cta-inline h3{font-family:'Manrope',sans-serif;font-size:20px;font-weight:800;color:#fff;margin-bottom:10px}
+.cta-inline p{font-size:14px;color:#9ca3af;margin-bottom:22px;line-height:1.65}
+.btn-wa{display:inline-flex;align-items:center;gap:10px;background:#25D366;color:#fff;padding:13px 26px;border-radius:8px;font-family:'Manrope',sans-serif;font-weight:700;font-size:14px;transition:opacity .2s}
+.btn-wa:hover{opacity:.9}
+.btn-wa svg{width:18px;height:18px;fill:#fff;flex-shrink:0}
+.author-box{background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:24px;margin-top:48px}
+.author-box-inner{display:flex;gap:16px;align-items:flex-start}
+.author-box-avatar{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#00e5c3,#4f8cff);display:flex;align-items:center;justify-content:center;font-family:'Manrope',sans-serif;font-weight:800;font-size:14px;color:#fff;flex-shrink:0}
+.author-box h4{font-size:15px;font-weight:800;color:#0f172a;margin-bottom:4px}
+.author-box p{font-size:13px;color:#6b7280;line-height:1.6}
+.sidebar-sticky{position:sticky;top:28px}
+.sidebar-card{background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:22px;margin-bottom:20px}
+.sidebar-card h4{font-family:'Manrope',sans-serif;font-size:13px;font-weight:700;color:#0f172a;margin-bottom:16px;letter-spacing:.02em;text-transform:uppercase}
+.toc-list{list-style:none;display:flex;flex-direction:column;gap:10px}
+.toc-list a{font-size:13px;color:#6b7280;line-height:1.4;transition:color .2s;display:block}
+.toc-list a:hover{color:#00b89e}
+.sidebar-cta{background:#0f172a;border-radius:16px;padding:22px;text-align:center}
+.sidebar-cta p{font-size:13px;color:#9ca3af;margin-bottom:16px;line-height:1.6}
+.sidebar-cta h4{font-family:'Manrope',sans-serif;font-size:15px;font-weight:800;color:#fff;margin-bottom:10px}
+.btn-wa-sm{display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#fff;padding:11px 18px;border-radius:8px;font-family:'Manrope',sans-serif;font-weight:700;font-size:13px;width:100%;justify-content:center}
+footer{background:#06080f;border-top:1px solid rgba(255,255,255,0.07);padding:32px 0}
+.footer-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.footer-logo{font-family:'Manrope',sans-serif;font-weight:800;font-size:15px;color:#e8eaf0}
+.footer-logo span{color:#00e5c3}
+footer p{color:#7b8499;font-size:13px}
+@media(max-width:900px){.article-layout{grid-template-columns:1fr}.sidebar{display:none}.nav-links{display:none}.metrics-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:500px){.metrics-grid{grid-template-columns:1fr}}
+
+/* === Blocos SEO/GEO (TLDR + FAQ + Related) — alinhado com paleta atual === */
+.tldr{background:#f0fdf9;border:1px solid #ccf7eb;border-left:4px solid #00b89e;border-radius:0 8px 8px 0;padding:22px 26px;margin:0 0 36px 0;font-family:'DM Sans',sans-serif;}
+.tldr__heading{font-family:'Manrope',sans-serif;font-size:13px;font-weight:700;color:#0f6e56;text-transform:uppercase;letter-spacing:.1em;margin:0 0 14px 0;}
+.tldr__list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;}
+.tldr__list li{font-size:15px;color:#065f46;line-height:1.65;padding-left:22px;position:relative;}
+.tldr__list li::before{content:"\2192";position:absolute;left:0;color:#00b89e;font-weight:700;}
+.tldr__meta{margin-top:18px;padding-top:14px;border-top:1px solid #ccf7eb;font-size:12px;color:#0f6e56;display:flex;gap:10px;flex-wrap:wrap;align-items:center;}
+.faq-q{font-family:'Manrope',sans-serif;font-size:17px;font-weight:700;color:#0f172a;margin:26px 0 8px;line-height:1.4}
+.faq{margin:48px 0 40px;}
+.faq__heading{font-family:'Manrope',sans-serif;font-size:22px;font-weight:800;color:#0f172a;margin:0 0 20px 0;letter-spacing:-.015em;}
+.faq__item{border-bottom:1px solid #e5e7eb;padding:16px 0;cursor:pointer;}
+.faq__item:last-child{border-bottom:none;}
+.faq__question{font-family:'Manrope',sans-serif;font-size:16px;font-weight:700;color:#0f172a;list-style:none;position:relative;padding-right:32px;cursor:pointer;}
+.faq__question::-webkit-details-marker{display:none;}
+.faq__question::after{content:"+";position:absolute;right:0;top:-3px;font-size:22px;color:#00b89e;font-weight:400;transition:transform .2s;}
+.faq__item[open] .faq__question::after{content:"\2212";}
+.faq__answer{padding-top:12px;color:#4b5563;line-height:1.7;font-size:14px;}
+.related-posts{margin:48px 0 0 0;padding-top:32px;border-top:1px solid #e5e7eb;}
+.related-posts__heading{font-family:'Manrope',sans-serif;font-size:20px;font-weight:800;color:#0f172a;margin:0 0 20px 0;letter-spacing:-.015em;}
+.related-posts__list{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+.related-posts__link{display:block;padding:18px 20px;background:#fff;border:1px solid #e5e7eb;border-radius:12px;text-decoration:none;transition:border-color .2s,transform .2s;}
+.related-posts__link:hover{border-color:#00b89e;transform:translateY(-2px);}
+.related-posts__title{font-family:'Manrope',sans-serif;font-size:14px;font-weight:700;color:#0f172a;margin:0 0 6px;line-height:1.35;}
+.related-posts__relation{font-size:12px;color:#6b7280;margin:0;line-height:1.5;}
+@media(max-width:640px){.related-posts__list{grid-template-columns:1fr;}}
+.art-p a,.article-content li a:not([class]){color:#00b89e;font-weight:600;text-decoration:underline}
+</style>
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Coexistência no WhatsApp: app e API Oficial no mesmo número">
+<meta name="twitter:description" content="Coexistência no WhatsApp: use o app Business e a API Oficial no mesmo número. Requisitos, o que sincroniza, o que para no app e custo.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Coexistência no WhatsApp: app e API Oficial no mesmo número",
+  "description": "Coexistência no WhatsApp: use o app Business e a API Oficial no mesmo número. Requisitos, o que sincroniza, o que para no app e custo.",
+  "author": {"@type": "Person", "@id": "https://altumdigital.com.br/#talita-bispo", "name": "Talita Bispo", "url": "https://altumdigital.com.br/"},
+  "publisher": {"@type": "Organization", "@id": "https://altumdigital.com.br/#organizacao", "name": "Altum Digital", "url": "https://altumdigital.com.br/"},
+  "datePublished": "2026-10-30T00:00:00-03:00",
+  "dateModified": "2026-10-30T00:00:00-03:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://altumdigital.com.br/blog/coexistencia-whatsapp-app-api-oficial"
+  },
+  "articleSection": "WhatsApp API",
+  "keywords": [
+    "coexistência WhatsApp",
+    "WhatsApp Business app e API Oficial no mesmo número",
+    "coexistência WhatsApp Cloud API",
+    "conectar WhatsApp Business à API Oficial",
+    "coexistência WhatsApp o que para de funcionar"
+  ],
+  "wordCount": 2382,
+  "inLanguage": "pt-BR"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Altum Digital",
+      "item": "https://altumdigital.com.br/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "https://altumdigital.com.br/blog"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Coexistência no WhatsApp: app e API Oficial no mesmo número"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Posso usar o WhatsApp Business no celular e a API Oficial no mesmo número?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sim, pela coexistência, que a Meta liberou em fevereiro de 2025. O número continua no app WhatsApp Business do celular e passa a funcionar também na API Oficial, conectado a uma plataforma de atendimento. As conversas ficam sincronizadas: o que o dono responde no app aparece para a equipe na plataforma. A conexão é feita pelo Embedded Signup de um parceiro oficial da Meta, e o app precisa estar na versão 2.24.17 ou superior."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Perco minhas conversas se conectar meu WhatsApp Business à API Oficial pela coexistência?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Não. Na coexistência, as conversas continuam no app do celular. A Meta permite que o parceiro sincronize com a plataforma os contatos e as conversas individuais dos últimos 6 meses, mas, nas plataformas de atendimento que conheço, só aparecem as mensagens trocadas depois da conexão, inclusive em conversas antigas quando o cliente volta a escrever. Grupos não sincronizam. Antes de conectar, pergunte ao parceiro se ele importa o histórico."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "O que para de funcionar no app WhatsApp Business depois da coexistência?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "As listas de transmissão deixam de funcionar: não dá para criar novas e as existentes ficam só para leitura. Nas conversas individuais, ficam desativadas as mensagens temporárias, a visualização única e a localização em tempo real. Catálogo, etiquetas, respostas rápidas, mensagem de ausência, grupos e ligações continuam no app, mas não existem na API. O WhatsApp para Windows e para WearOS não é suportado como dispositivo conectado."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "A coexistência é paga? As mensagens que mando pelo celular passam a ser cobradas?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Não. Segundo a Meta, as mensagens enviadas pelo app WhatsApp Business continuam gratuitas. O que sai pela API segue a tabela da Meta: templates são cobrados por mensagem e, desde 1º de outubro de 2026, cada número tem 1.000 mensagens de serviço gratuitas por mês pela API. As mensagens do app não abrem a janela de atendimento de 24 horas da API, então essa janela só abre quando o cliente escreve depois da conexão."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Dá para fazer disparo em massa com um número em coexistência?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Dá, por templates aprovados pela API, mas com limites. A lista de transmissão do app deixa de funcionar, e o número em coexistência tem vazão fixa de 20 mensagens por segundo, contra 80 por padrão de um número só na API. Na prática, 50 mil mensagens levam cerca de 42 minutos em vez de 10. Para operação que vive de campanha grande, um número dedicado só à API costuma render mais."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "A coexistência funciona com o WhatsApp comum (pessoal)?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Não. A coexistência parte do app WhatsApp Business instalado no celular. Se o número da empresa ainda está no WhatsApp comum, o primeiro passo é passar esse número para o app Business."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Como desconectar um número da coexistência?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pelo próprio app WhatsApp Business, em Configurações, Conta, na opção da plataforma comercial, com o botão de desconectar conta. O comando de remover registro pela API não funciona para número em coexistência, e a desconexão derruba o atendimento pela plataforma naquele número."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "A coexistência serve para regularizar um número que roda em API não oficial?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Não. Ela parte do app WhatsApp Business oficial instalado no celular, não de uma ferramenta não oficial. Um número que hoje roda por QR Code em ferramenta não autorizada tem outro caminho e outros riscos."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">Altum<span>.</span>Digital</a>
+    <ul class="nav-links">
+      <li><a href="/#services">Serviços</a></li>
+      <li><a href="/#projects">Projetos</a></li>
+      <li><a href="/#method">Metodologia</a></li>
+      <li><a href="/blog" class="active">Blog</a></li>
+      <li><a href="/#cta" class="nav-cta">Falar com Talita</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="article-hero">
+  <div class="article-hero-inner">
+    <div class="breadcrumb">
+      <a href="/">Altum Digital</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="/blog">Blog</a>
+      <span class="breadcrumb-sep">›</span>
+      <span>Coexistência app + API Oficial</span>
+    </div>
+    <div class="art-tag"><div class="art-tag-dot"></div>WhatsApp API</div>
+    <h1 class="article-title">Coexistência no WhatsApp: usar o app e a API Oficial no mesmo número</h1>
+    <div class="article-meta">
+      <div class="meta-avatar">TB</div>
+      <div class="meta-info">
+        <span class="meta-name">Talita Bispo · Altum Digital</span>
+        <span class="meta-details">30 de outubro de 2026 · 10 min de leitura</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="article-layout">
+  <article class="article-content">
+
+
+    
+    <aside class="tldr" role="complementary" aria-labelledby="tldr-heading">
+  <h2 id="tldr-heading" class="tldr__heading">Resumo: o que você vai aprender</h2>
+  <ul class="tldr__list">
+    <li>Coexistência é usar o mesmo número de WhatsApp no app WhatsApp Business do celular e na API Oficial ao mesmo tempo, com as conversas sincronizadas entre os dois lados.</li>
+    <li>A conexão só é feita pelo Embedded Signup de um parceiro oficial da Meta, e o app precisa estar na versão 2.24.17 ou superior.</li>
+    <li>A Meta permite sincronizar contatos e conversas individuais dos últimos 6 meses, mas, nas plataformas que conheço, só aparecem as mensagens trocadas depois da conexão; o histórico antigo fica no celular.</li>
+    <li>No app, as listas de transmissão ficam só leitura e somem mensagens temporárias, visualização única e localização em tempo real; o número fica com vazão fixa de 20 mensagens por segundo.</li>
+    <li>Mensagens enviadas pelo app continuam gratuitas e as enviadas pela API seguem a tabela da Meta; faz sentido para atendimento um a um no número conhecido, não para disparo em grande escala.</li>
+  </ul>
+  <p class="tldr__meta">
+    <span>📖 Leitura de 10 minutos</span>
+    <span>·</span>
+    <time datetime="2026-10-30">Publicado em 30 de outubro de 2026</time>
+  </p>
+</aside>
+
+    <p class="art-lead">Muita empresa quer a API Oficial do WhatsApp, mas não quer abrir mão do celular que o dono usa há anos com os clientes. A coexistência resolve parte disso: o mesmo número funciona no app WhatsApp Business e na API ao mesmo tempo. Vou mostrar o que a Meta documenta, o que muda e quando vale a pena.</p>
+
+    <p class="art-p">Pensa numa distribuidora em que o dono responde clientes antigos pelo celular há oito anos. O número está no cartão de visita e no boleto. A empresa cresceu, contratou três vendedores e quer colocar um atendente de IA para responder dúvidas de prazo e de pedido. Só que, antes de fevereiro de 2025, colocar esse número na API Oficial significava tirar ele do aplicativo. O dono perdia o celular como ferramenta de trabalho, e muita empresa desistia da API por causa disso.</p>
+
+    <p class="art-p">Em <a href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">11 de fevereiro de 2025</a>, a Meta liberou para os parceiros dela um caminho diferente, chamado de coexistência (Coexistence, na documentação oficial). Abaixo explico o que ela é, quem pode usar, o que muda, quanto custa e quando eu recomendo, com base na documentação da Meta vigente em outubro de 2026.</p>
+
+    <hr class="art-divider">
+
+    <h2 class="art-h2" id="o-que-e-coexistencia">O que é a coexistência no WhatsApp</h2>
+    <p class="art-p">Coexistência é quando o mesmo número de WhatsApp funciona em dois lugares ao mesmo tempo: no app WhatsApp Business, no celular, e na API Oficial do WhatsApp (a Cloud API da Meta), conectada a uma plataforma de atendimento. A <a href="https://developers.facebook.com/documentation/business-messaging/whatsapp/embedded-signup/onboarding-business-app-users/" target="_blank" rel="noopener">documentação da Meta</a> descreve assim: a empresa conecta à Cloud API a conta que já usa no app, continua conversando um a um pelo app, e o WhatsApp mantém o histórico sincronizado entre os dois lados.</p>
+    <p class="art-p">Na prática, o dono continua respondendo pelo celular, e a equipe responde o mesmo cliente pela plataforma, no computador. A conversa é uma só. O cliente continua falando com o mesmo contato que já tem salvo.</p>
+    <p class="art-p">É importante não confundir coexistência com migração. Na migração completa, o número sai do app e passa a existir só na API. Na coexistência, ele fica nos dois. Se você ainda está decidindo entre um caminho e outro, o post <a href="/blog/migrar-whatsapp-business-para-api-oficial">como migrar do WhatsApp Business para a API Oficial sem perder o número</a> compara as duas opções. Se a dúvida é mais básica, sobre o que separa o app, a API não oficial e a API Oficial, comece por <a href="/blog/whatsapp-business-vs-api-oficial">WhatsApp Business, API Não-Oficial ou API Oficial: qual a diferença real</a>.</p>
+    <p class="art-p">Um detalhe que gera confusão: a coexistência é feita a partir do app WhatsApp Business. O WhatsApp comum, de uso pessoal, não entra nesse fluxo. Se o número da empresa ainda está no WhatsApp comum, o primeiro passo é passar esse número para o app Business.</p>
+
+    <h2 class="art-h2" id="requisitos-coexistencia">Quem pode usar: os requisitos que a Meta documenta</h2>
+    <p class="art-p">A Meta lista poucos requisitos, mas eles barram quem tenta fazer sozinho, porque o caminho não começa dentro do app.</p>
+
+    <h3 class="art-h3">O app precisa estar atualizado</h3>
+    <p class="art-p">O app WhatsApp Business do celular precisa estar na versão 2.24.17 ou superior. Vale atualizar antes de marcar o dia da conexão.</p>
+
+    <h3 class="art-h3">A conexão é feita por um parceiro da Meta</h3>
+    <p class="art-p">Não existe um botão de "ativar coexistência" dentro do app. A conexão acontece pelo Embedded Signup, que é a tela de cadastro que um parceiro oficial da Meta (Solution Partner ou Tech Provider) abre para a empresa. Segundo a documentação, só parceiros nessas categorias oferecem esse fluxo. Sem um parceiro com esse fluxo habilitado, a opção nem aparece.</p>
+
+    <h3 class="art-h3">Como é o passo a passo do lado da empresa</h3>
+    <p class="art-p">Pela descrição da Meta, a empresa escolhe a opção de conectar a conta que já usa no app WhatsApp Business e digita o número. A tela mostra um código. No celular, chega uma mensagem da conta oficial do Facebook Business dentro do próprio WhatsApp Business, e a empresa toca para conectar o número à plataforma. Nesse momento, ela também escolhe se compartilha o histórico de conversas com o parceiro. Depois, cola o código na tela de cadastro e conclui as etapas restantes.</p>
+    <p class="art-p">A conta que existia no app é convertida, mantém o mesmo identificador e continua ligada ao portfólio de negócios da empresa no Meta Business Manager. Ou seja: a conta continua no portfólio da própria empresa, e o parceiro não cria uma conta nova em nome dele.</p>
+
+    <h3 class="art-h3">E o país do número?</h3>
+    <p class="art-p">A documentação vigente não lista países excluídos da coexistência. O <a href="https://developers.facebook.com/documentation/business-messaging/whatsapp/changelog" target="_blank" rel="noopener">registro de mudanças da Meta</a> mostra que, em 23 de outubro de 2025, a coexistência foi estendida para Austrália, Japão, Filipinas, Rússia, Coreia do Sul, Turquia, União Europeia, Espaço Econômico Europeu e Reino Unido. Na prática, a elegibilidade de cada número se confirma no próprio fluxo de cadastro.</p>
+
+    <h2 class="art-h2" id="o-que-sincroniza">O que vai junto quando você conecta o número</h2>
+    <p class="art-p">A pergunta que mais ouço é "eu perco minhas conversas?". A resposta curta é não: as conversas continuam no celular. O que muda é o que aparece na plataforma de atendimento.</p>
+    <p class="art-p">Pela documentação da Meta, o parceiro pode sincronizar com a plataforma todos os contatos que têm WhatsApp e as conversas individuais dos últimos 6 meses (180 dias). Já os arquivos têm uma regra própria: só as fotos, áudios e documentos enviados nos últimos 14 dias chegam como arquivo. A mídia mais antiga aparece só como um marcador no histórico. Exemplo: o cliente mandou a foto de uma nota fiscal há dois meses. A mensagem aparece na plataforma, mas a foto não vem junto como arquivo.</p>
+    <p class="art-p">Os grupos não são sincronizados. Grupos de clientes continuam só no celular.</p>
+    <p class="art-p">Na prática, porém, essa importação do histórico não acontece nas plataformas de atendimento que conheço. O histórico antigo continua no celular, e na plataforma aparecem as mensagens trocadas a partir da conexão, inclusive em conversas antigas, quando o cliente volta a escrever. Antes de conectar, pergunte ao seu parceiro se ele importa o histórico.</p>
+    <p class="art-p">Existe também um prazo. Depois da conexão, o parceiro tem 24 horas para sincronizar contatos e histórico, e cada sincronização só pode ser feita uma vez. Se o prazo passar, a empresa precisa desconectar e refazer o fluxo inteiro. Durante esse período, a Meta recomenda deixar o app WhatsApp Business aberto no celular para a sincronização acontecer.</p>
+
+    <div class="art-highlight">
+      <strong>O que isso significa na prática:</strong> marque a conexão para um dia em que o celular do número vai ficar ligado, com internet e com o app aberto. E combine com o parceiro quem dispara a sincronização dentro das 24 horas.
+    </div>
+
+    <h2 class="art-h2" id="o-que-muda-no-app">O que para de funcionar no app</h2>
+    <p class="art-p">Esta é a parte que quase ninguém explica antes. A <a href="https://developers.facebook.com/documentation/business-messaging/whatsapp/embedded-signup/onboarding-business-app-users/" target="_blank" rel="noopener">documentação da Meta</a> separa três grupos de mudanças.</p>
+
+    <h3 class="art-h3">Funções que ficam desativadas no app</h3>
+    <p class="art-p">As listas de transmissão deixam de funcionar: não dá para criar listas novas, e as que existem ficam só para leitura. Nas conversas individuais, ficam desativadas as mensagens temporárias, a visualização única e a localização em tempo real. Em troca, editar e apagar mensagem passam a ser suportados nas conversas sincronizadas.</p>
+    <p class="art-p">Exemplo concreto: se hoje você manda a promoção da semana por lista de transmissão para 200 clientes, isso acaba no dia da conexão. A partir dali, o envio em massa passa a ser feito por template pela API, que é aprovado pela Meta e cobrado por mensagem.</p>
+
+    <h3 class="art-h3">Funções que continuam no app, mas não existem na plataforma</h3>
+    <p class="art-p">Grupos, ligações de voz e vídeo, catálogo, pedidos, status, mensagens de saudação e de ausência, respostas rápidas, etiquetas, perfil comercial e Canais continuam funcionando no app. Só que nada disso é suportado pela Cloud API. Consequência: a equipe na plataforma não enxerga as etiquetas que o dono usa no celular, e a mensagem de ausência do app não existe do lado da API. Resposta automática fora do horário precisa ser configurada na plataforma.</p>
+
+    <h3 class="art-h3">Dispositivos conectados e uso do celular</h3>
+    <p class="art-p">A empresa pode ter até 4 dispositivos conectados ao número, como o WhatsApp Web. Na hora da conexão, todos são desvinculados, e depois dá para conectar de novo os que são suportados. O WhatsApp para Windows e o WhatsApp para WearOS não são suportados. Exemplo: se o dono responde pelo WhatsApp para Windows no escritório, essas respostas não aparecem na plataforma, e a equipe fica sem saber o que foi combinado com o cliente.</p>
+    <p class="art-p">O celular principal também precisa continuar em uso. A Meta lista como motivo de desconexão o celular principal ficar cerca de 14 dias inativo, e um dispositivo conectado ficar cerca de 30 dias inativo. Coexistência não é um jeito de aposentar o celular.</p>
+
+    <h2 class="art-h2" id="limite-e-cobranca">Velocidade de envio e cobrança</h2>
+
+    <div class="metrics-grid">
+      <div class="metric-card">
+        <div class="metric-number">20</div>
+        <div class="metric-label">mensagens por segundo, vazão fixa de um número em coexistência</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-number">6 meses</div>
+        <div class="metric-label">de conversas individuais que a Meta permite sincronizar</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-number">24 h</div>
+        <div class="metric-label">de prazo para sincronizar contatos e histórico</div>
+      </div>
+    </div>
+
+    <p class="art-p">Um número que roda só na Cloud API envia, por padrão, até 80 mensagens por segundo, e a Meta pode subir esse limite automaticamente até 1.000. Um número em coexistência tem <a href="https://developers.facebook.com/documentation/business-messaging/whatsapp/throughput" target="_blank" rel="noopener">vazão fixa de 20 mensagens por segundo</a>. Para atendimento, isso sobra: são 1.200 mensagens por minuto. Para campanha, a conta muda. Um envio de 50 mil mensagens leva perto de 42 minutos a 20 por segundo, contra perto de 10 minutos a 80 por segundo. Velocidade é diferente do limite diário de envio, que explico em <a href="/blog/pontuacao-qualidade-limite-envio-whatsapp">pontuação de qualidade e limite de envio</a>.</p>
+    <p class="art-p">Na cobrança, a regra da Meta é: o que você manda pelo app WhatsApp Business continua gratuito, e o que sai pela Cloud API segue a tabela de preços da API. Tem um detalhe que pega muita gente. As mensagens do app não abrem nem estendem a janela de atendimento de 24 horas da API. E a janela só abre quando o cliente escreve depois que o número foi conectado. Se o cliente mandou mensagem ontem e você conectou hoje, a equipe só consegue responder pela plataforma com template, que é cobrado. Pelo celular, a resposta continua gratuita.</p>
+    <p class="art-p">A tabela da API também mudou em <a href="https://developers.facebook.com/documentation/business-messaging/whatsapp/pricing" target="_blank" rel="noopener">1º de outubro de 2026</a>. Desde essa data, cada número tem 1.000 mensagens de serviço gratuitas por mês, e a partir da 1.001ª a Meta cobra. Os valores por categoria estão em <a href="/blog/quanto-custa-api-oficial-whatsapp-2026">quanto custa a API Oficial do WhatsApp em 2026</a>.</p>
+
+    <div class="art-highlight">
+      <strong>O que muda no custo:</strong> a coexistência não cobra nada a mais pelo que o dono responde no celular. O custo novo vem do que a equipe, o atendente de IA e as automações enviam pela API. Por isso, a pergunta certa não é "quanto custa a coexistência", e sim "quanto do meu volume vai passar a sair pela API".
+    </div>
+
+    <h2 class="art-h2" id="quando-faz-sentido">Quando a coexistência faz sentido</h2>
+    <p class="art-p">Coexistência resolve bem um tipo específico de operação: a empresa que tem um número conhecido, atendido pelo dono ou por uma pessoa-chave, e que precisa colocar equipe e automação no mesmo número sem tirar essa pessoa do celular.</p>
+
+    <div class="art-tip">
+      <strong>O número é a identidade da empresa:</strong> está na fachada, no site, nos boletos e na cabeça dos clientes antigos. Trocar de número custaria contato perdido, e migrar por completo tiraria o dono do celular.<br><br>
+      <strong>O dono ou um vendedor-chave atende pelo app e não quer mudar a rotina:</strong> ele continua no celular, e a equipe passa a atender pela plataforma, vendo o mesmo histórico.<br><br>
+      <strong>Você quer um atendente de IA ou automações no número principal:</strong> a API Oficial permite integrar sistemas e automatizar o atendimento, e a coexistência deixa isso rodar sem desligar o app.<br><br>
+      <strong>O volume de envio em massa é moderado:</strong> a operação vive de conversa um a um, e as campanhas cabem com folga em 20 mensagens por segundo.
+    </div>
+
+        <p class="art-p">Na operação, o desenho costuma ficar assim: o dono segue no app, a equipe atende pela plataforma de atendimento (no nosso caso, o AltumChat, com vários atendentes e CRM em formato Kanban) e o atendente de IA responde as dúvidas repetidas pela API. Todo mundo vê a mesma conversa. Se a empresa tem outros números que ainda não vão para a API Oficial, o post <a href="/blog/api-oficial-e-nao-oficial-mesma-plataforma">API Oficial e não oficial na mesma plataforma</a> mostra como organizar esse mapa de números.</p>
+
+    <h2 class="art-h2" id="quando-nao-faz-sentido">Quando não faz sentido e como sair depois</h2>
+    <p class="art-p">O primeiro é o número que vive de disparo em escala. Sem lista de transmissão no app e com vazão fixa de 20 mensagens por segundo, um número de campanhas grandes rende mais rodando só na API, sem o app. O segundo é a operação que depende de grupos ou de ligações pelo número: essas funções continuam no celular, mas a equipe não atende nada disso pela plataforma. O terceiro é a empresa que quer parar de usar o celular. Como o app precisa seguir ativo, a coexistência vira um compromisso, não uma transição.</p>
+    <p class="art-p">Também vale um aviso para quem usa API não oficial hoje. A coexistência parte do app WhatsApp Business oficial instalado no celular. Ela não é um atalho para regularizar um número que roda em ferramenta não oficial. Esse cenário tem outros riscos, que explico em <a href="/blog/api-nao-oficial-whatsapp">API não oficial do WhatsApp: o que é, quando faz sentido e quando vai te banir</a>.</p>
+    <p class="art-p">E se um dia a empresa quiser desfazer? Segundo a Meta, o comando de remover o registro do número pela API (Deregister) não funciona para número em coexistência. A desconexão é feita pela própria empresa, no app WhatsApp Business, na área de configurações da conta, na opção da plataforma comercial, com o botão de desconectar conta. Essa saída derruba o atendimento pela plataforma naquele número, então combine antes quem acompanha.</p>
+    <p class="art-p">Resumindo: coexistência é a forma de colocar a API Oficial no número que a empresa já tem, sem tirar o dono do celular. Ela funciona bem para atendimento e automação um a um, e cobra um preço em funções do app e em velocidade de envio.</p>
+    <hr class="art-divider">
+
+    <h2 class="art-h2" id="perguntas-frequentes">Perguntas frequentes</h2>
+
+    <h3 class="faq-q">Posso usar o WhatsApp Business no celular e a API Oficial no mesmo número?</h3>
+    <p class="art-p">Sim, pela coexistência, que a Meta liberou em fevereiro de 2025. O número continua no app WhatsApp Business do celular e passa a funcionar também na API Oficial, conectado a uma plataforma de atendimento. As conversas ficam sincronizadas: o que o dono responde no app aparece para a equipe na plataforma. A conexão é feita pelo Embedded Signup de um parceiro oficial da Meta, e o app precisa estar na versão 2.24.17 ou superior.</p>
+
+    <h3 class="faq-q">Perco minhas conversas se conectar meu WhatsApp Business à API Oficial pela coexistência?</h3>
+    <p class="art-p">Não. Na coexistência, as conversas continuam no app do celular. A Meta permite que o parceiro sincronize com a plataforma os contatos e as conversas individuais dos últimos 6 meses, mas, nas plataformas de atendimento que conheço, só aparecem as mensagens trocadas depois da conexão, inclusive em conversas antigas quando o cliente volta a escrever. Grupos não sincronizam. Antes de conectar, pergunte ao parceiro se ele importa o histórico.</p>
+
+    <h3 class="faq-q">O que para de funcionar no app WhatsApp Business depois da coexistência?</h3>
+    <p class="art-p">As listas de transmissão deixam de funcionar: não dá para criar novas e as existentes ficam só para leitura. Nas conversas individuais, ficam desativadas as mensagens temporárias, a visualização única e a localização em tempo real. Catálogo, etiquetas, respostas rápidas, mensagem de ausência, grupos e ligações continuam no app, mas não existem na API. O WhatsApp para Windows e para WearOS não é suportado como dispositivo conectado.</p>
+
+    <h3 class="faq-q">A coexistência é paga? As mensagens que mando pelo celular passam a ser cobradas?</h3>
+    <p class="art-p">Não. Segundo a Meta, as mensagens enviadas pelo app WhatsApp Business continuam gratuitas. O que sai pela API segue a tabela da Meta: templates são cobrados por mensagem e, desde 1º de outubro de 2026, cada número tem 1.000 mensagens de serviço gratuitas por mês pela API. As mensagens do app não abrem a janela de atendimento de 24 horas da API, então essa janela só abre quando o cliente escreve depois da conexão.</p>
+
+    <h3 class="faq-q">Dá para fazer disparo em massa com um número em coexistência?</h3>
+    <p class="art-p">Dá, por templates aprovados pela API, mas com limites. A lista de transmissão do app deixa de funcionar, e o número em coexistência tem vazão fixa de 20 mensagens por segundo, contra 80 por padrão de um número só na API. Na prática, 50 mil mensagens levam cerca de 42 minutos em vez de 10. Para operação que vive de campanha grande, um número dedicado só à API costuma render mais.</p>
+
+    <h3 class="faq-q">A coexistência funciona com o WhatsApp comum (pessoal)?</h3>
+    <p class="art-p">Não. A coexistência parte do app WhatsApp Business instalado no celular. Se o número da empresa ainda está no WhatsApp comum, o primeiro passo é passar esse número para o app Business.</p>
+
+    <h3 class="faq-q">Como desconectar um número da coexistência?</h3>
+    <p class="art-p">Pelo próprio app WhatsApp Business, em Configurações, Conta, na opção da plataforma comercial, com o botão de desconectar conta. O comando de remover registro pela API não funciona para número em coexistência, e a desconexão derruba o atendimento pela plataforma naquele número.</p>
+
+    <h3 class="faq-q">A coexistência serve para regularizar um número que roda em API não oficial?</h3>
+    <p class="art-p">Não. Ela parte do app WhatsApp Business oficial instalado no celular, não de uma ferramenta não oficial. Um número que hoje roda por QR Code em ferramenta não autorizada tem outro caminho e outros riscos.</p>
+
+    <div class="art-highlight"><strong>Resumo para decidir:</strong> Se o dono ou um vendedor-chave atende pelo celular um número que os clientes conhecem há anos, e a empresa quer colocar equipe e atendente de IA nesse mesmo número, a coexistência resolve: o app continua no celular e a API Oficial entra junto, com a conversa sincronizada. O preço vem em funções do app e em velocidade de envio. A Altum Digital é a consultoria de automação e IA de Talita Bispo, em São Paulo, que implementa a API Oficial do WhatsApp, agentes de IA e automações integradas aos sistemas da empresa, para negócios que faturam a partir de R$ 100 mil por mês e querem parar de depender de processo manual.</div>
+
+    <div class="cta-inline">
+      <h3>Seu número pode entrar em coexistência?</h3>
+      <p>Eu olho como o seu número é usado hoje (app, listas de transmissão, dispositivos conectados e volume de envio) e te digo se a coexistência cabe na sua operação ou se outro caminho faz mais sentido.</p>
+      <a href="https://wa.me/5511954715571?text=Oi%20Talita%21%20Li%20seu%20artigo%20sobre%20coexist%C3%AAncia%20no%20WhatsApp%20%28app%20%2B%20API%20Oficial%20no%20mesmo%20n%C3%BAmero%29%20e%20quero%20avaliar%20se%20meu%20n%C3%BAmero%20%C3%A9%20eleg%C3%ADvel." class="btn-wa" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Falar com Talita no WhatsApp
+      </a>
+    </div>
+
+    <div class="author-box">
+      <div class="author-box-inner">
+        <div class="author-box-avatar">TB</div>
+        <div>
+          <h4>Talita Bispo</h4>
+          <p>Fundadora da Altum Digital, consultoria de automação e IA em São Paulo que implementa a API Oficial do WhatsApp, agentes de IA e automações integradas aos sistemas da empresa, para negócios que faturam a partir de R$ 100 mil por mês e querem parar de depender de processo manual. Certificada Google Cloud Generative AI Leader, com 11 anos de consultoria na Accenture (TIM, SKY, SEFAZ-SP, Johnson &amp; Johnson, Getnet, Claro) e criadora do AltumChat, plataforma de atendimento e CRM no WhatsApp que roda sobre infraestrutura de Parceiro Oficial da Meta. Mais de 30 projetos entregues. Atende todo o Brasil.</p>
+        </div>
+      </div>
+    </div>
+
+    <section class="related-posts" aria-labelledby="related-heading">
+      <h2 id="related-heading" class="related-posts__heading">Artigos relacionados</h2>
+      <ul class="related-posts__list">
+    <li class="related-posts__item">
+      <a href="/blog/migrar-whatsapp-business-para-api-oficial" class="related-posts__link">
+        <h3 class="related-posts__title">Migrar do WhatsApp Business para a API Oficial sem perder o número</h3>
+        <p class="related-posts__relation">Próximo passo: decidir entre migração completa e coexistência.</p>
+      </a>
+    </li>
+    <li class="related-posts__item">
+      <a href="/blog/whatsapp-business-vs-api-oficial" class="related-posts__link">
+        <h3 class="related-posts__title">WhatsApp Business, API Não-Oficial ou API Oficial: qual a diferença real</h3>
+        <p class="related-posts__relation">Conceito-base: as três versões do WhatsApp para empresas.</p>
+      </a>
+    </li>
+    <li class="related-posts__item">
+      <a href="/blog/quanto-custa-api-oficial-whatsapp-2026" class="related-posts__link">
+        <h3 class="related-posts__title">Quanto custa a API Oficial do WhatsApp em 2026: a tabela da Meta</h3>
+        <p class="related-posts__relation">Aprofundamento: quanto custa o que sai pela API.</p>
+      </a>
+    </li>
+    <li class="related-posts__item">
+      <a href="/blog/api-oficial-e-nao-oficial-mesma-plataforma" class="related-posts__link">
+        <h3 class="related-posts__title">API Oficial e não oficial na mesma plataforma: quais números migrar</h3>
+        <p class="related-posts__relation">Tema lateral: organizar todos os números da empresa numa tela.</p>
+      </a>
+    </li>
+      </ul>
+    </section>
+    
+  </article>
+
+  <aside class="sidebar">
+    <div class="sidebar-sticky">
+      <div class="sidebar-card">
+        <h4>Neste artigo</h4>
+        <ul class="toc-list">
+          <li><a href="#o-que-e-coexistencia">O que é a coexistência</a></li>
+          <li><a href="#requisitos-coexistencia">Requisitos da Meta</a></li>
+          <li><a href="#o-que-sincroniza">O que sincroniza</a></li>
+          <li><a href="#o-que-muda-no-app">O que para no app</a></li>
+          <li><a href="#limite-e-cobranca">Velocidade e cobrança</a></li>
+          <li><a href="#quando-faz-sentido">Quando faz sentido</a></li>
+          <li><a href="#quando-nao-faz-sentido">Quando não faz sentido</a></li>
+          <li><a href="#perguntas-frequentes">Perguntas frequentes</a></li>
+        </ul>
+      </div>
+      <div class="sidebar-cta">
+        <h4>Seu número é elegível?</h4>
+        <p>Avalio com você se a coexistência cabe no seu número antes de conectar.</p>
+        <a href="https://wa.me/5511954715571?text=Oi%20Talita%21%20Li%20seu%20artigo%20sobre%20coexist%C3%AAncia%20no%20WhatsApp%20%28app%20%2B%20API%20Oficial%20no%20mesmo%20n%C3%BAmero%29%20e%20quero%20avaliar%20se%20meu%20n%C3%BAmero%20%C3%A9%20eleg%C3%ADvel." class="btn-wa-sm" target="_blank">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Falar com Talita
+        </a>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-logo">Altum<span>.</span>Digital</div>
+      <p>© 2025 Talita Bispo · Altum Digital Soluções LTDA</p>
+      <p>São Paulo, SP · Brasil</p>
+      <p>CNPJ 61.287.916/0001-69</p>
+      <p><a href="https://www.linkedin.com/in/talita-b-35b47923/" target="_blank" rel="me noopener" style="color:#9ca3af">LinkedIn</a> · <a href="https://www.instagram.com/soutalitabispo/" target="_blank" rel="me noopener" style="color:#9ca3af">Instagram @SouTalitaBispo</a></p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

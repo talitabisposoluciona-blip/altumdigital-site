@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>API Oficial e não oficial na mesma plataforma: o que migrar</title>
+<meta name="description" content="API Oficial e não oficial na mesma plataforma: quais números migrar primeiro, quais podem esperar e como atender tudo numa tela só, sem perder a gestão.">
+<meta name="author" content="Talita Bispo — Altum Digital">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://altumdigital.com.br/blog/api-oficial-e-nao-oficial-mesma-plataforma">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://altumdigital.com.br/blog/api-oficial-e-nao-oficial-mesma-plataforma">
+<meta property="og:title" content="API Oficial e não oficial na mesma plataforma: o que migrar">
+<meta property="og:description" content="API Oficial e não oficial na mesma plataforma: quais números migrar primeiro, quais podem esperar e como atender tudo numa tela só, sem perder a gestão.">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Altum Digital">
+<meta property="article:author" content="Talita Bispo">
+<meta property="article:published_time" content="2026-10-30">
+<meta property="article:tag" content="WhatsApp API">
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:#f8fafb;color:#0f172a;font-family:'DM Sans',sans-serif;font-size:16px;line-height:1.7}
+h1,h2,h3,h4{font-family:'Manrope',sans-serif}
+a{text-decoration:none;color:inherit}
+.container{max-width:1100px;margin:0 auto;padding:0 28px}
+nav{background:#06080f;padding:18px 0;border-bottom:1px solid rgba(255,255,255,0.07)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;max-width:1100px;margin:0 auto;padding:0 28px}
+.nav-logo{font-family:'Manrope',sans-serif;font-size:18px;font-weight:800;color:#e8eaf0}
+.nav-logo span{color:#00e5c3}
+.nav-links{list-style:none;display:flex;gap:28px;align-items:center}
+.nav-links a{color:#7b8499;font-size:14px;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:#e8eaf0}
+.nav-links a.active{color:#00e5c3}
+.nav-cta{background:#00e5c3;color:#06080f!important;padding:9px 20px;border-radius:6px;font-weight:700!important;font-size:13px!important}
+.article-hero{background:#fff;border-bottom:1px solid #e5e7eb;padding:52px 0 44px}
+.article-hero-inner{max-width:760px;margin:0 auto;padding:0 28px}
+.breadcrumb{font-size:13px;color:#9ca3af;margin-bottom:20px;display:flex;align-items:center;gap:8px}
+.breadcrumb a{color:#00b89e;font-weight:500}
+.breadcrumb-sep{color:#d1d5db}
+.art-tag{display:inline-flex;align-items:center;gap:6px;background:#e6faf6;border:1px solid #b3f0e0;border-radius:100px;padding:5px 14px;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#0f6e56;margin-bottom:20px}
+.art-tag-dot{width:6px;height:6px;border-radius:50%;background:#00e5c3}
+.article-title{font-size:clamp(24px,4vw,38px);font-weight:800;line-height:1.2;color:#0f172a;margin-bottom:20px;letter-spacing:-.025em}
+.article-meta{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.meta-avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#00e5c3,#4f8cff);display:flex;align-items:center;justify-content:center;font-family:'Manrope',sans-serif;font-weight:800;font-size:11px;color:#fff;flex-shrink:0}
+.meta-info{display:flex;flex-direction:column;gap:2px}
+.meta-name{font-size:14px;font-weight:700;color:#374151}
+.meta-details{font-size:12px;color:#9ca3af}
+.article-layout{display:grid;grid-template-columns:1fr 280px;gap:48px;max-width:1060px;margin:0 auto;padding:48px 28px 80px}
+.art-lead{font-size:19px;color:#374151;line-height:1.8;margin-bottom:36px;font-weight:400;border-left:3px solid #00e5c3;padding-left:22px}
+.art-h2{font-size:22px;font-weight:800;color:#0f172a;margin:44px 0 14px;letter-spacing:-.015em}
+.art-h3{font-size:17px;font-weight:700;color:#0f172a;margin:28px 0 10px}
+.art-p{font-size:16px;color:#4b5563;line-height:1.85;margin-bottom:18px}
+.art-highlight{background:#f0fdf9;border:1px solid #ccf7eb;border-left:3px solid #00e5c3;border-radius:0 8px 8px 0;padding:18px 22px;margin:28px 0;font-size:15px;color:#065f46;line-height:1.75}
+.art-highlight strong{font-weight:700;color:#047857}
+.art-tip{background:#fffbeb;border:1px solid #fde68a;border-left:3px solid #f59e0b;border-radius:0 8px 8px 0;padding:18px 22px;margin:24px 0;font-size:14px;color:#92400e;line-height:1.7}
+.art-tip strong{font-weight:700}
+.art-divider{border:none;border-top:1px solid #f0f0f0;margin:40px 0}
+.art-quote{background:#f8fafb;border-left:3px solid #00e5c3;border-radius:0 8px 8px 0;padding:20px 24px;margin:32px 0;font-size:17px;font-style:italic;color:#374151;line-height:1.75}
+.metrics-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:28px 0}
+.metric-card{background:#0f172a;border-radius:12px;padding:20px;text-align:center}
+.metric-number{font-family:'Manrope',sans-serif;font-size:36px;font-weight:800;color:#00e5c3;line-height:1;margin-bottom:6px}
+.metric-label{font-size:13px;color:#9ca3af;line-height:1.4}
+.cta-inline{background:#0f172a;border-radius:16px;padding:32px;margin:44px 0;text-align:center}
+.cta-inline h3{font-family:'Manrope',sans-serif;font-size:20px;font-weight:800;color:#fff;margin-bottom:10px}
+.cta-inline p{font-size:14px;color:#9ca3af;margin-bottom:22px;line-height:1.65}
+.btn-wa{display:inline-flex;align-items:center;gap:10px;background:#25D366;color:#fff;padding:13px 26px;border-radius:8px;font-family:'Manrope',sans-serif;font-weight:700;font-size:14px;transition:opacity .2s}
+.btn-wa:hover{opacity:.9}
+.btn-wa svg{width:18px;height:18px;fill:#fff;flex-shrink:0}
+.author-box{background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:24px;margin-top:48px}
+.author-box-inner{display:flex;gap:16px;align-items:flex-start}
+.author-box-avatar{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#00e5c3,#4f8cff);display:flex;align-items:center;justify-content:center;font-family:'Manrope',sans-serif;font-weight:800;font-size:14px;color:#fff;flex-shrink:0}
+.author-box h4{font-size:15px;font-weight:800;color:#0f172a;margin-bottom:4px}
+.author-box p{font-size:13px;color:#6b7280;line-height:1.6}
+.sidebar-sticky{position:sticky;top:28px}
+.sidebar-card{background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:22px;margin-bottom:20px}
+.sidebar-card h4{font-family:'Manrope',sans-serif;font-size:13px;font-weight:700;color:#0f172a;margin-bottom:16px;letter-spacing:.02em;text-transform:uppercase}
+.toc-list{list-style:none;display:flex;flex-direction:column;gap:10px}
+.toc-list a{font-size:13px;color:#6b7280;line-height:1.4;transition:color .2s;display:block}
+.toc-list a:hover{color:#00b89e}
+.sidebar-cta{background:#0f172a;border-radius:16px;padding:22px;text-align:center}
+.sidebar-cta p{font-size:13px;color:#9ca3af;margin-bottom:16px;line-height:1.6}
+.sidebar-cta h4{font-family:'Manrope',sans-serif;font-size:15px;font-weight:800;color:#fff;margin-bottom:10px}
+.btn-wa-sm{display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#fff;padding:11px 18px;border-radius:8px;font-family:'Manrope',sans-serif;font-weight:700;font-size:13px;width:100%;justify-content:center}
+footer{background:#06080f;border-top:1px solid rgba(255,255,255,0.07);padding:32px 0}
+.footer-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.footer-logo{font-family:'Manrope',sans-serif;font-weight:800;font-size:15px;color:#e8eaf0}
+.footer-logo span{color:#00e5c3}
+footer p{color:#7b8499;font-size:13px}
+@media(max-width:900px){.article-layout{grid-template-columns:1fr}.sidebar{display:none}.nav-links{display:none}.metrics-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:500px){.metrics-grid{grid-template-columns:1fr}}
+
+/* === Blocos SEO/GEO (TLDR + FAQ + Related) — alinhado com paleta atual === */
+.tldr{background:#f0fdf9;border:1px solid #ccf7eb;border-left:4px solid #00b89e;border-radius:0 8px 8px 0;padding:22px 26px;margin:0 0 36px 0;font-family:'DM Sans',sans-serif;}
+.tldr__heading{font-family:'Manrope',sans-serif;font-size:13px;font-weight:700;color:#0f6e56;text-transform:uppercase;letter-spacing:.1em;margin:0 0 14px 0;}
+.tldr__list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;}
+.tldr__list li{font-size:15px;color:#065f46;line-height:1.65;padding-left:22px;position:relative;}
+.tldr__list li::before{content:"\2192";position:absolute;left:0;color:#00b89e;font-weight:700;}
+.tldr__meta{margin-top:18px;padding-top:14px;border-top:1px solid #ccf7eb;font-size:12px;color:#0f6e56;display:flex;gap:10px;flex-wrap:wrap;align-items:center;}
+.faq-q{font-family:'Manrope',sans-serif;font-size:17px;font-weight:700;color:#0f172a;margin:26px 0 8px;line-height:1.4}
+.faq{margin:48px 0 40px;}
+.faq__heading{font-family:'Manrope',sans-serif;font-size:22px;font-weight:800;color:#0f172a;margin:0 0 20px 0;letter-spacing:-.015em;}
+.faq__item{border-bottom:1px solid #e5e7eb;padding:16px 0;cursor:pointer;}
+.faq__item:last-child{border-bottom:none;}
+.faq__question{font-family:'Manrope',sans-serif;font-size:16px;font-weight:700;color:#0f172a;list-style:none;position:relative;padding-right:32px;cursor:pointer;}
+.faq__question::-webkit-details-marker{display:none;}
+.faq__question::after{content:"+";position:absolute;right:0;top:-3px;font-size:22px;color:#00b89e;font-weight:400;transition:transform .2s;}
+.faq__item[open] .faq__question::after{content:"\2212";}
+.faq__answer{padding-top:12px;color:#4b5563;line-height:1.7;font-size:14px;}
+.related-posts{margin:48px 0 0 0;padding-top:32px;border-top:1px solid #e5e7eb;}
+.related-posts__heading{font-family:'Manrope',sans-serif;font-size:20px;font-weight:800;color:#0f172a;margin:0 0 20px 0;letter-spacing:-.015em;}
+.related-posts__list{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+.related-posts__link{display:block;padding:18px 20px;background:#fff;border:1px solid #e5e7eb;border-radius:12px;text-decoration:none;transition:border-color .2s,transform .2s;}
+.related-posts__link:hover{border-color:#00b89e;transform:translateY(-2px);}
+.related-posts__title{font-family:'Manrope',sans-serif;font-size:14px;font-weight:700;color:#0f172a;margin:0 0 6px;line-height:1.35;}
+.related-posts__relation{font-size:12px;color:#6b7280;margin:0;line-height:1.5;}
+@media(max-width:640px){.related-posts__list{grid-template-columns:1fr;}}
+.art-p a,.article-content li a:not([class]){color:#00b89e;font-weight:600;text-decoration:underline}
+</style>
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="API Oficial e não oficial na mesma plataforma: o que migrar">
+<meta name="twitter:description" content="API Oficial e não oficial na mesma plataforma: quais números migrar primeiro, quais podem esperar e como atender tudo numa tela só, sem perder a gestão.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "API Oficial e não oficial na mesma plataforma: o que migrar",
+  "description": "API Oficial e não oficial na mesma plataforma: quais números migrar primeiro, quais podem esperar e como atender tudo numa tela só, sem perder a gestão.",
+  "author": {"@type": "Person", "@id": "https://altumdigital.com.br/#talita-bispo", "name": "Talita Bispo", "url": "https://altumdigital.com.br/"},
+  "publisher": {"@type": "Organization", "@id": "https://altumdigital.com.br/#organizacao", "name": "Altum Digital", "url": "https://altumdigital.com.br/"},
+  "datePublished": "2026-10-30T00:00:00-03:00",
+  "dateModified": "2026-10-30T00:00:00-03:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://altumdigital.com.br/blog/api-oficial-e-nao-oficial-mesma-plataforma"
+  },
+  "articleSection": "WhatsApp API",
+  "keywords": [
+    "API oficial e não oficial WhatsApp",
+    "quais números migrar para API Oficial",
+    "centralizar atendimento WhatsApp vários números",
+    "plataforma API oficial e não oficial na mesma tela",
+    "migrar números WhatsApp empresa sem perder atendimento"
+  ],
+  "wordCount": 2347,
+  "inLanguage": "pt-BR"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Altum Digital",
+      "item": "https://altumdigital.com.br/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "https://altumdigital.com.br/blog"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "API Oficial e não oficial na mesma plataforma: o que migrar"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Dá para usar API Oficial e API não oficial ao mesmo tempo na mesma empresa?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Dá, desde que cada número esteja no lugar certo. Os números que disparam mensagens, enviam cobrança ou recebem automação precisam estar na API Oficial, porque os Termos do WhatsApp proíbem envio em massa e automação por meios não autorizados. Números de relacionamento um a um, com volume baixo e conversa iniciada pelo cliente, podem migrar depois. O cuidado é atender todos no mesmo lugar, para o gestor não perder a visão das conversas."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Existe plataforma que conecta números da API Oficial e não oficial na mesma tela?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Existe, mas não é o comum: a maioria das plataformas só conecta números da API Oficial, e os números que ainda não migraram ficam de fora. O AltumChat, a plataforma de atendimento que nós oferecemos, conecta caixas de entrada da WhatsApp Cloud API e números conectados por API não oficial na mesma tela, com vários atendentes e um CRM em formato Kanban para acompanhar o funil de cada negociação."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Preciso migrar todos os números da empresa para a API Oficial?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Não necessariamente de uma vez. O critério é o que sai de cada número. Se ele dispara para listas, cobra, manda lembrete automático ou recebe um atendente de IA, ele vai para a API Oficial na primeira fase. Se ele só conversa um a um, com volume baixo, pode entrar numa segunda fase. Um número também sobe na fila quando perdê-lo pararia a operação, como o número impresso na embalagem."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Se o número não oficial estiver dentro de uma plataforma, ele ainda pode ser banido?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pode. A Central de Ajuda do WhatsApp informa que conectar a conta a versões não oficiais viola os Termos de Serviço e que a conta pode ser banida temporária ou permanentemente. Estar dentro de uma plataforma de atendimento não muda o tipo de conexão do número. A plataforma organiza as conversas e a equipe, mas o risco do número continua o mesmo até ele migrar para a API Oficial."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quantos números posso ter na API Oficial do WhatsApp?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Segundo a documentação da Meta, um portfólio de negócios novo começa limitado a dois números registrados. O limite sobe automaticamente para 20 quando a empresa é verificada ou quando atinge o limite de 2.000 mensagens. Por isso, se a empresa planeja migrar vários números na primeira fase, a verificação no portfólio de negócios precisa ser feita antes, senão o projeto trava no terceiro número."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "O que acontece com as conversas quando um vendedor sai da empresa?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Quando o número do vendedor está conectado à plataforma de atendimento, o histórico das conversas fica na plataforma, e a carteira de clientes fica com a empresa. Fora da plataforma, as conversas vão embora no celular dele."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Um atendente pode responder em mais de um número?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sim. Na plataforma, todos os atendentes podem atender todos os números conectados, e uma conversa pode ser transferida de um atendente para outro sem precisar do celular de ninguém."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Preciso verificar a empresa na Meta antes de migrar vários números?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sim, se for migrar mais de dois. Um portfólio de negócios novo registra só 2 números na API Oficial; o limite sobe para 20 quando a empresa é verificada ou atinge o limite de 2.000 mensagens. Sem a verificação, o projeto trava no terceiro número."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">Altum<span>.</span>Digital</a>
+    <ul class="nav-links">
+      <li><a href="/#services">Serviços</a></li>
+      <li><a href="/#projects">Projetos</a></li>
+      <li><a href="/#method">Metodologia</a></li>
+      <li><a href="/blog" class="active">Blog</a></li>
+      <li><a href="/#cta" class="nav-cta">Falar com Talita</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="article-hero">
+  <div class="article-hero-inner">
+    <div class="breadcrumb">
+      <a href="/">Altum Digital</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="/blog">Blog</a>
+      <span class="breadcrumb-sep">›</span>
+      <span>API Oficial e não oficial juntas</span>
+    </div>
+    <div class="art-tag"><div class="art-tag-dot"></div>WhatsApp API</div>
+    <h1 class="article-title">API Oficial e não oficial na mesma plataforma: quais números migrar</h1>
+    <div class="article-meta">
+      <div class="meta-avatar">TB</div>
+      <div class="meta-info">
+        <span class="meta-name">Talita Bispo · Altum Digital</span>
+        <span class="meta-details">30 de outubro de 2026 · 9 min de leitura</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="article-layout">
+  <article class="article-content">
+
+    
+    <aside class="tldr" role="complementary" aria-labelledby="tldr-heading">
+  <h2 id="tldr-heading" class="tldr__heading">Resumo: o que você vai aprender</h2>
+  <ul class="tldr__list">
+    <li>A decisão não é migrar todos os números da empresa para a API Oficial ou nenhum. É decidir número a número, pelo tipo de mensagem que sai de cada um.</li>
+    <li>Número que dispara para lista, envia cobrança ou recebe automação vai para a API Oficial agora, porque os Termos do WhatsApp proíbem envio em massa e automação por meios não autorizados.</li>
+    <li>Número de relacionamento um a um, como o do vendedor ou o da filial de volume baixo, pode migrar numa segunda fase, desde que seja atendido no mesmo lugar que os outros.</li>
+    <li>Um portfólio de negócios novo registra só 2 números na API Oficial; o limite sobe para 20 com a empresa verificada, por isso a verificação vem antes de migrar vários números.</li>
+    <li>Colocar um número não oficial dentro de uma plataforma não elimina o risco de banimento. A centralização organiza o atendimento; a migração do que importa é o que reduz o risco.</li>
+  </ul>
+  <p class="tldr__meta">
+    <span>📖 Leitura de 9 minutos</span>
+    <span>·</span>
+    <time datetime="2026-10-30">Publicado em 30 de outubro de 2026</time>
+  </p>
+</aside>
+
+    <p class="art-lead">Sua empresa não tem um WhatsApp. Tem vários: o número que cobra, o de cada vendedor, o da filial, o número antigo que está na embalagem. A decisão certa não é "oficial ou não oficial" para todos. É decidir qual número vai para onde e garantir que a equipe atenda todos num lugar só.</p>
+
+    <p class="art-p">Quase toda empresa que me procura chega com a mesma pergunta: "preciso migrar todos os números para a API Oficial?". A resposta curta é: os números que disparam, cobram e recebem automação, sim, obrigatoriamente. Os outros dependem do que eles fazem no dia a dia.</p>
+
+    <p class="art-p">Neste artigo eu vou mostrar como separar os números da sua empresa em dois grupos, como montar o mapa de números antes de gastar com migração, por que a centralização costuma quebrar no meio do caminho e o que nenhuma plataforma resolve por você: o risco de banimento de quem fica fora da API Oficial.</p>
+
+    <hr class="art-divider">
+
+    <h2 class="art-h2" id="numeros-espalhados">O problema real: números espalhados e atendimento sem dono</h2>
+    <p class="art-p">Vou usar um exemplo que aparece com frequência nas empresas que eu atendo. A empresa tem um número principal, que envia lembrete de vencimento e boleto. Tem seis vendedores, cada um com o próprio WhatsApp no celular e algumas centenas de clientes na agenda. Tem uma filial que recebe poucas mensagens por dia. E tem um número antigo, impresso em notas fiscais e embalagens, que os clientes mais antigos ainda usam.</p>
+    <p class="art-p">Nesse cenário, cada número é uma ilha. O gestor não sabe quantas conversas estão sem resposta, porque elas estão espalhadas em oito aparelhos. Quando um vendedor sai de férias, os clientes dele ficam esperando, porque ninguém mais tem acesso àquele celular. Quando um vendedor sai da empresa, a carteira de clientes sai junto, no bolso dele.</p>
+    <p class="art-p">A reação comum é decidir "vamos migrar tudo para a API Oficial". Faz sentido no papel. Na prática, a migração de oito números ao mesmo tempo envolve verificação de empresa, configuração de cada número, templates aprovados, integração e treinamento de equipe. Muitas empresas travam nessa lista e acabam não migrando nem o número que realmente precisava, que é o de cobrança.</p>
+    <p class="art-p">O caminho que funciona é outro: classificar cada número pelo que ele faz, migrar primeiro o que tem risco alto e trazer todos para a mesma tela de atendimento. É disso que tratam as próximas seções.</p>
+
+    <h2 class="art-h2" id="cada-numero-no-lugar-certo">A regra: cada número no lugar certo</h2>
+    <p class="art-p">O critério para decidir não é o tamanho do número nem há quanto tempo ele existe. É o tipo de mensagem que sai dele. Se você ainda tem dúvida sobre a diferença entre as versões, eu explico as três no artigo <a href="/blog/whatsapp-business-vs-api-oficial">WhatsApp Business, API não oficial ou API Oficial</a>, e a parte técnica da conexão por QR code está em <a href="/blog/api-nao-oficial-whatsapp">API não oficial do WhatsApp: o que é e quando vai te banir</a>.</p>
+
+    <h3 class="art-h3">Números que vão para a API Oficial, obrigatoriamente</h3>
+    <p class="art-p">Qualquer número que dispara mensagens para listas, envia cobrança, manda lembrete automático ou recebe um atendente de IA precisa estar na API Oficial. O motivo está nas regras do próprio WhatsApp. Os <a href="https://www.whatsapp.com/legal/terms-of-service" target="_blank" rel="noopener">Termos de Serviço</a> proíbem acessar o serviço por meios automatizados não autorizados e proíbem envio em massa e mensagens automáticas fora dos meios permitidos. A <a href="https://whatsappbusiness.com/policy/" target="_blank" rel="noopener">política de mensagens para empresas</a>, atualizada em setembro de 2026, exige opt-in do cliente antes de você mandar mensagem e cita o envio em massa não autorizado como violação.</p>
+    <p class="art-p">Na API Oficial, esse tipo de envio tem um caminho documentado. A <a href="https://developers.facebook.com/docs/whatsapp/cloud-api/guides/send-messages" target="_blank" rel="noopener">documentação da Cloud API</a> explica que, quando o cliente manda mensagem, abre uma janela de atendimento de 24 horas. Fechada a janela, a empresa só pode enviar templates aprovados. Ou seja: o lembrete de vencimento que sai às 8h para 3 mil clientes passa por um modelo de mensagem aprovado, dentro das regras, em vez de sair de um celular conectado por QR code.</p>
+    <p class="art-p">A consequência prática é simples. O número que dispara é o número com mais chance de receber denúncia e bloqueio dos destinatários. Se ele estiver fora da API Oficial, é o primeiro a cair. E se ele cair, a cobrança do mês para.</p>
+
+    <h3 class="art-h3">Números que podem continuar como estão, por enquanto</h3>
+    <p class="art-p">Existem números que não disparam nada. O vendedor que tem 800 clientes na agenda e conversa um a um, quase sempre quando o cliente chama primeiro. A filial que recebe dez mensagens por dia. O número antigo que os clientes conhecem e que só recebe dúvidas. Esses números têm uma rotina de conversa parecida com a de uma pessoa usando o WhatsApp normalmente.</p>
+    <p class="art-p">Para esses, a migração pode entrar numa segunda fase, desde que duas condições sejam respeitadas: nenhum envio em lista sai deles, e a equipe passa a atender essas conversas no mesmo lugar onde atende o restante. Sem a segunda condição, você mantém o problema das ilhas que descrevi na seção anterior.</p>
+
+    <div class="art-highlight">
+      <strong>A regra em uma frase:</strong> número que dispara, cobra ou recebe automação vai para a API Oficial agora. Número de relacionamento um a um, com volume baixo e conversa iniciada pelo cliente, pode esperar, desde que seja atendido junto com os outros.
+    </div>
+
+    <h2 class="art-h2" id="mapa-de-numeros">Como montar o mapa de números da sua empresa</h2>
+    <p class="art-p">Antes de contratar qualquer migração, eu recomendo fazer uma lista simples: todos os números de WhatsApp que a empresa usa, quem cuida de cada um e o que sai de cada um. É uma planilha de uma página, e ela evita dois erros caros: migrar número que não precisava e deixar de fora o número que sustenta o caixa.</p>
+    <p class="art-p">Para cada número da lista, responda quatro perguntas:</p>
+
+    <div class="art-tip">
+      <strong>1. Ele envia mensagem para lista ou de forma automática?</strong> Se sim, ele vai para a API Oficial na primeira fase.<br><br>
+      <strong>2. Ele envia cobrança, boleto ou lembrete?</strong> Se sim, primeira fase. Cobrança parada é receita parada.<br><br>
+      <strong>3. Ele vai receber um atendente de IA ou automação?</strong> Se sim, primeira fase. Automação em número não oficial é exatamente o uso que os Termos proíbem.<br><br>
+      <strong>4. Quanto custa perder esse número amanhã?</strong> Se a resposta for "muito", porque é o número da embalagem ou do site, ele sobe na fila mesmo sem disparar nada.
+    </div>
+
+    <p class="art-p">Dois limites da Meta entram nesse planejamento. O primeiro é quantos números você consegue registrar. Segundo a <a href="https://developers.facebook.com/docs/whatsapp/cloud-api/phone-numbers" target="_blank" rel="noopener">documentação de números da Cloud API</a>, um portfólio de negócios novo começa limitado a dois números registrados. O limite sobe automaticamente para 20 quando a empresa é verificada ou quando atinge o limite de 2.000 mensagens.</p>
+
+    <div class="metrics-grid">
+      <div class="metric-card">
+        <div class="metric-number">24h</div>
+        <div class="metric-label">janela de atendimento aberta quando o cliente envia mensagem</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-number">2</div>
+        <div class="metric-label">números registrados no início, em portfólio de negócios novo</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-number">20</div>
+        <div class="metric-label">números após verificação da empresa ou limite de 2.000 mensagens</div>
+      </div>
+    </div>
+
+    <p class="art-p">Na prática, se o seu mapa tem cinco números para a primeira fase, a verificação da empresa precisa vir antes, senão o projeto para no terceiro número. Os números da tabela vêm das páginas da Meta citadas neste artigo.</p>
+    <p class="art-p">O segundo limite é sobre números que já estão em uso. A mesma documentação diz que um número já ativo no WhatsApp não pode ser registrado na API sem antes ser apagado do aplicativo, e que um número banido precisa passar pelo processo de apelação antes. Para números que estão no app WhatsApp Business, existe um caminho que mantém o app funcionando junto com a API: a <a href="https://developers.facebook.com/docs/whatsapp/embedded-signup/custom-flows/onboarding-business-app-users" target="_blank" rel="noopener">Meta documenta</a> que o cliente continua conversando pelo app e o histórico fica sincronizado entre os dois. Eu explico esse caminho em <a href="/blog/coexistencia-whatsapp-app-api-oficial">Coexistência no WhatsApp: usar o app e a API Oficial no mesmo número</a>.</p>
+
+    <h2 class="art-h2" id="por-que-a-centralizacao-quebra">Por que a centralização quebra no meio do caminho</h2>
+    <p class="art-p">Depois do mapa pronto, a empresa normalmente tem dois grupos: os números que vão para a API Oficial agora e os que ficam para depois. É aqui que a maioria dos projetos de atendimento perde a força.</p>
+    <p class="art-p">A maioria das plataformas só conecta números na API Oficial. Quando a empresa tem números que não vão migrar agora, eles ficam de fora e a centralização quebra. O número de cobrança vai para a plataforma nova, com fila, etiquetas e relatório. Os seis vendedores continuam no celular, porque a plataforma não aceita o número deles.</p>
+    <p class="art-p">O resultado é a operação dividida em duas: metade das conversas aparece no painel do gestor e metade continua invisível. O gestor mede o tempo de resposta do número de cobrança e não tem ideia de quanto tempo o cliente espera no WhatsApp do vendedor. O funil comercial, que deveria mostrar em que etapa está cada negociação, só mostra as conversas que entraram pelo número oficial.</p>
+    <p class="art-p">Por isso a decisão de quais números migrar precisa vir junto com outra decisão: onde a equipe vai atender os números que ainda não migraram. Se a resposta for "no celular, como sempre", o projeto resolve o disparo e mantém o problema de gestão.</p>
+
+    <h2 class="art-h2" id="como-fica-na-pratica">Como fica na prática: os dois tipos de número na mesma tela</h2>
+    <p class="art-p">O AltumChat, a plataforma de atendimento que nós oferecemos, foi pensado para essa divisão. É uma plataforma de atendimento com vários atendentes e um CRM em formato Kanban. Na mesma tela, ele conecta caixas de entrada da API Oficial do WhatsApp (Cloud API) e números conectados por API não oficial.</p>
+    <p class="art-p">Voltando ao exemplo da empresa com oito números, o dia a dia fica assim. O número de cobrança e o número que recebe o atendente de IA entram como caixas de entrada da API Oficial, com templates aprovados e dentro das regras da Meta. Os números dos vendedores e da filial, que ainda não migraram, entram na mesma plataforma. O gestor abre uma tela só e vê todas as conversas, de todos os números, com o responsável por cada uma. E qualquer atendente pode atender qualquer número: ninguém fica preso ao celular de um vendedor específico.</p>
+    <p class="art-p">As negociações entram no funil do CRM Kanban, independentemente do número por onde o cliente chegou. Quando um vendedor sai de férias, a conversa é transferida para outro atendente pela plataforma, sem precisar do celular. Quando um vendedor sai da empresa, o histórico das conversas dele continua na plataforma, e a carteira de clientes fica com a empresa.</p>
+    <p class="art-p">Quando um número da segunda fase passa para a API Oficial, a equipe continua atendendo na mesma tela, mas o histórico depende do caminho escolhido. Se o número migra direto para a API Oficial, sem coexistência, o histórico anterior daquele número não acompanha a migração: a caixa de entrada nova começa do zero. Se o número entra em coexistência, o histórico antigo continua no celular, e na plataforma aparecem as mensagens trocadas a partir da conexão, inclusive em conversas antigas, quando o cliente volta a escrever. Isso acontece em todas as plataformas de atendimento, não é uma limitação de uma ferramenta específica. Por isso, vale exportar ou guardar o que for importante antes de migrar.</p>
+
+    <h2 class="art-h2" id="o-que-a-centralizacao-nao-resolve">O que a centralização não resolve</h2>
+    <p class="art-p">Aqui eu preciso ser direta, porque é o ponto que mais vejo ser vendido de forma errada. Colocar um número não oficial dentro de uma plataforma não torna esse número oficial. A conexão continua sendo não oficial, e o risco continua o mesmo.</p>
+    <p class="art-p">A <a href="https://faq.whatsapp.com/1217634902127718" target="_blank" rel="noopener">Central de Ajuda do WhatsApp</a> é explícita: conectar a conta a versões não oficiais do WhatsApp viola os Termos de Serviço, e a conta pode ser banida temporária ou permanentemente. Isso vale para o número do vendedor conectado por QR code em qualquer plataforma, inclusive na nossa. A centralização organiza o atendimento. Ela não protege o número.</p>
+    <p class="art-p">E a API Oficial também tem regras. A política de mensagens para empresas prevê que a Meta pode limitar ou remover o acesso de quem a viola, por exemplo mandando mensagem sem opt-in. Ninguém sério pode prometer que um número nunca será bloqueado. O que a API Oficial oferece é um caminho autorizado para disparar, cobrar e automatizar, e um processo documentado quando algo dá errado. Se o pior já aconteceu com algum número seu, eu explico o que fazer em <a href="/blog/numero-whatsapp-banido-como-recuperar">Número do WhatsApp banido: por que acontece e como recuperar</a>.</p>
+
+    <h3 class="art-h3">Sinais de que um número da segunda fase precisa migrar já</h3>
+    <p class="art-p">O mapa de números não é fixo. Um número que hoje pode esperar vira prioridade quando a rotina dele muda. Os sinais mais comuns são estes: o vendedor começou a mandar a mesma mensagem para dezenas de clientes de uma vez; o número passou a receber automação ou atendente de IA; o volume da filial cresceu; ou o número ficou tão conhecido que perdê-lo pararia a operação.</p>
+    <p class="art-p">Quando qualquer um desses sinais aparece, o número sai da segunda fase e entra na fila de migração. Para planejar essa mudança sem perder o número, o passo a passo está em <a href="/blog/migrar-whatsapp-business-para-api-oficial">Como migrar do WhatsApp Business para a API Oficial sem perder o número</a>, e o custo da Meta por mensagem está em <a href="/blog/quanto-custa-api-oficial-whatsapp-2026">Quanto custa a API Oficial do WhatsApp em 2026</a>.</p>
+    <p class="art-p">Resumindo o raciocínio do artigo: os números que sustentam receita e automação vão para a API Oficial primeiro, os números de relacionamento podem esperar, e todos são atendidos no mesmo lugar. A centralização mantém a gestão funcionando durante a transição. A migração do que importa é o que reduz o risco de verdade.</p>
+    <hr class="art-divider">
+
+    <h2 class="art-h2" id="perguntas-frequentes">Perguntas frequentes</h2>
+
+    <h3 class="faq-q">Dá para usar API Oficial e API não oficial ao mesmo tempo na mesma empresa?</h3>
+    <p class="art-p">Dá, desde que cada número esteja no lugar certo. Os números que disparam mensagens, enviam cobrança ou recebem automação precisam estar na API Oficial, porque os Termos do WhatsApp proíbem envio em massa e automação por meios não autorizados. Números de relacionamento um a um, com volume baixo e conversa iniciada pelo cliente, podem migrar depois. O cuidado é atender todos no mesmo lugar, para o gestor não perder a visão das conversas.</p>
+
+    <h3 class="faq-q">Existe plataforma que conecta números da API Oficial e não oficial na mesma tela?</h3>
+    <p class="art-p">Existe, mas não é o comum: a maioria das plataformas só conecta números da API Oficial, e os números que ainda não migraram ficam de fora. O AltumChat, a plataforma de atendimento que nós oferecemos, conecta caixas de entrada da WhatsApp Cloud API e números conectados por API não oficial na mesma tela, com vários atendentes e um CRM em formato Kanban para acompanhar o funil de cada negociação.</p>
+
+    <h3 class="faq-q">Preciso migrar todos os números da empresa para a API Oficial?</h3>
+    <p class="art-p">Não necessariamente de uma vez. O critério é o que sai de cada número. Se ele dispara para listas, cobra, manda lembrete automático ou recebe um atendente de IA, ele vai para a API Oficial na primeira fase. Se ele só conversa um a um, com volume baixo, pode entrar numa segunda fase. Um número também sobe na fila quando perdê-lo pararia a operação, como o número impresso na embalagem.</p>
+
+    <h3 class="faq-q">Se o número não oficial estiver dentro de uma plataforma, ele ainda pode ser banido?</h3>
+    <p class="art-p">Pode. A Central de Ajuda do WhatsApp informa que conectar a conta a versões não oficiais viola os Termos de Serviço e que a conta pode ser banida temporária ou permanentemente. Estar dentro de uma plataforma de atendimento não muda o tipo de conexão do número. A plataforma organiza as conversas e a equipe, mas o risco do número continua o mesmo até ele migrar para a API Oficial.</p>
+
+    <h3 class="faq-q">Quantos números posso ter na API Oficial do WhatsApp?</h3>
+    <p class="art-p">Segundo a documentação da Meta, um portfólio de negócios novo começa limitado a dois números registrados. O limite sobe automaticamente para 20 quando a empresa é verificada ou quando atinge o limite de 2.000 mensagens. Por isso, se a empresa planeja migrar vários números na primeira fase, a verificação no portfólio de negócios precisa ser feita antes, senão o projeto trava no terceiro número.</p>
+
+    <h3 class="faq-q">O que acontece com as conversas quando um vendedor sai da empresa?</h3>
+    <p class="art-p">Quando o número do vendedor está conectado à plataforma de atendimento, o histórico das conversas fica na plataforma, e a carteira de clientes fica com a empresa. Fora da plataforma, as conversas vão embora no celular dele.</p>
+
+    <h3 class="faq-q">Um atendente pode responder em mais de um número?</h3>
+    <p class="art-p">Sim. Na plataforma, todos os atendentes podem atender todos os números conectados, e uma conversa pode ser transferida de um atendente para outro sem precisar do celular de ninguém.</p>
+
+    <h3 class="faq-q">Preciso verificar a empresa na Meta antes de migrar vários números?</h3>
+    <p class="art-p">Sim, se for migrar mais de dois. Um portfólio de negócios novo registra só 2 números na API Oficial; o limite sobe para 20 quando a empresa é verificada ou atinge o limite de 2.000 mensagens. Sem a verificação, o projeto trava no terceiro número.</p>
+
+    <div class="art-highlight"><strong>Resumo para decidir:</strong> Se a sua empresa tem vários números de WhatsApp (o que cobra, o de cada vendedor, o da filial, o antigo da embalagem), a decisão certa é número a número: os que disparam, cobram e recebem automação vão para a API Oficial agora; os de relacionamento 1:1 podem esperar, desde que a equipe atenda todos no mesmo lugar. A Altum Digital é a consultoria de automação e IA de Talita Bispo, em São Paulo, que implementa a API Oficial do WhatsApp, agentes de IA e automações integradas aos sistemas da empresa, para negócios que faturam a partir de R$ 100 mil por mês e querem parar de depender de processo manual.</div>
+
+    <div class="cta-inline">
+      <h3>Quais números da sua empresa precisam ir para a API Oficial primeiro?</h3>
+      <p>Me conta quantos números de WhatsApp sua empresa usa e o que sai de cada um. Eu te ajudo a montar o mapa de números: o que migrar agora, o que pode esperar e como atender tudo numa tela só.</p>
+      <a href="https://wa.me/5511954715571?text=Oi%20Talita%21%20Li%20seu%20artigo%20sobre%20API%20Oficial%20e%20n%C3%A3o%20oficial%20na%20mesma%20plataforma%20e%20quero%20montar%20o%20mapa%20dos%20n%C3%BAmeros%20de%20WhatsApp%20da%20minha%20empresa." class="btn-wa" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Falar com Talita no WhatsApp
+      </a>
+    </div>
+
+    <div class="author-box">
+      <div class="author-box-inner">
+        <div class="author-box-avatar">TB</div>
+        <div>
+          <h4>Talita Bispo</h4>
+          <p>Fundadora da Altum Digital, consultoria de automação e IA em São Paulo que implementa a API Oficial do WhatsApp, agentes de IA e automações integradas aos sistemas da empresa, para negócios que faturam a partir de R$ 100 mil por mês e querem parar de depender de processo manual. Certificada Google Cloud Generative AI Leader, com 11 anos de consultoria na Accenture (TIM, SKY, SEFAZ-SP, Johnson &amp; Johnson, Getnet, Claro) e criadora do AltumChat, plataforma de atendimento e CRM no WhatsApp que roda sobre infraestrutura de Parceiro Oficial da Meta. Mais de 30 projetos entregues. Atende todo o Brasil.</p>
+        </div>
+      </div>
+    </div>
+
+    <section class="related-posts" aria-labelledby="related-heading">
+      <h2 id="related-heading" class="related-posts__heading">Artigos relacionados</h2>
+      <ul class="related-posts__list">
+    <li class="related-posts__item">
+      <a href="/blog/api-nao-oficial-whatsapp" class="related-posts__link">
+        <h3 class="related-posts__title">API não oficial do WhatsApp: o que é, quando faz sentido e quando bane</h3>
+        <p class="related-posts__relation">Conceito-base: o que é a conexão não oficial e onde ela bane.</p>
+      </a>
+    </li>
+    <li class="related-posts__item">
+      <a href="/blog/coexistencia-whatsapp-app-api-oficial" class="related-posts__link">
+        <h3 class="related-posts__title">Coexistência no WhatsApp: usar o app e a API Oficial no mesmo número</h3>
+        <p class="related-posts__relation">Caminho para migrar sem tirar o número do app.</p>
+      </a>
+    </li>
+    <li class="related-posts__item">
+      <a href="/blog/migrar-whatsapp-business-para-api-oficial" class="related-posts__link">
+        <h3 class="related-posts__title">Migrar do WhatsApp Business para a API Oficial sem perder o número</h3>
+        <p class="related-posts__relation">Próximo passo: o passo a passo da migração de cada número.</p>
+      </a>
+    </li>
+    <li class="related-posts__item">
+      <a href="/blog/whatsapp-business-vs-api-oficial" class="related-posts__link">
+        <h3 class="related-posts__title">WhatsApp Business, API Não-Oficial ou API Oficial: qual a diferença real</h3>
+        <p class="related-posts__relation">Comparativo das três versões antes de montar o mapa.</p>
+      </a>
+    </li>
+      </ul>
+    </section>
+    
+  </article>
+
+  <aside class="sidebar">
+    <div class="sidebar-sticky">
+      <div class="sidebar-card">
+        <h4>Neste artigo</h4>
+        <ul class="toc-list">
+          <li><a href="#numeros-espalhados">O problema dos números espalhados</a></li>
+          <li><a href="#cada-numero-no-lugar-certo">Cada número no lugar certo</a></li>
+          <li><a href="#mapa-de-numeros">Como montar o mapa de números</a></li>
+          <li><a href="#por-que-a-centralizacao-quebra">Por que a centralização quebra</a></li>
+          <li><a href="#como-fica-na-pratica">Como fica na prática</a></li>
+          <li><a href="#o-que-a-centralizacao-nao-resolve">O que a centralização não resolve</a></li>
+          <li><a href="#perguntas-frequentes">Perguntas frequentes</a></li>
+        </ul>
+      </div>
+      <div class="sidebar-cta">
+        <h4>Monte o mapa de números</h4>
+        <p>Descubra quais números migrar agora e quais podem esperar, sem perder a gestão.</p>
+        <a href="https://wa.me/5511954715571?text=Oi%20Talita%21%20Li%20seu%20artigo%20sobre%20API%20Oficial%20e%20n%C3%A3o%20oficial%20na%20mesma%20plataforma%20e%20quero%20montar%20o%20mapa%20dos%20n%C3%BAmeros%20de%20WhatsApp%20da%20minha%20empresa." class="btn-wa-sm" target="_blank">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Falar com Talita
+        </a>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-logo">Altum<span>.</span>Digital</div>
+      <p>© 2025 Talita Bispo · Altum Digital Soluções LTDA</p>
+      <p>São Paulo, SP · Brasil</p>
+      <p>CNPJ 61.287.916/0001-69</p>
+      <p><a href="https://www.linkedin.com/in/talita-b-35b47923/" target="_blank" rel="me noopener" style="color:#9ca3af">LinkedIn</a> · <a href="https://www.instagram.com/soutalitabispo/" target="_blank" rel="me noopener" style="color:#9ca3af">Instagram @SouTalitaBispo</a></p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WhatsApp banido: por que acontece e como recuperar (ou não)</title>
+<meta name="description" content="Número do WhatsApp banido? Entenda cada aviso, o caminho oficial para pedir análise, o que não funciona e como evitar um novo banimento na empresa.">
+<meta name="author" content="Talita Bispo — Altum Digital">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://altumdigital.com.br/blog/numero-whatsapp-banido-como-recuperar">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://altumdigital.com.br/blog/numero-whatsapp-banido-como-recuperar">
+<meta property="og:title" content="WhatsApp banido: por que acontece e como recuperar (ou não)">
+<meta property="og:description" content="Número do WhatsApp banido? Entenda cada aviso, o caminho oficial para pedir análise, o que não funciona e como evitar um novo banimento na empresa.">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Altum Digital">
+<meta property="article:author" content="Talita Bispo">
+<meta property="article:published_time" content="2026-10-30">
+<meta property="article:tag" content="WhatsApp API">
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:#f8fafb;color:#0f172a;font-family:'DM Sans',sans-serif;font-size:16px;line-height:1.7}
+h1,h2,h3,h4{font-family:'Manrope',sans-serif}
+a{text-decoration:none;color:inherit}
+.container{max-width:1100px;margin:0 auto;padding:0 28px}
+nav{background:#06080f;padding:18px 0;border-bottom:1px solid rgba(255,255,255,0.07)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;max-width:1100px;margin:0 auto;padding:0 28px}
+.nav-logo{font-family:'Manrope',sans-serif;font-size:18px;font-weight:800;color:#e8eaf0}
+.nav-logo span{color:#00e5c3}
+.nav-links{list-style:none;display:flex;gap:28px;align-items:center}
+.nav-links a{color:#7b8499;font-size:14px;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:#e8eaf0}
+.nav-links a.active{color:#00e5c3}
+.nav-cta{background:#00e5c3;color:#06080f!important;padding:9px 20px;border-radius:6px;font-weight:700!important;font-size:13px!important}
+.article-hero{background:#fff;border-bottom:1px solid #e5e7eb;padding:52px 0 44px}
+.article-hero-inner{max-width:760px;margin:0 auto;padding:0 28px}
+.breadcrumb{font-size:13px;color:#9ca3af;margin-bottom:20px;display:flex;align-items:center;gap:8px}
+.breadcrumb a{color:#00b89e;font-weight:500}
+.breadcrumb-sep{color:#d1d5db}
+.art-tag{display:inline-flex;align-items:center;gap:6px;background:#e6faf6;border:1px solid #b3f0e0;border-radius:100px;padding:5px 14px;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#0f6e56;margin-bottom:20px}
+.art-tag-dot{width:6px;height:6px;border-radius:50%;background:#00e5c3}
+.article-title{font-size:clamp(24px,4vw,38px);font-weight:800;line-height:1.2;color:#0f172a;margin-bottom:20px;letter-spacing:-.025em}
+.article-meta{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.meta-avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#00e5c3,#4f8cff);display:flex;align-items:center;justify-content:center;font-family:'Manrope',sans-serif;font-weight:800;font-size:11px;color:#fff;flex-shrink:0}
+.meta-info{display:flex;flex-direction:column;gap:2px}
+.meta-name{font-size:14px;font-weight:700;color:#374151}
+.meta-details{font-size:12px;color:#9ca3af}
+.article-layout{display:grid;grid-template-columns:1fr 280px;gap:48px;max-width:1060px;margin:0 auto;padding:48px 28px 80px}
+.art-lead{font-size:19px;color:#374151;line-height:1.8;margin-bottom:36px;font-weight:400;border-left:3px solid #00e5c3;padding-left:22px}
+.art-h2{font-size:22px;font-weight:800;color:#0f172a;margin:44px 0 14px;letter-spacing:-.015em}
+.art-h3{font-size:17px;font-weight:700;color:#0f172a;margin:28px 0 10px}
+.art-p{font-size:16px;color:#4b5563;line-height:1.85;margin-bottom:18px}
+.art-highlight{background:#f0fdf9;border:1px solid #ccf7eb;border-left:3px solid #00e5c3;border-radius:0 8px 8px 0;padding:18px 22px;margin:28px 0;font-size:15px;color:#065f46;line-height:1.75}
+.art-highlight strong{font-weight:700;color:#047857}
+.art-tip{background:#fffbeb;border:1px solid #fde68a;border-left:3px solid #f59e0b;border-radius:0 8px 8px 0;padding:18px 22px;margin:24px 0;font-size:14px;color:#92400e;line-height:1.7}
+.art-tip strong{font-weight:700}
+.art-divider{border:none;border-top:1px solid #f0f0f0;margin:40px 0}
+.art-quote{background:#f8fafb;border-left:3px solid #00e5c3;border-radius:0 8px 8px 0;padding:20px 24px;margin:32px 0;font-size:17px;font-style:italic;color:#374151;line-height:1.75}
+.metrics-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:28px 0}
+.metric-card{background:#0f172a;border-radius:12px;padding:20px;text-align:center}
+.metric-number{font-family:'Manrope',sans-serif;font-size:36px;font-weight:800;color:#00e5c3;line-height:1;margin-bottom:6px}
+.metric-label{font-size:13px;color:#9ca3af;line-height:1.4}
+.cta-inline{background:#0f172a;border-radius:16px;padding:32px;margin:44px 0;text-align:center}
+.cta-inline h3{font-family:'Manrope',sans-serif;font-size:20px;font-weight:800;color:#fff;margin-bottom:10px}
+.cta-inline p{font-size:14px;color:#9ca3af;margin-bottom:22px;line-height:1.65}
+.btn-wa{display:inline-flex;align-items:center;gap:10px;background:#25D366;color:#fff;padding:13px 26px;border-radius:8px;font-family:'Manrope',sans-serif;font-weight:700;font-size:14px;transition:opacity .2s}
+.btn-wa:hover{opacity:.9}
+.btn-wa svg{width:18px;height:18px;fill:#fff;flex-shrink:0}
+.author-box{background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:24px;margin-top:48px}
+.author-box-inner{display:flex;gap:16px;align-items:flex-start}
+.author-box-avatar{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#00e5c3,#4f8cff);display:flex;align-items:center;justify-content:center;font-family:'Manrope',sans-serif;font-weight:800;font-size:14px;color:#fff;flex-shrink:0}
+.author-box h4{font-size:15px;font-weight:800;color:#0f172a;margin-bottom:4px}
+.author-box p{font-size:13px;color:#6b7280;line-height:1.6}
+.sidebar-sticky{position:sticky;top:28px}
+.sidebar-card{background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:22px;margin-bottom:20px}
+.sidebar-card h4{font-family:'Manrope',sans-serif;font-size:13px;font-weight:700;color:#0f172a;margin-bottom:16px;letter-spacing:.02em;text-transform:uppercase}
+.toc-list{list-style:none;display:flex;flex-direction:column;gap:10px}
+.toc-list a{font-size:13px;color:#6b7280;line-height:1.4;transition:color .2s;display:block}
+.toc-list a:hover{color:#00b89e}
+.sidebar-cta{background:#0f172a;border-radius:16px;padding:22px;text-align:center}
+.sidebar-cta p{font-size:13px;color:#9ca3af;margin-bottom:16px;line-height:1.6}
+.sidebar-cta h4{font-family:'Manrope',sans-serif;font-size:15px;font-weight:800;color:#fff;margin-bottom:10px}
+.btn-wa-sm{display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#fff;padding:11px 18px;border-radius:8px;font-family:'Manrope',sans-serif;font-weight:700;font-size:13px;width:100%;justify-content:center}
+footer{background:#06080f;border-top:1px solid rgba(255,255,255,0.07);padding:32px 0}
+.footer-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.footer-logo{font-family:'Manrope',sans-serif;font-weight:800;font-size:15px;color:#e8eaf0}
+.footer-logo span{color:#00e5c3}
+footer p{color:#7b8499;font-size:13px}
+@media(max-width:900px){.article-layout{grid-template-columns:1fr}.sidebar{display:none}.nav-links{display:none}.metrics-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:500px){.metrics-grid{grid-template-columns:1fr}}
+
+/* === Blocos SEO/GEO (TLDR + FAQ + Related) — alinhado com paleta atual === */
+.tldr{background:#f0fdf9;border:1px solid #ccf7eb;border-left:4px solid #00b89e;border-radius:0 8px 8px 0;padding:22px 26px;margin:0 0 36px 0;font-family:'DM Sans',sans-serif;}
+.tldr__heading{font-family:'Manrope',sans-serif;font-size:13px;font-weight:700;color:#0f6e56;text-transform:uppercase;letter-spacing:.1em;margin:0 0 14px 0;}
+.tldr__list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;}
+.tldr__list li{font-size:15px;color:#065f46;line-height:1.65;padding-left:22px;position:relative;}
+.tldr__list li::before{content:"\2192";position:absolute;left:0;color:#00b89e;font-weight:700;}
+.tldr__meta{margin-top:18px;padding-top:14px;border-top:1px solid #ccf7eb;font-size:12px;color:#0f6e56;display:flex;gap:10px;flex-wrap:wrap;align-items:center;}
+.faq-q{font-family:'Manrope',sans-serif;font-size:17px;font-weight:700;color:#0f172a;margin:26px 0 8px;line-height:1.4}
+.faq{margin:48px 0 40px;}
+.faq__heading{font-family:'Manrope',sans-serif;font-size:22px;font-weight:800;color:#0f172a;margin:0 0 20px 0;letter-spacing:-.015em;}
+.faq__item{border-bottom:1px solid #e5e7eb;padding:16px 0;cursor:pointer;}
+.faq__item:last-child{border-bottom:none;}
+.faq__question{font-family:'Manrope',sans-serif;font-size:16px;font-weight:700;color:#0f172a;list-style:none;position:relative;padding-right:32px;cursor:pointer;}
+.faq__question::-webkit-details-marker{display:none;}
+.faq__question::after{content:"+";position:absolute;right:0;top:-3px;font-size:22px;color:#00b89e;font-weight:400;transition:transform .2s;}
+.faq__item[open] .faq__question::after{content:"\2212";}
+.faq__answer{padding-top:12px;color:#4b5563;line-height:1.7;font-size:14px;}
+.related-posts{margin:48px 0 0 0;padding-top:32px;border-top:1px solid #e5e7eb;}
+.related-posts__heading{font-family:'Manrope',sans-serif;font-size:20px;font-weight:800;color:#0f172a;margin:0 0 20px 0;letter-spacing:-.015em;}
+.related-posts__list{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+.related-posts__link{display:block;padding:18px 20px;background:#fff;border:1px solid #e5e7eb;border-radius:12px;text-decoration:none;transition:border-color .2s,transform .2s;}
+.related-posts__link:hover{border-color:#00b89e;transform:translateY(-2px);}
+.related-posts__title{font-family:'Manrope',sans-serif;font-size:14px;font-weight:700;color:#0f172a;margin:0 0 6px;line-height:1.35;}
+.related-posts__relation{font-size:12px;color:#6b7280;margin:0;line-height:1.5;}
+@media(max-width:640px){.related-posts__list{grid-template-columns:1fr;}}
+.art-p a,.article-content li a:not([class]){color:#00b89e;font-weight:600;text-decoration:underline}
+</style>
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="WhatsApp banido: por que acontece e como recuperar (ou não)">
+<meta name="twitter:description" content="Número do WhatsApp banido? Entenda cada aviso, o caminho oficial para pedir análise, o que não funciona e como evitar um novo banimento na empresa.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "WhatsApp banido: por que acontece e como recuperar (ou não)",
+  "description": "Número do WhatsApp banido? Entenda cada aviso, o caminho oficial para pedir análise, o que não funciona e como evitar um novo banimento na empresa.",
+  "author": {"@type": "Person", "@id": "https://altumdigital.com.br/#talita-bispo", "name": "Talita Bispo", "url": "https://altumdigital.com.br/"},
+  "publisher": {"@type": "Organization", "@id": "https://altumdigital.com.br/#organizacao", "name": "Altum Digital", "url": "https://altumdigital.com.br/"},
+  "datePublished": "2026-10-30T00:00:00-03:00",
+  "dateModified": "2026-10-30T00:00:00-03:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://altumdigital.com.br/blog/numero-whatsapp-banido-como-recuperar"
+  },
+  "articleSection": "WhatsApp API",
+  "keywords": [
+    "número do WhatsApp banido",
+    "como recuperar WhatsApp banido",
+    "pedir análise WhatsApp banido",
+    "WhatsApp Business banido o que fazer",
+    "evitar banimento WhatsApp empresa"
+  ],
+  "wordCount": 2224,
+  "inLanguage": "pt-BR"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Altum Digital",
+      "item": "https://altumdigital.com.br/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "https://altumdigital.com.br/blog"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "WhatsApp banido: por que acontece e como recuperar (ou não)"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Meu número do WhatsApp foi banido, dá para recuperar?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Às vezes. Se o app mostra o botão Pedir análise, você pode solicitar a revisão e o WhatsApp avisa quando decidir. Se o botão não aparece, a Central de Ajuda informa que o banimento é definitivo e não pode ser contestado. Mesmo com análise, ninguém garante o resultado. Por isso vale montar no mesmo dia um plano B: número novo, aviso aos clientes por e-mail e redes, e a lista de contatos tirada do CRM ou ERP."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quanto tempo demora a análise do WhatsApp banido?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No app WhatsApp e no WhatsApp Business, o próprio aviso de banimento informa que a maioria das análises é concluída em até 24 horas. Na API Oficial, a documentação da Meta diz que a decisão sobre uma apelação feita no Business Support Home costuma sair entre 24 e 48 horas. Mandar vários pedidos ou procurar o WhatsApp por fora do processo não acelera a análise, segundo a Central de Ajuda."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Qual a diferença entre conta banida, temporariamente banida e restrita?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Conta banida mostra \"Este número não pode usar o WhatsApp\" e só volta por análise. Conta temporariamente banida, segundo a Meta, indica uso de app não oficial ou extração de dados, e pode virar banimento permanente se o uso continuar. Conta restrita sai sozinha após o prazo: você conversa com quem já falava, mas não inicia conversa com contatos novos nem cria grupos durante a restrição."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Empresas que prometem desbanir número do WhatsApp funcionam?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Não. A Central de Ajuda do WhatsApp afirma que serviços de terceiros não podem banir nem cancelar o banimento de uma conta, e que só o WhatsApp faz isso. Quem cobra por desbanimento está vendendo algo que não controla. O único caminho oficial é o botão Pedir análise no app ou, para números da API Oficial, a apelação pelo Business Support Home da Meta."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "A API Oficial do WhatsApp também pode ser banida?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pode. A documentação da Meta descreve uma escada de punição na API Oficial: aviso, restrição de 1 ou 3 dias para templates, restrição de 5, 7 ou 30 dias para qualquer mensagem, bloqueio indefinido que só sai por apelação e desativação permanente. Casos graves, como golpe, podem ser desligados na hora. A diferença para o app é que a empresa recebe aviso antes e tem um processo de apelação documentado."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "O que fazer enquanto espero a análise do WhatsApp?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Tratar o número como perdido e montar o plano B no mesmo dia: avisar os clientes por e-mail, site e redes sobre o número novo, reconstruir a lista de contatos a partir do CRM, ERP ou plataforma de vendas, e não colocar o número novo para fazer o mesmo trabalho que derrubou o anterior."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Um chip novo pode vir banido?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pode. A Central de Ajuda explica que um número recém-adquirido pode já estar banido porque o dono anterior violou os Termos. Nesse caso, o caminho é o mesmo: pedir análise pelo app."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Se o número voltar, posso continuar usando a mesma ferramenta?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Se a ferramenta era um app não oficial, não. A Meta avisa que pode banir a conta de novo se a atividade continuar violando os Termos, e o número liberado volta sob observação. Se o número precisa disparar, cobrar ou receber automação, ele vai para a API Oficial."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">Altum<span>.</span>Digital</a>
+    <ul class="nav-links">
+      <li><a href="/#services">Serviços</a></li>
+      <li><a href="/#projects">Projetos</a></li>
+      <li><a href="/#method">Metodologia</a></li>
+      <li><a href="/blog" class="active">Blog</a></li>
+      <li><a href="/#cta" class="nav-cta">Falar com Talita</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="article-hero">
+  <div class="article-hero-inner">
+    <div class="breadcrumb">
+      <a href="/">Altum Digital</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="/blog">Blog</a>
+      <span class="breadcrumb-sep">›</span>
+      <span>Número do WhatsApp banido</span>
+    </div>
+    <div class="art-tag"><div class="art-tag-dot"></div>WhatsApp API</div>
+    <h1 class="article-title">Número do WhatsApp banido: por que acontece e como recuperar (ou não)</h1>
+    <div class="article-meta">
+      <div class="meta-avatar">TB</div>
+      <div class="meta-info">
+        <span class="meta-name">Talita Bispo · Altum Digital</span>
+        <span class="meta-details">30 de outubro de 2026 · 9 min de leitura</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="article-layout">
+  <article class="article-content">
+
+
+    
+    <aside class="tldr" role="complementary" aria-labelledby="tldr-heading">
+  <h2 id="tldr-heading" class="tldr__heading">Resumo: o que você vai aprender</h2>
+  <ul class="tldr__list">
+    <li>O aviso "Este número não pode usar o WhatsApp" é banimento. "Conta temporariamente banida" indica app não oficial ou coleta automatizada de dados. "Conta restrita" sai sozinha depois do prazo. Cada aviso tem um caminho diferente.</li>
+    <li>O único caminho oficial no app é tocar em Pedir análise. Segundo a Central de Ajuda do WhatsApp, a maioria das análises termina em até 24 horas e cada apelação analisa um número só.</li>
+    <li>Se o botão Pedir análise não aparece, o banimento é definitivo e não pode ser contestado. Enquanto o número está banido, o histórico de conversas e os backups ficam inacessíveis.</li>
+    <li>Ninguém fora do WhatsApp cancela banimento. A Meta afirma que serviços de terceiros não podem banir nem desbanir contas, e que contato por fora do processo não acelera a decisão.</li>
+    <li>Números que disparam campanha, cobram ou recebem automação devem estar na API Oficial, com opt-in. Ela também pune, mas com aviso, restrições de 1 a 30 dias antes do bloqueio e apelação no Business Support Home.</li>
+  </ul>
+  <p class="tldr__meta">
+    <span>📖 Leitura de 9 minutos</span>
+    <span>·</span>
+    <time datetime="2026-10-30">Publicado em 30 de outubro de 2026</time>
+  </p>
+</aside>
+
+    <p class="art-lead">O número da empresa abriu com o aviso "Este número não pode usar o WhatsApp". Os clientes continuam mandando mensagem e ninguém responde. Neste artigo eu mostro o que esse aviso significa, o único caminho oficial para pedir revisão e por que, em muitos casos, o número não volta.</p>
+
+    <p class="art-p">Quem chega aqui geralmente está com o número parado há algumas horas e com pressa. Por isso vou direto ao ponto: existem três avisos diferentes que o WhatsApp mostra para uma conta com problema, e cada um tem um caminho diferente. Confundir os três faz a empresa perder tempo com a solução errada justamente no dia em que mais precisa do número.</p>
+
+    <p class="art-p">Também vou ser honesta com você desde o começo. Ninguém fora da Meta consegue cancelar um banimento. Nem eu, nem nenhuma empresa que prometa "desbanir" o seu número. O que dá para fazer é usar o pedido de análise do jeito certo, preparar a operação para o caso de o número não voltar e organizar os números da empresa para que isso não se repita.</p>
+
+    <hr class="art-divider">
+
+    <h2 class="art-h2" id="qual-aviso-apareceu">Primeiro passo: descubra qual aviso apareceu</h2>
+
+    <p class="art-p">Antes de qualquer ação, abra o app e leia o aviso com calma. O WhatsApp usa mensagens diferentes para situações diferentes, e a <a href="https://faq.whatsapp.com/465883178708358" target="_blank" rel="noopener">Central de Ajuda do WhatsApp</a> explica cada uma delas.</p>
+
+    <h3 class="art-h3">"Este número não pode usar o WhatsApp": conta banida</h3>
+    <p class="art-p">Esse é o banimento propriamente dito. O texto completo diz que você pode pedir uma análise do número e que a maioria das análises é concluída em até 24 horas. Enquanto o número estiver banido, você não acessa o histórico de conversas nem os backups. O backup só volta a ficar disponível se o banimento for cancelado. Na prática, isso significa que os contatos e as conversas com clientes ficam presos junto com o número.</p>
+
+    <h3 class="art-h3">"Conta temporariamente banida": aviso ligado a app não oficial</h3>
+    <p class="art-p">Segundo a <a href="https://faq.whatsapp.com/1848531392146538" target="_blank" rel="noopener">página oficial sobre contas temporariamente banidas</a>, esse aviso aparece quando a conta provavelmente está usando um app não oficial ou coletando dados de usuários de forma automatizada (o que o WhatsApp chama de extração). A orientação da própria Meta é trocar para o app oficial ou parar a coleta. Quem continua corre o risco de o banimento virar permanente.</p>
+
+    <h3 class="art-h3">"Sua conta está restrita no momento": conta restrita</h3>
+    <p class="art-p">Restrição não é banimento. A <a href="https://faq.whatsapp.com/717472490411581" target="_blank" rel="noopener">página sobre contas restritas</a> explica que a restrição sai sozinha depois do período determinado e que você não precisa fazer nada para removê-la. Durante a restrição, você continua conversando com quem já falava com você, mas não consegue iniciar conversa com contato novo, criar grupo nem usar dispositivos conectados. O motivo citado pela Meta são sinais de spam, mensagens automáticas ou em massa. Ou seja: a restrição é um aviso de que o número está perto do limite.</p>
+
+    <h2 class="art-h2" id="por-que-acontece">Por que a Meta bane o número de uma empresa</h2>
+
+    <p class="art-p">Na maioria dos casos que eu acompanho, o banimento não é azar nem perseguição. É o resultado de um número fazendo um trabalho que os Termos de Serviço não permitem. A Meta detecta esse comportamento com uma combinação de aprendizado de máquina e denúncias de usuários, conforme a página <a href="https://faq.whatsapp.com/361005896189245" target="_blank" rel="noopener">Como usar o WhatsApp com responsabilidade</a>. São quatro causas principais.</p>
+
+    <h3 class="art-h3">1. Clientes bloqueando e denunciando o número</h3>
+    <p class="art-p">Cada vez que alguém recebe uma mensagem que não pediu, essa pessoa pode bloquear ou denunciar o número com dois toques. A Central de Ajuda é direta: "Nós banimos contas que são denunciadas várias vezes." Imagine uma loja que manda a mesma promoção para 3 mil contatos numa sexta-feira. Se uma parte desses contatos não lembra de ter dado o número, as denúncias chegam em poucas horas, e o número inteiro paga pela campanha.</p>
+
+    <h3 class="art-h3">2. Disparo para lista fria</h3>
+    <p class="art-p">Lista fria é aquela base comprada, raspada de algum lugar ou herdada de outro negócio, de pessoas que nunca pediram contato pelo WhatsApp. A boa prática oficial é só mandar mensagem para quem falou com você primeiro ou pediu que você entrasse em contato. A Meta também cita, entre as práticas que podem levar ao banimento, usar listas de contatos de terceiros e dados de fontes ilegais. Para empresas, a <a href="https://business.whatsapp.com/policy" target="_blank" rel="noopener">Política de Mensagens do WhatsApp Business</a> exige que a pessoa tenha dado o número e também autorizado receber mensagens (o opt-in).</p>
+
+    <h3 class="art-h3">3. App modificado ou API não oficial</h3>
+    <p class="art-p">Os <a href="https://www.whatsapp.com/legal/terms-of-service" target="_blank" rel="noopener">Termos de Serviço do WhatsApp</a> proíbem mensagens em massa, mensagens automáticas e acesso ao serviço por meios automatizados não autorizados. A ferramenta conhecida como API não oficial conecta o número do app por QR Code e automatiza o envio, então ela opera exatamente no que os Termos proíbem. Por isso ela funciona por um tempo e, quando o volume sobe, o número cai. Eu explico em detalhe quando ela ainda faz sentido no post sobre <a href="/blog/api-nao-oficial-whatsapp">API não oficial do WhatsApp</a>.</p>
+
+    <h3 class="art-h3">4. Violação das políticas de negócio</h3>
+    <p class="art-p">No <a href="https://faq.whatsapp.com/723378546580115" target="_blank" rel="noopener">app WhatsApp Business</a>, a Meta cita como causa de banimento violar a Política de Mensagens do WhatsApp Business ou a Política Comercial, por exemplo enviando spam ou tentando vender produtos que essas políticas proíbem. Nesse caso, a conta banida também perde automaticamente a assinatura do Meta Verified, sem reembolso.</p>
+
+    <div class="art-highlight">
+      <strong>O ponto em comum das quatro causas:</strong> o número está mandando mensagem para gente que não pediu, ou está mandando do jeito que o app comum não permite. Enquanto esse uso continuar, pedir análise e conseguir o número de volta só adia o próximo banimento.
+    </div>
+
+    <h2 class="art-h2" id="como-pedir-analise">O caminho oficial para pedir revisão</h2>
+
+    <p class="art-p">Existe um caminho oficial, e ele é diferente para quem usa o app e para quem usa a API Oficial. Seguir o caminho certo é a única coisa que realmente influencia a decisão.</p>
+
+    <h3 class="art-h3">Se o número estava no app WhatsApp ou WhatsApp Business</h3>
+    <p class="art-p">Abra o app com o número banido e toque em <strong>Pedir análise</strong>. Se você acredita que houve engano, explique de forma objetiva o uso que a empresa faz do número. O WhatsApp manda uma notificação quando decide, e você acompanha o andamento pelo próprio app. Se a decisão for favorável, aparece a mensagem "Agora esta conta pode usar o WhatsApp" e você precisa <a href="https://faq.whatsapp.com/1297640017664693" target="_blank" rel="noopener">verificar o número de novo</a> para voltar a usar.</p>
+
+    <div class="art-quote">
+      "Quando a opção para pedir uma análise não é exibida, significa que o banimento é definitivo e não é possível contestá-lo." (Central de Ajuda do WhatsApp)
+    </div>
+
+    <h3 class="art-h3">Se o número estava na API Oficial (Plataforma do WhatsApp Business)</h3>
+    <p class="art-p">Aqui o Suporte do WhatsApp não atende. A <a href="https://faq.whatsapp.com/1508178557633269" target="_blank" rel="noopener">própria Central de Ajuda</a> manda empresas da Plataforma para a Central de Ajuda da Meta para Empresas. A <a href="https://developers.facebook.com/docs/whatsapp/overview/policy-enforcement" target="_blank" rel="noopener">documentação oficial de aplicação de políticas</a> descreve o processo: no Business Support Home, você escolhe a conta de mensagens, seleciona a violação, clica em Request Review, escreve os detalhes e envia. A decisão costuma sair em 24 a 48 horas e volta como mantida ou revertida. A mesma documentação avisa que nem toda violação de spam aceita apelação.</p>
+
+    <p class="art-p">A diferença importante é que, na API Oficial, a punição costuma ser em escada. A Meta descreve aviso, depois restrição de 1 ou 3 dias para templates, depois restrição de 5, 7 ou 30 dias para qualquer mensagem, depois bloqueio indefinido que só sai por apelação e, por último, desativação permanente. Casos graves, como golpe, podem ser desligados na hora. Ou seja: a API Oficial também pune, mas avisa antes e documenta o motivo. Esse é o tema do post sobre <a href="/blog/pontuacao-qualidade-limite-envio-whatsapp">pontuação de qualidade e limite de envio</a>.</p>
+
+    <div class="metrics-grid">
+      <div class="metric-card">
+        <div class="metric-number">24h</div>
+        <div class="metric-label">prazo da maioria das análises no app, segundo a Central de Ajuda</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-number">24-48h</div>
+        <div class="metric-label">prazo típico de decisão de apelação na API Oficial</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-number">1</div>
+        <div class="metric-label">número de telefone analisado por apelação</div>
+      </div>
+    </div>
+
+    <h2 class="art-h2" id="o-que-nao-funciona">O que não funciona (e pode piorar)</h2>
+
+    <p class="art-p">No desespero, a empresa tenta de tudo. Algumas tentativas só gastam tempo. Outras pioram a situação do número ou da operação. Esta lista vem direto do que a Meta documenta.</p>
+
+    <div class="art-tip">
+      <strong>Pagar alguém para "desbanir":</strong> a Central de Ajuda afirma que serviços de terceiros não podem banir nem cancelar o banimento de uma conta. Só o WhatsApp faz isso. Quem cobra por desbanimento está vendendo algo que não controla.<br><br>
+      <strong>Mandar vários pedidos ou procurar contato por fora:</strong> entrar em contato com o WhatsApp fora do processo de análise, ou usando a conta de outra pessoa, não acelera nem muda a decisão. Cada apelação analisa um número só.<br><br>
+      <strong>Voltar a usar o app não oficial depois da liberação:</strong> a Meta avisa que pode banir a conta de novo se a atividade continuar violando os Termos. O número liberado volta sob observação.<br><br>
+      <strong>Pegar um chip novo e repetir a mesma campanha:</strong> o número novo entra fazendo o mesmo trabalho que derrubou o anterior. As mesmas denúncias chegam, agora num número sem histórico nenhum.
+    </div>
+
+    <p class="art-p">Vale um alerta sobre chip novo. A Central de Ajuda explica que um número recém-adquirido pode já vir banido, porque o dono anterior violou os Termos. Se isso acontecer, o caminho é o mesmo: pedir análise pelo app.</p>
+
+    <h2 class="art-h2" id="quando-nao-da-para-recuperar">Quando não dá para recuperar o número</h2>
+
+    <p class="art-p">Aqui está a parte que pouca gente fala com clareza. Se o botão de pedir análise não aparece, o banimento é definitivo. Se o pedido for analisado e a decisão for mantida, o número também não volta. Nos dois casos, o histórico de conversas e os backups daquele número continuam inacessíveis.</p>
+
+    <p class="art-p">Por isso, enquanto a análise corre, eu recomendo tratar o número como perdido e montar o plano B no mesmo dia. Se ele voltar, ótimo. Se não voltar, a empresa não perdeu mais uma semana esperando. O plano B tem três frentes:</p>
+
+    <p class="art-p"><strong>Avisar os clientes por outro canal.</strong> Use e-mail, site, redes sociais e a assinatura de e-mail da equipe para informar o número novo. O cliente que manda mensagem para o número banido não recebe resposta, e se ninguém avisar, ele entende que a empresa sumiu.</p>
+
+    <p class="art-p"><strong>Reconstruir a lista de contatos a partir dos seus sistemas.</strong> CRM, ERP, plataforma de e-commerce e planilha de vendas guardam o telefone dos clientes. É dali que sai a base para avisar sobre o número novo, e não do celular bloqueado.</p>
+
+    <p class="art-p"><strong>Não colocar o número novo para fazer o mesmo trabalho.</strong> Se o número antigo caiu por disparo ou por automação no app comum, o número novo precisa entrar já no formato certo. É isso que a próxima seção explica.</p>
+
+    <div class="art-highlight">
+      <strong>Resumo honesto:</strong> o pedido de análise é o único caminho oficial e vale ser feito sempre que o botão aparecer. Mas ninguém garante o resultado. A empresa que prepara o plano B no primeiro dia volta a atender em horas, enquanto a que só espera fica dias sem canal.
+    </div>
+
+    <h2 class="art-h2" id="como-evitar-de-novo">Como não passar por isso de novo</h2>
+
+    <p class="art-p">A pergunta que resolve o problema na raiz é: qual trabalho cada número da empresa faz? Em todos os projetos sérios que conheço, a regra é a mesma. Cada número no lugar certo.</p>
+
+    <p class="art-p">O número que dispara campanha, cobra cliente, manda lembrete automático ou recebe atendente de IA precisa estar na API Oficial. Isso porque a API Oficial é o caminho autorizado pela Meta para envio em escala, com templates aprovados, opt-in registrado e um processo de apelação documentado. Você continua sujeito às regras, mas sabe quais são, recebe aviso antes da punição e tem onde contestar.</p>
+
+    <p class="art-p">Já o número de relacionamento, como o celular do vendedor que conversa um a um com clientes que o procuraram, corre bem menos risco, desde que ele não seja usado para disparo. Eu explico como manter os dois tipos de número atendidos na mesma tela no post sobre <a href="/blog/api-oficial-e-nao-oficial-mesma-plataforma">API Oficial e não oficial na mesma plataforma</a>. Se a dúvida ainda é qual versão do WhatsApp usar, o comparativo <a href="/blog/whatsapp-business-vs-api-oficial">WhatsApp Business, API não oficial ou API Oficial</a> é o ponto de partida.</p>
+
+    <p class="art-p">Na API Oficial, três cuidados evitam a maior parte das restrições:</p>
+
+    <div class="art-tip">
+      <strong>Opt-in de verdade:</strong> só mande mensagem ativa para quem deu o número e autorizou o contato pelo WhatsApp. A Política de Mensagens deixa a responsabilidade pelo opt-in com a empresa.<br><br>
+      <strong>Saída fácil:</strong> respeite todo pedido para parar de receber mensagens, feito dentro ou fora do WhatsApp. Quem não consegue sair bloqueia e denuncia.<br><br>
+      <strong>Volume que cresce aos poucos:</strong> a Política informa que a Meta pode limitar o envio de quem recebe muito feedback negativo. Começar pelos clientes mais engajados protege o número enquanto ele ganha histórico.
+    </div>
+
+    <p class="art-p">Se hoje o seu número que dispara está no app comum ou numa API não oficial, o passo seguinte é planejar a mudança antes da próxima campanha. O post sobre <a href="/blog/migrar-whatsapp-business-para-api-oficial">como migrar do WhatsApp Business para a API Oficial sem perder o número</a> mostra as opções e os pré-requisitos. E se o número já caiu, a ordem é esta: pedir análise hoje, montar o plano B hoje e colocar o número novo no formato certo antes de mandar a primeira mensagem.</p>
+    <hr class="art-divider">
+
+    <h2 class="art-h2" id="perguntas-frequentes">Perguntas frequentes</h2>
+
+    <h3 class="faq-q">Meu número do WhatsApp foi banido, dá para recuperar?</h3>
+    <p class="art-p">Às vezes. Se o app mostra o botão Pedir análise, você pode solicitar a revisão e o WhatsApp avisa quando decidir. Se o botão não aparece, a Central de Ajuda informa que o banimento é definitivo e não pode ser contestado. Mesmo com análise, ninguém garante o resultado. Por isso vale montar no mesmo dia um plano B: número novo, aviso aos clientes por e-mail e redes, e a lista de contatos tirada do CRM ou ERP.</p>
+
+    <h3 class="faq-q">Quanto tempo demora a análise do WhatsApp banido?</h3>
+    <p class="art-p">No app WhatsApp e no WhatsApp Business, o próprio aviso de banimento informa que a maioria das análises é concluída em até 24 horas. Na API Oficial, a documentação da Meta diz que a decisão sobre uma apelação feita no Business Support Home costuma sair entre 24 e 48 horas. Mandar vários pedidos ou procurar o WhatsApp por fora do processo não acelera a análise, segundo a Central de Ajuda.</p>
+
+    <h3 class="faq-q">Qual a diferença entre conta banida, temporariamente banida e restrita?</h3>
+    <p class="art-p">Conta banida mostra &quot;Este número não pode usar o WhatsApp&quot; e só volta por análise. Conta temporariamente banida, segundo a Meta, indica uso de app não oficial ou extração de dados, e pode virar banimento permanente se o uso continuar. Conta restrita sai sozinha após o prazo: você conversa com quem já falava, mas não inicia conversa com contatos novos nem cria grupos durante a restrição.</p>
+
+    <h3 class="faq-q">Empresas que prometem desbanir número do WhatsApp funcionam?</h3>
+    <p class="art-p">Não. A Central de Ajuda do WhatsApp afirma que serviços de terceiros não podem banir nem cancelar o banimento de uma conta, e que só o WhatsApp faz isso. Quem cobra por desbanimento está vendendo algo que não controla. O único caminho oficial é o botão Pedir análise no app ou, para números da API Oficial, a apelação pelo Business Support Home da Meta.</p>
+
+    <h3 class="faq-q">A API Oficial do WhatsApp também pode ser banida?</h3>
+    <p class="art-p">Pode. A documentação da Meta descreve uma escada de punição na API Oficial: aviso, restrição de 1 ou 3 dias para templates, restrição de 5, 7 ou 30 dias para qualquer mensagem, bloqueio indefinido que só sai por apelação e desativação permanente. Casos graves, como golpe, podem ser desligados na hora. A diferença para o app é que a empresa recebe aviso antes e tem um processo de apelação documentado.</p>
+
+    <h3 class="faq-q">O que fazer enquanto espero a análise do WhatsApp?</h3>
+    <p class="art-p">Tratar o número como perdido e montar o plano B no mesmo dia: avisar os clientes por e-mail, site e redes sobre o número novo, reconstruir a lista de contatos a partir do CRM, ERP ou plataforma de vendas, e não colocar o número novo para fazer o mesmo trabalho que derrubou o anterior.</p>
+
+    <h3 class="faq-q">Um chip novo pode vir banido?</h3>
+    <p class="art-p">Pode. A Central de Ajuda explica que um número recém-adquirido pode já estar banido porque o dono anterior violou os Termos. Nesse caso, o caminho é o mesmo: pedir análise pelo app.</p>
+
+    <h3 class="faq-q">Se o número voltar, posso continuar usando a mesma ferramenta?</h3>
+    <p class="art-p">Se a ferramenta era um app não oficial, não. A Meta avisa que pode banir a conta de novo se a atividade continuar violando os Termos, e o número liberado volta sob observação. Se o número precisa disparar, cobrar ou receber automação, ele vai para a API Oficial.</p>
+
+    <div class="art-highlight"><strong>Resumo para decidir:</strong> Se o número da sua empresa abriu com “Este número não pode usar o WhatsApp”, o único caminho oficial é o botão Pedir análise, e ninguém fora da Meta cancela banimento. Peça a análise hoje, monte o plano B hoje (número novo, aviso aos clientes, lista tirada do CRM) e coloque o número que dispara, cobra ou recebe automação na API Oficial antes da próxima mensagem. A Altum Digital é a consultoria de automação e IA de Talita Bispo, em São Paulo, que implementa a API Oficial do WhatsApp, agentes de IA e automações integradas aos sistemas da empresa, para negócios que faturam a partir de R$ 100 mil por mês e querem parar de depender de processo manual.</div>
+
+    <div class="cta-inline">
+      <h3>Seu número foi banido ou restringido hoje?</h3>
+      <p>Em uma call de diagnóstico eu olho o aviso que apareceu, o uso que a empresa fazia do número e monto com você o plano para voltar a atender ainda hoje, sem repetir o problema no número novo.</p>
+      <a href="https://wa.me/5511954715571?text=Oi%20Talita!%20Li%20seu%20artigo%20sobre%20n%C3%BAmero%20do%20WhatsApp%20banido%20e%20preciso%20de%20um%20diagn%C3%B3stico%20hoje" class="btn-wa" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Falar com Talita no WhatsApp
+      </a>
+    </div>
+
+    <div class="author-box">
+      <div class="author-box-inner">
+        <div class="author-box-avatar">TB</div>
+        <div>
+          <h4>Talita Bispo</h4>
+          <p>Fundadora da Altum Digital, consultoria de automação e IA em São Paulo que implementa a API Oficial do WhatsApp, agentes de IA e automações integradas aos sistemas da empresa, para negócios que faturam a partir de R$ 100 mil por mês e querem parar de depender de processo manual. Certificada Google Cloud Generative AI Leader, com 11 anos de consultoria na Accenture (TIM, SKY, SEFAZ-SP, Johnson &amp; Johnson, Getnet, Claro) e criadora do AltumChat, plataforma de atendimento e CRM no WhatsApp que roda sobre infraestrutura de Parceiro Oficial da Meta. Mais de 30 projetos entregues. Atende todo o Brasil.</p>
+        </div>
+      </div>
+    </div>
+
+    <section class="related-posts" aria-labelledby="related-heading">
+      <h2 id="related-heading" class="related-posts__heading">Artigos relacionados</h2>
+      <ul class="related-posts__list">
+    <li class="related-posts__item">
+      <a href="/blog/api-nao-oficial-whatsapp" class="related-posts__link">
+        <h3 class="related-posts__title">API não oficial do WhatsApp: o que é, quando faz sentido e quando bane</h3>
+        <p class="related-posts__relation">Conceito-base: por que a conexão não oficial derruba números.</p>
+      </a>
+    </li>
+    <li class="related-posts__item">
+      <a href="/blog/migrar-whatsapp-business-para-api-oficial" class="related-posts__link">
+        <h3 class="related-posts__title">Migrar do WhatsApp Business para a API Oficial sem perder o número</h3>
+        <p class="related-posts__relation">Próximo passo: colocar o número que dispara no lugar certo.</p>
+      </a>
+    </li>
+    <li class="related-posts__item">
+      <a href="/blog/pontuacao-qualidade-limite-envio-whatsapp" class="related-posts__link">
+        <h3 class="related-posts__title">Qualidade e limite de envio no WhatsApp: como a Meta decide seu teto</h3>
+        <p class="related-posts__relation">Aprofundamento: os sinais que levam a restrição na API Oficial.</p>
+      </a>
+    </li>
+    <li class="related-posts__item">
+      <a href="/blog/whatsapp-business-vs-api-oficial" class="related-posts__link">
+        <h3 class="related-posts__title">WhatsApp Business, API Não-Oficial ou API Oficial: qual a diferença real</h3>
+        <p class="related-posts__relation">Comparativo das três versões antes de escolher o número novo.</p>
+      </a>
+    </li>
+      </ul>
+    </section>
+    
+  </article>
+
+  <aside class="sidebar">
+    <div class="sidebar-sticky">
+      <div class="sidebar-card">
+        <h4>Neste artigo</h4>
+        <ul class="toc-list">
+          <li><a href="#qual-aviso-apareceu">Qual aviso apareceu</a></li>
+          <li><a href="#por-que-acontece">Por que a Meta bane</a></li>
+          <li><a href="#como-pedir-analise">Como pedir revisão</a></li>
+          <li><a href="#o-que-nao-funciona">O que não funciona</a></li>
+          <li><a href="#quando-nao-da-para-recuperar">Quando não dá para recuperar</a></li>
+          <li><a href="#como-evitar-de-novo">Como evitar de novo</a></li>
+          <li><a href="#perguntas-frequentes">Perguntas frequentes</a></li>
+        </ul>
+      </div>
+      <div class="sidebar-cta">
+        <h4>Número parado agora?</h4>
+        <p>Diagnóstico hoje: o que o aviso significa e como voltar a atender sem repetir o erro.</p>
+        <a href="https://wa.me/5511954715571?text=Oi%20Talita!%20Li%20seu%20artigo%20sobre%20n%C3%BAmero%20do%20WhatsApp%20banido%20e%20preciso%20de%20um%20diagn%C3%B3stico%20hoje" class="btn-wa-sm" target="_blank">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Falar com Talita
+        </a>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-logo">Altum<span>.</span>Digital</div>
+      <p>© 2025 Talita Bispo · Altum Digital Soluções LTDA</p>
+      <p>São Paulo, SP · Brasil</p>
+      <p>CNPJ 61.287.916/0001-69</p>
+      <p><a href="https://www.linkedin.com/in/talita-b-35b47923/" target="_blank" rel="me noopener" style="color:#9ca3af">LinkedIn</a> · <a href="https://www.instagram.com/soutalitabispo/" target="_blank" rel="me noopener" style="color:#9ca3af">Instagram @SouTalitaBispo</a></p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
