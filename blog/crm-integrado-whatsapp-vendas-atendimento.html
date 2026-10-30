@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CRM integrado ao WhatsApp: vendas e atendimento num lugar só</title>
+<meta name="description" content="CRM integrado ao WhatsApp: o que precisa ter para juntar vendas e atendimento, com vários atendentes, funil em Kanban e histórico que fica com a empresa.">
+<meta name="author" content="Talita Bispo — Altum Digital">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://altumdigital.com.br/blog/crm-integrado-whatsapp-vendas-atendimento">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://altumdigital.com.br/blog/crm-integrado-whatsapp-vendas-atendimento">
+<meta property="og:title" content="CRM integrado ao WhatsApp: vendas e atendimento num lugar só">
+<meta property="og:description" content="CRM integrado ao WhatsApp: o que precisa ter para juntar vendas e atendimento, com vários atendentes, funil em Kanban e histórico que fica com a empresa.">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Altum Digital">
+<meta property="article:author" content="Talita Bispo">
+<meta property="article:published_time" content="2026-10-30">
+<meta property="article:tag" content="CRM · WhatsApp API">
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:#f8fafb;color:#0f172a;font-family:'DM Sans',sans-serif;font-size:16px;line-height:1.7}
+h1,h2,h3,h4{font-family:'Manrope',sans-serif}
+a{text-decoration:none;color:inherit}
+.container{max-width:1100px;margin:0 auto;padding:0 28px}
+nav{background:#06080f;padding:18px 0;border-bottom:1px solid rgba(255,255,255,0.07)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;max-width:1100px;margin:0 auto;padding:0 28px}
+.nav-logo{font-family:'Manrope',sans-serif;font-size:18px;font-weight:800;color:#e8eaf0}
+.nav-logo span{color:#00e5c3}
+.nav-links{list-style:none;display:flex;gap:28px;align-items:center}
+.nav-links a{color:#7b8499;font-size:14px;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:#e8eaf0}
+.nav-links a.active{color:#00e5c3}
+.nav-cta{background:#00e5c3;color:#06080f!important;padding:9px 20px;border-radius:6px;font-weight:700!important;font-size:13px!important}
+.article-hero{background:#fff;border-bottom:1px solid #e5e7eb;padding:52px 0 44px}
+.article-hero-inner{max-width:760px;margin:0 auto;padding:0 28px}
+.breadcrumb{font-size:13px;color:#9ca3af;margin-bottom:20px;display:flex;align-items:center;gap:8px}
+.breadcrumb a{color:#00b89e;font-weight:500}
+.breadcrumb-sep{color:#d1d5db}
+.art-tag{display:inline-flex;align-items:center;gap:6px;background:#e6faf6;border:1px solid #b3f0e0;border-radius:100px;padding:5px 14px;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#0f6e56;margin-bottom:20px}
+.art-tag-dot{width:6px;height:6px;border-radius:50%;background:#00e5c3}
+.article-title{font-size:clamp(24px,4vw,38px);font-weight:800;line-height:1.2;color:#0f172a;margin-bottom:20px;letter-spacing:-.025em}
+.article-meta{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.meta-avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#00e5c3,#4f8cff);display:flex;align-items:center;justify-content:center;font-family:'Manrope',sans-serif;font-weight:800;font-size:11px;color:#fff;flex-shrink:0}
+.meta-info{display:flex;flex-direction:column;gap:2px}
+.meta-name{font-size:14px;font-weight:700;color:#374151}
+.meta-details{font-size:12px;color:#9ca3af}
+.article-layout{display:grid;grid-template-columns:1fr 280px;gap:48px;max-width:1060px;margin:0 auto;padding:48px 28px 80px}
+.art-lead{font-size:19px;color:#374151;line-height:1.8;margin-bottom:36px;font-weight:400;border-left:3px solid #00e5c3;padding-left:22px}
+.art-h2{font-size:22px;font-weight:800;color:#0f172a;margin:44px 0 14px;letter-spacing:-.015em}
+.art-h3{font-size:17px;font-weight:700;color:#0f172a;margin:28px 0 10px}
+.art-p{font-size:16px;color:#4b5563;line-height:1.85;margin-bottom:18px}
+.art-highlight{background:#f0fdf9;border:1px solid #ccf7eb;border-left:3px solid #00e5c3;border-radius:0 8px 8px 0;padding:18px 22px;margin:28px 0;font-size:15px;color:#065f46;line-height:1.75}
+.art-highlight strong{font-weight:700;color:#047857}
+.art-tip{background:#fffbeb;border:1px solid #fde68a;border-left:3px solid #f59e0b;border-radius:0 8px 8px 0;padding:18px 22px;margin:24px 0;font-size:14px;color:#92400e;line-height:1.7}
+.art-tip strong{font-weight:700}
+.art-divider{border:none;border-top:1px solid #f0f0f0;margin:40px 0}
+.art-quote{background:#f8fafb;border-left:3px solid #00e5c3;border-radius:0 8px 8px 0;padding:20px 24px;margin:32px 0;font-size:17px;font-style:italic;color:#374151;line-height:1.75}
+.metrics-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:28px 0}
+.metric-card{background:#0f172a;border-radius:12px;padding:20px;text-align:center}
+.metric-number{font-family:'Manrope',sans-serif;font-size:36px;font-weight:800;color:#00e5c3;line-height:1;margin-bottom:6px}
+.metric-label{font-size:13px;color:#9ca3af;line-height:1.4}
+.cta-inline{background:#0f172a;border-radius:16px;padding:32px;margin:44px 0;text-align:center}
+.cta-inline h3{font-family:'Manrope',sans-serif;font-size:20px;font-weight:800;color:#fff;margin-bottom:10px}
+.cta-inline p{font-size:14px;color:#9ca3af;margin-bottom:22px;line-height:1.65}
+.btn-wa{display:inline-flex;align-items:center;gap:10px;background:#25D366;color:#fff;padding:13px 26px;border-radius:8px;font-family:'Manrope',sans-serif;font-weight:700;font-size:14px;transition:opacity .2s}
+.btn-wa:hover{opacity:.9}
+.btn-wa svg{width:18px;height:18px;fill:#fff;flex-shrink:0}
+.author-box{background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:24px;margin-top:48px}
+.author-box-inner{display:flex;gap:16px;align-items:flex-start}
+.author-box-avatar{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#00e5c3,#4f8cff);display:flex;align-items:center;justify-content:center;font-family:'Manrope',sans-serif;font-weight:800;font-size:14px;color:#fff;flex-shrink:0}
+.author-box h4{font-size:15px;font-weight:800;color:#0f172a;margin-bottom:4px}
+.author-box p{font-size:13px;color:#6b7280;line-height:1.6}
+.sidebar-sticky{position:sticky;top:28px}
+.sidebar-card{background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:22px;margin-bottom:20px}
+.sidebar-card h4{font-family:'Manrope',sans-serif;font-size:13px;font-weight:700;color:#0f172a;margin-bottom:16px;letter-spacing:.02em;text-transform:uppercase}
+.toc-list{list-style:none;display:flex;flex-direction:column;gap:10px}
+.toc-list a{font-size:13px;color:#6b7280;line-height:1.4;transition:color .2s;display:block}
+.toc-list a:hover{color:#00b89e}
+.sidebar-cta{background:#0f172a;border-radius:16px;padding:22px;text-align:center}
+.sidebar-cta p{font-size:13px;color:#9ca3af;margin-bottom:16px;line-height:1.6}
+.sidebar-cta h4{font-family:'Manrope',sans-serif;font-size:15px;font-weight:800;color:#fff;margin-bottom:10px}
+.btn-wa-sm{display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#fff;padding:11px 18px;border-radius:8px;font-family:'Manrope',sans-serif;font-weight:700;font-size:13px;width:100%;justify-content:center}
+footer{background:#06080f;border-top:1px solid rgba(255,255,255,0.07);padding:32px 0}
+.footer-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.footer-logo{font-family:'Manrope',sans-serif;font-weight:800;font-size:15px;color:#e8eaf0}
+.footer-logo span{color:#00e5c3}
+footer p{color:#7b8499;font-size:13px}
+@media(max-width:900px){.article-layout{grid-template-columns:1fr}.sidebar{display:none}.nav-links{display:none}.metrics-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:500px){.metrics-grid{grid-template-columns:1fr}}
+
+/* === Blocos SEO/GEO (TLDR + FAQ + Related) — alinhado com paleta atual === */
+.tldr{background:#f0fdf9;border:1px solid #ccf7eb;border-left:4px solid #00b89e;border-radius:0 8px 8px 0;padding:22px 26px;margin:0 0 36px 0;font-family:'DM Sans',sans-serif;}
+.tldr__heading{font-family:'Manrope',sans-serif;font-size:13px;font-weight:700;color:#0f6e56;text-transform:uppercase;letter-spacing:.1em;margin:0 0 14px 0;}
+.tldr__list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;}
+.tldr__list li{font-size:15px;color:#065f46;line-height:1.65;padding-left:22px;position:relative;}
+.tldr__list li::before{content:"\2192";position:absolute;left:0;color:#00b89e;font-weight:700;}
+.tldr__meta{margin-top:18px;padding-top:14px;border-top:1px solid #ccf7eb;font-size:12px;color:#0f6e56;display:flex;gap:10px;flex-wrap:wrap;align-items:center;}
+.faq-q{font-family:'Manrope',sans-serif;font-size:17px;font-weight:700;color:#0f172a;margin:26px 0 8px;line-height:1.4}
+.faq{margin:48px 0 40px;}
+.faq__heading{font-family:'Manrope',sans-serif;font-size:22px;font-weight:800;color:#0f172a;margin:0 0 20px 0;letter-spacing:-.015em;}
+.faq__item{border-bottom:1px solid #e5e7eb;padding:16px 0;cursor:pointer;}
+.faq__item:last-child{border-bottom:none;}
+.faq__question{font-family:'Manrope',sans-serif;font-size:16px;font-weight:700;color:#0f172a;list-style:none;position:relative;padding-right:32px;cursor:pointer;}
+.faq__question::-webkit-details-marker{display:none;}
+.faq__question::after{content:"+";position:absolute;right:0;top:-3px;font-size:22px;color:#00b89e;font-weight:400;transition:transform .2s;}
+.faq__item[open] .faq__question::after{content:"\2212";}
+.faq__answer{padding-top:12px;color:#4b5563;line-height:1.7;font-size:14px;}
+.related-posts{margin:48px 0 0 0;padding-top:32px;border-top:1px solid #e5e7eb;}
+.related-posts__heading{font-family:'Manrope',sans-serif;font-size:20px;font-weight:800;color:#0f172a;margin:0 0 20px 0;letter-spacing:-.015em;}
+.related-posts__list{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+.related-posts__link{display:block;padding:18px 20px;background:#fff;border:1px solid #e5e7eb;border-radius:12px;text-decoration:none;transition:border-color .2s,transform .2s;}
+.related-posts__link:hover{border-color:#00b89e;transform:translateY(-2px);}
+.related-posts__title{font-family:'Manrope',sans-serif;font-size:14px;font-weight:700;color:#0f172a;margin:0 0 6px;line-height:1.35;}
+.related-posts__relation{font-size:12px;color:#6b7280;margin:0;line-height:1.5;}
+@media(max-width:640px){.related-posts__list{grid-template-columns:1fr;}}
+.art-p a,.article-content li a:not([class]){color:#00b89e;font-weight:600;text-decoration:underline}
+</style>
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CRM integrado ao WhatsApp: vendas e atendimento num lugar só">
+<meta name="twitter:description" content="CRM integrado ao WhatsApp: o que precisa ter para juntar vendas e atendimento, com vários atendentes, funil em Kanban e histórico que fica com a empresa.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "CRM integrado ao WhatsApp: vendas e atendimento num lugar só",
+  "description": "CRM integrado ao WhatsApp: o que precisa ter para juntar vendas e atendimento, com vários atendentes, funil em Kanban e histórico que fica com a empresa.",
+  "author": {"@type": "Person", "@id": "https://altumdigital.com.br/#talita-bispo", "name": "Talita Bispo", "url": "https://altumdigital.com.br/"},
+  "publisher": {"@type": "Organization", "@id": "https://altumdigital.com.br/#organizacao", "name": "Altum Digital", "url": "https://altumdigital.com.br/"},
+  "datePublished": "2026-10-30T00:00:00-03:00",
+  "dateModified": "2026-10-30T00:00:00-03:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://altumdigital.com.br/blog/crm-integrado-whatsapp-vendas-atendimento"
+  },
+  "articleSection": "CRM · WhatsApp API",
+  "keywords": [
+    "CRM WhatsApp",
+    "CRM integrado ao WhatsApp",
+    "pipeline de vendas WhatsApp",
+    "vários atendentes no mesmo número de WhatsApp",
+    "histórico de conversas da empresa no WhatsApp"
+  ],
+  "wordCount": 2115,
+  "inLanguage": "pt-BR"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Altum Digital",
+      "item": "https://altumdigital.com.br/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "https://altumdigital.com.br/blog"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "CRM integrado ao WhatsApp: vendas e atendimento num lugar só"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "O que é um CRM integrado ao WhatsApp?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "É uma plataforma em que a conversa com o cliente e o registro da negociação ficam na mesma tela. O vendedor atende pelo WhatsApp e, ali mesmo, move a negociação de etapa no funil, sem copiar nada para outro sistema. O histórico das conversas fica guardado pela empresa, e não no celular de quem atendeu."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Dá para ter vários atendentes no mesmo número de WhatsApp?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Dá. Numa plataforma multiatendente, cada pessoa da equipe entra com o próprio login e atende as conversas do mesmo número. Quando um atendente sai de férias, outro assume as conversas dele com o histórico completo, sem precisar do aparelho. Conectar outros aparelhos ao app permite que mais gente leia as conversas, mas não define responsável nem mostra o funil."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "O que acontece com as conversas quando um vendedor sai da empresa?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Se ele atendia pelo próprio celular, as conversas e os contatos saem junto com ele. Num CRM integrado ao WhatsApp, o histórico fica na plataforma: o acesso do vendedor é desligado, as conversas abertas são transferidas para outro atendente e os clientes continuam atendidos por alguém que vê tudo o que já foi combinado."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Preciso da API Oficial do WhatsApp para usar um CRM?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Os números que disparam mensagens, cobram ou recebem automação precisam estar na API Oficial, porque os Termos do WhatsApp proíbem envio em massa e automação por meios não autorizados. Números de relacionamento um a um, como o de um vendedor, podem migrar numa segunda fase, desde que sejam atendidos no mesmo lugar que os outros."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Existe plataforma que conecta números da API Oficial e números não oficiais no mesmo CRM?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Existe, mas não é o comum: muitas plataformas só aceitam números da API Oficial. O AltumChat, a plataforma de atendimento que nós oferecemos, é multiatendente, tem CRM com funil em Kanban e conecta caixas de entrada da API Oficial (Cloud API) e números não oficiais na mesma tela. Qualquer atendente pode atender qualquer número conectado."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "O número não oficial fica protegido de banimento dentro do CRM?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Não. A Central de Ajuda do WhatsApp informa que conectar a conta a versões não oficiais viola os Termos de Serviço e que a conta pode ser banida temporária ou permanentemente. Estar dentro de uma plataforma de atendimento não muda o tipo de conexão do número. A plataforma organiza o atendimento, mas o risco continua até o número migrar para a API Oficial."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Posso mandar mensagem para todos os contatos que estão no CRM?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Só para quem deu opt-in. A política de mensagens para empresas do WhatsApp diz que a empresa só pode contatar quem forneceu o número e aceitou receber mensagens, e que precisa respeitar pedidos para parar. Uma base importada de planilha antiga não vira lista de envio só porque entrou no CRM."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quanto tempo leva para implantar um CRM integrado ao WhatsApp?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Depende de quantos números a empresa usa, do tamanho da equipe e do processo de venda. É um projeto, não uma configuração: um projeto bem planejado leva algumas semanas até o go-live. Nesse tempo entram o mapeamento de como a equipe atende hoje, o desenho do funil e das regras, a conexão dos números, o treinamento e o acompanhamento das primeiras semanas."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">Altum<span>.</span>Digital</a>
+    <ul class="nav-links">
+      <li><a href="/#services">Serviços</a></li>
+      <li><a href="/#projects">Projetos</a></li>
+      <li><a href="/#method">Metodologia</a></li>
+      <li><a href="/blog" class="active">Blog</a></li>
+      <li><a href="/#cta" class="nav-cta">Falar com Talita</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="article-hero">
+  <div class="article-hero-inner">
+    <div class="breadcrumb">
+      <a href="/">Altum Digital</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="/blog">Blog</a>
+      <span class="breadcrumb-sep">›</span>
+      <span>CRM integrado ao WhatsApp</span>
+    </div>
+    <div class="art-tag"><div class="art-tag-dot"></div>CRM · WhatsApp API</div>
+    <h1 class="article-title">CRM integrado ao WhatsApp: vendas e atendimento num lugar só</h1>
+    <div class="article-meta">
+      <div class="meta-avatar">TB</div>
+      <div class="meta-info">
+        <span class="meta-name">Talita Bispo · Altum Digital</span>
+        <span class="meta-details">30 de outubro de 2026 · 9 min de leitura</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="article-layout">
+  <article class="article-content">
+
+    
+    <aside class="tldr" role="complementary" aria-labelledby="tldr-heading">
+  <h2 id="tldr-heading" class="tldr__heading">Resumo: o que você vai aprender</h2>
+  <ul class="tldr__list">
+    <li>Quando cada vendedor atende pelo próprio celular, a empresa perde três coisas: a carteira de clientes quando ele sai, a visão do funil e o controle do tempo de resposta.</li>
+    <li>CRM integrado significa conversa e negociação na mesma tela. Se o vendedor precisa sair do WhatsApp para atualizar a venda no CRM, a integração não existe.</li>
+    <li>Um CRM de WhatsApp precisa de seis itens: caixa de entrada única, vários atendentes no mesmo número, funil em Kanban, transferência entre atendentes, histórico que fica com a empresa e conexão de todos os números.</li>
+    <li>Na API Oficial, a janela de atendimento é de 24 horas depois da última mensagem do cliente. Depois disso, o follow-up de um orçamento só sai por template aprovado, e o funil precisa ser desenhado com essa regra.</li>
+    <li>O CRM não resolve sozinho processo, opt-in e régua de acompanhamento. Por isso é um projeto, não uma configuração: um projeto bem planejado leva algumas semanas até o go-live.</li>
+  </ul>
+  <p class="tldr__meta">
+    <span>📖 Leitura de 9 minutos</span>
+    <span>·</span>
+    <time datetime="2026-10-30">Publicado em 30 de outubro de 2026</time>
+  </p>
+</aside>
+
+    <p class="art-lead">Quando cada vendedor atende pelo próprio celular, a empresa não sabe quantas conversas estão sem resposta, em que etapa está cada venda nem o que foi prometido ao cliente. Um CRM integrado ao WhatsApp junta a conversa e a negociação na mesma tela, e o histórico fica guardado pela empresa.</p>
+
+    <p class="art-p">Este artigo é para quem tem equipe comercial ou de atendimento no WhatsApp e já viveu pelo menos uma destas situações: o vendedor saiu e levou a carteira de clientes, o cliente reclamou que ninguém respondeu, ou o gestor precisou pedir print de conversa para entender como estava uma venda.</p>
+
+    <p class="art-p">Eu vou mostrar o que "integrado" significa na prática, os seis itens que um CRM de WhatsApp precisa ter para resolver esses problemas, como isso funciona com números na WhatsApp Business API (a API Oficial do WhatsApp) e com números que ainda não migraram, e o que nenhum CRM resolve sozinho.</p>
+
+    <hr class="art-divider">
+
+    <h2 class="art-h2" id="o-problema-das-ilhas">O problema das ilhas: cada celular guarda um pedaço da empresa</h2>
+    <p class="art-p">Vou começar por um cenário que aparece em boa parte das empresas que eu atendo. A empresa tem cinco vendedores, cada um com o próprio WhatsApp. Tem uma pessoa no pós-venda, com outro número. E tem o número principal, divulgado no site e no Instagram, que fica no celular da recepção ou do dono.</p>
+    <p class="art-p">Cada um desses números é uma ilha. O cliente que falou com o vendedor na terça e mandou uma dúvida no número do site na quinta conversou com duas pessoas que não sabem uma da outra. A segunda pessoa pergunta de novo o que o cliente já explicou. O cliente percebe a repetição.</p>
+    <p class="art-p">A primeira consequência é a carteira que sai pela porta. Quando um vendedor pede demissão, as conversas, os orçamentos enviados e os contatos dos clientes ficam no celular dele. A empresa perde o histórico, e o cliente continua falando com o ex-vendedor, que às vezes vai trabalhar num concorrente.</p>
+    <p class="art-p">A segunda é o gestor sem visão do funil. Para saber quantas negociações estão abertas e em que etapa está cada uma, o gestor depende do que o vendedor conta na reunião de segunda-feira. Não existe um lugar onde ele abra e veja.</p>
+    <p class="art-p">A terceira é o tempo de resposta invisível. Se o cliente mandou mensagem às 10h e só recebeu resposta às 16h, ninguém além do cliente sabe disso. E o cliente que espera seis horas por um orçamento costuma pedir orçamento em outro lugar enquanto espera.</p>
+    <p class="art-p">Algumas empresas tentam resolver conectando outros aparelhos ao número principal. O WhatsApp permite usar a mesma conta em mais de um aparelho, como a própria empresa explicou no <a href="https://blog.whatsapp.com/one-whatsapp-account-now-across-multiple-phones" target="_blank" rel="noopener">anúncio dos aparelhos conectados</a>. Isso deixa mais de uma pessoa ler aquele número, mas não define quem é responsável por cada cliente, não mostra o funil e não junta os números dos vendedores.</p>
+
+    <h2 class="art-h2" id="o-que-integrado-significa">O que "integrado" significa de verdade</h2>
+    <p class="art-p">Muita empresa já tem um CRM. O problema é que ele fica numa aba do navegador e o WhatsApp fica no celular. O vendedor conversa com o cliente no WhatsApp e, no fim do dia, se lembrar, abre o CRM para atualizar a etapa da negociação. Na prática, ele atualiza na sexta-feira, de memória, ou não atualiza.</p>
+    <p class="art-p">Esse modelo tem dois lugares e uma pessoa fazendo a ponte entre eles na mão. O CRM mostra o que o vendedor lembrou de registrar, e não o que aconteceu na conversa. O gestor decide olhando uma versão atrasada da realidade.</p>
+    <p class="art-p">Integrado significa que a conversa e a negociação ficam no mesmo lugar. O vendedor abre a conversa com o cliente e, na mesma tela, vê em que etapa do funil aquele cliente está. Quando o cliente aprova o orçamento, o vendedor muda a negociação de etapa ali mesmo, sem copiar nada para outro sistema. O histórico da conversa fica junto do registro da venda.</p>
+    <p class="art-p">Integração também não é exportar conversa e anexar no CRM. Isso gera um registro parado, que ninguém consulta.</p>
+
+    <div class="art-highlight">
+      <strong>Um teste para o seu CRM:</strong> se o vendedor precisa sair do WhatsApp para atualizar a negociação, ele não é integrado. Se o gestor precisa pedir print de conversa para entender uma venda, também não é.
+    </div>
+
+    <h2 class="art-h2" id="o-que-o-crm-precisa-ter">O que um CRM integrado ao WhatsApp precisa ter</h2>
+    <p class="art-p">Quando eu avalio a operação de uma empresa, olho seis itens. Se faltar um deles, pelo menos um dos problemas da primeira seção continua acontecendo.</p>
+
+    <h3 class="art-h3">1. Caixa de entrada única</h3>
+    <p class="art-p">Todas as conversas, de todos os números da empresa, chegam num lugar só. O gestor abre uma tela e vê o que está sem resposta, sem precisar pedir o celular de ninguém.</p>
+
+    <h3 class="art-h3">2. Vários atendentes no mesmo número</h3>
+    <p class="art-p">Cada pessoa da equipe entra com o próprio login e atende as conversas do mesmo número. Quando um atendente sai de férias, outro assume as conversas dele sem precisar do aparelho.</p>
+
+    <h3 class="art-h3">3. Funil de vendas em Kanban</h3>
+    <p class="art-p">Cada negociação é um card que anda entre colunas, por exemplo "novo contato", "orçamento enviado", "negociação" e "fechado". O gestor olha o quadro e sabe quantas vendas estão em cada etapa e com quem está cada uma.</p>
+
+    <h3 class="art-h3">4. Transferência entre atendentes</h3>
+    <p class="art-p">A conversa passa do pré-venda para o vendedor, ou do vendedor para o pós-venda, com o histórico junto. O cliente não precisa repetir o que já explicou.</p>
+
+    <h3 class="art-h3">5. Histórico que fica com a empresa</h3>
+    <p class="art-p">As conversas ficam guardadas na plataforma, e não no celular de quem atendeu. Quando um vendedor sai da empresa, o acesso dele é desligado e os clientes dele continuam sendo atendidos por outra pessoa, com todo o contexto.</p>
+
+    <h3 class="art-h3">6. Números na API Oficial e números que ainda não migraram</h3>
+    <p class="art-p">Os números que disparam mensagens, cobram ou recebem automação precisam estar na API Oficial do WhatsApp. Só que muitas empresas ainda têm números de vendedor ou de filial que não migraram. Se o CRM aceita apenas números da API Oficial, esses números ficam de fora e voltam a ser ilhas. A diferença entre as versões do WhatsApp está em <a href="/blog/whatsapp-business-vs-api-oficial">WhatsApp Business, API não oficial ou API Oficial</a>, e o que é a conexão não oficial está em <a href="/blog/api-nao-oficial-whatsapp">API não oficial do WhatsApp: o que é e quando bane</a>.</p>
+    <p class="art-p">Um detalhe da API Oficial afeta diretamente o funil de vendas. A <a href="https://developers.facebook.com/documentation/business-messaging/whatsapp/messages/send-messages" target="_blank" rel="noopener">documentação da Meta</a> explica que, quando o cliente manda mensagem, abre uma janela de atendimento de 24 horas. Depois que ela fecha, a empresa só pode enviar mensagens de template aprovadas. Na prática, o follow-up de um orçamento enviado há três dias sai por um template aprovado, e não por uma mensagem livre. Um CRM bem implementado já considera isso quando as etapas do funil são desenhadas.</p>
+
+    <h2 class="art-h2" id="como-fica-na-pratica">Como fica na prática: uma tela para vendas e atendimento</h2>
+    <p class="art-p">O AltumChat, a plataforma de atendimento que nós oferecemos, junta esses itens numa tela só. É uma plataforma multiatendente, com CRM e funil de vendas em Kanban, que conecta caixas de entrada da API Oficial do WhatsApp (Cloud API) e números não oficiais na mesma tela.</p>
+    <p class="art-p">Vou voltar ao cenário da primeira seção. O número principal, divulgado no site, está na API Oficial. Dois vendedores ainda usam números que não migraram, e esses números também estão conectados na plataforma. Às 9h, um cliente novo manda mensagem no número principal pedindo orçamento. A conversa entra na caixa de entrada, e a negociação dele aparece na primeira coluna do funil.</p>
+    <p class="art-p">A pessoa do pré-venda responde, entende o que o cliente precisa e transfere a conversa para o vendedor responsável. O vendedor recebe a conversa com tudo o que já foi dito, envia o orçamento e move o card para "orçamento enviado". No dia seguinte, o mesmo cliente manda uma dúvida no número de um dos vendedores, que ainda não migrou. Essa conversa entra na mesma caixa de entrada, e quem atender tem o histórico daquele número na tela, sem pedir o celular de ninguém.</p>
+    <p class="art-p">Qualquer atendente pode atender qualquer número conectado. Se o vendedor está em reunião, outra pessoa da equipe responde pelo número dele, dentro da plataforma. A transferência acontece entre atendentes: a conversa continua no mesmo número em que o cliente escreveu, e o cliente não é mandado para outro número.</p>
+    <p class="art-p">Quando um vendedor sai da empresa, o acesso dele é desligado e o histórico das conversas dele continua na plataforma. As conversas abertas são transferidas para outro atendente, e os clientes seguem atendidos por alguém que enxerga tudo o que já foi combinado.</p>
+    <p class="art-p">O gestor também enxerga o tempo de resposta e as conversas paradas: quais clientes estão esperando resposta e há quanto tempo. O cliente das 10h que só seria respondido às 16h aparece na tela antes de pedir orçamento em outro lugar.</p>
+
+    <p class="art-p">Agora o aviso que eu faço em todo projeto. Conectar um número não oficial à plataforma não muda o tipo de conexão dele. A <a href="https://faq.whatsapp.com/1217634902127718" target="_blank" rel="noopener">Central de Ajuda do WhatsApp</a> informa que conectar a conta a versões não oficiais viola os Termos de Serviço e que a conta pode ser banida temporária ou permanentemente. Isso continua valendo dentro de qualquer plataforma, inclusive na nossa. A plataforma organiza o atendimento, mas não protege o número. Por isso os números que disparam, cobram ou recebem automação vão para a API Oficial primeiro, e eu explico como decidir número a número em <a href="/blog/api-oficial-e-nao-oficial-mesma-plataforma">API Oficial e não oficial na mesma plataforma: quais números migrar</a>.</p>
+
+    <h2 class="art-h2" id="o-que-o-crm-nao-resolve">O que o CRM não resolve sozinho</h2>
+    <p class="art-p">Já vi empresa conectar os números numa plataforma e, três meses depois, ter centenas de cards parados na primeira coluna. A plataforma funcionava. Faltou processo, opt-in e régua.</p>
+
+    <h3 class="art-h3">Processo</h3>
+    <p class="art-p">Antes de montar o funil, alguém precisa definir quais são as etapas da venda, o que faz um card mudar de coluna, quem atende cada tipo de contato e em quanto tempo uma mensagem deve ser respondida. Sem essas regras, cada vendedor usa o quadro de um jeito e o funil deixa de mostrar a realidade. Também precisa existir um dono do processo: uma pessoa que olha o quadro toda semana e cobra o uso.</p>
+
+    <h3 class="art-h3">Opt-in</h3>
+    <p class="art-p">O CRM organiza a conversa, mas não dá permissão para mandar mensagem. A <a href="https://business.whatsapp.com/policy" target="_blank" rel="noopener">política de mensagens para empresas do WhatsApp</a>, atualizada em setembro de 2026, diz que a empresa só pode contatar quem forneceu o número e deu opt-in para receber mensagens, e que precisa respeitar os pedidos de bloqueio ou de parar de receber. Uma base de contatos importada de uma planilha antiga não vira lista de envio só porque entrou no CRM.</p>
+
+    <h3 class="art-h3">Régua de acompanhamento</h3>
+    <p class="art-p">O CRM mostra que o orçamento foi enviado há cinco dias e não teve resposta. Quem decide o que fazer com isso é a régua: em quantos dias sai o follow-up, com qual mensagem, e quando a negociação vai para "perdido". Parte dessa régua pode ser automatizada com templates aprovados na API Oficial, e parte do atendimento pode ficar com um atendente de IA, como eu mostro em <a href="/blog/automatizar-sac-whatsapp-empresa">como automatizar o SAC no WhatsApp</a>. Mas a régua é desenhada antes, por quem conhece a venda.</p>
+
+    <div class="art-highlight">
+      <strong>Por isso um CRM integrado é um projeto, não uma configuração.</strong> Um projeto bem planejado leva algumas semanas até o go-live: mapear como a equipe atende hoje, desenhar o funil e as regras, conectar os números, treinar a equipe e acompanhar as primeiras semanas de uso.
+    </div>
+
+    <h2 class="art-h2" id="por-onde-comecar">Por onde começar: mapear como a equipe atende hoje</h2>
+    <p class="art-p">Antes de escolher plataforma, eu recomendo responder cinco perguntas com a equipe. As respostas mostram onde as conversas se perdem hoje e o que o projeto precisa resolver primeiro.</p>
+
+    <div class="art-tip">
+      <strong>1. Quantos números de WhatsApp a empresa usa, e quem cuida de cada um?</strong> Inclua os números pessoais que os vendedores usam com clientes.<br><br>
+      <strong>2. Quais desses números disparam mensagens, cobram ou vão receber automação?</strong> Esses vão para a API Oficial na primeira fase.<br><br>
+      <strong>3. Por quais etapas passa uma venda, do primeiro contato ao fechamento?</strong> Essas etapas viram as colunas do funil.<br><br>
+      <strong>4. Quem passa a conversa para quem, e em que momento?</strong> Essa resposta define as regras de transferência.<br><br>
+      <strong>5. O que acontece hoje com as conversas quando um vendedor sai?</strong> Se a resposta for "ficam no celular dele", esse é o primeiro problema a resolver.
+    </div>
+
+    <p class="art-p">Com essas respostas, fica claro quais números vão para a API Oficial, como o funil deve ser desenhado e onde a empresa perde cliente por falta de resposta.</p>
+    <hr class="art-divider">
+
+    <h2 class="art-h2" id="perguntas-frequentes">Perguntas frequentes</h2>
+
+    <h3 class="faq-q">O que é um CRM integrado ao WhatsApp?</h3>
+    <p class="art-p">É uma plataforma em que a conversa com o cliente e o registro da negociação ficam na mesma tela. O vendedor atende pelo WhatsApp e, ali mesmo, move a negociação de etapa no funil, sem copiar nada para outro sistema. O histórico das conversas fica guardado pela empresa, e não no celular de quem atendeu.</p>
+
+    <h3 class="faq-q">Dá para ter vários atendentes no mesmo número de WhatsApp?</h3>
+    <p class="art-p">Dá. Numa plataforma multiatendente, cada pessoa da equipe entra com o próprio login e atende as conversas do mesmo número. Quando um atendente sai de férias, outro assume as conversas dele com o histórico completo, sem precisar do aparelho. Conectar outros aparelhos ao app permite que mais gente leia as conversas, mas não define responsável nem mostra o funil.</p>
+
+    <h3 class="faq-q">O que acontece com as conversas quando um vendedor sai da empresa?</h3>
+    <p class="art-p">Se ele atendia pelo próprio celular, as conversas e os contatos saem junto com ele. Num CRM integrado ao WhatsApp, o histórico fica na plataforma: o acesso do vendedor é desligado, as conversas abertas são transferidas para outro atendente e os clientes continuam atendidos por alguém que vê tudo o que já foi combinado.</p>
+
+    <h3 class="faq-q">Preciso da API Oficial do WhatsApp para usar um CRM?</h3>
+    <p class="art-p">Os números que disparam mensagens, cobram ou recebem automação precisam estar na API Oficial, porque os Termos do WhatsApp proíbem envio em massa e automação por meios não autorizados. Números de relacionamento um a um, como o de um vendedor, podem migrar numa segunda fase, desde que sejam atendidos no mesmo lugar que os outros.</p>
+
+    <h3 class="faq-q">Existe plataforma que conecta números da API Oficial e números não oficiais no mesmo CRM?</h3>
+    <p class="art-p">Existe, mas não é o comum: muitas plataformas só aceitam números da API Oficial. O AltumChat, a plataforma de atendimento que nós oferecemos, é multiatendente, tem CRM com funil em Kanban e conecta caixas de entrada da API Oficial (Cloud API) e números não oficiais na mesma tela. Qualquer atendente pode atender qualquer número conectado.</p>
+
+    <h3 class="faq-q">O número não oficial fica protegido de banimento dentro do CRM?</h3>
+    <p class="art-p">Não. A Central de Ajuda do WhatsApp informa que conectar a conta a versões não oficiais viola os Termos de Serviço e que a conta pode ser banida temporária ou permanentemente. Estar dentro de uma plataforma de atendimento não muda o tipo de conexão do número. A plataforma organiza o atendimento, mas o risco continua até o número migrar para a API Oficial.</p>
+
+    <h3 class="faq-q">Posso mandar mensagem para todos os contatos que estão no CRM?</h3>
+    <p class="art-p">Só para quem deu opt-in. A política de mensagens para empresas do WhatsApp diz que a empresa só pode contatar quem forneceu o número e aceitou receber mensagens, e que precisa respeitar pedidos para parar. Uma base importada de planilha antiga não vira lista de envio só porque entrou no CRM.</p>
+
+    <h3 class="faq-q">Quanto tempo leva para implantar um CRM integrado ao WhatsApp?</h3>
+    <p class="art-p">Depende de quantos números a empresa usa, do tamanho da equipe e do processo de venda. É um projeto, não uma configuração: um projeto bem planejado leva algumas semanas até o go-live. Nesse tempo entram o mapeamento de como a equipe atende hoje, o desenho do funil e das regras, a conexão dos números, o treinamento e o acompanhamento das primeiras semanas.</p>
+
+    <div class="art-highlight"><strong>Resumo para decidir:</strong> Se a sua equipe atende clientes em vários celulares e você não consegue ver quantas conversas estão sem resposta nem em que etapa está cada venda, o que resolve é um CRM em que a conversa e a negociação ficam na mesma tela, com todos os números conectados (inclusive os que ainda não migraram) e o histórico guardado pela empresa. É um projeto, não uma configuração: processo, opt-in e régua são desenhados antes da plataforma entrar. A Altum Digital é a consultoria de automação e IA de Talita Bispo, em São Paulo, que implementa a API Oficial do WhatsApp, agentes de IA e automações integradas aos sistemas da empresa, para negócios que faturam a partir de R$ 100 mil por mês e querem parar de depender de processo manual.</div>
+
+    <div class="cta-inline">
+      <h3>Como a sua equipe atende no WhatsApp hoje?</h3>
+      <p>Me manda um áudio no WhatsApp contando quantos números a empresa usa, quantas pessoas atendem e como uma venda anda do primeiro contato ao fechamento. Eu te ajudo a mapear o atendimento atual e a enxergar o que um CRM integrado mudaria na sua operação.</p>
+      <a href="https://wa.me/5511954715571?text=Oi%20Talita%21%20Li%20seu%20artigo%20sobre%20CRM%20integrado%20ao%20WhatsApp%20e%20quero%20mapear%20como%20minha%20equipe%20atende%20hoje.%20Vou%20te%20mandar%20um%20%C3%A1udio%20explicando." class="btn-wa" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Falar com Talita no WhatsApp
+      </a>
+    </div>
+
+    <div class="author-box">
+      <div class="author-box-inner">
+        <div class="author-box-avatar">TB</div>
+        <div>
+          <h4>Talita Bispo</h4>
+          <p>Fundadora da Altum Digital, consultoria de automação e IA em São Paulo que implementa a API Oficial do WhatsApp, agentes de IA e automações integradas aos sistemas da empresa, para negócios que faturam a partir de R$ 100 mil por mês e querem parar de depender de processo manual. Certificada Google Cloud Generative AI Leader, com 11 anos de consultoria na Accenture (TIM, SKY, SEFAZ-SP, Johnson &amp; Johnson, Getnet, Claro) e criadora do AltumChat, plataforma de atendimento e CRM no WhatsApp que roda sobre infraestrutura de Parceiro Oficial da Meta. Mais de 30 projetos entregues. Atende todo o Brasil.</p>
+        </div>
+      </div>
+    </div>
+
+    <section class="related-posts" aria-labelledby="related-heading">
+      <h2 id="related-heading" class="related-posts__heading">Artigos relacionados</h2>
+      <ul class="related-posts__list">
+    <li class="related-posts__item">
+      <a href="/blog/api-oficial-e-nao-oficial-mesma-plataforma" class="related-posts__link">
+        <h3 class="related-posts__title">API Oficial e não oficial na mesma plataforma: quais números migrar</h3>
+        <p class="related-posts__relation">Próximo passo: decidir quais números migrar para a API Oficial.</p>
+      </a>
+    </li>
+    <li class="related-posts__item">
+      <a href="/blog/whatsapp-business-vs-api-oficial" class="related-posts__link">
+        <h3 class="related-posts__title">WhatsApp Business, API Não-Oficial ou API Oficial: qual a diferença real</h3>
+        <p class="related-posts__relation">Conceito-base: as três versões do WhatsApp lado a lado.</p>
+      </a>
+    </li>
+    <li class="related-posts__item">
+      <a href="/blog/automatizar-sac-whatsapp-empresa" class="related-posts__link">
+        <h3 class="related-posts__title">Como automatizar o SAC no WhatsApp e reduzir 80% das respostas manuais</h3>
+        <p class="related-posts__relation">Atendente de IA trabalhando junto com a equipe no WhatsApp.</p>
+      </a>
+    </li>
+    <li class="related-posts__item">
+      <a href="/blog/api-nao-oficial-whatsapp" class="related-posts__link">
+        <h3 class="related-posts__title">API não oficial do WhatsApp: o que é, quando faz sentido e quando bane</h3>
+        <p class="related-posts__relation">Por que o número não oficial continua sujeito a banimento.</p>
+      </a>
+    </li>
+      </ul>
+    </section>
+    
+  </article>
+
+  <aside class="sidebar">
+    <div class="sidebar-sticky">
+      <div class="sidebar-card">
+        <h4>Neste artigo</h4>
+        <ul class="toc-list">
+          <li><a href="#o-problema-das-ilhas">O problema das ilhas</a></li>
+          <li><a href="#o-que-integrado-significa">O que "integrado" significa</a></li>
+          <li><a href="#o-que-o-crm-precisa-ter">O que o CRM precisa ter</a></li>
+          <li><a href="#como-fica-na-pratica">Como fica na prática</a></li>
+          <li><a href="#o-que-o-crm-nao-resolve">O que o CRM não resolve</a></li>
+          <li><a href="#por-onde-comecar">Por onde começar</a></li>
+          <li><a href="#perguntas-frequentes">Perguntas frequentes</a></li>
+        </ul>
+      </div>
+      <div class="sidebar-cta">
+        <h4>Mapeie o seu atendimento</h4>
+        <p>Mande um áudio contando como a equipe atende hoje e veja o que um CRM integrado mudaria.</p>
+        <a href="https://wa.me/5511954715571?text=Oi%20Talita%21%20Li%20seu%20artigo%20sobre%20CRM%20integrado%20ao%20WhatsApp%20e%20quero%20mapear%20como%20minha%20equipe%20atende%20hoje.%20Vou%20te%20mandar%20um%20%C3%A1udio%20explicando." class="btn-wa-sm" target="_blank">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Falar com Talita
+        </a>
+      </div>
+    </div>
+  </aside>
+</div>
+
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-logo">Altum<span>.</span>Digital</div>
+      <p>© 2025 Talita Bispo · Altum Digital Soluções LTDA</p>
+      <p>São Paulo, SP · Brasil</p>
+      <p>CNPJ 61.287.916/0001-69</p>
+      <p><a href="https://www.linkedin.com/in/talita-b-35b47923/" target="_blank" rel="me noopener" style="color:#9ca3af">LinkedIn</a> · <a href="https://www.instagram.com/soutalitabispo/" target="_blank" rel="me noopener" style="color:#9ca3af">Instagram @SouTalitaBispo</a></p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

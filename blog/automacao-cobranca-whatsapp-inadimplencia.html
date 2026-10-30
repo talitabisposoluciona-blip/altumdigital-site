@@ -29,7 +29,7 @@
   "author": {"@type": "Person", "name": "Talita Bispo", "url": "https://altumdigital.com.br"},
   "publisher": {"@type": "Organization", "name": "Altum Digital", "url": "https://altumdigital.com.br"},
   "datePublished": "2026-04-14",
-  "dateModified": "2026-10-26",
+  "dateModified": "2026-10-30",
   "mainEntityOfPage": "https://altumdigital.com.br/blog/automacao-cobranca-whatsapp-inadimplencia",
   "keywords": ["automação cobrança WhatsApp", "reduzir inadimplência WhatsApp", "cobrança automatizada empresa", "lembrete pagamento WhatsApp", "automação financeira"]
 }
@@ -271,6 +271,8 @@ footer p{color:#7b8499;font-size:13px}
 
     <p class="art-p">Uma cadência bem estruturada começa antes do vencimento e escala progressivamente em tom e urgência conforme o atraso aumenta. Cada etapa tem um objetivo diferente e uma abordagem específica.</p>
 
+    <p class="art-p">Esta é a régua que eu uso como ponto de partida. O passo a passo para montá-la, de onde vem o dado e qual tipo de mensagem a Meta aceita estão em <a href="/blog/aviso-vencimento-boleto-whatsapp-automatico">aviso de vencimento de boleto pelo WhatsApp: como automatizar</a>.</p>
+
     <div class="cadencia-steps">
       <div class="cadencia-step">
         <div class="cadencia-step-day">
@@ -281,6 +283,17 @@ footer p{color:#7b8499;font-size:13px}
           <div class="cadencia-step-badge badge-verde">Pré-vencimento</div>
           <h4>Lembrete amigável antes do vencimento</h4>
           <p>Tom: prestativo. Informa que a fatura vence em 3 dias, envia o link de pagamento direto e oferece alternativas (PIX, boleto, cartão). Objetivo: capturar os que iam esquecer. Essa etapa sozinha resolve uma parte significativa da inadimplência sem nenhum constrangimento.</p>
+        </div>
+      </div>
+      <div class="cadencia-step">
+        <div class="cadencia-step-day">
+          <div class="day-num">0</div>
+          <div class="day-label">dia</div>
+        </div>
+        <div class="cadencia-step-content">
+          <div class="cadencia-step-badge badge-verde">Dia do vencimento</div>
+          <h4>Lembrete no dia — com o mesmo link</h4>
+          <p>Tom: prestativo. Avisa que a fatura vence hoje e repete o link de pagamento. Quem já pagou depois do primeiro lembrete não recebe esta mensagem: a cadência confere o status no sistema financeiro antes de cada envio.</p>
         </div>
       </div>
       <div class="cadencia-step">
@@ -296,7 +309,7 @@ footer p{color:#7b8499;font-size:13px}
       </div>
       <div class="cadencia-step">
         <div class="cadencia-step-day">
-          <div class="day-num">+5</div>
+          <div class="day-num">+3</div>
           <div class="day-label">dias</div>
         </div>
         <div class="cadencia-step-content">
@@ -307,24 +320,13 @@ footer p{color:#7b8499;font-size:13px}
       </div>
       <div class="cadencia-step">
         <div class="cadencia-step-day">
-          <div class="day-num">+15</div>
+          <div class="day-num">+7</div>
           <div class="day-label">dias</div>
         </div>
         <div class="cadencia-step-content">
-          <div class="cadencia-step-badge badge-laranja">Atraso médio</div>
-          <h4>Terceira tentativa — urgência e consequências</h4>
-          <p>Tom: direto, mas respeitoso. Informa sobre juros e multa aplicados, menciona consequências de atraso prolongado (restrição de crédito, suspenção de serviço) e reforça a abertura para negociação. Nessa etapa, o cliente já foi avisado múltiplas vezes — a mensagem pode ser mais firme sem ser agressiva.</p>
-        </div>
-      </div>
-      <div class="cadencia-step">
-        <div class="cadencia-step-day">
-          <div class="day-num">+30</div>
-          <div class="day-label">dias</div>
-        </div>
-        <div class="cadencia-step-content">
-          <div class="cadencia-step-badge badge-cinza">Atraso longo</div>
-          <h4>Encaminhamento para negociação humana</h4>
-          <p>A automação encerrou seu papel. O caso é transferido para o time financeiro ou comercial com o histórico completo de tentativas — quando foi contatado, quais mensagens foram enviadas, se houve resposta. O humano entra com contexto completo para uma negociação personalizada.</p>
+          <div class="cadencia-step-badge badge-laranja">Último aviso automático</div>
+          <h4>Valor em aberto e encaminhamento para negociação humana</h4>
+          <p>Tom: direto, mas respeitoso. Informa o valor em aberto e as condições do contrato, como multa e juros, de forma factual. Aqui a automação encerra seu papel: quem não pagou nem respondeu é transferido para o time financeiro ou comercial com o histórico completo de tentativas — quando foi contatado, quais mensagens foram enviadas, se houve resposta. O humano entra com contexto completo para uma negociação personalizada.</p>
         </div>
       </div>
     </div>
@@ -354,7 +356,7 @@ footer p{color:#7b8499;font-size:13px}
 
     <p class="art-p">Um dos projetos que implementei envolveu uma empresa de educação cujo time financeiro passava horas por dia respondendo perguntas de clientes sobre faturas e fazendo cobranças manualmente. O WhatsApp era o canal principal de comunicação — mas não havia nenhuma automação. Cada mensagem era respondida por uma pessoa.</p>
 
-    <p class="art-p">Depois da implementação: os lembretes pré-vencimento capturaram boa parte dos pagamentos antes mesmo do atraso. A cadência pós-vencimento reduziu significativamente o volume de casos que chegavam aos 15 dias. E o financeiro passou a atuar só nos casos que realmente precisavam de negociação — com histórico completo de cada cliente disponível na tela, sem precisar perguntar o que já havia sido tentado.</p>
+    <p class="art-p">Depois da implementação: os lembretes pré-vencimento capturaram boa parte dos pagamentos antes mesmo do atraso. A cadência pós-vencimento reduziu significativamente o volume de casos que chegavam ao fim da régua. E o financeiro passou a atuar só nos casos que realmente precisavam de negociação — com histórico completo de cada cliente disponível na tela, sem precisar perguntar o que já havia sido tentado.</p>
 
     <p class="art-p">O resultado apareceu nas duas métricas que importam: redução da inadimplência e redução do tempo de equipe gasto em cobranças rotineiras.</p>
 
