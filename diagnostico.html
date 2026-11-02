@@ -15,7 +15,8 @@ nav b span{color:#00e5c3}
 nav b small{font:600 15px Manrope,sans-serif;color:#cbd5e1}
 main{max-width:620px;margin:auto;padding:44px 20px 64px}
 h1{font:800 clamp(24px,5vw,32px)/1.2 Manrope,sans-serif;margin-bottom:18px}
-.count{font:700 13px Manrope,sans-serif;color:#0f766e;letter-spacing:.06em;margin-bottom:10px}
+.bar{height:8px;background:#e2e8f0}
+.bar i{display:block;height:100%;width:0;background:#00e5c3;transition:width .5s ease-out}
 .lead{font-size:18px;color:#334155;margin-bottom:22px}
 button{font:700 15px Manrope,sans-serif;border:0;border-radius:8px;cursor:pointer;padding:12px 20px;min-height:44px}
 input[type=text],input[type=tel],input[type=email]{width:100%;font:17px 'DM Sans',sans-serif;padding:14px;border:1px solid #cbd5e1;border-radius:8px;margin:0 0 14px}
@@ -30,6 +31,7 @@ label.c{display:flex;gap:10px;font-size:14px;color:#475569;margin:0 0 12px}
 </head>
 <body>
 <nav><b>Altum<span>Digital</span> <small>- Talita Bispo</small></b></nav>
+<div class="bar" id="bar" role="progressbar" aria-label="Progresso do diagnóstico"><i></i></div>
 <main><div id="app"></div></main>
 <input id="website" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px">
 <script>
@@ -46,8 +48,12 @@ const Q=[
   ['whatsapp','Qual é o melhor WhatsApp para falarmos com você?','tel','(00) 00000-0000'],
   ['email','Por último, qual é o seu melhor e-mail?','email','voce@empresa.com.br']
 ];
+// Avança mais no começo e mais devagar no fim. Sem número na tela. Precisa ter um valor por pergunta.
+const PROGRESSO=[14,32,47,59,68,76,83,89,94,97];
 let i=0,a={};
 const app=document.getElementById('app');
+const bar=document.getElementById('bar');
+function progresso(p){bar.firstChild.style.width=p+'%';bar.setAttribute('aria-valuenow',p)}
 function ok(k,v){
   v=v.trim();
   if(k==='whatsapp')return v.replace(/\D/g,'').length>=10;
@@ -57,10 +63,10 @@ function ok(k,v){
 function draw(){
   const [k,t,y,ph]=Q[i],last=i===Q.length-1;
   app.replaceChildren();
+  progresso(PROGRESSO[i]);
   const w=document.createElement('div');
-  const c=document.createElement('p');c.className='count';c.textContent=`PERGUNTA ${i+1} DE ${Q.length}`;
   const h=document.createElement('h1');h.textContent=typeof t==='function'?t(a):t;
-  w.append(c,h);
+  w.append(h);
   if(Array.isArray(y)){
     y.forEach(o=>{
       const b=document.createElement('button');b.className='opt';b.textContent=o;
@@ -113,6 +119,7 @@ async function send(){
     return;
   }
   const m=`Oi Talita! Fiz o diagnóstico. Sou ${a.nome}, da ${a.empresa}. Nosso maior gargalo: ${a.gargalo}.`;
+  progresso(100);
   app.innerHTML='<h1>Recebi suas respostas</h1><p class="lead">Vou analisar o que você contou. Para adiantar, me chame no WhatsApp.</p><a class="btn" id="w">Falar com a Talita no WhatsApp</a>';
   document.getElementById('w').href='https://wa.me/5511926705708?text='+encodeURIComponent(m);
 }
