@@ -53,6 +53,14 @@ const PROGRESSO=[14,32,47,59,68,76,83,89,94,97];
 let i=0,a={};
 const app=document.getElementById('app');
 const bar=document.getElementById('bar');
+// Medição no Google Analytics: só o nome da etapa, nunca as respostas. Cada etapa conta uma vez por visita.
+let etapaMedida=-1;
+function medir(nome){if(typeof gtag==='function')gtag('event',nome)}
+function medirEtapa(){
+  if(i<=etapaMedida)return;
+  etapaMedida=i;
+  medir('diag_'+String(i+1).padStart(2,'0')+'_'+Q[i][0]);
+}
 function progresso(p){bar.firstChild.style.width=p+'%';bar.setAttribute('aria-valuenow',p)}
 function ok(k,v){
   v=v.trim();
@@ -64,6 +72,7 @@ function draw(){
   const [k,t,y,ph]=Q[i],last=i===Q.length-1;
   app.replaceChildren();
   progresso(PROGRESSO[i]);
+  medirEtapa();
   const w=document.createElement('div');
   const h=document.createElement('h1');h.textContent=typeof t==='function'?t(a):t;
   w.append(h);
@@ -120,6 +129,7 @@ async function send(){
   }
   const m=`Oi Talita! Fiz o diagnóstico. Sou ${a.nome}, da ${a.empresa}. Nosso maior gargalo: ${a.gargalo}.`;
   progresso(100);
+  medir('diag_concluido');
   app.innerHTML='<h1>Recebi suas respostas</h1><p class="lead">Vou analisar o que você contou. Para adiantar, me chame no WhatsApp.</p><a class="btn" id="w">Falar com a Talita no WhatsApp</a>';
   document.getElementById('w').href='https://wa.me/5511926705708?text='+encodeURIComponent(m);
 }
