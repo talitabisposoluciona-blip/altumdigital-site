@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Diagnóstico gratuito | Talita Bispo</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0}
+body{background:#f8fafb;color:#0f172a;font:16px/1.7 'DM Sans',sans-serif}
+nav{background:#0f172a;padding:16px 20px}
+nav b{font:800 18px Manrope,sans-serif;color:#e8eaf0}
+nav b span{color:#00e5c3}
+nav b small{font:600 15px Manrope,sans-serif;color:#cbd5e1}
+main{max-width:620px;margin:auto;padding:44px 20px 64px}
+h1{font:800 clamp(24px,5vw,32px)/1.2 Manrope,sans-serif;margin-bottom:18px}
+.count{font:700 13px Manrope,sans-serif;color:#0f766e;letter-spacing:.06em;margin-bottom:10px}
+.lead{font-size:18px;color:#334155;margin-bottom:22px}
+button{font:700 15px Manrope,sans-serif;border:0;border-radius:8px;cursor:pointer;padding:12px 20px;min-height:44px}
+input[type=text],input[type=tel],input[type=email]{width:100%;font:17px 'DM Sans',sans-serif;padding:14px;border:1px solid #cbd5e1;border-radius:8px;margin:0 0 14px}
+.opt{display:block;width:100%;text-align:left;background:#fff;border:1px solid #cbd5e1;color:#0f172a;font-weight:600;margin:8px 0}
+.opt:hover,.opt:focus{border-color:#0f766e}
+.go{background:#0f172a;color:#fff}
+.back{background:none;color:#64748b;font-weight:600;padding-left:0;margin-top:10px;display:block}
+.err{color:#b91c1c;font-size:14px;min-height:22px}
+label.c{display:flex;gap:10px;font-size:14px;color:#475569;margin:0 0 12px}
+.btn{display:inline-block;background:#00e5c3;color:#06201c;font:800 16px Manrope,sans-serif;text-decoration:none;padding:14px 26px;border-radius:8px}
+</style>
+</head>
+<body>
+<nav><b>Altum<span>Digital</span> <small>- Talita Bispo</small></b></nav>
+<main><div id="app"></div></main>
+<input id="website" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px">
+<script>
+const ENDPOINT='https://rfnauygbomuwbjofeasv.supabase.co/functions/v1/altum-leads-diagnostico';
+const Q=[
+  ['nome','Para começar, qual é o seu nome?','text','Seu nome'],
+  ['empresa',a=>`Prazer, ${a.nome}. Qual é o nome da sua empresa?`,'text','Nome da empresa'],
+  ['cargo','Qual é o seu papel na empresa?',['Sócio ou fundador','CEO ou diretor','Gerente ou coordenador','Analista ou especialista','Consultor ou parceiro externo']],
+  ['equipe','Quantas pessoas trabalham na empresa?',['Menos de 10','De 10 a 30','De 31 a 100','Mais de 100']],
+  ['gargalo','Onde a operação mais trava hoje?',['Atendimento e WhatsApp','Vendas e recuperação de clientes','Cobrança e financeiro','Logística e entregas','Lançamentos e infoprodutos','Integração entre sistemas']],
+  ['ia_estagio','Como a empresa está com IA e automação?',['Ainda não usamos','Testamos algumas ferramentas','Já temos algo rodando','Queremos escalar o que existe']],
+  ['whatsapp_uso','Como vocês usam o WhatsApp?',['Não usamos para atender','WhatsApp no celular ou Business','Ferramenta com vários atendentes','API oficial']],
+  ['faturamento','Qual é o faturamento anual da empresa?',['Até R$ 500 mil','De R$ 500 mil a R$ 1 milhão','De R$ 1 a 3 milhões','De R$ 3 a 10 milhões','De R$ 10 a 50 milhões','Acima de R$ 50 milhões','Prefiro não informar']],
+  ['whatsapp','Qual é o melhor WhatsApp para falarmos com você?','tel','(00) 00000-0000'],
+  ['email','Por último, qual é o seu melhor e-mail?','email','voce@empresa.com.br']
+];
+let i=0,a={};
+const app=document.getElementById('app');
+function ok(k,v){
+  v=v.trim();
+  if(k==='whatsapp')return v.replace(/\D/g,'').length>=10;
+  if(k==='email')return /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v);
+  return v.length>0;
+}
+function draw(){
+  const [k,t,y,ph]=Q[i],last=i===Q.length-1;
+  app.replaceChildren();
+  const w=document.createElement('div');
+  const c=document.createElement('p');c.className='count';c.textContent=`PERGUNTA ${i+1} DE ${Q.length}`;
+  const h=document.createElement('h1');h.textContent=typeof t==='function'?t(a):t;
+  w.append(c,h);
+  if(Array.isArray(y)){
+    y.forEach(o=>{
+      const b=document.createElement('button');b.className='opt';b.textContent=o;
+      b.onclick=()=>{a[k]=o;i++;draw()};
+      w.append(b);
+    });
+  }else{
+    const f=document.createElement('form');
+    f.innerHTML=`<input type="${y}" placeholder="${ph}">`
+      +(last?'<label class="c"><input type="checkbox" id="lg"><span>Autorizo o uso destes dados para receber o diagnóstico e o contato sobre ele. Posso pedir a exclusão quando quiser. <a href="/privacidade" target="_blank">Política de Privacidade</a>.</span></label>':'')
+      +`<p class="err"></p><button class="go">${last?'Enviar':'OK'}</button>`;
+    const n=f.querySelector('input');n.value=a[k]||'';
+    f.onsubmit=e=>{
+      e.preventDefault();
+      const r=f.querySelector('.err');
+      if(!ok(k,n.value)){r.textContent='Confira esse campo, por favor.';return}
+      if(last&&!f.querySelector('#lg').checked){r.textContent='Precisamos da sua autorização para continuar.';return}
+      a[k]=n.value.trim();
+      if(last)send();else{i++;draw()}
+    };
+    w.append(f);
+    setTimeout(()=>n.focus());
+  }
+  if(i>0){
+    const b=document.createElement('button');b.className='back';b.textContent='← Voltar';
+    b.onclick=()=>{i--;draw()};
+    w.append(b);
+  }
+  app.append(w);
+}
+async function send(){
+  const u=new URLSearchParams(location.search);
+  a.origem=u.get('origem')||'nao_identificada';
+  a.url_origem=u.get('url_origem')||document.referrer||location.href;
+  // UTMs podem vir nesta página ou na página de origem
+  let o=new URLSearchParams();try{o=new URL(a.url_origem).searchParams}catch(e){}
+  a.utm_campaign=u.get('utm_campaign')||o.get('utm_campaign')||'';
+  a.utm_source=u.get('utm_source')||o.get('utm_source')||'';
+  a.consentimento_lgpd=true;
+  a.website=document.getElementById('website').value;
+  app.innerHTML='<h1>Enviando suas respostas…</h1>';
+  let salvo=false;
+  try{
+    const r=await fetch(ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(a)});
+    salvo=r.ok;
+  }catch(e){}
+  if(!salvo){
+    app.innerHTML='<h1>Não consegui enviar agora</h1><p class="lead">Suas respostas continuam aqui. Confira a internet e tente de novo.</p><button class="go" id="r">Tentar de novo</button>';
+    document.getElementById('r').onclick=send;
+    return;
+  }
+  const m=`Oi Talita! Fiz o diagnóstico. Sou ${a.nome}, da ${a.empresa}. Nosso maior gargalo: ${a.gargalo}.`;
+  app.innerHTML='<h1>Recebi suas respostas</h1><p class="lead">Vou analisar o que você contou. Para adiantar, me chame no WhatsApp.</p><a class="btn" id="w">Falar com a Talita no WhatsApp</a>';
+  document.getElementById('w').href='https://wa.me/5511926705708?text='+encodeURIComponent(m);
+}
+draw();
+</script>
+</body>
+</html>

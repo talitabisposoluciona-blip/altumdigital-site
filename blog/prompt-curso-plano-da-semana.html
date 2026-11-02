@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Prompt: o curso parado vira o plano da semana | Talita Bispo</title>
+<meta name="description" content="Prompt para o Claude Code analisar as aulas de um curso que você comprou e entregar 1 página com o que aplicar nesta semana, com o minuto de cada aula.">
+<link rel="canonical" href="https://altumdigital.com.br/blog/prompt-curso-plano-da-semana">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0}
+body{background:#f8fafb;color:#0f172a;font:16px/1.7 'DM Sans',sans-serif}
+h1,h2,h3{font-family:Manrope,sans-serif;line-height:1.2}
+nav{background:#0f172a;padding:16px 20px}
+nav b{font:800 18px Manrope,sans-serif;color:#e8eaf0}
+nav b span{color:#00e5c3}
+main{max-width:760px;margin:auto;padding:44px 20px 64px}
+h1{font-size:clamp(30px,6vw,44px);font-weight:800;margin-bottom:16px}
+.lead{font-size:18px;color:#334155}
+h2{font-size:23px;font-weight:800;margin:38px 0 12px}
+ol.steps{padding-left:22px}
+ol.steps li{margin:6px 0}
+.box{background:#0f172a;border-radius:16px;overflow:hidden;margin-top:12px}
+.bar{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 16px;color:#cbd5e1;font-size:14px}
+button{font:700 15px Manrope,sans-serif;border:0;border-radius:8px;cursor:pointer;padding:12px 20px;min-height:44px}
+.copy{background:#00e5c3;color:#06201c}
+pre{white-space:pre-wrap;word-break:break-word;color:#e2e8f0;font:14px/1.65 'DM Sans',sans-serif;padding:4px 18px 20px;max-height:420px;overflow:auto;cursor:pointer}
+.note{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:16px 18px;margin-top:14px;font-size:15px}
+.cta{background:#0f172a;color:#fff;border-radius:16px;padding:32px;margin-top:48px;text-align:center}
+.cta h2{margin:0 0 10px;color:#fff}
+.cta p{color:#cbd5e1;font-size:15px;margin-bottom:20px}
+.btn{display:inline-block;background:#00e5c3;color:#06201c;font:800 16px Manrope,sans-serif;text-decoration:none;padding:14px 26px;border-radius:8px}
+.author{font-size:14px;color:#64748b;margin-top:30px}
+</style>
+</head>
+<body>
+<nav><b>Altum<span>Digital</span></b></nav>
+<main>
+<h1>O curso parado na sua conta pode virar o plano desta semana</h1>
+<p class="lead">O Claude entende o seu negócio, analisa as aulas e devolve 1 página: o que aplicar agora, em que ordem, em que minuto está e o que você pode pular.</p>
+<h2>Como usar</h2>
+<ol class="steps">
+<li>Abra o Claude Code. Ele precisa de acesso às pastas do seu computador, por isso a conversa comum do Claude não basta.</li>
+<li>Copie o prompt abaixo e cole.</li>
+<li>Responda às perguntas e aprove cada instalação.</li>
+<li>Comece com 1 aula que você já viu, para conferir se os minutos batem.</li>
+</ol>
+<h2>O prompt</h2>
+<div class="box">
+<div class="bar"><span>Toque para copiar</span><button class="copy" id="copy">Copiar prompt</button></div>
+<pre id="prompt">Você vai ser meu analista de curso. Comprei um curso e não terminei. Quero transformar as aulas em um plano prático para o meu negócio, sem precisar assistir a tudo.
+
+COMO TRABALHAR COMIGO
+- Fale em português simples e faça uma pergunta por vez.
+- Peça minha autorização antes de instalar qualquer programa.
+- Nunca digite minhas senhas nem peça que eu as cole aqui.
+- Tudo fica no meu computador. Não envie nem publique aulas, transcrições ou materiais do curso.
+- Nunca mova nem altere os arquivos originais. Use cópia ou atalho.
+- Se aparecer senha, chave, dado de cartão ou dado de outra pessoa, não copie para as notas nem para o plano. Avise o minuto, para eu trocar a credencial se ela for minha.
+
+ETAPA 1: ENTENDA MEU NEGÓCIO
+Descubra, uma pergunta de cada vez:
+a) o que eu vendo, para quem e como o cliente chega até a compra;
+b) o maior problema ou a principal meta deste momento;
+c) qual é o curso, o que me fez comprar e até onde assisti;
+d) quantas horas por semana tenho para aplicar e quem pode me ajudar;
+e) quanto posso gastar por mês e qual é o volume da operação (clientes, leads ou pedidos);
+f) o que já domino e não preciso rever.
+Salve tudo em meu-negocio.md. Este arquivo é o filtro do trabalho: o que não ajudar nesse contexto não entra no plano.
+
+ETAPA 2: PREPARE O COMPUTADOR
+Pergunte meu sistema (Windows, Mac ou Linux) e confira o espaço livre em disco. Veja se já tenho Python, FFmpeg e um transcritor local, como o faster-whisper. Use o que existir. Se faltar algo, explique para que serve e peça minha autorização antes de instalar, um item por vez. Avise que o transcritor baixa um modelo de voz e que uma aula longa pode levar de dezenas de minutos a horas, conforme o computador.
+
+ETAPA 3: REÚNA O MATERIAL
+Pergunte onde o curso está e use a primeira opção que funcionar:
+1. arquivos que já estão no meu computador;
+2. o botão de download oferecido pela própria plataforma, ou uma pasta do Drive a que eu tenho acesso;
+3. legendas, transcrições, PDFs e slides oferecidos pela plataforma;
+4. gravação de tela feita por mim, só para meu uso. Ensine como gravar com o som do computador no meu sistema.
+Não tente burlar proteção da plataforma nem capturar o endereço de vídeos, e não me peça cookies ou dados da minha sessão. Antes de começar, me lembre de conferir se os termos do curso permitem o que vamos fazer.
+Organize tudo em uma pasta curso/, com módulo e aula no nome de cada arquivo.
+
+ETAPA 4: MONTE O MAPA E PEÇA APROVAÇÃO
+Liste módulos e aulas, com a duração e o que já assisti. Com base em meu-negocio.md, sugira por onde começar, o que deixar para depois e o que parece fora do meu momento, explicando cada escolha. Em curso longo, sugira no máximo 5 aulas para a primeira rodada. Só continue depois que eu aprovar.
+
+ETAPA 5: ANALISE AS AULAS
+Processe uma aula por vez:
+1. Extraia o áudio com o FFmpeg e transcreva com marcação de tempo.
+2. Tire 1 quadro a cada 10 segundos e monte folhas de até 30 miniaturas, com o tempo gravado em cada uma. Olhe todas as folhas. Abra em tamanho maior 1 quadro de cada slide, planilha, tela de sistema ou checklist diferente, e todos os quadros citados no plano.
+3. Cruze o que foi dito com o que apareceu na tela, sempre anotando o minuto. Em número, preço ou versão, a tela vale mais que a fala; registre a diferença.
+4. Nomes, números e termos técnicos são os pontos em que a transcrição mais erra. Marque as dúvidas com [?] e confira no quadro daquele minuto. Se a dúvida continuar, diga isso no plano.
+5. Quando houver mais de uma pessoa falando, identifique quem fala. Não atribua ao professor uma fala incerta.
+6. Salve as anotações em uma pasta notas/, para não processar a mesma aula de novo.
+Se a aula só tiver texto ou PDF, leia direto e cite a página no lugar do minuto.
+
+ETAPA 6: ENTREGUE O PLANO DA SEMANA
+Escreva plano-AAAA-MM-DD.md em 1 página, para eu ler em 5 minutos:
+- Resumo: em até 3 linhas, o que este curso tem de útil para mim agora. Se a aula for só pré-requisito do meu objetivo, diga isso aqui.
+- Aplicar nesta semana: até 3 ações em ordem. Para cada uma, informe aula e minuto, primeiro passo, responsável, tempo estimado e como vou saber se funcionou. A soma não pode passar das minhas horas da semana.
+- Adaptar: onde o exemplo da aula não combina com o meu porte, setor ou orçamento, e como ficaria no meu caso. Em custos, separe o valor inicial do valor depois de promoções.
+- Pular: o que posso ignorar agora, com o motivo.
+- Próximas semanas: o que vem depois, em ordem.
+Separe o que é fato com fonte, o que é opinião do professor e o que é opinião sua, e avise quando valer a pena checar algo antes de agir. Resuma com suas palavras, com citações curtas entre aspas. A decisão final é minha.
+
+COMECE COM UM TESTE
+Na primeira rodada, use só 1 aula que eu já assisti. Se eu não tiver visto nenhuma, use a mais curta e me peça para conferir os minutos citados no plano. Depois do plano, pare e espere minha conferência. Vou checar os minutos no player e dizer se o filtro acertou. Ajuste meu-negocio.md com as minhas correções e só depois siga para as aulas que não vi.
+
+DEPOIS DO PRIMEIRO PLANO
+Na semana seguinte, quando eu pedir "curso da semana", leia meu-negocio.md, as notas/ e os planos anteriores, pergunte o que apliquei e o que deu resultado, e monte o novo plano sem repetir o que já foi feito. Depois que o processo estiver funcionando, ofereça transformá-lo em uma skill.</pre>
+</div>
+<p class="note"><strong>Use só em curso que você comprou.</strong> O material fica no seu computador. Os termos variam entre plataformas e cursos, então confira o que o seu permite, principalmente antes de compartilhar algo com a equipe.</p>
+<section class="cta">
+<h2>Quer levar a IA para os processos da sua empresa?</h2>
+<p>Responda a algumas perguntas e receba um diagnóstico gratuito de onde a automação e a IA fazem mais sentido na sua operação. São 11 anos de consultoria na Accenture, mais de 30 projetos entregues e certificação Google Cloud Generative AI Leader.</p>
+<a class="btn" href="/diagnostico" data-origem="blog_reels">Quero meu diagnóstico gratuito</a>
+</section>
+<p class="author">Por Talita Bispo, especialista em automação e IA aplicada a empresas.</p>
+</main>
+<script>
+const b=document.getElementById('copy'),t=document.getElementById('prompt');
+async function c(){
+  try{await navigator.clipboard.writeText(t.textContent)}
+  catch(e){const a=document.createElement('textarea');a.value=t.textContent;document.body.append(a);a.select();document.execCommand('copy');a.remove()}
+  b.textContent='Copiado!';setTimeout(()=>b.textContent='Copiar prompt',2000)
+}
+b.onclick=c;t.onclick=c;
+// Leva ao formulário a origem resumida e a URL completa desta página
+document.querySelectorAll('a[data-origem]').forEach(a=>{
+  const u=new URL(a.getAttribute('href'),location.href);
+  u.searchParams.set('origem',a.dataset.origem);
+  u.searchParams.set('url_origem',location.href);
+  a.href=u.href;
+});
+</script>
+</body>
+</html>
