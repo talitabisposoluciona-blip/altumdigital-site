@@ -29,7 +29,7 @@
   "author": {"@type": "Person", "name": "Talita Bispo", "url": "https://altumdigital.com.br"},
   "publisher": {"@type": "Organization", "name": "Altum Digital", "url": "https://altumdigital.com.br"},
   "datePublished": "2026-04-30",
-  "dateModified": "2026-10-30",
+  "dateModified": "2026-11-11",
   "mainEntityOfPage": "https://altumdigital.com.br/blog/asaas-whatsapp-automacao-cobranca",
   "keywords": ["Asaas WhatsApp", "automação cobrança Asaas", "notificação vencimento Asaas", "integração Asaas WhatsApp", "Asaas API automação boleto"]
 }
@@ -44,7 +44,39 @@
       "name": "O Asaas já envia aviso de vencimento pelo WhatsApp?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Nativamente, o Asaas notifica por e-mail e SMS. Para avisar pelo WhatsApp com boleto ou PIX dentro da mensagem, é preciso integrar o Asaas à API Oficial do WhatsApp por meio de uma automação, que lê as cobranças e dispara a mensagem na data certa."
+        "text": "Sim. O Asaas oferece notificação nativa por e-mail, SMS, WhatsApp e ligação automática, cobrada por envio (R$ 0,55 por mensagem de WhatsApp na tabela padrão de novembro de 2026). O que a automação integrada à API Oficial acrescenta é a mensagem sair do número da sua empresa, o cliente conseguir pedir a 2ª via e tirar dúvidas na própria conversa, e a régua ser desenhada pela sua operação, com pausa e transferência para uma pessoa quando o cliente responde."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Com quantos dias de antecedência o Asaas envia o lembrete antes do vencimento?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nas notificações nativas, o Asaas permite lembrar o cliente 5, 10, 15 ou 30 dias antes do vencimento, além do aviso no dia do vencimento e de lembretes 1, 3, 7, 15 ou 30 dias depois, com até 3 notificações após o vencimento. A configuração fica no cadastro de cada cliente. Numa automação própria, os dias da régua são definidos pela sua empresa; eu costumo partir de D-3, D0, D+1, D+3 e D+7."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Como funciona a notificação de cobrança do Asaas?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "O Asaas avisa o cliente quando a cobrança é criada ou alterada, antes do vencimento, no dia e depois dele, por e-mail, SMS, WhatsApp e, só após o vencimento, por ligação automática. As notificações são cobradas por envio e as regras são salvas por cliente. É uma configuração do próprio Asaas, sem projeto. A automação entra quando a empresa quer atender o cliente na conversa, e não só avisá-lo."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "O Asaas cobra taxa se o boleto não for pago?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Segundo a tabela de preços do Asaas, a tarifa do boleto é aplicada quando o cliente paga, não na emissão. As notificações, por sua vez, são cobradas por envio. As condições da sua conta podem ser diferentes da tabela padrão, então vale conferir no painel."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "O Asaas tem cobrança recorrente e gestão de inadimplência automática?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Tem. O Asaas gera as cobranças de assinatura automaticamente e aplica a régua de notificação em cada uma. O que ele não faz é conversar com o inadimplente: negociar, responder dúvida sobre a fatura ou passar o caso para uma pessoa. Essa parte fica com a sua equipe ou com uma automação integrada à API Oficial do WhatsApp, que atende o cliente e transfere quando precisa."
       }
     },
     {
@@ -156,6 +188,7 @@ nav{background:#06080f;padding:18px 0;border-bottom:1px solid rgba(255,255,255,0
 .article-layout{display:grid;grid-template-columns:1fr 280px;gap:48px;max-width:1060px;margin:0 auto;padding:48px 28px 80px}
 .art-lead{font-size:19px;color:#374151;line-height:1.8;margin-bottom:36px;font-weight:400;border-left:3px solid #00e5c3;padding-left:22px}
 .art-h2{font-size:22px;font-weight:800;color:#0f172a;margin:44px 0 14px;letter-spacing:-.015em}
+.art-h3{font-size:17px;font-weight:700;color:#0f172a;margin:28px 0 10px}
 .art-p{font-size:16px;color:#4b5563;line-height:1.85;margin-bottom:18px}
 .art-highlight{background:#f0fdf9;border:1px solid #ccf7eb;border-left:3px solid #00e5c3;border-radius:0 8px 8px 0;padding:18px 22px;margin:28px 0;font-size:15px;color:#065f46;line-height:1.75}
 .art-highlight strong{font-weight:700;color:#047857}
@@ -330,6 +363,25 @@ footer p{color:#7b8499;font-size:13px}
 
     </div>
 
+    <h2 class="art-h2" id="o-que-o-asaas-ja-faz">O que o Asaas já faz sozinho, e onde a automação entra</h2>
+
+    <p class="art-p">Antes de falar de integração, vale separar o que o próprio Asaas já entrega. Muita empresa chega até mim achando que precisa automatizar o que o Asaas já faz, e outras achando que o Asaas resolve o que ele não resolve.</p>
+
+    <h3 class="art-h3">As notificações nativas do Asaas</h3>
+    <p class="art-p">O Asaas tem uma régua de notificação própria, configurada por cliente. Segundo a <a href="https://blog.asaas.com/notificacao-de-cobranca-do-asaas" target="_blank" rel="noopener">documentação do Asaas</a>, ele avisa quando a cobrança é criada ou alterada, lembra o cliente 5, 10, 15 ou 30 dias antes do vencimento, avisa no dia do vencimento e, depois dele, lembra em 1, 3, 7, 15 ou 30 dias, com até 3 notificações após o vencimento. Os canais são e-mail, SMS, WhatsApp e ligação automática (esta só depois do vencimento, até 3 tentativas por dia durante 3 dias).</p>
+    <p class="art-p">Essas notificações têm custo por envio. Na <a href="https://www.asaas.com/precos-e-taxas" target="_blank" rel="noopener">tabela de preços do Asaas</a> consultada em novembro de 2026, a notificação por WhatsApp custa R$ 0,55 por mensagem, o pacote de e-mail e SMS custa R$ 0,99 por transação, e a ligação R$ 0,55. A tarifa do boleto é cobrada quando o cliente paga, não na emissão: nas palavras do Asaas, "as taxas não são aplicadas no momento da emissão da cobrança, mas sim no momento em que o cliente realiza o pagamento". Confira as condições da sua conta, porque a tabela padrão pode ser diferente da negociada.</p>
+
+    <h3 class="art-h3">Para muita empresa, isso basta</h3>
+    <p class="art-p">Se a sua operação emite cobranças pelo Asaas, o volume é pequeno e você só quer que o cliente receba um lembrete, ligue as notificações nativas e pronto. Não precisa de projeto. Eu digo isso em toda primeira conversa.</p>
+
+    <h3 class="art-h3">Onde a automação entra</h3>
+    <p class="art-p">A automação integrada à API Oficial do WhatsApp faz sentido quando a empresa precisa do que a notificação nativa não faz:</p>
+    <p class="art-p"><strong>A mensagem sai do número da sua empresa</strong>, com o seu nome e o seu tom, e não de um remetente genérico. O cliente responde, e a resposta cai no seu atendimento.</p>
+    <p class="art-p"><strong>O cliente resolve na conversa.</strong> Ele pede a 2ª via, o Pix ou pergunta "esse boleto é de qual contrato?" e a automação responde consultando o Asaas, sem passar pelo financeiro.</p>
+    <p class="art-p"><strong>A régua é a sua.</strong> Os dias, o texto de cada etapa, quando parar de avisar e quando passar para uma pessoa são definidos pela sua operação. Quando o cliente responde algo que não é pedido de 2ª via, a régua pausa para ele e a conversa vai para o financeiro com o histórico.</p>
+    <p class="art-p"><strong>O Asaas não é o único sistema.</strong> Se a cobrança está no Asaas mas o contrato, o pedido ou o cadastro estão em outro lugar, a automação cruza os dois. A notificação nativa só enxerga o Asaas.</p>
+    <p class="art-p">Em resumo: a notificação do Asaas avisa; a automação atende. A primeira é configuração; a segunda é um projeto, com algumas semanas até o go-live, e só se justifica a partir de um certo volume de cobranças e de respostas de clientes.</p>
+
     <h2 class="art-h2" id="vantagens-asaas">O que torna o Asaas particularmente bom para essa automação</h2>
 
     <div class="asaas-vantagem">
@@ -365,7 +417,19 @@ footer p{color:#7b8499;font-size:13px}
     <h2 class="art-h2" id="perguntas-frequentes">Perguntas frequentes</h2>
 
     <h3 class="faq-q">O Asaas já envia aviso de vencimento pelo WhatsApp?</h3>
-    <p class="art-p">Nativamente, o Asaas notifica por e-mail e SMS. Para avisar pelo WhatsApp com boleto ou PIX dentro da mensagem, é preciso integrar o Asaas à API Oficial do WhatsApp por meio de uma automação, que lê as cobranças e dispara a mensagem na data certa.</p>
+    <p class="art-p">Sim. O Asaas oferece notificação nativa por e-mail, SMS, WhatsApp e ligação automática, cobrada por envio (R$ 0,55 por mensagem de WhatsApp na tabela padrão de novembro de 2026). O que a automação integrada à API Oficial acrescenta é a mensagem sair do número da sua empresa, o cliente conseguir pedir a 2ª via e tirar dúvidas na própria conversa, e a régua ser desenhada pela sua operação, com pausa e transferência para uma pessoa quando o cliente responde.</p>
+
+    <h3 class="faq-q">Com quantos dias de antecedência o Asaas envia o lembrete antes do vencimento?</h3>
+    <p class="art-p">Nas notificações nativas, o Asaas permite lembrar o cliente 5, 10, 15 ou 30 dias antes do vencimento, além do aviso no dia do vencimento e de lembretes 1, 3, 7, 15 ou 30 dias depois, com até 3 notificações após o vencimento. A configuração fica no cadastro de cada cliente. Numa automação própria, os dias da régua são definidos pela sua empresa; eu costumo partir de D-3, D0, D+1, D+3 e D+7.</p>
+
+    <h3 class="faq-q">Como funciona a notificação de cobrança do Asaas?</h3>
+    <p class="art-p">O Asaas avisa o cliente quando a cobrança é criada ou alterada, antes do vencimento, no dia e depois dele, por e-mail, SMS, WhatsApp e, só após o vencimento, por ligação automática. As notificações são cobradas por envio e as regras são salvas por cliente. É uma configuração do próprio Asaas, sem projeto. A automação entra quando a empresa quer atender o cliente na conversa, e não só avisá-lo.</p>
+
+    <h3 class="faq-q">O Asaas cobra taxa se o boleto não for pago?</h3>
+    <p class="art-p">Segundo a tabela de preços do Asaas, a tarifa do boleto é aplicada quando o cliente paga, não na emissão. As notificações, por sua vez, são cobradas por envio. As condições da sua conta podem ser diferentes da tabela padrão, então vale conferir no painel.</p>
+
+    <h3 class="faq-q">O Asaas tem cobrança recorrente e gestão de inadimplência automática?</h3>
+    <p class="art-p">Tem. O Asaas gera as cobranças de assinatura automaticamente e aplica a régua de notificação em cada uma. O que ele não faz é conversar com o inadimplente: negociar, responder dúvida sobre a fatura ou passar o caso para uma pessoa. Essa parte fica com a sua equipe ou com uma automação integrada à API Oficial do WhatsApp, que atende o cliente e transfere quando precisa.</p>
 
     <h3 class="faq-q">Como funciona a integração do Asaas com o WhatsApp?</h3>
     <p class="art-p">A automação consulta a API do Asaas, identifica as cobranças que vencem em determinado dia e envia um template aprovado pela Meta para cada cliente, com o link do boleto ou o código PIX. Quando o cliente responde, a conversa pode seguir com um fluxo de consulta ou cair para um atendente.</p>
@@ -424,6 +488,7 @@ footer p{color:#7b8499;font-size:13px}
         <ul class="toc-list">
           <li><a href="#por-que-asaas">Por que o Asaas é bem posicionado</a></li>
           <li><a href="#as-tres-funcoes">As três funções da automação</a></li>
+          <li><a href="#o-que-o-asaas-ja-faz">O que o Asaas já faz sozinho</a></li>
           <li><a href="#vantagens-asaas">Vantagens específicas do Asaas</a></li>
           <li><a href="#perguntas-frequentes">Perguntas frequentes</a></li>
         </ul>
