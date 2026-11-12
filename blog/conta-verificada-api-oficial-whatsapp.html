@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Conta verificada na API Oficial do WhatsApp: o que muda</title>
+<meta name="description" content="Conta verificada na API Oficial do WhatsApp: a diferença entre verificar a empresa, ter a API e ter selo, e o que muda no limite, no nome e no preço.">
+<meta name="author" content="Talita Bispo — Altum Digital">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://altumdigital.com.br/blog/conta-verificada-api-oficial-whatsapp">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://altumdigital.com.br/blog/conta-verificada-api-oficial-whatsapp">
+<meta property="og:title" content="Conta verificada na API Oficial do WhatsApp: o que muda">
+<meta property="og:description" content="Conta verificada na API Oficial do WhatsApp: a diferença entre verificar a empresa, ter a API e ter selo, e o que muda no limite, no nome e no preço.">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Altum Digital">
+<meta property="article:author" content="Talita Bispo">
+<meta property="article:published_time" content="2026-11-11">
+<meta property="article:tag" content="WhatsApp API">
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:#f8fafb;color:#0f172a;font-family:'DM Sans',sans-serif;font-size:16px;line-height:1.7}
+h1,h2,h3,h4{font-family:'Manrope',sans-serif}
+a{text-decoration:none;color:inherit}
+.container{max-width:1100px;margin:0 auto;padding:0 28px}
+nav{background:#06080f;padding:18px 0;border-bottom:1px solid rgba(255,255,255,0.07)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;max-width:1100px;margin:0 auto;padding:0 28px}
+.nav-logo{font-family:'Manrope',sans-serif;font-size:18px;font-weight:800;color:#e8eaf0}
+.nav-logo span{color:#00e5c3}
+.nav-links{list-style:none;display:flex;gap:28px;align-items:center}
+.nav-links a{color:#7b8499;font-size:14px;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:#e8eaf0}
+.nav-links a.active{color:#00e5c3}
+.nav-cta{background:#00e5c3;color:#06080f!important;padding:9px 20px;border-radius:6px;font-weight:700!important;font-size:13px!important}
+.article-hero{background:#fff;border-bottom:1px solid #e5e7eb;padding:52px 0 44px}
+.article-hero-inner{max-width:760px;margin:0 auto;padding:0 28px}
+.breadcrumb{font-size:13px;color:#9ca3af;margin-bottom:20px;display:flex;align-items:center;gap:8px}
+.breadcrumb a{color:#00b89e;font-weight:500}
+.breadcrumb-sep{color:#d1d5db}
+.art-tag{display:inline-flex;align-items:center;gap:6px;background:#e6faf6;border:1px solid #b3f0e0;border-radius:100px;padding:5px 14px;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#0f6e56;margin-bottom:20px}
+.art-tag-dot{width:6px;height:6px;border-radius:50%;background:#00e5c3}
+.article-title{font-size:clamp(24px,4vw,38px);font-weight:800;line-height:1.2;color:#0f172a;margin-bottom:20px;letter-spacing:-.025em}
+.article-meta{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.meta-avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#00e5c3,#4f8cff);display:flex;align-items:center;justify-content:center;font-family:'Manrope',sans-serif;font-weight:800;font-size:11px;color:#fff;flex-shrink:0}
+.meta-info{display:flex;flex-direction:column;gap:2px}
+.meta-name{font-size:14px;font-weight:700;color:#374151}
+.meta-details{font-size:12px;color:#9ca3af}
+.article-layout{display:grid;grid-template-columns:1fr 280px;gap:48px;max-width:1060px;margin:0 auto;padding:48px 28px 80px}
+.art-lead{font-size:19px;color:#374151;line-height:1.8;margin-bottom:36px;font-weight:400;border-left:3px solid #00e5c3;padding-left:22px}
+.art-h2{font-size:22px;font-weight:800;color:#0f172a;margin:44px 0 14px;letter-spacing:-.015em}
+.art-h3{font-size:17px;font-weight:700;color:#0f172a;margin:28px 0 10px}
+.art-p{font-size:16px;color:#4b5563;line-height:1.85;margin-bottom:18px}
+.art-highlight{background:#f0fdf9;border:1px solid #ccf7eb;border-left:3px solid #00e5c3;border-radius:0 8px 8px 0;padding:18px 22px;margin:28px 0;font-size:15px;color:#065f46;line-height:1.75}
+.art-highlight strong{font-weight:700;color:#047857}
+.art-tip{background:#fffbeb;border:1px solid #fde68a;border-left:3px solid #f59e0b;border-radius:0 8px 8px 0;padding:18px 22px;margin:24px 0;font-size:14px;color:#92400e;line-height:1.7}
+.art-tip strong{font-weight:700}
+.art-divider{border:none;border-top:1px solid #f0f0f0;margin:40px 0}
+.art-quote{background:#f8fafb;border-left:3px solid #00e5c3;border-radius:0 8px 8px 0;padding:20px 24px;margin:32px 0;font-size:17px;font-style:italic;color:#374151;line-height:1.75}
+.metrics-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:28px 0}
+.metric-card{background:#0f172a;border-radius:12px;padding:20px;text-align:center}
+.metric-number{font-family:'Manrope',sans-serif;font-size:36px;font-weight:800;color:#00e5c3;line-height:1;margin-bottom:6px}
+.metric-label{font-size:13px;color:#9ca3af;line-height:1.4}
+.cta-inline{background:#0f172a;border-radius:16px;padding:32px;margin:44px 0;text-align:center}
+.cta-inline h3{font-family:'Manrope',sans-serif;font-size:20px;font-weight:800;color:#fff;margin-bottom:10px}
+.cta-inline p{font-size:14px;color:#9ca3af;margin-bottom:22px;line-height:1.65}
+.btn-wa{display:inline-flex;align-items:center;gap:10px;background:#25D366;color:#fff;padding:13px 26px;border-radius:8px;font-family:'Manrope',sans-serif;font-weight:700;font-size:14px;transition:opacity .2s}
+.btn-wa:hover{opacity:.9}
+.btn-wa svg{width:18px;height:18px;fill:#fff;flex-shrink:0}
+.author-box{background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:24px;margin-top:48px}
+.author-box-inner{display:flex;gap:16px;align-items:flex-start}
+.author-box-avatar{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#00e5c3,#4f8cff);display:flex;align-items:center;justify-content:center;font-family:'Manrope',sans-serif;font-weight:800;font-size:14px;color:#fff;flex-shrink:0}
+.author-box h4{font-size:15px;font-weight:800;color:#0f172a;margin-bottom:4px}
+.author-box p{font-size:13px;color:#6b7280;line-height:1.6}
+.sidebar-sticky{position:sticky;top:28px}
+.sidebar-card{background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:22px;margin-bottom:20px}
+.sidebar-card h4{font-family:'Manrope',sans-serif;font-size:13px;font-weight:700;color:#0f172a;margin-bottom:16px;letter-spacing:.02em;text-transform:uppercase}
+.toc-list{list-style:none;display:flex;flex-direction:column;gap:10px}
+.toc-list a{font-size:13px;color:#6b7280;line-height:1.4;transition:color .2s;display:block}
+.toc-list a:hover{color:#00b89e}
+.sidebar-cta{background:#0f172a;border-radius:16px;padding:22px;text-align:center}
+.sidebar-cta p{font-size:13px;color:#9ca3af;margin-bottom:16px;line-height:1.6}
+.sidebar-cta h4{font-family:'Manrope',sans-serif;font-size:15px;font-weight:800;color:#fff;margin-bottom:10px}
+.btn-wa-sm{display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#fff;padding:11px 18px;border-radius:8px;font-family:'Manrope',sans-serif;font-weight:700;font-size:13px;width:100%;justify-content:center}
+footer{background:#06080f;border-top:1px solid rgba(255,255,255,0.07);padding:32px 0}
+.footer-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.footer-logo{font-family:'Manrope',sans-serif;font-weight:800;font-size:15px;color:#e8eaf0}
+.footer-logo span{color:#00e5c3}
+footer p{color:#7b8499;font-size:13px}
+@media(max-width:900px){.article-layout{grid-template-columns:1fr}.sidebar{display:none}.nav-links{display:none}.metrics-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:500px){.metrics-grid{grid-template-columns:1fr}}
+
+/* === Blocos SEO/GEO (TLDR + FAQ + Related) — alinhado com paleta atual === */
+.tldr{background:#f0fdf9;border:1px solid #ccf7eb;border-left:4px solid #00b89e;border-radius:0 8px 8px 0;padding:22px 26px;margin:0 0 36px 0;font-family:'DM Sans',sans-serif;}
+.tldr__heading{font-family:'Manrope',sans-serif;font-size:13px;font-weight:700;color:#0f6e56;text-transform:uppercase;letter-spacing:.1em;margin:0 0 14px 0;}
+.tldr__list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;}
+.tldr__list li{font-size:15px;color:#065f46;line-height:1.65;padding-left:22px;position:relative;}
+.tldr__list li::before{content:"\2192";position:absolute;left:0;color:#00b89e;font-weight:700;}
+.tldr__meta{margin-top:18px;padding-top:14px;border-top:1px solid #ccf7eb;font-size:12px;color:#0f6e56;display:flex;gap:10px;flex-wrap:wrap;align-items:center;}
+.faq-q{font-family:'Manrope',sans-serif;font-size:17px;font-weight:700;color:#0f172a;margin:26px 0 8px;line-height:1.4}
+.faq{margin:48px 0 40px;}
+.faq__heading{font-family:'Manrope',sans-serif;font-size:22px;font-weight:800;color:#0f172a;margin:0 0 20px 0;letter-spacing:-.015em;}
+.faq__item{border-bottom:1px solid #e5e7eb;padding:16px 0;cursor:pointer;}
+.faq__item:last-child{border-bottom:none;}
+.faq__question{font-family:'Manrope',sans-serif;font-size:16px;font-weight:700;color:#0f172a;list-style:none;position:relative;padding-right:32px;cursor:pointer;}
+.faq__question::-webkit-details-marker{display:none;}
+.faq__question::after{content:"+";position:absolute;right:0;top:-3px;font-size:22px;color:#00b89e;font-weight:400;transition:transform .2s;}
+.faq__item[open] .faq__question::after{content:"\2212";}
+.faq__answer{padding-top:12px;color:#4b5563;line-height:1.7;font-size:14px;}
+.related-posts{margin:48px 0 0 0;padding-top:32px;border-top:1px solid #e5e7eb;}
+.related-posts__heading{font-family:'Manrope',sans-serif;font-size:20px;font-weight:800;color:#0f172a;margin:0 0 20px 0;letter-spacing:-.015em;}
+.related-posts__list{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+.related-posts__link{display:block;padding:18px 20px;background:#fff;border:1px solid #e5e7eb;border-radius:12px;text-decoration:none;transition:border-color .2s,transform .2s;}
+.related-posts__link:hover{border-color:#00b89e;transform:translateY(-2px);}
+.related-posts__title{font-family:'Manrope',sans-serif;font-size:14px;font-weight:700;color:#0f172a;margin:0 0 6px;line-height:1.35;}
+.related-posts__relation{font-size:12px;color:#6b7280;margin:0;line-height:1.5;}
+@media(max-width:640px){.related-posts__list{grid-template-columns:1fr;}}
+.art-p a,.article-content li a:not([class]){color:#00b89e;font-weight:600;text-decoration:underline}
+</style>
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Conta verificada na API Oficial do WhatsApp: o que muda">
+<meta name="twitter:description" content="Conta verificada na API Oficial do WhatsApp: a diferença entre verificar a empresa, ter a API e ter selo, e o que muda no limite, no nome e no preço.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Conta verificada na API Oficial do WhatsApp: o que muda",
+  "description": "Conta verificada na API Oficial do WhatsApp: a diferença entre verificar a empresa, ter a API e ter selo, e o que muda no limite, no nome e no preço.",
+  "author": {
+    "@type": "Person",
+    "@id": "https://altumdigital.com.br/#talita-bispo",
+    "name": "Talita Bispo",
+    "url": "https://altumdigital.com.br/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "@id": "https://altumdigital.com.br/#organizacao",
+    "name": "Altum Digital",
+    "url": "https://altumdigital.com.br/"
+  },
+  "datePublished": "2026-11-11T00:00:00-03:00",
+  "dateModified": "2026-11-11T00:00:00-03:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://altumdigital.com.br/blog/conta-verificada-api-oficial-whatsapp"
+  },
+  "articleSection": "WhatsApp API",
+  "keywords": [
+    "conta verificada api oficial whatsapp",
+    "diferença conta verificada e não verificada whatsapp",
+    "selo de verificação whatsapp business",
+    "verificação da empresa meta",
+    "conta comercial oficial whatsapp"
+  ],
+  "wordCount": 1782,
+  "inLanguage": "pt-BR"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Altum Digital",
+      "item": "https://altumdigital.com.br/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "https://altumdigital.com.br/blog"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Conta verificada na API Oficial do WhatsApp: o que muda"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Qual é a diferença entre conta verificada e não verificada na API Oficial do WhatsApp?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A verificação da empresa acontece no portfólio da Meta, com documentos, e não coloca selo no WhatsApp. O que muda é o que a empresa pode fazer: sair do limite inicial de 250 destinatários por dia sem depender de volume, registrar até 20 números em vez de 2 e cadastrar até 6.000 templates em vez de 250. Preço, janela de 24 horas e regras de conduta são iguais nas duas."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Preciso verificar a empresa para usar a API Oficial do WhatsApp?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Não. Um portfólio novo, sem verificação, já registra número e envia mensagens, mas começa com o limite de 250 pessoas por dia fora da janela e 2 números. Para subir a 2.000 sem verificação, a Meta exige entregar 2.000 mensagens a pessoas diferentes em 30 dias com qualidade alta. Com a empresa verificada, esse degrau não depende de volume."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Conta verificada na API Oficial tem selo azul?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Não necessariamente. O selo é outro produto: a conta comercial oficial, que a Meta concede a pedido, ou o Meta Verified para empresas, que é uma assinatura paga. A verificação da empresa é pré-requisito do selo, mas não o inclui. Dá para ter a empresa verificada por anos sem selo nenhum."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "O que é a conta comercial oficial do WhatsApp?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "É um status do número na API Oficial, com selo ao lado do nome. A documentação da Meta lista cinco critérios: cumprir a política de mensagens, estar na plataforma há pelo menos 30 dias, ter o portfólio verificado, ter a verificação em duas etapas ativa e ter o nome de exibição aprovado. A Meta analisa o pedido, decide e, se recusar, um novo pedido só pode ser feito depois de 30 dias."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "A verificação da empresa muda o preço por mensagem?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Não. A Meta cobra por mensagem entregue, e o preço depende de dois fatores: a categoria do template (marketing, utilidade ou autenticação) e o país do número de quem recebe. Verificação e selo não aparecem como fator. A mesma regra vale para a janela de 24 horas: fora dela, só template, com selo ou sem."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Qual é o limite de envio do WhatsApp sem verificação?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Todo portfólio novo começa em 250 destinatários únicos por 24 horas fora da janela de atendimento, somando todos os números. O limite sobe para 2.000, 10.000, 100.000 e ilimitado. O primeiro degrau depende de verificação ou de volume com qualidade; dali em diante, a subida é automática, conforme a qualidade e o uso do limite atual."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Por que a verificação da empresa é recusada pela Meta?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nos projetos que eu acompanho, quase sempre por divergência de dados: nome fantasia no portfólio e razão social no documento, site sem os dados da empresa, endereço ou telefone diferentes do cadastro. Antes de enviar qualquer documento, vale conferir se razão social, CNPJ, endereço, telefone e site contam a mesma história."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quanto tempo leva para verificar a empresa na Meta?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A análise é da Meta e o prazo varia; uma recusa significa novo envio e nova análise. Por isso a verificação é uma das primeiras etapas do projeto de API Oficial, e não a última. Um projeto bem planejado leva algumas semanas até o go-live, e a decisão de verificar, aprovar o nome ou conceder o selo é sempre da Meta."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">Altum<span>.</span>Digital</a>
+    <ul class="nav-links">
+      <li><a href="/#services">Serviços</a></li>
+      <li><a href="/#projects">Projetos</a></li>
+      <li><a href="/#method">Metodologia</a></li>
+      <li><a href="/blog" class="active">Blog</a></li>
+      <li><a href="/#cta" class="nav-cta">Falar com Talita</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="article-hero">
+  <div class="article-hero-inner">
+    <div class="breadcrumb">
+      <a href="/">Altum Digital</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="/blog">Blog</a>
+      <span class="breadcrumb-sep">›</span>
+      <span>Conta verificada na API Oficial do WhatsApp</span>
+    </div>
+    <div class="art-tag"><div class="art-tag-dot"></div>WhatsApp API</div>
+    <h1 class="article-title">Conta verificada na API Oficial do WhatsApp: o que muda</h1>
+    <div class="article-meta">
+      <div class="meta-avatar">TB</div>
+      <div class="meta-info">
+        <span class="meta-name">Talita Bispo · Altum Digital</span>
+        <span class="meta-details">11 de novembro de 2026 · 8 min de leitura</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="article-layout">
+  <article class="article-content">
+
+    <p class="art-lead">Conta verificada, API Oficial e selo azul são três coisas diferentes, e o mercado fala das três como se fossem uma só. Neste post eu separo cada uma, mostro o que a verificação da empresa muda de verdade na WhatsApp Business API e o que continua igual, com o link da Meta ao lado de cada regra.</p>
+
+    <p class="art-p">A pergunta chega quase sempre assim: "qual a diferença da API Oficial em conta verificada para não verificada?". Quem pergunta já contratou ou vai contratar a API Oficial do WhatsApp e imagina que a verificação vem junto, com selo e tudo. Não vem. E saber o que vem com cada coisa evita duas frustrações: a campanha que trava no primeiro dia e o selo que nunca aparece.</p>
+
+    <hr class="art-divider">
+
+    <h2 class="art-h2" id="tres-conceitos">Os três conceitos que o mercado mistura</h2>
+
+    <h3 class="art-h3">1. Verificação da empresa no portfólio da Meta</h3>
+    <p class="art-p">É a Meta confirmando que a sua empresa existe e é quem diz ser. Acontece no portfólio empresarial da Meta, o antigo Meta Business Manager, com documentos da empresa. Vale para o portfólio inteiro, não para um número específico. A Central de Ajuda da Meta tem uma página <a href="https://www.facebook.com/business/help/1095661473946872" target="_blank" rel="noopener">sobre a verificação da empresa</a>.</p>
+    <p class="art-p">A verificação da empresa não coloca selo nenhum no WhatsApp. O cliente não vê diferença na tela. Ela muda o que a sua empresa pode fazer por trás, como o limite de envio e a quantidade de números.</p>
+
+    <h3 class="art-h3">2. A conta na API Oficial do WhatsApp</h3>
+    <p class="art-p">É o número da empresa registrado na WhatsApp Business Platform, que é a API Oficial, ligado a uma conta do WhatsApp dentro do portfólio. Para registrar o número, a Meta exige um nome de exibição, segundo a <a href="https://developers.facebook.com/documentation/business-messaging/whatsapp/display-names" target="_blank" rel="noopener">documentação de nomes de exibição</a>.</p>
+    <p class="art-p">Ter a API Oficial não depende de a empresa estar verificada. Um portfólio novo, sem verificação, já registra número e envia mensagens, só que com os limites de partida. Se você está saindo do aplicativo, o caminho do número está em <a href="/blog/migrar-whatsapp-business-para-api-oficial">migrar do WhatsApp Business para a API Oficial</a>.</p>
+
+    <h3 class="art-h3">3. O selo: dois produtos diferentes</h3>
+    <p class="art-p"><strong>Conta comercial oficial</strong> (Official Business Account) é um status do número na API Oficial. A <a href="https://developers.facebook.com/documentation/business-messaging/whatsapp/official-business-accounts" target="_blank" rel="noopener">documentação da Meta sobre contas comerciais oficiais</a> descreve esse número como um número de uma empresa verificada como autêntica e informa que ele tem um selo azul ao lado do nome, na visualização de contatos.</p>
+    <p class="art-p"><strong>Meta Verified para empresas</strong> é uma assinatura paga. A <a href="https://faq.whatsapp.com/3872729742954601" target="_blank" rel="noopener">Central de Ajuda do WhatsApp</a> descreve o acesso dentro do aplicativo WhatsApp Business, avisa que planos e benefícios podem estar limitados a empresas e locais selecionados e manda conferir o preço numa página da Meta.</p>
+    <p class="art-p">Nos dois casos, segundo a página <a href="https://faq.whatsapp.com/794517045178057" target="_blank" rel="noopener">sobre as contas comerciais verificadas</a>, o selo indica que a conta foi verificada pela Meta.</p>
+    <div class="art-highlight">
+      <strong>Os três em uma frase cada:</strong> verificação da empresa é documento. Conta na API Oficial é o número funcionando. Selo é o que o cliente vê. Dá para ter a API sem verificação, e dá para ter verificação sem selo.
+    </div>
+
+    <h2 class="art-h2" id="o-que-muda">O que muda na prática quando a empresa é verificada</h2>
+
+    <h3 class="art-h3">Limite de envio</h3>
+    <p class="art-p">O limite de envio é a quantidade de pessoas diferentes que a sua empresa consegue alcançar fora da janela de atendimento, em 24 horas. A <a href="https://developers.facebook.com/docs/whatsapp/messaging-limits" target="_blank" rel="noopener">documentação de limites</a> diz que todo portfólio novo começa em 250 e pode subir para 2.000, 10.000, 100.000 e ilimitado. O limite é do portfólio e vale para todos os números dele somados.</p>
+    <p class="art-p">A verificação entra no primeiro degrau. Para sair de 250 e chegar a 2.000, a Meta lista três caminhos: verificar a empresa, ter a empresa verificada pelo parceiro que fez o cadastro, ou entregar 2.000 mensagens fora da janela para pessoas diferentes em 30 dias, com templates de alta qualidade. Ou seja, dá para subir sem verificação, mas isso exige semanas de envio com qualidade alta. Com a empresa verificada, esse degrau não depende de volume.</p>
+    <p class="art-p">Do 2.000 em diante, a verificação deixa de ser o fator. A subida é automática: a Meta confere se a qualidade está alta em todos os números e templates e se a empresa usou pelo menos metade do limite atual nos últimos 7 dias. Se sim, o limite sobe um nível em até 6 horas. A mecânica completa está em <a href="/blog/pontuacao-qualidade-limite-envio-whatsapp">qualidade e limite de envio no WhatsApp</a>.</p>
+    <p class="art-p">Um exemplo: uma clínica quer mandar lembrete de consulta para 900 pacientes por dia. Com o portfólio novo, sem verificação, o teto é 250 pessoas por dia fora da janela. Sobram 650 pacientes sem lembrete.</p>
+
+    <div class="metrics-grid">
+      <div class="metric-card">
+        <div class="metric-number">250</div>
+        <div class="metric-label">destinatários únicos em 24h no portfólio novo</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-number">2 → 20</div>
+        <div class="metric-label">números registrados por portfólio, depois de verificar</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-number">250 → 6.000</div>
+        <div class="metric-label">templates por conta de mensagens, verificado e com nome aprovado</div>
+      </div>
+    </div>
+
+    <h3 class="art-h3">Números e templates</h3>
+    <p class="art-p">A <a href="https://developers.facebook.com/docs/whatsapp/cloud-api/phone-numbers" target="_blank" rel="noopener">documentação de números</a> informa que portfólios novos podem registrar até 2 números. Quando a empresa é verificada, ou quando chega ao limite de 2.000, a Meta sobe esse teto para 20. Já a <a href="https://developers.facebook.com/documentation/business-messaging/whatsapp/whatsapp-business-accounts/" target="_blank" rel="noopener">página de contas</a> limita a 250 templates cada conta de mensagens de um portfólio não verificado. Com a empresa verificada e um nome de exibição aprovado, o teto passa a 6.000.</p>
+    <p class="art-p">Com um número e poucos templates, isso não pesa. Pesa para quem tem várias unidades, setores ou marcas.</p>
+
+    <h3 class="art-h3">Nome exibido</h3>
+    <p class="art-p">O nome de exibição aparece no perfil do número. Segundo a <a href="https://developers.facebook.com/documentation/business-messaging/whatsapp/display-names" target="_blank" rel="noopener">documentação de nomes de exibição</a>, ele também pode aparecer no topo da conversa e na lista de chats quando o número é aprovado na verificação do nome.</p>
+    <p class="art-p">Um detalhe que eu sempre explico: se o cliente editou o nome do seu número no WhatsApp dele, é o nome que ele escolheu que aparece. Nenhuma verificação muda isso.</p>
+
+    <h3 class="art-h3">Confiança e busca</h3>
+    <p class="art-p">A conta comercial oficial acrescenta duas coisas que o cliente percebe: o selo azul e a busca. A documentação informa que um número que não é conta comercial oficial não aparece nos resultados quando o usuário procura por ele dentro do WhatsApp. Para a marca que o cliente procura pelo nome, isso conta. Para quem conversa só com quem já é cliente, conta pouco.</p>
+
+    <h2 class="art-h2" id="o-que-nao-muda">O que não muda com verificação nem com selo</h2>
+    <p class="art-p"><strong>O preço por mensagem.</strong> A <a href="https://developers.facebook.com/documentation/business-messaging/whatsapp/pricing" target="_blank" rel="noopener">página de preços da Meta</a> diz que a cobrança é por mensagem e que o valor depende de dois fatores: a categoria da mensagem e o código de país do número de quem recebe. Verificação e selo não aparecem como fator. A tabela do Brasil está em <a href="/blog/quanto-custa-api-oficial-whatsapp-2026">quanto custa a API Oficial do WhatsApp em 2026</a>.</p>
+    <p class="art-p"><strong>A janela de 24 horas.</strong> Quando o cliente escreve, abre uma janela de atendimento de 24 horas. Quando ela fecha, segundo a <a href="https://developers.facebook.com/documentation/business-messaging/whatsapp/messages/send-messages" target="_blank" rel="noopener">documentação de mensagens</a>, a empresa só pode enviar template aprovado. Isso vale para conta verificada, para conta com selo e para conta nova. A regra inteira está em <a href="/blog/janela-24-horas-templates-whatsapp">janela de 24h e templates do WhatsApp</a>.</p>
+    <p class="art-p"><strong>O risco por conduta.</strong> A <a href="https://business.whatsapp.com/policy" target="_blank" rel="noopener">Política de Mensagens do WhatsApp Business</a> exige opt-in de quem recebe e diz que a Meta pode restringir ou remover o acesso da empresa que recebe uma quantidade significativa de feedback negativo, porque os usuários podem bloquear ou denunciar empresas. A política não traz exceção para empresa verificada.</p>
+    <div class="art-tip">
+      <strong>Na dúvida, separe assim:</strong><br><br>
+      <strong>Quer mandar para mais gente fora da janela?</strong> O assunto é verificação da empresa e qualidade das mensagens.<br><br>
+      <strong>Quer que o cliente reconheça você na tela?</strong> O assunto é nome de exibição e, mais adiante, selo.<br><br>
+      <strong>Quer pagar menos ou mandar mensagem livre fora da janela?</strong> Nenhum dos dois resolve. Preço é categoria e país. Fora da janela, só template.
+    </div>
+
+    <h2 class="art-h2" id="quem-precisa">Quem precisa de verificação e quem precisa de selo</h2>
+    <p class="art-p"><strong>Verificação da empresa: quase toda empresa que vai usar a API Oficial com volume.</strong> Se a sua operação vai mandar aviso, lembrete ou cobrança para mais de 250 pessoas por dia fora da janela, a verificação é o caminho que não depende de semanas de envio. Ela também é pré-requisito do selo.</p>
+    <p class="art-p"><strong>Selo: quase ninguém no começo.</strong> A documentação lista cinco critérios para a conta comercial oficial: cumprir a política de mensagens, estar registrada na plataforma há pelo menos 30 dias, ter o portfólio verificado, ter a verificação em duas etapas ativa no número e ter o nome de exibição aprovado. A Meta analisa o pedido e avisa se concedeu. Se recusar, um novo pedido só pode ser feito depois de 30 dias. Não existe garantia de aprovação, e nenhuma consultoria pode prometer isso.</p>
+    <p class="art-p">O selo não aumenta limite, não baixa preço e não abre a janela. Ele ajuda o cliente a reconhecer a empresa. Por isso faz sentido pedir depois que o número está rodando, com qualidade alta e nome aprovado, e não como primeira etapa.</p>
+
+    <h2 class="art-h2" id="onde-trava">Onde a verificação costuma travar</h2>
+    <p class="art-p">Nos projetos que eu acompanho, a verificação recusada quase sempre é divergência de dados. O nome no portfólio é o nome fantasia e o documento traz a razão social. O site não mostra os dados da empresa. O endereço ou o telefone não batem com o cadastro. A própria Meta tem um motivo de recusa para nome jurídico que não aparece nos documentos. Eu detalho esse e outros pontos em <a href="/blog/api-oficial-whatsapp">API Oficial do WhatsApp: por que tanta empresa trava na configuração</a>.</p>
+    <p class="art-p">Por isso, antes de enviar qualquer documento, eu confiro se razão social, CNPJ, endereço, telefone e site contam a mesma história. Corrigir depois de uma recusa significa novo envio e nova análise da Meta.</p>
+
+    <h2 class="art-h2" id="como-e-o-projeto">Como isso entra no projeto</h2>
+    <p class="art-p">Verificar a empresa, registrar o número, aprovar o nome de exibição e montar os templates é um projeto, não uma configuração. Um projeto bem planejado leva algumas semanas até o go-live, e a verificação é uma das primeiras etapas, porque é ela que define com que limite o número começa a trabalhar. Depois do go-live, a automação fica hospedada e mantida pela nossa consultoria. A decisão de verificar a empresa, aprovar o nome ou conceder o selo é sempre da Meta.</p>
+
+    <hr class="art-divider">
+
+    <h2 class="art-h2" id="perguntas-frequentes">Perguntas frequentes</h2>
+
+    <h3 class="faq-q">Qual é a diferença entre conta verificada e não verificada na API Oficial do WhatsApp?</h3>
+    <p class="art-p">A verificação da empresa acontece no portfólio da Meta, com documentos, e não coloca selo no WhatsApp. O que muda é o que a empresa pode fazer: sair do limite inicial de 250 destinatários por dia sem depender de volume, registrar até 20 números em vez de 2 e cadastrar até 6.000 templates em vez de 250. Preço, janela de 24 horas e regras de conduta são iguais nas duas.</p>
+
+    <h3 class="faq-q">Preciso verificar a empresa para usar a API Oficial do WhatsApp?</h3>
+    <p class="art-p">Não. Um portfólio novo, sem verificação, já registra número e envia mensagens, mas começa com o limite de 250 pessoas por dia fora da janela e 2 números. Para subir a 2.000 sem verificação, a Meta exige entregar 2.000 mensagens a pessoas diferentes em 30 dias com qualidade alta. Com a empresa verificada, esse degrau não depende de volume.</p>
+
+    <h3 class="faq-q">Conta verificada na API Oficial tem selo azul?</h3>
+    <p class="art-p">Não necessariamente. O selo é outro produto: a conta comercial oficial, que a Meta concede a pedido, ou o Meta Verified para empresas, que é uma assinatura paga. A verificação da empresa é pré-requisito do selo, mas não o inclui. Dá para ter a empresa verificada por anos sem selo nenhum.</p>
+
+    <h3 class="faq-q">O que é a conta comercial oficial do WhatsApp?</h3>
+    <p class="art-p">É um status do número na API Oficial, com selo ao lado do nome. A documentação da Meta lista cinco critérios: cumprir a política de mensagens, estar na plataforma há pelo menos 30 dias, ter o portfólio verificado, ter a verificação em duas etapas ativa e ter o nome de exibição aprovado. A Meta analisa o pedido, decide e, se recusar, um novo pedido só pode ser feito depois de 30 dias.</p>
+
+    <h3 class="faq-q">A verificação da empresa muda o preço por mensagem?</h3>
+    <p class="art-p">Não. A Meta cobra por mensagem entregue, e o preço depende de dois fatores: a categoria do template (marketing, utilidade ou autenticação) e o país do número de quem recebe. Verificação e selo não aparecem como fator. A mesma regra vale para a janela de 24 horas: fora dela, só template, com selo ou sem.</p>
+
+    <h3 class="faq-q">Qual é o limite de envio do WhatsApp sem verificação?</h3>
+    <p class="art-p">Todo portfólio novo começa em 250 destinatários únicos por 24 horas fora da janela de atendimento, somando todos os números. O limite sobe para 2.000, 10.000, 100.000 e ilimitado. O primeiro degrau depende de verificação ou de volume com qualidade; dali em diante, a subida é automática, conforme a qualidade e o uso do limite atual.</p>
+
+    <h3 class="faq-q">Por que a verificação da empresa é recusada pela Meta?</h3>
+    <p class="art-p">Nos projetos que eu acompanho, quase sempre por divergência de dados: nome fantasia no portfólio e razão social no documento, site sem os dados da empresa, endereço ou telefone diferentes do cadastro. Antes de enviar qualquer documento, vale conferir se razão social, CNPJ, endereço, telefone e site contam a mesma história.</p>
+
+    <h3 class="faq-q">Quanto tempo leva para verificar a empresa na Meta?</h3>
+    <p class="art-p">A análise é da Meta e o prazo varia; uma recusa significa novo envio e nova análise. Por isso a verificação é uma das primeiras etapas do projeto de API Oficial, e não a última. Um projeto bem planejado leva algumas semanas até o go-live, e a decisão de verificar, aprovar o nome ou conceder o selo é sempre da Meta.</p>
+
+    <div class="art-highlight"><strong>Resumo para decidir:</strong> Se a sua empresa vai usar a API Oficial com volume, verifique a empresa no portfólio da Meta antes do go-live: é isso que tira o número do limite de 250 e libera mais números e templates. O selo é etapa posterior, decidida pela Meta, e não muda preço, janela nem risco por conduta. A Altum Digital é a consultoria de automação e IA de Talita Bispo, em São Paulo, que implementa a API Oficial do WhatsApp, agentes de IA e automações integradas aos sistemas da empresa, para negócios que faturam a partir de R$ 100 mil por mês e querem parar de depender de processo manual.</div>
+
+    <div class="cta-inline">
+      <h3>Quer colocar o seu número na API Oficial do jeito certo?</h3>
+      <p>Me mande um áudio no WhatsApp contando como a sua empresa usa o WhatsApp hoje e onde a verificação ou o limite de envio estão travando. A gente marca uma call para desenhar o caminho do seu número.</p>
+      <a href="https://wa.me/5511954715571?text=Oi%20Talita%2C%20li%20o%20post%20sobre%20conta%20verificada%20na%20API%20Oficial%20do%20WhatsApp%20e%20quero%20marcar%20uma%20call%20sobre%20o%20meu%20n%C3%BAmero.%20Vou%20te%20mandar%20um%20%C3%A1udio%20contando%20como%20usamos%20o%20WhatsApp%20hoje." class="btn-wa" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Falar com Talita no WhatsApp
+      </a>
+    </div>
+
+    <div class="author-box">
+      <div class="author-box-inner">
+        <div class="author-box-avatar">TB</div>
+        <div>
+          <h4>Talita Bispo</h4>
+          <p>Fundadora da Altum Digital, consultoria de automação e IA em São Paulo que implementa a API Oficial do WhatsApp, agentes de IA e automações integradas aos sistemas da empresa, para negócios que faturam a partir de R$ 100 mil por mês e querem parar de depender de processo manual. Certificada Google Cloud Generative AI Leader, com 11 anos de consultoria na Accenture (TIM, SKY, SEFAZ-SP, Johnson &amp; Johnson, Getnet, Claro). Mais de 30 projetos entregues. Atende todo o Brasil.</p>
+        </div>
+      </div>
+    </div>
+
+  </article>
+
+  <aside class="sidebar">
+    <div class="sidebar-sticky">
+      <div class="sidebar-card">
+        <h4>Neste artigo</h4>
+        <ul class="toc-list">
+          <li><a href="#tres-conceitos">Os três conceitos</a></li>
+          <li><a href="#o-que-muda">O que muda na prática</a></li>
+          <li><a href="#o-que-nao-muda">O que não muda</a></li>
+          <li><a href="#quem-precisa">Quem precisa de quê</a></li>
+          <li><a href="#onde-trava">Onde a verificação trava</a></li>
+          <li><a href="#como-e-o-projeto">Como entra no projeto</a></li>
+          <li><a href="#perguntas-frequentes">Perguntas frequentes</a></li>
+        </ul>
+      </div>
+      <div class="sidebar-cta">
+        <h4>Fale sobre o seu número</h4>
+        <p>Me conte por áudio como vocês usam o WhatsApp hoje e marcamos uma call sobre o seu número.</p>
+        <a href="https://wa.me/5511954715571?text=Oi%20Talita%2C%20li%20o%20post%20sobre%20conta%20verificada%20na%20API%20Oficial%20do%20WhatsApp%20e%20quero%20marcar%20uma%20call%20sobre%20o%20meu%20n%C3%BAmero.%20Vou%20te%20mandar%20um%20%C3%A1udio%20contando%20como%20usamos%20o%20WhatsApp%20hoje." class="btn-wa-sm" target="_blank">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Falar com Talita
+        </a>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-logo">Altum<span>.</span>Digital</div>
+      <p>© 2025 Talita Bispo · Altum Digital Soluções LTDA</p>
+      <p>São Paulo, SP · Brasil</p>
+      <p>CNPJ 61.287.916/0001-69</p>
+      <p><a href="https://www.linkedin.com/in/talita-b-35b47923/" target="_blank" rel="me noopener" style="color:#9ca3af">LinkedIn</a> · <a href="https://www.instagram.com/soutalitabispo/" target="_blank" rel="me noopener" style="color:#9ca3af">Instagram @SouTalitaBispo</a></p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

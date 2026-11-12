@@ -3,115 +3,34 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Como integrar o WhatsApp ao ERP da empresa sem desenvolvedor</title>
-<meta name="description" content="Veja como integrar o WhatsApp ao ERP para a equipe consultar estoque, pedidos e financeiro por mensagem, com controle de acesso e sem desenvolvedor.">
+<title>Integrar o WhatsApp ao ERP: o que o cliente consulta sozinho</title>
+<meta name="description" content="Integrar o WhatsApp ao ERP: o cliente consulta pedido, 2ª via, nota fiscal e entrega sozinho, identificado pelo número cadastrado. Veja o que precisa.">
 <meta name="author" content="Talita Bispo — Altum Digital">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://altumdigital.com.br/blog/integrar-whatsapp-erp-empresa">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://altumdigital.com.br/blog/integrar-whatsapp-erp-empresa">
-<meta property="og:title" content="Como integrar o WhatsApp ao ERP da empresa sem desenvolvedor">
-<meta property="og:description" content="Veja como integrar o WhatsApp ao ERP para a equipe consultar estoque, pedidos e financeiro por mensagem, com controle de acesso e sem desenvolvedor.">
-<meta property="og:image" content="https://altumdigital.com.br/og-image.jpg">
+<meta property="og:title" content="Integrar o WhatsApp ao ERP: o que o cliente consulta sozinho">
+<meta property="og:description" content="Integrar o WhatsApp ao ERP: o cliente consulta pedido, 2ª via, nota fiscal e entrega sozinho, identificado pelo número cadastrado. Veja o que precisa.">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:site_name" content="Altum Digital">
 <meta property="article:author" content="Talita Bispo">
 <meta property="article:published_time" content="2026-04-12">
-<meta property="article:tag" content="ERP">
-<meta property="article:tag" content="WhatsApp API">
-<meta property="article:tag" content="Integrações">
+<meta property="article:modified_time" content="2026-11-11">
+<meta property="article:tag" content="Integrações · ERP">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "Como integrar o WhatsApp ao ERP da empresa sem desenvolvedor",
-  "description": "Veja como integrar o WhatsApp ao ERP para a equipe consultar estoque, pedidos e financeiro por mensagem, com controle de acesso e sem desenvolvedor.",
-  "author": {"@type": "Person", "name": "Talita Bispo", "url": "https://altumdigital.com.br"},
-  "publisher": {"@type": "Organization", "name": "Altum Digital", "url": "https://altumdigital.com.br"},
-  "datePublished": "2026-04-12",
-  "dateModified": "2026-10-30",
-  "mainEntityOfPage": "https://altumdigital.com.br/blog/integrar-whatsapp-erp-empresa",
-  "keywords": ["integrar WhatsApp ERP", "WhatsApp Tiny ERP", "WhatsApp Bling", "WhatsApp Omie", "automação ERP WhatsApp", "integração sistemas empresa"]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "O que é integrar o WhatsApp ao ERP?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "É conectar o sistema de gestão à API Oficial do WhatsApp para que informações do ERP (estoque, pedidos, clientes, financeiro) possam ser consultadas e, em alguns casos, atualizadas por mensagem, por pessoas autorizadas, sem abrir o sistema."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Preciso contratar um desenvolvedor para integrar o WhatsApp ao ERP?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Não precisa ter desenvolvedor interno. A integração é um projeto conduzido pela consultoria, que fica hospedada e mantida por ela; a sua equipe usa o resultado pelo WhatsApp e pelo CRM."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Quais ERPs podem ser integrados ao WhatsApp?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Os que têm API de acesso aos dados, como Tiny Olist, Bling, Omie e Conta Azul, entre outros. O que define a integração é o que a API do ERP permite ler e escrever."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Como funciona o controle de quem pode consultar o quê?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "O controle fica na camada de integração: cada pessoa autorizada é identificada pelo número e tem um escopo definido. O vendedor consulta estoque e pedidos; o financeiro vê faturas; o gestor vê tudo. Nada disso exige criar usuários novos no ERP."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "O cliente final também pode consultar informações do ERP pelo WhatsApp?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Pode, de forma limitada e controlada: status do próprio pedido, segunda via de boleto, posição de entrega. O que o cliente vê é definido no projeto e nunca expõe dados de outros clientes."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "A integração é segura?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Sim, quando feita pela API Oficial do WhatsApp, com acesso por número autorizado, escopo por perfil e registro de todas as consultas. Os dados continuam no ERP; a integração só consulta o que foi liberado."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "O que muda na operação depois da integração?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Perguntas operacionais deixam de depender de quem domina o ERP. O gargalo humano desaparece, a resposta chega na hora e a pessoa responsável pelo sistema fica livre para o trabalho que exige o julgamento dela."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "A integração também envia mensagens automáticas a partir do ERP?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Sim. Além da consulta, a integração pode avisar o cliente quando o pedido muda de status, quando uma fatura vence ou quando o pagamento é confirmado, usando os dados que já estão no ERP."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Quanto tempo leva para integrar o WhatsApp ao ERP?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "É um projeto, não uma configuração: verificação da empresa e do número na Meta, aprovação dos templates, mapeamento dos dados do ERP, definição dos perfis de acesso, integração e testes. Um projeto bem planejado leva algumas semanas até o go-live."
-      }
-    }
-  ]
+  "headline": "Integrar o WhatsApp ao ERP: o que o cliente consulta sozinho",
+  "description": "Integrar o WhatsApp ao ERP: o cliente consulta pedido, 2ª via, nota fiscal e entrega sozinho, identificado pelo número cadastrado. Veja o que precisa.",
+  "author": {"@type": "Person", "@id": "https://altumdigital.com.br/#talita-bispo", "name": "Talita Bispo", "url": "https://altumdigital.com.br/"},
+  "publisher": {"@type": "Organization", "@id": "https://altumdigital.com.br/#organizacao", "name": "Altum Digital", "url": "https://altumdigital.com.br/"},
+  "datePublished": "2026-04-12T00:00:00-03:00",
+  "dateModified": "2026-11-11T00:00:00-03:00",
+  "mainEntityOfPage": {"@type": "WebPage", "@id": "https://altumdigital.com.br/blog/integrar-whatsapp-erp-empresa"},
+  "articleSection": "Integrações · ERP",
+  "inLanguage": "pt-BR"
 }
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -155,18 +74,11 @@ nav{background:#06080f;padding:18px 0;border-bottom:1px solid rgba(255,255,255,0
 .art-tip{background:#fffbeb;border:1px solid #fde68a;border-left:3px solid #f59e0b;border-radius:0 8px 8px 0;padding:18px 22px;margin:24px 0;font-size:14px;color:#92400e;line-height:1.7}
 .art-tip strong{font-weight:700}
 .art-divider{border:none;border-top:1px solid #f0f0f0;margin:40px 0}
-.faq-q{font-family:'Manrope',sans-serif;font-size:17px;font-weight:700;color:#0f172a;margin:26px 0 8px;line-height:1.4}
 .art-quote{background:#f8fafb;border-left:3px solid #00e5c3;border-radius:0 8px 8px 0;padding:20px 24px;margin:32px 0;font-size:17px;font-style:italic;color:#374151;line-height:1.75}
-.usecase-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:28px 0}
-.usecase-card{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:20px}
-.usecase-card h4{font-size:14px;font-weight:700;color:#0f172a;margin-bottom:8px}
-.usecase-card p{font-size:13px;color:#6b7280;line-height:1.6;margin:0}
-.usecase-tag{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#00b89e;background:#e6faf6;border-radius:4px;padding:3px 8px;margin-bottom:10px}
-.flow-steps{display:flex;flex-direction:column;gap:12px;margin:28px 0}
-.flow-step{display:flex;gap:16px;align-items:flex-start;background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:18px 20px}
-.flow-step-num{width:32px;height:32px;border-radius:50%;background:#0f172a;display:flex;align-items:center;justify-content:center;font-family:'Manrope',sans-serif;font-weight:800;font-size:13px;color:#00e5c3;flex-shrink:0}
-.flow-step h4{font-size:15px;font-weight:700;color:#0f172a;margin-bottom:4px}
-.flow-step p{font-size:13px;color:#6b7280;line-height:1.6;margin:0}
+.metrics-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:28px 0}
+.metric-card{background:#0f172a;border-radius:12px;padding:20px;text-align:center}
+.metric-number{font-family:'Manrope',sans-serif;font-size:36px;font-weight:800;color:#00e5c3;line-height:1;margin-bottom:6px}
+.metric-label{font-size:13px;color:#9ca3af;line-height:1.4}
 .cta-inline{background:#0f172a;border-radius:16px;padding:32px;margin:44px 0;text-align:center}
 .cta-inline h3{font-family:'Manrope',sans-serif;font-size:20px;font-weight:800;color:#fff;margin-bottom:10px}
 .cta-inline p{font-size:14px;color:#9ca3af;margin-bottom:22px;line-height:1.65}
@@ -193,10 +105,111 @@ footer{background:#06080f;border-top:1px solid rgba(255,255,255,0.07);padding:32
 .footer-logo{font-family:'Manrope',sans-serif;font-weight:800;font-size:15px;color:#e8eaf0}
 .footer-logo span{color:#00e5c3}
 footer p{color:#7b8499;font-size:13px}
-@media(max-width:900px){.article-layout{grid-template-columns:1fr}.sidebar{display:none}.nav-links{display:none}.usecase-grid{grid-template-columns:1fr}}
+@media(max-width:900px){.article-layout{grid-template-columns:1fr}.sidebar{display:none}.nav-links{display:none}.metrics-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:500px){.metrics-grid{grid-template-columns:1fr}}
+.faq-q{font-family:'Manrope',sans-serif;font-size:17px;font-weight:700;color:#0f172a;margin:26px 0 8px;line-height:1.4}
+.art-p a,.article-content li a:not([class]){color:#00b89e;font-weight:600;text-decoration:underline}
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Altum Digital",
+      "item": "https://altumdigital.com.br/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "https://altumdigital.com.br/blog"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Integrar o WhatsApp ao ERP: o que o cliente consulta sozinho"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "O que significa integrar o WhatsApp ao ERP?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "É colocar uma automação, conectada à API Oficial do WhatsApp, que consulta o sistema de gestão da empresa no momento em que o cliente pergunta e responde com o dado que está lá: status do pedido, 2ª via, saldo, nota fiscal, prazo de entrega. O ERP continua sendo a fonte e o lugar onde a equipe trabalha; a automação só lê, e grava apenas com confirmação."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "O que o cliente consegue consultar sozinho pelo WhatsApp?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "As perguntas que só repetem o que está no sistema: se o pedido foi faturado ou enviado, a 2ª via do boleto ou o link de Pix, quanto está em aberto, o PDF da nota fiscal e a previsão de entrega. Reclamação, negociação e exceção continuam com uma pessoa, que recebe a conversa com o histórico."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Como a automação sabe quem está perguntando?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pelo número de WhatsApp comparado ao telefone cadastrado no ERP e pela chave de busca do sistema, que normalmente é o número do pedido. Antes de mostrar qualquer dado, ela confirma que quem escreveu é o dono do pedido com uma informação que só ele conhece, como o e-mail da compra. Se o número não está no cadastro ou está em mais de um, a conversa vai para uma pessoa."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "É seguro? Um cliente pode ver o pedido de outro?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A consulta mostra só dados do dono do cadastro, depois da confirmação de identidade, e o que o cliente vê é definido campo a campo no projeto. Margem, custo, limite de crédito e observações internas ficam de fora. A Política do WhatsApp Business também orienta a não pedir número completo de cartão, de conta ou de documento na conversa, e o desenho segue essa regra."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quais ERPs podem ser integrados ao WhatsApp?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Os mais comuns nos meus projetos são Omie, Bling, Conta Azul e Asaas, que publicam documentação de API e, em alguns casos, avisam quando um pedido ou boleto muda de status. Sistemas sob medida ou legados também podem ser integrados; a viabilidade depende de como eles permitem o acesso aos dados e é definida no diagnóstico técnico."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "A consulta pelo WhatsApp precisa de template aprovado?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Não. Quando o cliente pergunta, ele abre a janela de atendimento de 24 horas e a automação responde com mensagem livre, cobrada como serviço (com 1.000 gratuitas por número por mês). Já o aviso por iniciativa da empresa, como \"seu pedido foi faturado\", precisa ser um template, em geral de utilidade, e só para quem deu opt-in."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "A equipe também pode consultar o ERP pelo WhatsApp?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pode, com escopo por perfil: o vendedor consulta estoque e pedidos, o financeiro consulta títulos, cada um identificado pelo próprio número. Consulta é direta; qualquer gravação no ERP, como cadastrar cliente ou registrar pedido, mostra um resumo e só acontece depois da confirmação de quem pediu."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Preciso de desenvolvedor na minha equipe para integrar o WhatsApp ao ERP?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Não. É um projeto, não uma configuração: levantar as perguntas que chegam, mapear onde está cada dado, definir o que o cliente vê, colocar o número na API Oficial, aprovar os templates de aviso e testar com um grupo pequeno. Um projeto bem planejado leva algumas semanas até o go-live, e depois a integração fica hospedada e mantida pela consultoria."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
+
 <nav>
   <div class="nav-inner">
     <a href="/" class="nav-logo">Altum<span>.</span>Digital</a>
@@ -220,12 +233,12 @@ footer p{color:#7b8499;font-size:13px}
       <span>Integrar WhatsApp ao ERP</span>
     </div>
     <div class="art-tag"><div class="art-tag-dot"></div>Integrações · ERP</div>
-    <h1 class="article-title">Como integrar o WhatsApp ao ERP da sua empresa e o que muda na operação quando isso acontece</h1>
+    <h1 class="article-title">Integrar o WhatsApp ao ERP: o que o cliente consulta sozinho</h1>
     <div class="article-meta">
       <div class="meta-avatar">TB</div>
       <div class="meta-info">
         <span class="meta-name">Talita Bispo · Altum Digital</span>
-        <span class="meta-details">12 de abril de 2026 · 9 min de leitura</span>
+        <span class="meta-details">Publicado em 12 de abril de 2026 · Atualizado em 11 de novembro de 2026 · 9 min de leitura</span>
       </div>
     </div>
   </div>
@@ -234,172 +247,155 @@ footer p{color:#7b8499;font-size:13px}
 <div class="article-layout">
   <article class="article-content">
 
-    <p class="art-lead">O ERP da sua empresa tem tudo: estoque, pedidos, clientes, fornecedores, histórico de compras. O problema é que acessar essas informações exige abrir o sistema, navegar pelos menus e saber onde procurar — o que na prática significa que só quem opera o ERP consegue responder as perguntas que chegam o dia inteiro pelo WhatsApp.</p>
+    <p class="art-lead">O cliente pergunta pelo WhatsApp o que o seu ERP já sabe: onde está o pedido, qual é o boleto, se a nota saiu. Integrar o WhatsApp ao ERP pela WhatsApp Business API, a API Oficial do WhatsApp, deixa o cliente consultar isso sozinho. Aqui eu mostro o que ele consulta, como a consulta funciona e o que a sua empresa precisa ter pronto.</p>
 
-    <p class="art-p">A vendedora precisa saber se tem o produto em estoque — mas não sabe usar o sistema. O atendente precisa confirmar o status de um pedido — mas o ERP está travado ou ele não tem acesso. O gerente passa o dia sendo interrompido para responder perguntas que o sistema já tem a resposta — mas que só ele consegue extrair.</p>
+    <p class="art-p">A cena se repete em quase toda empresa que vende e fatura por um sistema de gestão. O cliente escreve "cadê meu pedido?". Alguém do atendimento abre o ERP, procura pelo nome, copia o status e responde. Dez minutos depois chega "me manda o boleto de novo?", e a mesma pessoa volta ao sistema.</p>
 
-    <p class="art-p">Integrar o WhatsApp ao ERP resolve esse gargalo de uma forma que muda a dinâmica operacional inteira. E diferente do que parece, não é um projeto que exige meses de desenvolvimento ou uma equipe de TI dedicada.</p>
+    <p class="art-p">Nenhuma dessas respostas exige decisão. A informação está pronta no ERP, só falta alguém ir buscar. Quando a integração está no ar, quem vai buscar é a automação, e a sua equipe fica com o que precisa de uma pessoa.</p>
 
     <hr class="art-divider">
 
-    <h2 class="art-h2" id="o-gargalo">O gargalo que ninguém mapeia mas todo mundo sente</h2>
+    <h2 class="art-h2" id="o-que-o-cliente-pergunta">O que o cliente pergunta e o ERP já sabe</h2>
 
-    <p class="art-p">Existe um padrão que aparece em praticamente toda empresa que usa ERP e depende do WhatsApp para comunicação: a informação está no sistema, mas chegar até ela depende de uma pessoa específica — geralmente a mesma pessoa que é interrompida dezenas de vezes por dia para responder perguntas operacionais.</p>
+    <p class="art-p">Quando eu faço o levantamento das conversas de um cliente novo, as mesmas cinco perguntas aparecem no topo da lista. Todas têm resposta no ERP:</p>
 
-    <p class="art-p">O impacto não é só no tempo perdido. É no custo de cada interrupção — estudos sobre produtividade mostram que uma interrupção típica custa em média 23 minutos para o profissional retomar o foco no que estava fazendo. Multiplicado por dezenas de interrupções diárias, o custo real é muito maior do que aparece em qualquer relatório.</p>
+    <p class="art-p"><strong>Status do pedido.</strong> "Meu pedido já foi faturado?", "já saiu?". O ERP sabe se o pedido está em aberto, faturado, separado ou enviado.</p>
 
-    <div class="art-quote">
-      "Só a gerente sabe usar o ERP. Quando ela não está, trava tudo — e quando ela está, passa o dia inteiro respondendo perguntas em vez de gerir."
-    </div>
+    <p class="art-p"><strong>2ª via de boleto.</strong> O cliente perdeu o e-mail, o link expirou ou ele quer pagar com Pix. O boleto e o link de pagamento estão no contas a receber.</p>
 
-    <h2 class="art-h2" id="o-que-e-possivel">O que a integração torna possível</h2>
+    <p class="art-p"><strong>Saldo em aberto.</strong> "Quanto eu ainda devo?", "tem alguma fatura vencida?". O financeiro do ERP tem a lista de títulos em aberto daquele cliente.</p>
 
-    <p class="art-p">Quando o WhatsApp está conectado ao ERP via API, qualquer pessoa da equipe consegue consultar e executar ações no sistema simplesmente conversando — sem precisar abrir nenhuma tela, sem precisar de treinamento, sem precisar de acesso direto ao software.</p>
+    <p class="art-p"><strong>Nota fiscal.</strong> "A nota já foi emitida? Me manda o PDF." A nota está vinculada ao pedido dentro do sistema.</p>
 
-    <div class="usecase-grid">
-      <div class="usecase-card">
-        <div class="usecase-tag">Consulta de estoque</div>
-        <h4>"Tem o produto X disponível?"</h4>
-        <p>O sistema consulta o ERP em tempo real e responde com quantidade, localização e previsão de reposição — em segundos, direto no WhatsApp.</p>
-      </div>
-      <div class="usecase-card">
-        <div class="usecase-tag">Status de pedido</div>
-        <h4>"Qual o status do pedido do cliente Y?"</h4>
-        <p>Consulta o pedido pelo nome, CPF ou número e retorna todas as informações — sem abrir o sistema, sem precisar de login.</p>
-      </div>
-      <div class="usecase-card">
-        <div class="usecase-tag">Cadastro de cliente</div>
-        <h4>"Cadastra esse cliente novo"</h4>
-        <p>A integração coleta os dados pela conversa, mostra um resumo para confirmação e só então registra no ERP — com confirmação obrigatória antes de qualquer ação.</p>
-      </div>
-      <div class="usecase-card">
-        <div class="usecase-tag">Registro de venda</div>
-        <h4>"Fecha a venda para o cliente Z"</h4>
-        <p>Descreve o produto e o cliente pelo WhatsApp. O sistema monta o pedido, mostra o resumo e registra no PDV após confirmação — sem tocar no ERP.</p>
-      </div>
-      <div class="usecase-card">
-        <div class="usecase-tag">Consulta financeira</div>
-        <h4>"O cliente X está em dia?"</h4>
-        <p>Verifica o histórico financeiro do cliente no sistema e responde com situação atual, faturas em aberto e data do último pagamento.</p>
-      </div>
-      <div class="usecase-card">
-        <div class="usecase-tag">Informação de fornecedor</div>
-        <h4>"Qual o contato do fornecedor do produto Y?"</h4>
-        <p>Consulta o cadastro de fornecedores e retorna os dados de contato, condições de pagamento e prazo de entrega registrados no sistema.</p>
-      </div>
-    </div>
+    <p class="art-p"><strong>Prazo de entrega.</strong> "Quando chega?". Se o ERP guarda o código de rastreio ou a previsão de entrega, a resposta sai de lá. Se o dado está na transportadora, a automação também consulta a transportadora.</p>
 
-    <h2 class="art-h2" id="como-funciona">Como a integração funciona na prática</h2>
-
-    <p class="art-p">A conexão entre WhatsApp e ERP é feita via APIs — a interface de programação que permite que dois sistemas conversem entre si. A maioria dos ERPs modernos usados por empresas brasileiras — Tiny Olist, Bling, Omie, entre outros — já disponibiliza APIs para integração.</p>
-
-    <p class="art-p">Na prática, o fluxo é este:</p>
-
-    <div class="flow-steps">
-      <div class="flow-step">
-        <div class="flow-step-num">1</div>
-        <div>
-          <h4>Usuário envia mensagem pelo WhatsApp</h4>
-          <p>Em linguagem natural — "tem o produto X?" ou "qual o estoque do Y?" — sem precisar de comando específico ou formato padronizado.</p>
-        </div>
-      </div>
-      <div class="flow-step">
-        <div class="flow-step-num">2</div>
-        <div>
-          <h4>Sistema identifica a intenção e os parâmetros</h4>
-          <p>Entende que é uma consulta de estoque, extrai o nome do produto e prepara a requisição para o ERP.</p>
-        </div>
-      </div>
-      <div class="flow-step">
-        <div class="flow-step-num">3</div>
-        <div>
-          <h4>Consulta ao ERP via API</h4>
-          <p>A requisição é feita em tempo real à API do ERP, que retorna os dados atualizados do sistema.</p>
-        </div>
-      </div>
-      <div class="flow-step">
-        <div class="flow-step-num">4</div>
-        <div>
-          <h4>Resposta formatada no WhatsApp</h4>
-          <p>Os dados são formatados de forma legível e enviados de volta para o usuário — com foto do produto, preço e quantidade, se aplicável.</p>
-        </div>
-      </div>
-      <div class="flow-step">
-        <div class="flow-step-num">5</div>
-        <div>
-          <h4>Confirmação obrigatória para ações que gravam dados</h4>
-          <p>Qualquer operação que escreve no ERP — cadastro, pedido, registro de venda — mostra um resumo completo e só executa após confirmação explícita. Erro de digitação virou coisa do passado.</p>
-        </div>
-      </div>
-    </div>
-
-    <h2 class="art-h2" id="quem-acessa">Quem acessa — e o que cada um pode fazer</h2>
-
-    <p class="art-p">A integração pode ser configurada com diferentes níveis de permissão por usuário ou grupo. Um vendedor pode consultar estoque e registrar pedidos, mas não tem acesso a dados financeiros. O time financeiro pode consultar situação de clientes, mas não altera cadastros. O gestor tem visão completa.</p>
-
-    <p class="art-p">Essa granularidade de acesso fica na camada de integração: não exige criar novos usuários no ERP e pode ser ajustada pela consultoria sem envolver o fornecedor do sistema.</p>
+    <p class="art-p">Em todas elas, a resposta é a mesma para qualquer atendente que abrir o sistema. Por isso são as primeiras que eu coloco para o cliente consultar sozinho.</p>
 
     <div class="art-highlight">
-      <strong>O que muda para a equipe:</strong> qualquer pessoa consegue responder perguntas operacionais sem depender de quem domina o ERP. O gargalo humano desaparece. A gerente ou responsável pelo sistema fica livre para trabalhar em tarefas que realmente precisam do seu julgamento — em vez de ser interrompida o dia inteiro para responder coisas que o sistema já sabe.
+      <strong>O que muda na operação:</strong> o atendente deixa de ser a ponte entre o cliente e o ERP nas perguntas que só repetem o que está no sistema. Ele passa a atender o que exige conversa: reclamação, negociação, exceção.
     </div>
 
-    <h2 class="art-h2" id="erps-comuns">ERPs mais comuns no mercado brasileiro e suas APIs</h2>
+    <h2 class="art-h2" id="como-funciona">Como a integração funciona, do ponto de vista de quem contrata</h2>
 
-    <p class="art-p">A maioria dos ERPs amplamente usados por empresas brasileiras de pequeno e médio porte já oferece API, o que torna a integração tecnicamente viável, ainda que cada sistema tenha as suas particularidades:</p>
+    <p class="art-p">Para contratar, você precisa entender quatro coisas, porque são elas que você vai aprovar no projeto.</p>
+
+    <h3 class="art-h3">1. O ERP é a fonte, a automação consulta e responde</h3>
+
+    <p class="art-p">A automação não guarda uma cópia dos seus pedidos. Quando o cliente pergunta, ela consulta o ERP naquele momento e responde com o que está lá. Se o financeiro deu baixa no boleto às 10h, o cliente que perguntar às 10h05 já recebe "pagamento registrado". O ERP continua sendo o lugar onde a sua equipe trabalha.</p>
+
+    <h3 class="art-h3">2. O cliente é identificado pelo número cadastrado</h3>
+
+    <p class="art-p">Quando a mensagem chega, a automação compara o número de WhatsApp com o telefone cadastrado no ERP. Se encontra, sabe de quem é a conversa e mostra os pedidos e boletos daquele cadastro.</p>
+
+    <p class="art-p">Existe um motivo para não pedir CPF ou dado bancário na conversa. A <a href="https://business.whatsapp.com/policy" target="_blank" rel="noopener">Política do WhatsApp Business</a> orienta a empresa a não pedir que as pessoas informem números completos de cartão, números de conta financeira ou números de documento de identidade. Por isso o desenho que eu uso identifica o cliente pelo número que ele já cadastrou e pela chave de busca do ERP, que na maioria dos sistemas é o número do pedido. Antes de mostrar qualquer dado, a automação confirma que quem escreveu é o dono daquele pedido com uma informação que só ele conhece, como o e-mail usado na compra, para que um cliente nunca consulte o pedido de outro.</p>
+
+    <h3 class="art-h3">3. O que a automação não mostra</h3>
+
+    <p class="art-p">A consulta mostra só dados do dono do cadastro. Se o número que escreveu não está no ERP, ou está em mais de um cadastro, a automação não entrega pedido nem boleto e passa a conversa para uma pessoa.</p>
+
+    <p class="art-p">Também fica de fora o que é dado interno da empresa: margem, custo do produto, observações da equipe sobre o cliente, limite de crédito. A regra é definida campo a campo no projeto. O ERP pode ter cinquenta campos no pedido. O cliente vê os cinco que fazem sentido para ele.</p>
+
+    <h3 class="art-h3">4. Sempre existe um caminho para uma pessoa</h3>
+
+    <p class="art-p">A política do WhatsApp Business permite automação dentro da janela de atendimento, mas exige caminhos de escalonamento claros e diretos, como a transferência para um atendente humano na própria conversa (<a href="https://business.whatsapp.com/policy" target="_blank" rel="noopener">política</a>). Na prática, o cliente que escreve "quero falar com alguém", ou que pergunta algo fora das consultas previstas, vai para a sua equipe com o histórico da conversa.</p>
+
+    <h2 class="art-h2" id="a-equipe-tambem-consulta">A equipe também consulta, com limite por perfil</h2>
+
+    <p class="art-p">A mesma integração que atende o cliente pode atender a sua equipe: o vendedor pergunta se tem o produto em estoque, o financeiro pergunta se o cliente está em dia, o gestor pergunta o status de um pedido grande.</p>
+
+    <p class="art-p">Cada pessoa autorizada é identificada pelo número e tem um escopo definido. O vendedor consulta estoque e pedidos, mas não vê o financeiro. O financeiro consulta títulos, mas não altera cadastro. Esse controle fica na camada de integração e não exige criar usuários novos no ERP.</p>
+
+    <p class="art-p">Quando a ação grava algo no ERP, como cadastrar um cliente ou registrar um pedido, a automação mostra um resumo e só grava depois da confirmação explícita de quem pediu. Consulta pode ser direta. Gravação sempre passa por confirmação.</p>
+
+    <p class="art-p">Um dos projetos em que eu trabalhei foi numa loja de varejo de moda. Só a gerente sabia operar o ERP, e toda consulta de estoque, cadastro e registro de venda passava por ela. Depois da integração, as vendedoras passaram a consultar estoque, registrar venda e cadastrar cliente pelo WhatsApp, por texto ou por voz, e a gerente deixou de ser interrompida a cada atendimento.</p>
+
+    <h2 class="art-h2" id="sistemas-mais-comuns">Os sistemas mais comuns nos projetos: Omie, Bling, Conta Azul e Asaas</h2>
+
+    <p class="art-p">A pergunta que decide se a integração é viável não é "qual é o meu ERP". É "o que a API do meu ERP deixa ler e gravar". Os quatro sistemas que mais aparecem nos meus projetos publicam documentação de API para integração, cada um com recortes diferentes:</p>
+
+    <p class="art-p"><strong>Omie.</strong> O <a href="https://developer.omie.com.br/service-list/" target="_blank" rel="noopener">catálogo de APIs da Omie</a> tem grupos para pedidos de venda, NF-e, estoque, clientes e finanças, incluindo contas a receber e boletos. Se você usa o Omie, veja <a href="/blog/omie-whatsapp-automacao-cobranca">Omie e WhatsApp: cobrança, aviso de vencimento e consulta de boleto</a>.</p>
+
+    <p class="art-p"><strong>Bling.</strong> Além da consulta, o Bling avisa outros sistemas quando algo muda. A <a href="https://developer.bling.com.br/webhooks" target="_blank" rel="noopener">documentação de webhooks do Bling</a> lista eventos de pedido de venda, estoque e nota fiscal. É isso que permite avisar o cliente quando o pedido é faturado ou a nota é emitida. Se você usa o Bling, veja <a href="/blog/bling-whatsapp-automacao-cobranca">Bling e WhatsApp: cobrança, aviso de boleto e consulta pelo cliente</a>.</p>
+
+    <p class="art-p"><strong>Conta Azul.</strong> A <a href="https://developers.contaazul.com/" target="_blank" rel="noopener">API pública da Conta Azul</a> cobre vendas, gestão financeira (contas a receber, baixas e cobranças), clientes e consulta de notas fiscais emitidas. Se você usa o Conta Azul, veja <a href="/blog/conta-azul-whatsapp-automacao-cobranca">Conta Azul e WhatsApp: cobrança, aviso de vencimento e consulta de boleto</a>.</p>
+
+    <p class="art-p"><strong>Asaas.</strong> O Asaas é mais plataforma de cobrança do que ERP, mas aparece muito como a fonte do financeiro. Os <a href="https://docs.asaas.com/docs/webhook-para-cobrancas" target="_blank" rel="noopener">webhooks de cobrança do Asaas</a> avisam quando uma cobrança é criada, vence ou é recebida. Assim, a consulta de 2ª via sempre reflete o status atual. Se você usa o Asaas, veja <a href="/blog/asaas-whatsapp-automacao-cobranca">Asaas e WhatsApp: cobrança, aviso de vencimento e consulta de boleto</a>.</p>
+
+    <p class="art-p"><strong>Sistemas sob medida ou legados.</strong> Se o seu sistema foi feito para a sua empresa, a lógica é a mesma, mas a viabilidade depende de como ele permite o acesso aos dados. Isso se resolve no diagnóstico técnico.</p>
 
     <div class="art-tip">
-      <strong>Tiny Olist:</strong> API REST completa com endpoints para produtos, estoque, pedidos, clientes e financeiro. Amplamente usado em e-commerces e varejo.<br><br>
-      <strong>Bling:</strong> API com acesso a produtos, notas fiscais, pedidos, contas e contatos. Muito comum em empresas que precisam de emissão de NF integrada ao fluxo de vendas.<br><br>
-      <strong>Omie:</strong> API robusta para finanças, CRM, estoque e serviços. Usado por empresas de serviços e indústria.<br><br>
-      <strong>Conta Azul:</strong> focado em financeiro — contas a pagar, contas a receber, clientes e faturas. Ideal para integração de consultas financeiras via WhatsApp.<br><br>
-      <strong>ERPs customizados ou legados:</strong> dependem de análise técnica específica — se o sistema tem API documentada, a integração é possível; se não tem, existem alternativas via banco de dados ou webhooks que precisam ser avaliadas caso a caso.
+      <strong>Antes da primeira conversa sobre o projeto, levante:</strong><br><br>
+      <strong>Qual sistema guarda cada informação?</strong> Às vezes o pedido está no ERP, o boleto no Asaas e o rastreio na transportadora. Cada fonte é uma integração.<br><br>
+      <strong>Quem tem acesso de administrador ao sistema?</strong> A liberação da API depende dessa pessoa.<br><br>
+      <strong>O telefone do cliente está cadastrado com DDD?</strong> Sem isso, a identificação pelo número falha.
     </div>
 
-    <h2 class="art-h2" id="resultado">O resultado que aparece no dia a dia</h2>
+    <h2 class="art-h2" id="janela-de-24-horas">Dentro e fora da janela de 24h: consulta é resposta, aviso é template</h2>
 
-    <p class="art-p">Implementei essa integração em uma loja de varejo de moda cujo time de vendas não conseguia operar o ERP com autonomia. A gerente era o ponto central de tudo — qualquer consulta de estoque, qualquer cadastro, qualquer registro de venda passava por ela.</p>
+    <p class="art-p">Existe uma regra da Meta que define o desenho de qualquer integração com o ERP. Pela <a href="https://developers.facebook.com/documentation/business-messaging/whatsapp/pricing" target="_blank" rel="noopener">documentação de preços da Meta</a>, quando o cliente manda mensagem para a empresa, abre uma janela de atendimento de 24 horas. Com a janela aberta, a empresa pode responder com mensagem livre. Com a janela fechada, só pode enviar template, um modelo de mensagem aprovado antes pela Meta, e só para quem deu opt-in. Eu detalhei essa regra em <a href="/blog/janela-24-horas-templates-whatsapp">janela de 24h e templates do WhatsApp</a>.</p>
 
-    <p class="art-p">Depois da integração com o WhatsApp, qualquer vendedora passou a consultar estoque, registrar vendas e cadastrar clientes diretamente pelo celular — por texto ou por voz. A gerente foi liberada das interrupções constantes e o tempo de resposta ao cliente no ponto de venda caiu de minutos para segundos.</p>
+    <p class="art-p">Para a integração com o ERP, isso divide o trabalho em dois tipos de mensagem:</p>
 
-    <p class="art-p">O ERP continuou sendo o mesmo. A equipe continuou sendo a mesma. O que mudou foi a camada de acesso — e isso foi suficiente para transformar completamente a dinâmica operacional da loja.</p>
+    <p class="art-p"><strong>Consulta é resposta.</strong> O cliente pergunta "cadê meu pedido?" e, com isso, abre a janela. A automação responde com o dado do ERP sem precisar de template. Desde 1º de outubro de 2026, a Meta voltou a cobrar mensagens de serviço, com 1.000 gratuitas por mês para cada número da empresa, segundo a mesma documentação.</p>
+
+    <p class="art-p"><strong>Aviso é template.</strong> Quando é a empresa que fala primeiro, como "seu pedido foi faturado", "a nota fiscal foi emitida" ou "seu pedido saiu para entrega", a mensagem precisa ser um template. Nas <a href="https://developers.facebook.com/docs/whatsapp/updates-to-pricing/new-template-guidelines" target="_blank" rel="noopener">regras de categorização da Meta</a>, confirmação de pedido e aviso de envio são exemplos de utilidade. Se o mesmo aviso trouxer uma promoção, o conteúdo fica misto e vira marketing, que custa mais. A tabela está em <a href="/blog/quanto-custa-api-oficial-whatsapp-2026">quanto custa a API Oficial do WhatsApp em 2026</a>.</p>
+
+    <p class="art-p">O aviso por iniciativa da empresa também reduz a consulta. Em um projeto de logística que eu publiquei aqui, o aluno passou a receber cada mudança de status da entrega pelo WhatsApp, e a pergunta "cadê meu produto?" quase deixou de chegar. O caso completo está em <a href="/blog/automacao-logistica-rastreamento-entregas">como uma empresa de cursos zerou as mensagens manuais de "cadê meu produto"</a>.</p>
+
+    <h2 class="art-h2" id="o-que-precisa-estar-pronto">O que precisa estar pronto na sua empresa</h2>
+
+    <p class="art-p">A parte técnica fica com a consultoria. Três coisas ficam com a empresa, e são elas que mais mexem no prazo:</p>
+
+    <p class="art-p"><strong>Cadastro de telefone.</strong> A identificação depende do telefone no ERP. Cadastro sem DDD, com o número do escritório do cliente ou com o celular de um funcionário que já saiu faz a automação não reconhecer quem está escrevendo. O projeto começa revisando esse cadastro, não escrevendo mensagem.</p>
+
+    <p class="art-p"><strong>Acesso ao ERP.</strong> Alguém com perfil de administrador precisa liberar o acesso da integração e confirmar o que pode ser lido e gravado.</p>
+
+    <p class="art-p"><strong>Dono do processo.</strong> Alguém da empresa decide o que o cliente pode consultar, o que vai para uma pessoa e quem recebe essa conversa. Sem dono, cada dúvida do projeto vira uma reunião.</p>
+
+    <p class="art-p">Se a ideia é colocar um atendente de IA para conversar com o cliente, além das consultas, a lista é maior: base de conhecimento, regras de transferência e volume que justifique. Eu listei tudo em <a href="/blog/agente-de-ia-whatsapp-o-que-a-empresa-precisa">agente de IA no WhatsApp: o que a empresa precisa ter antes</a>.</p>
+
+    <h2 class="art-h2" id="como-e-o-projeto">É um projeto, não uma configuração</h2>
+
+    <p class="art-p">Integrar o WhatsApp ao ERP não é ligar um conector. O projeto passa por levantar as perguntas que chegam hoje, mapear onde está cada dado no sistema, definir campo a campo o que o cliente vê e quais perfis da equipe consultam o quê. Depois vem colocar o número na API Oficial, quando ele ainda não está, submeter os templates de aviso à Meta, integrar e testar com um grupo pequeno de clientes antes de abrir para a base inteira.</p>
+
+    <p class="art-p">Um projeto bem planejado leva algumas semanas até o go-live. O que mais move esse prazo é o quanto a empresa chega preparada: cadastro, acesso ao sistema e decisões tomadas.</p>
+
+    <p class="art-p">Depois do go-live, a integração fica hospedada e mantida pela nossa consultoria. Quando o fornecedor do ERP muda algo na API, ou quando a Meta atualiza uma regra de template, alguém da consultoria está acompanhando.</p>
 
     <hr class="art-divider">
 
     <h2 class="art-h2" id="perguntas-frequentes">Perguntas frequentes</h2>
 
-    <h3 class="faq-q">O que é integrar o WhatsApp ao ERP?</h3>
-    <p class="art-p">É conectar o sistema de gestão à API Oficial do WhatsApp para que informações do ERP (estoque, pedidos, clientes, financeiro) possam ser consultadas e, em alguns casos, atualizadas por mensagem, por pessoas autorizadas, sem abrir o sistema.</p>
+    <h3 class="faq-q">O que significa integrar o WhatsApp ao ERP?</h3>
+    <p class="art-p">É colocar uma automação, conectada à API Oficial do WhatsApp, que consulta o sistema de gestão da empresa no momento em que o cliente pergunta e responde com o dado que está lá: status do pedido, 2ª via, saldo, nota fiscal, prazo de entrega. O ERP continua sendo a fonte e o lugar onde a equipe trabalha; a automação só lê, e grava apenas com confirmação.</p>
 
-    <h3 class="faq-q">Preciso contratar um desenvolvedor para integrar o WhatsApp ao ERP?</h3>
-    <p class="art-p">Não precisa ter desenvolvedor interno. A integração é um projeto conduzido pela consultoria, que fica hospedada e mantida por ela; a sua equipe usa o resultado pelo WhatsApp e pelo CRM.</p>
+    <h3 class="faq-q">O que o cliente consegue consultar sozinho pelo WhatsApp?</h3>
+    <p class="art-p">As perguntas que só repetem o que está no sistema: se o pedido foi faturado ou enviado, a 2ª via do boleto ou o link de Pix, quanto está em aberto, o PDF da nota fiscal e a previsão de entrega. Reclamação, negociação e exceção continuam com uma pessoa, que recebe a conversa com o histórico.</p>
+
+    <h3 class="faq-q">Como a automação sabe quem está perguntando?</h3>
+    <p class="art-p">Pelo número de WhatsApp comparado ao telefone cadastrado no ERP e pela chave de busca do sistema, que normalmente é o número do pedido. Antes de mostrar qualquer dado, ela confirma que quem escreveu é o dono do pedido com uma informação que só ele conhece, como o e-mail da compra. Se o número não está no cadastro ou está em mais de um, a conversa vai para uma pessoa.</p>
+
+    <h3 class="faq-q">É seguro? Um cliente pode ver o pedido de outro?</h3>
+    <p class="art-p">A consulta mostra só dados do dono do cadastro, depois da confirmação de identidade, e o que o cliente vê é definido campo a campo no projeto. Margem, custo, limite de crédito e observações internas ficam de fora. A Política do WhatsApp Business também orienta a não pedir número completo de cartão, de conta ou de documento na conversa, e o desenho segue essa regra.</p>
 
     <h3 class="faq-q">Quais ERPs podem ser integrados ao WhatsApp?</h3>
-    <p class="art-p">Os que têm API de acesso aos dados, como Tiny Olist, Bling, Omie e Conta Azul, entre outros. O que define a integração é o que a API do ERP permite ler e escrever.</p>
+    <p class="art-p">Os mais comuns nos meus projetos são Omie, Bling, Conta Azul e Asaas, que publicam documentação de API e, em alguns casos, avisam quando um pedido ou boleto muda de status. Sistemas sob medida ou legados também podem ser integrados; a viabilidade depende de como eles permitem o acesso aos dados e é definida no diagnóstico técnico.</p>
 
-    <h3 class="faq-q">Como funciona o controle de quem pode consultar o quê?</h3>
-    <p class="art-p">O controle fica na camada de integração: cada pessoa autorizada é identificada pelo número e tem um escopo definido. O vendedor consulta estoque e pedidos; o financeiro vê faturas; o gestor vê tudo. Nada disso exige criar usuários novos no ERP.</p>
+    <h3 class="faq-q">A consulta pelo WhatsApp precisa de template aprovado?</h3>
+    <p class="art-p">Não. Quando o cliente pergunta, ele abre a janela de atendimento de 24 horas e a automação responde com mensagem livre, cobrada como serviço (com 1.000 gratuitas por número por mês). Já o aviso por iniciativa da empresa, como &quot;seu pedido foi faturado&quot;, precisa ser um template, em geral de utilidade, e só para quem deu opt-in.</p>
 
-    <h3 class="faq-q">O cliente final também pode consultar informações do ERP pelo WhatsApp?</h3>
-    <p class="art-p">Pode, de forma limitada e controlada: status do próprio pedido, segunda via de boleto, posição de entrega. O que o cliente vê é definido no projeto e nunca expõe dados de outros clientes.</p>
+    <h3 class="faq-q">A equipe também pode consultar o ERP pelo WhatsApp?</h3>
+    <p class="art-p">Pode, com escopo por perfil: o vendedor consulta estoque e pedidos, o financeiro consulta títulos, cada um identificado pelo próprio número. Consulta é direta; qualquer gravação no ERP, como cadastrar cliente ou registrar pedido, mostra um resumo e só acontece depois da confirmação de quem pediu.</p>
 
-    <h3 class="faq-q">A integração é segura?</h3>
-    <p class="art-p">Sim, quando feita pela API Oficial do WhatsApp, com acesso por número autorizado, escopo por perfil e registro de todas as consultas. Os dados continuam no ERP; a integração só consulta o que foi liberado.</p>
+    <h3 class="faq-q">Preciso de desenvolvedor na minha equipe para integrar o WhatsApp ao ERP?</h3>
+    <p class="art-p">Não. É um projeto, não uma configuração: levantar as perguntas que chegam, mapear onde está cada dado, definir o que o cliente vê, colocar o número na API Oficial, aprovar os templates de aviso e testar com um grupo pequeno. Um projeto bem planejado leva algumas semanas até o go-live, e depois a integração fica hospedada e mantida pela consultoria.</p>
 
-    <h3 class="faq-q">O que muda na operação depois da integração?</h3>
-    <p class="art-p">Perguntas operacionais deixam de depender de quem domina o ERP. O gargalo humano desaparece, a resposta chega na hora e a pessoa responsável pelo sistema fica livre para o trabalho que exige o julgamento dela.</p>
-
-    <h3 class="faq-q">A integração também envia mensagens automáticas a partir do ERP?</h3>
-    <p class="art-p">Sim. Além da consulta, a integração pode avisar o cliente quando o pedido muda de status, quando uma fatura vence ou quando o pagamento é confirmado, usando os dados que já estão no ERP.</p>
-
-    <h3 class="faq-q">Quanto tempo leva para integrar o WhatsApp ao ERP?</h3>
-    <p class="art-p">É um projeto, não uma configuração: verificação da empresa e do número na Meta, aprovação dos templates, mapeamento dos dados do ERP, definição dos perfis de acesso, integração e testes. Um projeto bem planejado leva algumas semanas até o go-live.</p>
-
-    <div class="art-highlight"><strong>Resumo para decidir:</strong> Se só uma ou duas pessoas sabem operar o ERP e todo mundo depende delas para responder “tem em estoque?”, “qual o status do pedido?” ou “esse cliente está em dia?”, a integração com o WhatsApp coloca essas respostas na mão de quem precisa, com controle do que cada um pode ver. A Altum Digital é a consultoria de automação e IA de Talita Bispo, em São Paulo, que implementa a API Oficial do WhatsApp, agentes de IA e automações integradas aos sistemas da empresa, para negócios que faturam a partir de R$ 100 mil por mês e querem parar de depender de processo manual.</div>
+    <div class="art-highlight"><strong>Resumo para decidir:</strong> se a sua equipe abre o ERP o dia inteiro para responder status de pedido, 2ª via, saldo, nota fiscal e prazo de entrega, a integração com a API Oficial do WhatsApp deixa o cliente consultar isso sozinho, identificado pelo número cadastrado e vendo só o que é dele. Consulta é resposta dentro da janela de 24 horas; aviso por iniciativa da empresa é template de utilidade. O que exige decisão continua com uma pessoa. A Altum Digital é a consultoria de automação e IA de Talita Bispo, em São Paulo, que implementa a API Oficial do WhatsApp, agentes de IA e automações integradas aos sistemas da empresa, para negócios que faturam a partir de R$ 100 mil por mês e querem parar de depender de processo manual.</div>
 
     <div class="cta-inline">
-      <h3>Sua equipe depende de uma pessoa para acessar o ERP?</h3>
-      <p>Em 30 minutos consigo mapear como seria a integração para o seu sistema específico e o impacto esperado na operação.</p>
-      <a href="https://wa.me/5511954715571?text=Oi%20Talita!%20Li%20seu%20artigo%20sobre%20integra%C3%A7%C3%A3o%20WhatsApp%20ERP%20e%20quero%20entender%20como%20ficaria%20para%20minha%20empresa" class="btn-wa" target="_blank">
+      <h3>Quer ver como ficaria a integração com o sistema da sua empresa?</h3>
+      <p>Me mande um áudio no WhatsApp contando qual ERP vocês usam e o que os clientes mais perguntam hoje. A gente marca uma call para mapear o que o cliente pode consultar sozinho no seu caso e o que fica com a sua equipe.</p>
+      <a href="https://wa.me/5511954715571?text=Oi%20Talita%2C%20li%20o%20post%20sobre%20integrar%20o%20WhatsApp%20ao%20ERP%20e%20quero%20marcar%20uma%20call%20sobre%20a%20integra%C3%A7%C3%A3o%20com%20o%20sistema%20da%20minha%20empresa.%20Vou%20te%20mandar%20um%20%C3%A1udio%20contando%20qual%20sistema%20usamos%20e%20o%20que%20os%20clientes%20mais%20perguntam." class="btn-wa" target="_blank">
         <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         Falar com Talita no WhatsApp
       </a>
@@ -410,7 +406,7 @@ footer p{color:#7b8499;font-size:13px}
         <div class="author-box-avatar">TB</div>
         <div>
           <h4>Talita Bispo</h4>
-          <p>Fundadora da Altum Digital, consultoria de automação e IA em São Paulo que implementa a API Oficial do WhatsApp, agentes de IA e automações integradas aos sistemas da empresa, para negócios que faturam a partir de R$ 100 mil por mês e querem parar de depender de processo manual. Certificada Google Cloud Generative AI Leader, com 11 anos de consultoria na Accenture (TIM, SKY, SEFAZ-SP, Johnson &amp; Johnson, Getnet, Claro) e criadora do AltumChat, plataforma de atendimento e CRM no WhatsApp que roda sobre infraestrutura de Parceiro Oficial da Meta. Mais de 30 projetos entregues. Atende todo o Brasil.</p>
+          <p>Fundadora da Altum Digital, consultoria de automação e IA em São Paulo que implementa a API Oficial do WhatsApp, agentes de IA e automações integradas aos sistemas da empresa, para negócios que faturam a partir de R$ 100 mil por mês e querem parar de depender de processo manual. Certificada Google Cloud Generative AI Leader, com 11 anos de consultoria na Accenture (TIM, SKY, SEFAZ-SP, Johnson &amp; Johnson, Getnet, Claro). Mais de 30 projetos entregues. Atende todo o Brasil.</p>
         </div>
       </div>
     </div>
@@ -422,19 +418,20 @@ footer p{color:#7b8499;font-size:13px}
       <div class="sidebar-card">
         <h4>Neste artigo</h4>
         <ul class="toc-list">
-          <li><a href="#o-gargalo">O gargalo que todo mundo sente</a></li>
-          <li><a href="#o-que-e-possivel">O que a integração torna possível</a></li>
-          <li><a href="#como-funciona">Como funciona na prática</a></li>
-          <li><a href="#quem-acessa">Quem acessa e o que pode fazer</a></li>
-          <li><a href="#erps-comuns">ERPs mais comuns no Brasil</a></li>
-          <li><a href="#resultado">O resultado no dia a dia</a></li>
+          <li><a href="#o-que-o-cliente-pergunta">O que o cliente pergunta</a></li>
+          <li><a href="#como-funciona">Como a integração funciona</a></li>
+          <li><a href="#a-equipe-tambem-consulta">A equipe também consulta</a></li>
+          <li><a href="#sistemas-mais-comuns">Omie, Bling, Conta Azul e Asaas</a></li>
+          <li><a href="#janela-de-24-horas">Consulta e aviso na janela de 24h</a></li>
+          <li><a href="#o-que-precisa-estar-pronto">O que precisa estar pronto</a></li>
+          <li><a href="#como-e-o-projeto">É um projeto, não uma configuração</a></li>
           <li><a href="#perguntas-frequentes">Perguntas frequentes</a></li>
         </ul>
       </div>
       <div class="sidebar-cta">
-        <h4>Integre seu ERP</h4>
-        <p>Mapeio como ficaria para o seu sistema em 30 minutos.</p>
-        <a href="https://wa.me/5511954715571?text=Oi%20Talita!%20Li%20seu%20artigo%20sobre%20integra%C3%A7%C3%A3o%20WhatsApp%20ERP%20e%20quero%20entender%20como%20ficaria%20para%20minha%20empresa" class="btn-wa-sm" target="_blank">
+        <h4>Integre o WhatsApp ao seu ERP</h4>
+        <p>Me conte por áudio qual sistema vocês usam e marcamos uma call sobre a integração.</p>
+        <a href="https://wa.me/5511954715571?text=Oi%20Talita%2C%20li%20o%20post%20sobre%20integrar%20o%20WhatsApp%20ao%20ERP%20e%20quero%20marcar%20uma%20call%20sobre%20a%20integra%C3%A7%C3%A3o%20com%20o%20sistema%20da%20minha%20empresa.%20Vou%20te%20mandar%20um%20%C3%A1udio%20contando%20qual%20sistema%20usamos%20e%20o%20que%20os%20clientes%20mais%20perguntam." class="btn-wa-sm" target="_blank">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
           Falar com Talita
         </a>
@@ -449,6 +446,8 @@ footer p{color:#7b8499;font-size:13px}
       <div class="footer-logo">Altum<span>.</span>Digital</div>
       <p>© 2025 Talita Bispo · Altum Digital Soluções LTDA</p>
       <p>São Paulo, SP · Brasil</p>
+      <p>CNPJ 61.287.916/0001-69</p>
+      <p><a href="https://www.linkedin.com/in/talita-b-35b47923/" target="_blank" rel="me noopener" style="color:#9ca3af">LinkedIn</a> · <a href="https://www.instagram.com/soutalitabispo/" target="_blank" rel="me noopener" style="color:#9ca3af">Instagram @SouTalitaBispo</a></p>
     </div>
   </div>
 </footer>

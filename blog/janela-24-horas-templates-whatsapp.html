@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Janela de 24h e templates do WhatsApp: guia para empresas</title>
+<meta name="description" content="Janela de 24 horas do WhatsApp: o que abre e fecha a conversa, como funciona o template na API Oficial e como a categoria muda o custo.">
+<meta name="author" content="Talita Bispo — Altum Digital">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://altumdigital.com.br/blog/janela-24-horas-templates-whatsapp">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://altumdigital.com.br/blog/janela-24-horas-templates-whatsapp">
+<meta property="og:title" content="Janela de 24h e templates do WhatsApp: guia para empresas">
+<meta property="og:description" content="Janela de 24 horas do WhatsApp: o que abre e fecha a conversa, como funciona o template na API Oficial e como a categoria muda o custo.">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Altum Digital">
+<meta property="article:author" content="Talita Bispo">
+<meta property="article:published_time" content="2026-11-11">
+<meta property="article:tag" content="WhatsApp API">
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:#f8fafb;color:#0f172a;font-family:'DM Sans',sans-serif;font-size:16px;line-height:1.7}
+h1,h2,h3,h4{font-family:'Manrope',sans-serif}
+a{text-decoration:none;color:inherit}
+.container{max-width:1100px;margin:0 auto;padding:0 28px}
+nav{background:#06080f;padding:18px 0;border-bottom:1px solid rgba(255,255,255,0.07)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;max-width:1100px;margin:0 auto;padding:0 28px}
+.nav-logo{font-family:'Manrope',sans-serif;font-size:18px;font-weight:800;color:#e8eaf0}
+.nav-logo span{color:#00e5c3}
+.nav-links{list-style:none;display:flex;gap:28px;align-items:center}
+.nav-links a{color:#7b8499;font-size:14px;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:#e8eaf0}
+.nav-links a.active{color:#00e5c3}
+.nav-cta{background:#00e5c3;color:#06080f!important;padding:9px 20px;border-radius:6px;font-weight:700!important;font-size:13px!important}
+.article-hero{background:#fff;border-bottom:1px solid #e5e7eb;padding:52px 0 44px}
+.article-hero-inner{max-width:760px;margin:0 auto;padding:0 28px}
+.breadcrumb{font-size:13px;color:#9ca3af;margin-bottom:20px;display:flex;align-items:center;gap:8px}
+.breadcrumb a{color:#00b89e;font-weight:500}
+.breadcrumb-sep{color:#d1d5db}
+.art-tag{display:inline-flex;align-items:center;gap:6px;background:#e6faf6;border:1px solid #b3f0e0;border-radius:100px;padding:5px 14px;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#0f6e56;margin-bottom:20px}
+.art-tag-dot{width:6px;height:6px;border-radius:50%;background:#00e5c3}
+.article-title{font-size:clamp(24px,4vw,38px);font-weight:800;line-height:1.2;color:#0f172a;margin-bottom:20px;letter-spacing:-.025em}
+.article-meta{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.meta-avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#00e5c3,#4f8cff);display:flex;align-items:center;justify-content:center;font-family:'Manrope',sans-serif;font-weight:800;font-size:11px;color:#fff;flex-shrink:0}
+.meta-info{display:flex;flex-direction:column;gap:2px}
+.meta-name{font-size:14px;font-weight:700;color:#374151}
+.meta-details{font-size:12px;color:#9ca3af}
+.article-layout{display:grid;grid-template-columns:1fr 280px;gap:48px;max-width:1060px;margin:0 auto;padding:48px 28px 80px}
+.art-lead{font-size:19px;color:#374151;line-height:1.8;margin-bottom:36px;font-weight:400;border-left:3px solid #00e5c3;padding-left:22px}
+.art-h2{font-size:22px;font-weight:800;color:#0f172a;margin:44px 0 14px;letter-spacing:-.015em}
+.art-h3{font-size:17px;font-weight:700;color:#0f172a;margin:28px 0 10px}
+.art-p{font-size:16px;color:#4b5563;line-height:1.85;margin-bottom:18px}
+.art-highlight{background:#f0fdf9;border:1px solid #ccf7eb;border-left:3px solid #00e5c3;border-radius:0 8px 8px 0;padding:18px 22px;margin:28px 0;font-size:15px;color:#065f46;line-height:1.75}
+.art-highlight strong{font-weight:700;color:#047857}
+.art-tip{background:#fffbeb;border:1px solid #fde68a;border-left:3px solid #f59e0b;border-radius:0 8px 8px 0;padding:18px 22px;margin:24px 0;font-size:14px;color:#92400e;line-height:1.7}
+.art-tip strong{font-weight:700}
+.art-divider{border:none;border-top:1px solid #f0f0f0;margin:40px 0}
+.art-quote{background:#f8fafb;border-left:3px solid #00e5c3;border-radius:0 8px 8px 0;padding:20px 24px;margin:32px 0;font-size:17px;font-style:italic;color:#374151;line-height:1.75}
+.metrics-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:28px 0}
+.metric-card{background:#0f172a;border-radius:12px;padding:20px;text-align:center}
+.metric-number{font-family:'Manrope',sans-serif;font-size:36px;font-weight:800;color:#00e5c3;line-height:1;margin-bottom:6px}
+.metric-label{font-size:13px;color:#9ca3af;line-height:1.4}
+.cta-inline{background:#0f172a;border-radius:16px;padding:32px;margin:44px 0;text-align:center}
+.cta-inline h3{font-family:'Manrope',sans-serif;font-size:20px;font-weight:800;color:#fff;margin-bottom:10px}
+.cta-inline p{font-size:14px;color:#9ca3af;margin-bottom:22px;line-height:1.65}
+.btn-wa{display:inline-flex;align-items:center;gap:10px;background:#25D366;color:#fff;padding:13px 26px;border-radius:8px;font-family:'Manrope',sans-serif;font-weight:700;font-size:14px;transition:opacity .2s}
+.btn-wa:hover{opacity:.9}
+.btn-wa svg{width:18px;height:18px;fill:#fff;flex-shrink:0}
+.author-box{background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:24px;margin-top:48px}
+.author-box-inner{display:flex;gap:16px;align-items:flex-start}
+.author-box-avatar{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#00e5c3,#4f8cff);display:flex;align-items:center;justify-content:center;font-family:'Manrope',sans-serif;font-weight:800;font-size:14px;color:#fff;flex-shrink:0}
+.author-box h4{font-size:15px;font-weight:800;color:#0f172a;margin-bottom:4px}
+.author-box p{font-size:13px;color:#6b7280;line-height:1.6}
+.sidebar-sticky{position:sticky;top:28px}
+.sidebar-card{background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:22px;margin-bottom:20px}
+.sidebar-card h4{font-family:'Manrope',sans-serif;font-size:13px;font-weight:700;color:#0f172a;margin-bottom:16px;letter-spacing:.02em;text-transform:uppercase}
+.toc-list{list-style:none;display:flex;flex-direction:column;gap:10px}
+.toc-list a{font-size:13px;color:#6b7280;line-height:1.4;transition:color .2s;display:block}
+.toc-list a:hover{color:#00b89e}
+.sidebar-cta{background:#0f172a;border-radius:16px;padding:22px;text-align:center}
+.sidebar-cta p{font-size:13px;color:#9ca3af;margin-bottom:16px;line-height:1.6}
+.sidebar-cta h4{font-family:'Manrope',sans-serif;font-size:15px;font-weight:800;color:#fff;margin-bottom:10px}
+.btn-wa-sm{display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#fff;padding:11px 18px;border-radius:8px;font-family:'Manrope',sans-serif;font-weight:700;font-size:13px;width:100%;justify-content:center}
+footer{background:#06080f;border-top:1px solid rgba(255,255,255,0.07);padding:32px 0}
+.footer-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.footer-logo{font-family:'Manrope',sans-serif;font-weight:800;font-size:15px;color:#e8eaf0}
+.footer-logo span{color:#00e5c3}
+footer p{color:#7b8499;font-size:13px}
+@media(max-width:900px){.article-layout{grid-template-columns:1fr}.sidebar{display:none}.nav-links{display:none}.metrics-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:500px){.metrics-grid{grid-template-columns:1fr}}
+
+/* === Blocos SEO/GEO (TLDR + FAQ + Related) — alinhado com paleta atual === */
+.tldr{background:#f0fdf9;border:1px solid #ccf7eb;border-left:4px solid #00b89e;border-radius:0 8px 8px 0;padding:22px 26px;margin:0 0 36px 0;font-family:'DM Sans',sans-serif;}
+.tldr__heading{font-family:'Manrope',sans-serif;font-size:13px;font-weight:700;color:#0f6e56;text-transform:uppercase;letter-spacing:.1em;margin:0 0 14px 0;}
+.tldr__list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;}
+.tldr__list li{font-size:15px;color:#065f46;line-height:1.65;padding-left:22px;position:relative;}
+.tldr__list li::before{content:"\2192";position:absolute;left:0;color:#00b89e;font-weight:700;}
+.tldr__meta{margin-top:18px;padding-top:14px;border-top:1px solid #ccf7eb;font-size:12px;color:#0f6e56;display:flex;gap:10px;flex-wrap:wrap;align-items:center;}
+.faq-q{font-family:'Manrope',sans-serif;font-size:17px;font-weight:700;color:#0f172a;margin:26px 0 8px;line-height:1.4}
+.faq{margin:48px 0 40px;}
+.faq__heading{font-family:'Manrope',sans-serif;font-size:22px;font-weight:800;color:#0f172a;margin:0 0 20px 0;letter-spacing:-.015em;}
+.faq__item{border-bottom:1px solid #e5e7eb;padding:16px 0;cursor:pointer;}
+.faq__item:last-child{border-bottom:none;}
+.faq__question{font-family:'Manrope',sans-serif;font-size:16px;font-weight:700;color:#0f172a;list-style:none;position:relative;padding-right:32px;cursor:pointer;}
+.faq__question::-webkit-details-marker{display:none;}
+.faq__question::after{content:"+";position:absolute;right:0;top:-3px;font-size:22px;color:#00b89e;font-weight:400;transition:transform .2s;}
+.faq__item[open] .faq__question::after{content:"\2212";}
+.faq__answer{padding-top:12px;color:#4b5563;line-height:1.7;font-size:14px;}
+.related-posts{margin:48px 0 0 0;padding-top:32px;border-top:1px solid #e5e7eb;}
+.related-posts__heading{font-family:'Manrope',sans-serif;font-size:20px;font-weight:800;color:#0f172a;margin:0 0 20px 0;letter-spacing:-.015em;}
+.related-posts__list{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+.related-posts__link{display:block;padding:18px 20px;background:#fff;border:1px solid #e5e7eb;border-radius:12px;text-decoration:none;transition:border-color .2s,transform .2s;}
+.related-posts__link:hover{border-color:#00b89e;transform:translateY(-2px);}
+.related-posts__title{font-family:'Manrope',sans-serif;font-size:14px;font-weight:700;color:#0f172a;margin:0 0 6px;line-height:1.35;}
+.related-posts__relation{font-size:12px;color:#6b7280;margin:0;line-height:1.5;}
+@media(max-width:640px){.related-posts__list{grid-template-columns:1fr;}}
+.art-p a,.article-content li a:not([class]){color:#00b89e;font-weight:600;text-decoration:underline}
+</style>
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Janela de 24h e templates do WhatsApp: guia para empresas">
+<meta name="twitter:description" content="Janela de 24 horas do WhatsApp: o que abre e fecha a conversa, como funciona o template na API Oficial e como a categoria muda o custo.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Janela de 24h e templates do WhatsApp: guia para empresas",
+  "description": "Janela de 24 horas do WhatsApp: o que abre e fecha a conversa, como funciona o template na API Oficial e como a categoria muda o custo.",
+  "author": {
+    "@type": "Person",
+    "@id": "https://altumdigital.com.br/#talita-bispo",
+    "name": "Talita Bispo",
+    "url": "https://altumdigital.com.br/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "@id": "https://altumdigital.com.br/#organizacao",
+    "name": "Altum Digital",
+    "url": "https://altumdigital.com.br/"
+  },
+  "datePublished": "2026-11-11T00:00:00-03:00",
+  "dateModified": "2026-11-11T00:00:00-03:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://altumdigital.com.br/blog/janela-24-horas-templates-whatsapp"
+  },
+  "articleSection": "WhatsApp API",
+  "keywords": [
+    "janela de 24 horas whatsapp",
+    "template whatsapp api",
+    "mensagem de template whatsapp",
+    "por que minha mensagem não foi enviada whatsapp api",
+    "categorias de template whatsapp"
+  ],
+  "wordCount": 2183,
+  "inLanguage": "pt-BR"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Altum Digital",
+      "item": "https://altumdigital.com.br/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "https://altumdigital.com.br/blog"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Janela de 24h e templates do WhatsApp: guia para empresas"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "O que é a janela de 24 horas do WhatsApp?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "É o período em que a empresa pode responder ao cliente com mensagem livre na API Oficial. Ela abre quando o cliente manda mensagem ou liga, e cada nova mensagem dele reinicia o relógio. Fora dela, a empresa só pode enviar template aprovado pela Meta, e só para quem deu opt-in."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "O que acontece se eu mandar mensagem fora da janela de 24 horas?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A API recusa o envio. A lista oficial de erros da Meta descreve o código 131047: mais de 24 horas se passaram desde a última resposta do cliente. A orientação da própria Meta é enviar um template no lugar. Se a plataforma não mostra esse erro com clareza, a equipe acha que mandou e o cliente acha que foi esquecido."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "O template enviado pela empresa abre a janela de 24 horas?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Não. O template chega ao cliente, mas a janela continua fechada: um texto livre logo depois não sai. A janela abre quando o cliente responde. Por isso cada mensagem enviada sem resposta do cliente precisa ser um template, com aprovação e categoria próprias."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "O que é um template do WhatsApp e quem aprova?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "É um texto fixo com campos variáveis, como nome, valor e data, cadastrado antes e revisado pela Meta. Só pode ser enviado com status aprovado, a revisão pode levar até 24 horas e nenhum texto tem aprovação garantida. Um template aprovado ainda pode ser pausado por feedback negativo ou baixa taxa de leitura."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quais são as categorias de template e qual é a diferença de preço?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Marketing (oferta, cupom, retomada de lead), utilidade (confirmação de pedido, atualização de entrega, lembrete de pagamento, sem promoção) e autenticação (código de acesso). Na tabela vigente desde 1º de outubro de 2026, para número brasileiro, marketing custa US$ 0,0625 e utilidade US$ 0,0068 por mensagem entregue: cerca de nove vezes de diferença."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "A Meta pode mudar a categoria do meu template?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pode. Se um template cadastrado como utilidade for entendido como marketing, ele já é aprovado como marketing. Depois de aprovado, a Meta ainda pode recategorizar, com 1 dia de aviso antes de passar de utilidade para marketing; empresa já advertida não recebe aviso. Há 60 dias para pedir revisão. Conteúdo misto, informação com promoção, é marketing."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Por que meu template do WhatsApp foi reprovado?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Os motivos mais comuns na documentação da Meta: variáveis com chaves erradas ou fora de sequência, muitas variáveis para pouco texto, template que começa ou termina com variável, conteúdo contra a Política Comercial ou a do WhatsApp Business, pedido de dados sensíveis e template duplicado. Template vago, como \"Olá, {{1}}. {{2}}\", também não passa."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "A janela do anúncio de clique para o WhatsApp é de 72 horas ou de 7 dias?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pela documentação de preços vigente em novembro de 2026, quando o cliente chega por um anúncio de clique para o WhatsApp e a empresa responde dentro da janela de atendimento, abre uma janela de entrada gratuita de até 7 dias, em que a Meta não cobra as mensagens. Isso trata de cobrança: a mensagem livre continua valendo só nas 24 horas seguintes à última mensagem do cliente."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">Altum<span>.</span>Digital</a>
+    <ul class="nav-links">
+      <li><a href="/#services">Serviços</a></li>
+      <li><a href="/#projects">Projetos</a></li>
+      <li><a href="/#method">Metodologia</a></li>
+      <li><a href="/blog" class="active">Blog</a></li>
+      <li><a href="/#cta" class="nav-cta">Falar com Talita</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="article-hero">
+  <div class="article-hero-inner">
+    <div class="breadcrumb">
+      <a href="/">Altum Digital</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="/blog">Blog</a>
+      <span class="breadcrumb-sep">›</span>
+      <span>Janela de 24h e templates do WhatsApp</span>
+    </div>
+    <div class="art-tag"><div class="art-tag-dot"></div>WhatsApp API</div>
+    <h1 class="article-title">Janela de 24h e templates do WhatsApp: guia para empresas</h1>
+    <div class="article-meta">
+      <div class="meta-avatar">TB</div>
+      <div class="meta-info">
+        <span class="meta-name">Talita Bispo · Altum Digital</span>
+        <span class="meta-details">11 de novembro de 2026 · 9 min de leitura</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="article-layout">
+  <article class="article-content">
+
+    <p class="art-lead">A sua equipe digitou a resposta, apertou enviar e a mensagem não chegou ao cliente. Na WhatsApp Business API, que é a API Oficial do WhatsApp, isso quase sempre tem a mesma causa: a janela de 24 horas fechou. Neste guia eu explico a regra, o que é um template e como a categoria do template muda o custo.</p>
+
+    <p class="art-p">Esta regra aparece em todo projeto que eu faço com a API Oficial. Quem entende a regra antes de contratar consegue avaliar se a proposta que recebeu faz sentido.</p>
+
+    <hr class="art-divider">
+
+    <h2 class="art-h2" id="a-regra-em-uma-frase">A regra em uma frase</h2>
+    <p class="art-p">Quando o cliente escreve para a sua empresa, abre uma janela de 24 horas em que você pode responder com mensagem livre. Fora dessa janela, a empresa só pode enviar template aprovado pela Meta.</p>
+    <p class="art-p">É isso que diz a <a href="https://developers.facebook.com/documentation/business-messaging/whatsapp/messages/send-messages" target="_blank" rel="noopener">documentação oficial de envio de mensagens da Meta</a>: a janela de atendimento de 24 horas, que a Meta chama de <em>customer service window</em>, começa quando o cliente manda mensagem ou liga para a empresa. Cada nova mensagem do cliente reinicia o relógio.</p>
+    <p class="art-p">Mensagem livre é a que a sua equipe ou o seu atendente de IA escreve na hora: texto, áudio, foto, documento. Template é um modelo cadastrado antes e aprovado pela Meta, com campos que mudam a cada envio.</p>
+    <p class="art-p">Um exemplo com horário. O cliente pergunta o prazo de entrega às 10h de segunda. Até as 10h de terça, a sua equipe responde como quiser. Se ele manda outra mensagem às 18h de segunda, a janela passa a ir até as 18h de terça. Na quarta de manhã, sem nova mensagem dele, a única forma de falar com esse cliente é um template.</p>
+    <p class="art-p">Se alguém tenta mandar mensagem livre com a janela fechada, a API recusa o envio. A <a href="https://developers.facebook.com/documentation/business-messaging/whatsapp/support/error-codes" target="_blank" rel="noopener">lista oficial de erros</a> descreve o código 131047: mais de 24 horas se passaram desde a última resposta do cliente. A orientação da própria Meta é enviar um template no lugar.</p>
+    <p class="art-p">Nos dois casos, a Meta só permite enviar para quem deu <a href="https://developers.facebook.com/documentation/business-messaging/whatsapp/getting-opt-in" target="_blank" rel="noopener">opt-in</a>, ou seja, aceitou receber mensagens da sua empresa, com o nome da empresa dito com clareza no aceite.</p>
+    <div class="art-highlight">
+      <strong>O que muda na operação:</strong> ou o cliente escreveu nas últimas 24 horas e a resposta pode ser livre, ou não escreveu e a mensagem precisa ser um template aprovado.
+    </div>
+
+    <h2 class="art-h2" id="o-que-abre-a-janela">O que abre a janela e o que não abre</h2>
+    <p class="art-p">Quem abre a janela é o cliente. A <a href="https://developers.facebook.com/documentation/business-messaging/whatsapp/pricing" target="_blank" rel="noopener">documentação de preços da Meta</a> diz que a mensagem livre só pode ser enviada com a janela aberta, e que a janela "abre e reinicia a cada mensagem do usuário". A ligação do cliente para a empresa também abre a janela.</p>
+
+    <h3 class="art-h3">O template que a empresa envia não abre a janela</h3>
+    <p class="art-p">Este é o ponto que mais confunde. A sua empresa envia o template "Olá, Marina. O seu pedido 4521 saiu para entrega e chega até quinta-feira." A mensagem chega, mas a janela continua fechada: um texto livre logo depois não sai.</p>
+    <p class="art-p">A situação muda quando a Marina responde. Se ela escreve "Que horas chega?", a janela de 24 horas abre naquele momento, e a resposta pode ser livre. A consequência para quem desenha a operação: cada mensagem enviada sem resposta do cliente precisa ser um template, com aprovação e categoria próprias.</p>
+
+    <h3 class="art-h3">Anúncio de clique para o WhatsApp: até 7 dias sem cobrança</h3>
+    <p class="art-p">Pela mesma <a href="https://developers.facebook.com/documentation/business-messaging/whatsapp/pricing" target="_blank" rel="noopener">documentação de preços</a>, quando o cliente chega por um anúncio de clique para o WhatsApp, pelo aplicativo no celular Android ou iOS, a janela de atendimento abre normalmente. Se a empresa responde dentro dela, essa resposta não é cobrada e abre a janela de entrada gratuita, que pode durar até 7 dias. Enquanto ela está aberta, a Meta não cobra mensagens de marketing, utilidade, autenticação nem serviço para aquele cliente. WhatsApp Web e desktop não contam.</p>
+    <p class="art-p">Se você leu que esse prazo é de 72 horas, a documentação vigente, consultada em 11 de novembro de 2026, fala em até 7 dias. E a regra trata de cobrança: ela não diz que a mensagem livre fica liberada por 7 dias. Para mensagem livre, continua valendo a janela de 24 horas.</p>
+
+    <h2 class="art-h2" id="o-que-e-template">O que é um template e como ele é aprovado</h2>
+    <p class="art-p">Um template é um texto fixo com campos variáveis. Um exemplo: "Olá, {{1}}. A fatura {{2}}, no valor de {{3}}, vence em {{4}}." No envio, cada campo recebe o dado do cliente. A <a href="https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/overview" target="_blank" rel="noopener">documentação de templates da Meta</a> chama esses campos de variáveis, que podem ser numeradas, como {{1}}, ou nomeadas, como {{nome}}.</p>
+    <p class="art-p">O template só pode ser enviado com status aprovado, e a revisão pode levar até 24 horas. A aprovação é decisão da Meta, e nenhum texto tem aprovação garantida.</p>
+    <p class="art-p">A <a href="https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/template-review" target="_blank" rel="noopener">página de revisão de templates</a> lista os motivos mais comuns de reprovação: variáveis com chaves erradas ou fora de sequência, muitas variáveis para pouco texto, template que começa ou termina com variável, conteúdo contra a Política Comercial ou a Política do WhatsApp Business, pedido de dados sensíveis e template duplicado.</p>
+    <p class="art-p">Aprovado não quer dizer aprovado para sempre: a Meta pode pausar um template por feedback negativo recorrente ou baixa taxa de leitura, e template pausado não pode ser enviado. Sobre como a qualidade pesa no número, veja <a href="/blog/pontuacao-qualidade-limite-envio-whatsapp">qualidade e limite de envio no WhatsApp</a>.</p>
+
+    <h2 class="art-h2" id="categorias-de-template">As três categorias: marketing, utilidade e autenticação</h2>
+    <p class="art-p">Todo template tem uma categoria, e a categoria define o preço. A documentação de preços da Meta descreve as três assim: marketing para objetivos promocionais, utilidade para objetivos transacionais ou informativos e autenticação para verificação de identidade. As regras detalhadas estão nas <a href="https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/template-categorization" target="_blank" rel="noopener">diretrizes de categorização de templates</a>.</p>
+
+    <h3 class="art-h3">Marketing</h3>
+    <p class="art-p">Oferta, cupom, lançamento, convite, lembrete de carrinho abandonado. A Meta também trata como marketing a tentativa de renovar uma assinatura, mesmo quando o cliente pediu, o template com conteúdo misto (uma atualização de pedido com uma promoção no final) e o template de conteúdo vago, como um texto que é só "{{1}}" ou só "Parabéns!".</p>
+
+    <h3 class="art-h3">Utilidade</h3>
+    <p class="art-p">Para ser utilidade, o template precisa ser não promocional e, além disso, específico do cliente (ligado ao pedido, à conta, ao serviço ou à transação dele) ou essencial para ele. Os exemplos da própria Meta incluem confirmação de pedido, atualização de entrega e lembrete de pagamento mensal com a data da cobrança. A regra é explícita: essas mensagens não podem promover, recomendar, oferecer outro produto, incluir oferta nem tentar garantir renovação.</p>
+
+    <h3 class="art-h3">Autenticação</h3>
+    <p class="art-p">É a categoria do código de verificação que o cliente digita para entrar na conta, e a única que pode enviar senha de uso único. Não aceita link, mídia nem emoji. A mensagem livre dentro da janela não é template: entra na fatura como serviço.</p>
+    <div class="art-tip">
+      <strong>Pergunta para classificar cada mensagem antes de escrever o template:</strong><br><br>
+      <strong>Ela informa algo sobre um pedido, conta ou serviço que este cliente já tem?</strong> Candidata a utilidade, desde que não traga nenhuma oferta.<br><br>
+      <strong>Ela tenta vender, recomendar, renovar ou trazer o cliente de volta?</strong> Marketing.<br><br>
+      <strong>Ela leva um código de acesso?</strong> Autenticação.
+    </div>
+
+    <h2 class="art-h2" id="recategorizacao-e-custo">Recategorização automática e o impacto no custo</h2>
+    <p class="art-p">A categoria que você escolhe no cadastro não é a palavra final. Pelas <a href="https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/template-categorization" target="_blank" rel="noopener">regras de categorização</a>, desde 9 de abril de 2025, se a empresa cadastra um template como utilidade e a Meta entende que ele é marketing, o template já é aprovado como marketing.</p>
+    <p class="art-p">Depois de aprovado, a categoria ainda pode mudar. A Meta faz a recategorização automática de qualquer template aprovado que não siga as regras, inclusive os já revisados, com aviso de 1 dia antes de passar de utilidade para marketing. Empresa já advertida por uso indevido não recebe aviso: a troca é imediata. Há 60 dias para pedir revisão.</p>
+    <p class="art-p">Quem insiste em cadastrar marketing como utilidade enfrenta restrições em escada: advertência, limite no volume de utilidade por pelo menos 7 dias e, depois, todos os templates de utilidade da conta tratados como marketing por 7 dias (30 na reincidência).</p>
+    <p class="art-p">Por que isso importa para o seu orçamento: a Meta cobra por mensagem entregue, e a diferença entre as categorias é grande. Pela <a href="https://developers.facebook.com/documentation/business-messaging/whatsapp/pricing#rate-cards-and-volume-tiers" target="_blank" rel="noopener">tabela oficial de tarifas</a>, vigente desde 1º de outubro de 2026, consultada em 11 de novembro de 2026:</p>
+
+    <div class="metrics-grid">
+      <div class="metric-card">
+        <div class="metric-number">US$ 0,0625</div>
+        <div class="metric-label">Template de marketing entregue no Brasil (R$ 0,3217 na tabela em reais)</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-number">US$ 0,0068</div>
+        <div class="metric-label">Template de utilidade entregue no Brasil (R$ 0,035 na tabela em reais)</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-number">≈ 9×</div>
+        <div class="metric-label">Quanto o mesmo aviso fica mais caro se a Meta o classificar como marketing</div>
+      </div>
+    </div>
+
+    <p class="art-p">Em números: 3.000 lembretes por mês custam US$ 20,40 como utilidade. Se a Meta recategorizar o template para marketing, os mesmos 3.000 lembretes passam a custar US$ 187,50. Nada mudou na operação, só a categoria.</p>
+    <p class="art-p">Um detalhe da tabela atual: a mensagem de serviço, que é a resposta livre dentro da janela, tem 1.000 envios grátis por número por mês e é cobrada a partir daí. A tabela completa está em <a href="/blog/quanto-custa-api-oficial-whatsapp-2026">quanto custa a API Oficial do WhatsApp em 2026</a>, e um exemplo aplicado à cobrança está em <a href="/blog/aviso-vencimento-boleto-whatsapp-automatico">aviso de vencimento de boleto pelo WhatsApp</a>.</p>
+
+    <h2 class="art-h2" id="erros-que-eu-mais-vejo">Os três erros que eu mais vejo</h2>
+    <h3 class="art-h3">1. Tentar mandar mensagem livre fora da janela</h3>
+    <p class="art-p">O vendedor atende o cliente na segunda, promete a proposta e só volta na quarta, com um texto digitado. A mensagem não sai, porque a janela fechou. Se a plataforma não mostra o erro com clareza, o vendedor acha que mandou e o cliente acha que foi esquecido. A saída é ter aprovado, antes, o template certo para retomar cada tipo de conversa.</p>
+
+    <h3 class="art-h3">2. Texto promocional dentro de um template de utilidade</h3>
+    <p class="art-p">"A sua fatura vence dia 10. Pague no Pix e ganhe 5% de desconto na próxima mensalidade." A primeira frase é utilidade. A segunda é oferta. Conteúdo misto é marketing: o aviso passa a custar cerca de nove vezes mais e, se o padrão se repete, a conta recebe advertência. A oferta pode existir, mas em outro template, de marketing.</p>
+
+    <h3 class="art-h3">3. Template genérico demais</h3>
+    <p class="art-p">Para fugir da aprovação, algumas empresas tentam um template coringa, do tipo "Olá, {{1}}. {{2}}", com qualquer texto na segunda variável. Não funciona: a Meta trata conteúdo vago como marketing, e muitas variáveis para pouco texto é motivo de reprovação. Além disso, o cliente que não reconhece a mensagem tende a bloquear, e a qualidade do template cai. O template bom diz de qual pedido, fatura ou agendamento se trata.</p>
+
+    <h2 class="art-h2" id="follow-up-e-cobranca">Como a regra desenha um follow-up e uma régua de cobrança</h2>
+    <p class="art-p">A janela de 24 horas e as categorias decidem o formato de qualquer automação que fala com o cliente pelo WhatsApp. Dois exemplos.</p>
+    <p class="art-p"><strong>Follow-up de leads.</strong> O lead pediu orçamento e parou de responder. Com a janela aberta, o vendedor ou o atendente de IA responde livre, tira dúvida e qualifica. Depois de 24 horas sem resposta, cada mensagem é template. O lembrete do agendamento que o cliente marcou, sem oferta, é candidato a utilidade, por ser específico de um serviço dele. Reativar lead frio com oferta é marketing, com preço de marketing. O desenho completo está em <a href="/blog/follow-up-automatico-leads-whatsapp">follow-up automático de leads no WhatsApp até o agendamento</a>.</p>
+    <p class="art-p"><strong>Régua de cobrança.</strong> Cada aviso da régua sai sem o cliente ter escrito, então é template, escrito para caber em utilidade: nome, valor, referência e link, sem desconto e sem pedido de renovação. Quando o cliente responde "consigo pagar só dia 20", a janela abre e a conversa segue livre, com uma pessoa do financeiro. Na cobrança recorrente, um template recategorizado multiplica o custo em todos os ciclos. Explico essa régua em <a href="/blog/cobranca-recorrente-assinaturas-whatsapp">cobrança recorrente no WhatsApp: assinaturas e mensalidades</a>.</p>
+    <p class="art-p">Por isso o mapa das mensagens vem antes de qualquer automação. É um projeto, não uma configuração: listar o que sai dentro e fora da janela, escrever cada template na categoria certa, submeter à Meta e acompanhar as mudanças de categoria. Um projeto bem planejado leva algumas semanas até o go-live. Depois dele, a automação fica hospedada e mantida pela nossa consultoria: quando a Meta muda uma regra de template, alguém está olhando.</p>
+
+    <hr class="art-divider">
+
+    <h2 class="art-h2" id="perguntas-frequentes">Perguntas frequentes</h2>
+
+    <h3 class="faq-q">O que é a janela de 24 horas do WhatsApp?</h3>
+    <p class="art-p">É o período em que a empresa pode responder ao cliente com mensagem livre na API Oficial. Ela abre quando o cliente manda mensagem ou liga, e cada nova mensagem dele reinicia o relógio. Fora dela, a empresa só pode enviar template aprovado pela Meta, e só para quem deu opt-in.</p>
+
+    <h3 class="faq-q">O que acontece se eu mandar mensagem fora da janela de 24 horas?</h3>
+    <p class="art-p">A API recusa o envio. A lista oficial de erros da Meta descreve o código 131047: mais de 24 horas se passaram desde a última resposta do cliente. A orientação da própria Meta é enviar um template no lugar. Se a plataforma não mostra esse erro com clareza, a equipe acha que mandou e o cliente acha que foi esquecido.</p>
+
+    <h3 class="faq-q">O template enviado pela empresa abre a janela de 24 horas?</h3>
+    <p class="art-p">Não. O template chega ao cliente, mas a janela continua fechada: um texto livre logo depois não sai. A janela abre quando o cliente responde. Por isso cada mensagem enviada sem resposta do cliente precisa ser um template, com aprovação e categoria próprias.</p>
+
+    <h3 class="faq-q">O que é um template do WhatsApp e quem aprova?</h3>
+    <p class="art-p">É um texto fixo com campos variáveis, como nome, valor e data, cadastrado antes e revisado pela Meta. Só pode ser enviado com status aprovado, a revisão pode levar até 24 horas e nenhum texto tem aprovação garantida. Um template aprovado ainda pode ser pausado por feedback negativo ou baixa taxa de leitura.</p>
+
+    <h3 class="faq-q">Quais são as categorias de template e qual é a diferença de preço?</h3>
+    <p class="art-p">Marketing (oferta, cupom, retomada de lead), utilidade (confirmação de pedido, atualização de entrega, lembrete de pagamento, sem promoção) e autenticação (código de acesso). Na tabela vigente desde 1º de outubro de 2026, para número brasileiro, marketing custa US$ 0,0625 e utilidade US$ 0,0068 por mensagem entregue: cerca de nove vezes de diferença.</p>
+
+    <h3 class="faq-q">A Meta pode mudar a categoria do meu template?</h3>
+    <p class="art-p">Pode. Se um template cadastrado como utilidade for entendido como marketing, ele já é aprovado como marketing. Depois de aprovado, a Meta ainda pode recategorizar, com 1 dia de aviso antes de passar de utilidade para marketing; empresa já advertida não recebe aviso. Há 60 dias para pedir revisão. Conteúdo misto, informação com promoção, é marketing.</p>
+
+    <h3 class="faq-q">Por que meu template do WhatsApp foi reprovado?</h3>
+    <p class="art-p">Os motivos mais comuns na documentação da Meta: variáveis com chaves erradas ou fora de sequência, muitas variáveis para pouco texto, template que começa ou termina com variável, conteúdo contra a Política Comercial ou a do WhatsApp Business, pedido de dados sensíveis e template duplicado. Template vago, como &quot;Olá, {{1}}. {{2}}&quot;, também não passa.</p>
+
+    <h3 class="faq-q">A janela do anúncio de clique para o WhatsApp é de 72 horas ou de 7 dias?</h3>
+    <p class="art-p">Pela documentação de preços vigente em novembro de 2026, quando o cliente chega por um anúncio de clique para o WhatsApp e a empresa responde dentro da janela de atendimento, abre uma janela de entrada gratuita de até 7 dias, em que a Meta não cobra as mensagens. Isso trata de cobrança: a mensagem livre continua valendo só nas 24 horas seguintes à última mensagem do cliente.</p>
+
+    <div class="art-highlight"><strong>Resumo para decidir:</strong> na API Oficial do WhatsApp, a mensagem livre só sai nas 24 horas seguintes à última mensagem do cliente. Fora disso, só template aprovado, e o template da empresa não reabre a janela. A categoria do template define o preço, e a Meta pode recategorizá-lo. Escrever cada mensagem na categoria certa mantém o custo previsível. A Altum Digital é a consultoria de automação e IA de Talita Bispo, em São Paulo, que implementa a API Oficial do WhatsApp, agentes de IA e automações integradas aos sistemas da empresa, para negócios que faturam a partir de R$ 100 mil por mês e querem parar de depender de processo manual.</div>
+
+    <div class="cta-inline">
+      <h3>Quer mapear as mensagens da sua operação?</h3>
+      <p>Me mande um áudio no WhatsApp contando o que a sua empresa envia hoje pelo WhatsApp e onde a mensagem não sai. A gente marca uma call para desenhar o mapa de templates e da janela de 24 horas do seu caso.</p>
+      <a href="https://wa.me/5511954715571?text=Oi%20Talita%2C%20li%20o%20artigo%20sobre%20a%20janela%20de%2024%20horas%20e%20os%20templates%20do%20WhatsApp%20e%20quero%20marcar%20uma%20call%20para%20mapear%20as%20mensagens%20da%20minha%20empresa.%20Vou%20te%20mandar%20um%20%C3%A1udio%20explicando%20o%20que%20enviamos%20hoje." class="btn-wa" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Falar com Talita no WhatsApp
+      </a>
+    </div>
+
+    <div class="author-box">
+      <div class="author-box-inner">
+        <div class="author-box-avatar">TB</div>
+        <div>
+          <h4>Talita Bispo</h4>
+          <p>Fundadora da Altum Digital, consultoria de automação e IA em São Paulo que implementa a API Oficial do WhatsApp, agentes de IA e automações integradas aos sistemas da empresa, para negócios que faturam a partir de R$ 100 mil por mês e querem parar de depender de processo manual. Certificada Google Cloud Generative AI Leader, com 11 anos de consultoria na Accenture (TIM, SKY, SEFAZ-SP, Johnson &amp; Johnson, Getnet, Claro). Mais de 30 projetos entregues. Atende todo o Brasil.</p>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <aside class="sidebar">
+    <div class="sidebar-sticky">
+      <div class="sidebar-card">
+        <h4>Neste artigo</h4>
+        <ul class="toc-list">
+          <li><a href="#a-regra-em-uma-frase">A regra em uma frase</a></li>
+          <li><a href="#o-que-abre-a-janela">O que abre a janela</a></li>
+          <li><a href="#o-que-e-template">O que é um template</a></li>
+          <li><a href="#categorias-de-template">As três categorias</a></li>
+          <li><a href="#recategorizacao-e-custo">Recategorização e custo</a></li>
+          <li><a href="#erros-que-eu-mais-vejo">Os erros que eu mais vejo</a></li>
+          <li><a href="#follow-up-e-cobranca">Follow-up e régua de cobrança</a></li>
+          <li><a href="#perguntas-frequentes">Perguntas frequentes</a></li>
+        </ul>
+      </div>
+      <div class="sidebar-cta">
+        <h4>Mapeie as suas mensagens</h4>
+        <p>Me conte por áudio o que vocês enviam hoje pelo WhatsApp e marcamos uma call sobre templates e janela.</p>
+        <a href="https://wa.me/5511954715571?text=Oi%20Talita%2C%20li%20o%20artigo%20sobre%20a%20janela%20de%2024%20horas%20e%20os%20templates%20do%20WhatsApp%20e%20quero%20marcar%20uma%20call%20para%20mapear%20as%20mensagens%20da%20minha%20empresa.%20Vou%20te%20mandar%20um%20%C3%A1udio%20explicando%20o%20que%20enviamos%20hoje." class="btn-wa-sm" target="_blank">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Falar com Talita
+        </a>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-logo">Altum<span>.</span>Digital</div>
+      <p>© 2025 Talita Bispo · Altum Digital Soluções LTDA</p>
+      <p>São Paulo, SP · Brasil</p>
+      <p>CNPJ 61.287.916/0001-69</p>
+      <p><a href="https://www.linkedin.com/in/talita-b-35b47923/" target="_blank" rel="me noopener" style="color:#9ca3af">LinkedIn</a> · <a href="https://www.instagram.com/soutalitabispo/" target="_blank" rel="me noopener" style="color:#9ca3af">Instagram @SouTalitaBispo</a></p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

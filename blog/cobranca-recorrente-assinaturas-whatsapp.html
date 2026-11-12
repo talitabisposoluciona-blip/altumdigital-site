@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cobrança recorrente no WhatsApp: assinaturas e mensalidades</title>
+<meta name="description" content="Cobrança recorrente no WhatsApp para assinaturas e mensalidades: a régua por ciclo, o cartão recusado, o boleto esquecido e o que fica com a sua equipe.">
+<meta name="author" content="Talita Bispo — Altum Digital">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://altumdigital.com.br/blog/cobranca-recorrente-assinaturas-whatsapp">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://altumdigital.com.br/blog/cobranca-recorrente-assinaturas-whatsapp">
+<meta property="og:title" content="Cobrança recorrente no WhatsApp: assinaturas e mensalidades">
+<meta property="og:description" content="Cobrança recorrente no WhatsApp para assinaturas e mensalidades: a régua por ciclo, o cartão recusado, o boleto esquecido e o que fica com a sua equipe.">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Altum Digital">
+<meta property="article:author" content="Talita Bispo">
+<meta property="article:published_time" content="2026-11-11">
+<meta property="article:tag" content="Automação Financeira">
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:#f8fafb;color:#0f172a;font-family:'DM Sans',sans-serif;font-size:16px;line-height:1.7}
+h1,h2,h3,h4{font-family:'Manrope',sans-serif}
+a{text-decoration:none;color:inherit}
+.container{max-width:1100px;margin:0 auto;padding:0 28px}
+nav{background:#06080f;padding:18px 0;border-bottom:1px solid rgba(255,255,255,0.07)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;max-width:1100px;margin:0 auto;padding:0 28px}
+.nav-logo{font-family:'Manrope',sans-serif;font-size:18px;font-weight:800;color:#e8eaf0}
+.nav-logo span{color:#00e5c3}
+.nav-links{list-style:none;display:flex;gap:28px;align-items:center}
+.nav-links a{color:#7b8499;font-size:14px;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:#e8eaf0}
+.nav-links a.active{color:#00e5c3}
+.nav-cta{background:#00e5c3;color:#06080f!important;padding:9px 20px;border-radius:6px;font-weight:700!important;font-size:13px!important}
+.article-hero{background:#fff;border-bottom:1px solid #e5e7eb;padding:52px 0 44px}
+.article-hero-inner{max-width:760px;margin:0 auto;padding:0 28px}
+.breadcrumb{font-size:13px;color:#9ca3af;margin-bottom:20px;display:flex;align-items:center;gap:8px}
+.breadcrumb a{color:#00b89e;font-weight:500}
+.breadcrumb-sep{color:#d1d5db}
+.art-tag{display:inline-flex;align-items:center;gap:6px;background:#e6faf6;border:1px solid #b3f0e0;border-radius:100px;padding:5px 14px;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#0f6e56;margin-bottom:20px}
+.art-tag-dot{width:6px;height:6px;border-radius:50%;background:#00e5c3}
+.article-title{font-size:clamp(24px,4vw,38px);font-weight:800;line-height:1.2;color:#0f172a;margin-bottom:20px;letter-spacing:-.025em}
+.article-meta{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.meta-avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#00e5c3,#4f8cff);display:flex;align-items:center;justify-content:center;font-family:'Manrope',sans-serif;font-weight:800;font-size:11px;color:#fff;flex-shrink:0}
+.meta-info{display:flex;flex-direction:column;gap:2px}
+.meta-name{font-size:14px;font-weight:700;color:#374151}
+.meta-details{font-size:12px;color:#9ca3af}
+.article-layout{display:grid;grid-template-columns:1fr 280px;gap:48px;max-width:1060px;margin:0 auto;padding:48px 28px 80px}
+.art-lead{font-size:19px;color:#374151;line-height:1.8;margin-bottom:36px;font-weight:400;border-left:3px solid #00e5c3;padding-left:22px}
+.art-h2{font-size:22px;font-weight:800;color:#0f172a;margin:44px 0 14px;letter-spacing:-.015em}
+.art-h3{font-size:17px;font-weight:700;color:#0f172a;margin:28px 0 10px}
+.art-p{font-size:16px;color:#4b5563;line-height:1.85;margin-bottom:18px}
+.art-highlight{background:#f0fdf9;border:1px solid #ccf7eb;border-left:3px solid #00e5c3;border-radius:0 8px 8px 0;padding:18px 22px;margin:28px 0;font-size:15px;color:#065f46;line-height:1.75}
+.art-highlight strong{font-weight:700;color:#047857}
+.art-tip{background:#fffbeb;border:1px solid #fde68a;border-left:3px solid #f59e0b;border-radius:0 8px 8px 0;padding:18px 22px;margin:24px 0;font-size:14px;color:#92400e;line-height:1.7}
+.art-tip strong{font-weight:700}
+.art-divider{border:none;border-top:1px solid #f0f0f0;margin:40px 0}
+.art-quote{background:#f8fafb;border-left:3px solid #00e5c3;border-radius:0 8px 8px 0;padding:20px 24px;margin:32px 0;font-size:17px;font-style:italic;color:#374151;line-height:1.75}
+.metrics-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:28px 0}
+.metric-card{background:#0f172a;border-radius:12px;padding:20px;text-align:center}
+.metric-number{font-family:'Manrope',sans-serif;font-size:36px;font-weight:800;color:#00e5c3;line-height:1;margin-bottom:6px}
+.metric-label{font-size:13px;color:#9ca3af;line-height:1.4}
+.cta-inline{background:#0f172a;border-radius:16px;padding:32px;margin:44px 0;text-align:center}
+.cta-inline h3{font-family:'Manrope',sans-serif;font-size:20px;font-weight:800;color:#fff;margin-bottom:10px}
+.cta-inline p{font-size:14px;color:#9ca3af;margin-bottom:22px;line-height:1.65}
+.btn-wa{display:inline-flex;align-items:center;gap:10px;background:#25D366;color:#fff;padding:13px 26px;border-radius:8px;font-family:'Manrope',sans-serif;font-weight:700;font-size:14px;transition:opacity .2s}
+.btn-wa:hover{opacity:.9}
+.btn-wa svg{width:18px;height:18px;fill:#fff;flex-shrink:0}
+.author-box{background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:24px;margin-top:48px}
+.author-box-inner{display:flex;gap:16px;align-items:flex-start}
+.author-box-avatar{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#00e5c3,#4f8cff);display:flex;align-items:center;justify-content:center;font-family:'Manrope',sans-serif;font-weight:800;font-size:14px;color:#fff;flex-shrink:0}
+.author-box h4{font-size:15px;font-weight:800;color:#0f172a;margin-bottom:4px}
+.author-box p{font-size:13px;color:#6b7280;line-height:1.6}
+.sidebar-sticky{position:sticky;top:28px}
+.sidebar-card{background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:22px;margin-bottom:20px}
+.sidebar-card h4{font-family:'Manrope',sans-serif;font-size:13px;font-weight:700;color:#0f172a;margin-bottom:16px;letter-spacing:.02em;text-transform:uppercase}
+.toc-list{list-style:none;display:flex;flex-direction:column;gap:10px}
+.toc-list a{font-size:13px;color:#6b7280;line-height:1.4;transition:color .2s;display:block}
+.toc-list a:hover{color:#00b89e}
+.sidebar-cta{background:#0f172a;border-radius:16px;padding:22px;text-align:center}
+.sidebar-cta p{font-size:13px;color:#9ca3af;margin-bottom:16px;line-height:1.6}
+.sidebar-cta h4{font-family:'Manrope',sans-serif;font-size:15px;font-weight:800;color:#fff;margin-bottom:10px}
+.btn-wa-sm{display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#fff;padding:11px 18px;border-radius:8px;font-family:'Manrope',sans-serif;font-weight:700;font-size:13px;width:100%;justify-content:center}
+footer{background:#06080f;border-top:1px solid rgba(255,255,255,0.07);padding:32px 0}
+.footer-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.footer-logo{font-family:'Manrope',sans-serif;font-weight:800;font-size:15px;color:#e8eaf0}
+.footer-logo span{color:#00e5c3}
+footer p{color:#7b8499;font-size:13px}
+@media(max-width:900px){.article-layout{grid-template-columns:1fr}.sidebar{display:none}.nav-links{display:none}.metrics-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:500px){.metrics-grid{grid-template-columns:1fr}}
+
+/* === Blocos SEO/GEO (TLDR + FAQ + Related) — alinhado com paleta atual === */
+.tldr{background:#f0fdf9;border:1px solid #ccf7eb;border-left:4px solid #00b89e;border-radius:0 8px 8px 0;padding:22px 26px;margin:0 0 36px 0;font-family:'DM Sans',sans-serif;}
+.tldr__heading{font-family:'Manrope',sans-serif;font-size:13px;font-weight:700;color:#0f6e56;text-transform:uppercase;letter-spacing:.1em;margin:0 0 14px 0;}
+.tldr__list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;}
+.tldr__list li{font-size:15px;color:#065f46;line-height:1.65;padding-left:22px;position:relative;}
+.tldr__list li::before{content:"\2192";position:absolute;left:0;color:#00b89e;font-weight:700;}
+.tldr__meta{margin-top:18px;padding-top:14px;border-top:1px solid #ccf7eb;font-size:12px;color:#0f6e56;display:flex;gap:10px;flex-wrap:wrap;align-items:center;}
+.faq-q{font-family:'Manrope',sans-serif;font-size:17px;font-weight:700;color:#0f172a;margin:26px 0 8px;line-height:1.4}
+.faq{margin:48px 0 40px;}
+.faq__heading{font-family:'Manrope',sans-serif;font-size:22px;font-weight:800;color:#0f172a;margin:0 0 20px 0;letter-spacing:-.015em;}
+.faq__item{border-bottom:1px solid #e5e7eb;padding:16px 0;cursor:pointer;}
+.faq__item:last-child{border-bottom:none;}
+.faq__question{font-family:'Manrope',sans-serif;font-size:16px;font-weight:700;color:#0f172a;list-style:none;position:relative;padding-right:32px;cursor:pointer;}
+.faq__question::-webkit-details-marker{display:none;}
+.faq__question::after{content:"+";position:absolute;right:0;top:-3px;font-size:22px;color:#00b89e;font-weight:400;transition:transform .2s;}
+.faq__item[open] .faq__question::after{content:"\2212";}
+.faq__answer{padding-top:12px;color:#4b5563;line-height:1.7;font-size:14px;}
+.related-posts{margin:48px 0 0 0;padding-top:32px;border-top:1px solid #e5e7eb;}
+.related-posts__heading{font-family:'Manrope',sans-serif;font-size:20px;font-weight:800;color:#0f172a;margin:0 0 20px 0;letter-spacing:-.015em;}
+.related-posts__list{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+.related-posts__link{display:block;padding:18px 20px;background:#fff;border:1px solid #e5e7eb;border-radius:12px;text-decoration:none;transition:border-color .2s,transform .2s;}
+.related-posts__link:hover{border-color:#00b89e;transform:translateY(-2px);}
+.related-posts__title{font-family:'Manrope',sans-serif;font-size:14px;font-weight:700;color:#0f172a;margin:0 0 6px;line-height:1.35;}
+.related-posts__relation{font-size:12px;color:#6b7280;margin:0;line-height:1.5;}
+@media(max-width:640px){.related-posts__list{grid-template-columns:1fr;}}
+.art-p a,.article-content li a:not([class]){color:#00b89e;font-weight:600;text-decoration:underline}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Cobrança recorrente no WhatsApp: assinaturas e mensalidades",
+  "description": "Cobrança recorrente no WhatsApp para assinaturas e mensalidades: a régua por ciclo, o cartão recusado, o boleto esquecido e o que fica com a sua equipe.",
+  "author": {
+    "@type": "Person",
+    "@id": "https://altumdigital.com.br/#talita-bispo",
+    "name": "Talita Bispo",
+    "url": "https://altumdigital.com.br/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "@id": "https://altumdigital.com.br/#organizacao",
+    "name": "Altum Digital",
+    "url": "https://altumdigital.com.br/"
+  },
+  "datePublished": "2026-11-11",
+  "dateModified": "2026-11-11T00:00:00-03:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://altumdigital.com.br/blog/cobranca-recorrente-assinaturas-whatsapp"
+  },
+  "articleSection": "Automação Financeira",
+  "inLanguage": "pt-BR"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Altum Digital",
+      "item": "https://altumdigital.com.br/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "https://altumdigital.com.br/blog"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Cobrança recorrente no WhatsApp: assinaturas e mensalidades"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Como funciona a cobrança recorrente pelo WhatsApp?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A automação lê o sistema de assinatura que a sua empresa já usa, separa quem está em cada etapa da régua e envia, pela API Oficial do WhatsApp, um template de utilidade com nome, plano, mês, valor e link. Quando o pagamento entra, o cliente sai da régua. Quando ele responde com dúvida ou pedido de cancelamento, a conversa vai para uma pessoa."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Dá para automatizar a cobrança de assinaturas sem a API Oficial do WhatsApp?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Não é o que eu recomendo. Aviso de cobrança é mensagem que a empresa envia sem o cliente ter escrito antes, e na API Oficial isso só sai por template aprovado e para quem deu opt-in. Fazer esse envio em volume por uma conexão não oficial é um dos usos que mais levam a banimento, e se o número do financeiro cai, a cobrança do mês para junto."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Qual é a régua de cobrança para mensalidade?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "O ponto de partida é D-3, D0, D+1, D+3 e D+7 para boleto e Pix, e D+1, D+3 e D+7 contados da recusa para cartão. Quando dois ciclos ficam em aberto, a automação consolida numa mensagem só. Os dias, os textos e o que acontece depois são ajustados ao tom e às regras de cada empresa."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "O que acontece quando o cartão do assinante é recusado?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "O cliente normalmente não percebe, porque a cobrança no cartão acontece sem ele fazer nada. A régua começa no momento da recusa: avisa que a cobrança não foi aprovada e manda o link da página segura do sistema de assinatura para atualizar o cartão. A automação nunca pede o número do cartão na conversa; a Política do WhatsApp Business proíbe isso."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quanto custa enviar lembrete de mensalidade pela API Oficial do WhatsApp?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A Meta cobra por mensagem entregue. Na tabela vigente desde 1º de outubro de 2026, um template de utilidade para número brasileiro custa US$ 0,0068 e um de marketing, US$ 0,0625, cerca de nove vezes mais. Um lembrete de mensalidade sem oferta se enquadra em utilidade; com desconto ou pedido de renovação, vira marketing. O custo da implementação e da plataforma é à parte."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Preciso pedir autorização do cliente todo mês?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Não. O opt-in, que é o aceite para receber mensagens da sua empresa no WhatsApp, é obtido uma vez, de preferência na contratação da assinatura, e precisa deixar claro de qual empresa as mensagens virão. O que precisa ser respeitado sempre é o pedido para parar: quem pede sai da régua do WhatsApp."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "A automação cancela a assinatura ou negocia com o cliente?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Não. Quando o cliente pede para cancelar, parcelar ou contesta o valor, a régua pausa para ele e a conversa vai para uma pessoa da sua equipe com o histórico. Suspender o acesso ou pausar a entrega é decisão da empresa, prevista em contrato; a automação pode informar a regra, mas não decide."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Funciona com Asaas, Conta Azul, Omie ou Bling?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sim. Esses quatro são os sistemas mais comuns nos meus projetos, e cada um tem um artigo próprio no blog. Se o seu sistema de assinatura é outro ou foi feito sob medida, a lógica é a mesma; o que muda é como a automação lê os ciclos e o status de pagamento, e isso se resolve no diagnóstico técnico."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">Altum<span>.</span>Digital</a>
+    <ul class="nav-links">
+      <li><a href="/#services">Serviços</a></li>
+      <li><a href="/#projects">Projetos</a></li>
+      <li><a href="/#method">Metodologia</a></li>
+      <li><a href="/blog" class="active">Blog</a></li>
+      <li><a href="/#cta" class="nav-cta">Falar com Talita</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="article-hero">
+  <div class="article-hero-inner">
+    <div class="breadcrumb">
+      <a href="/">Altum Digital</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="/blog">Blog</a>
+      <span class="breadcrumb-sep">›</span>
+      <span>Cobrança recorrente no WhatsApp</span>
+    </div>
+    <div class="art-tag"><div class="art-tag-dot"></div>Automação Financeira</div>
+    <h1 class="article-title">Cobrança recorrente no WhatsApp: assinaturas e mensalidades</h1>
+    <div class="article-meta">
+      <div class="meta-avatar">TB</div>
+      <div class="meta-info">
+        <span class="meta-name">Talita Bispo · Altum Digital</span>
+        <span class="meta-details">11 de novembro de 2026 · 9 min de leitura</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="article-layout">
+  <article class="article-content">
+
+    <p class="art-lead">Quando o cliente paga todo mês, a cobrança deixa de ser um evento isolado e passa a fazer parte do relacionamento. Neste post eu mostro como funciona a cobrança recorrente de assinaturas e mensalidades pela WhatsApp Business API: a régua de cada ciclo, o cartão recusado, o boleto esquecido e o que continua com a sua equipe.</p>
+
+    <p class="art-p">Este post é para quem cobra o mesmo cliente todo mês: SaaS, escolas e cursos, academias, clubes de assinatura, serviços com mensalidade, etc. A cena é conhecida: no começo do mês alguém filtra no sistema quem não pagou e manda mensagem do próprio celular, um cliente por vez.</p>
+
+    <p class="art-p">Eu já expliquei o porquê da cobrança automática em <a href="/blog/automacao-cobranca-whatsapp-inadimplencia">automação de cobrança no WhatsApp</a> e a régua de um boleto em <a href="/blog/aviso-vencimento-boleto-whatsapp-automatico">aviso de vencimento de boleto pelo WhatsApp</a>. Aqui o assunto é a régua de um cliente, que volta todo mês, pela API Oficial do WhatsApp.</p>
+
+    <hr class="art-divider">
+
+    <h2 class="art-h2" id="o-que-muda-na-recorrencia">O que muda quando a cobrança se repete todo mês</h2>
+    <p class="art-p">Numa venda avulsa, você cobra uma vez e o assunto acaba. Na assinatura, você cobra o mesmo cliente 12 vezes por ano. Isso muda três coisas no desenho da cobrança.</p>
+    <p class="art-p"><strong>Primeiro: o cliente é sempre o mesmo.</strong> A automação não precisa descobrir quem ele é a cada mês. Nome, plano, vencimento e forma de pagamento já estão no sistema de assinatura.</p>
+    <p class="art-p"><strong>Segundo: o opt-in é obtido uma vez.</strong> Opt-in é o aceite do cliente para receber mensagens da sua empresa no WhatsApp. A <a href="https://developers.facebook.com/documentation/business-messaging/whatsapp/getting-opt-in" target="_blank" rel="noopener">documentação de opt-in da Meta</a> exige que fique claro que a pessoa vai receber mensagens e de qual empresa, e permite que um único aceite cubra as categorias de mensagem que a empresa vai enviar. O melhor momento para pedir esse aceite é a contratação, no mesmo formulário da assinatura.</p>
+    <p class="art-p"><strong>Terceiro: o relacionamento pesa mais que a cobrança isolada.</strong> Um cliente que paga há dois anos e atrasou uma vez não pode receber o mesmo tom de quem nunca pagou. Se a cobrança constrange, o cliente pode cancelar, e você perde todas as mensalidades seguintes para resolver uma.</p>
+    <div class="art-highlight">
+      <strong>O que muda na operação:</strong> a régua deixa de olhar só para a fatura e passa a olhar para o cliente. Ela sabe em que ciclo ele está, como ele paga e qual é o histórico dele.
+    </div>
+
+    <h2 class="art-h2" id="cartao-recusado-e-boleto-esquecido">Cartão recusado e boleto esquecido: duas réguas diferentes</h2>
+    <h3 class="art-h3">Cartão recusado: o cliente nem sabe que não pagou</h3>
+    <p class="art-p">Quando a assinatura é no cartão, o cliente não faz nada todo mês. A cobrança acontece sozinha. Por isso, quando o cartão é recusado porque venceu, foi trocado ou estava sem limite, o cliente não percebe. Ele acha que está em dia.</p>
+    <p class="art-p">A régua do cartão começa no momento da recusa, não no vencimento. A primeira mensagem avisa que a cobrança do mês não foi aprovada e manda o link da página do seu sistema de assinatura onde ele atualiza o cartão. Os avisos seguintes saem em D+1, D+3 e D+7, contados da recusa, e repetem o link até o pagamento ser aprovado.</p>
+    <p class="art-p">Um cuidado que não é opcional: a automação nunca pede o número do cartão na conversa. A <a href="https://business.whatsapp.com/policy" target="_blank" rel="noopener">Política do WhatsApp Business</a> proíbe pedir ou divulgar número completo de cartão de pagamento e número de conta financeira. O cliente atualiza o cartão na página segura do sistema de assinatura, nunca no chat.</p>
+    <h3 class="art-h3">Boleto ou Pix esquecido: o cliente sabe, mas esqueceu</h3>
+    <p class="art-p">Quando a mensalidade é por boleto ou Pix, o cliente precisa agir todo mês. Aqui o problema é o esquecimento: o boleto ficou no meio dos e-mails e a data passou. Essa régua começa antes do vencimento, como no aviso de boleto: D-3, D0, D+1, D+3 e D+7.</p>
+
+    <h2 class="art-h2" id="regua-por-ciclo">A régua por ciclo e o mês que vence com o anterior em aberto</h2>
+    <p class="art-p">A régua de partida que eu uso é a mesma do aviso de boleto. "D" é o dia do vencimento:</p>
+    <p class="art-p"><strong>D-3:</strong> lembra que a mensalidade vence em três dias e manda o link. <strong>D0:</strong> avisa que vence hoje. <strong>D+1:</strong> informa, em tom neutro, que venceu ontem. <strong>D+3:</strong> repete e abre a porta para dúvidas. <strong>D+7:</strong> último aviso automático; daqui em diante o caso vai para uma pessoa.</p>
+    <p class="art-p">Toda mensagem leva o nome do cliente, o plano, o mês de referência, o valor e o link. Um exemplo de D-3: "Olá, Rafael. A mensalidade de novembro do plano Pro, no valor de R$ 189,00, vence em 15/11. Pagamento: [link]. Se já pagou, desconsidere."</p>
+    <p class="art-p">Quando o pagamento entra, a régua para: quem pagou no D0 não recebe o aviso de D+1.</p>
+    <h3 class="art-h3">Quando dezembro vence com novembro em aberto</h3>
+    <p class="art-p">Se a régua trata cada mensalidade como um boleto separado, o cliente que não pagou novembro começa a receber, ao mesmo tempo, os avisos de D+3 de novembro e de D-3 de dezembro. O cliente não entende o que deve.</p>
+    <p class="art-p">Por isso a régua recorrente é desenhada por cliente, não por fatura. Quando um ciclo novo vence com o anterior em aberto, a automação para de mandar avisos separados e manda uma mensagem só, com as duas mensalidades, o total e o link. O que acontece depois é definido com cada cliente: em algumas operações o caso vai direto para o financeiro, porque dois ciclos em aberto já não são esquecimento; em outras, entra uma régua diferenciada, com ações próprias para esse cenário. Essa diretriz é da sua empresa, e a automação segue o que foi combinado.</p>
+    <p class="art-p">Suspender o acesso ou pausar a entrega é decisão da sua empresa, prevista em contrato. A automação pode informar o que o contrato diz, mas não decide quem perde o acesso.</p>
+
+    <h2 class="art-h2" id="cancelamento-vai-para-humano">Cancelamento e negociação: sempre com uma pessoa</h2>
+    <p class="art-p">Na assinatura, uma resposta à cobrança aparece com frequência: "quero cancelar". Nos meus projetos, essa mensagem tem um destino só: uma pessoa da sua equipe.</p>
+    <p class="art-p">Quando o cliente pede para cancelar, a régua pausa para ele na hora. A conversa vai para o responsável com o histórico: plano, há quanto tempo ele é cliente, quais mensalidades estão em aberto e quais avisos já recebeu.</p>
+    <p class="art-p">A automação não tenta reter o cliente sozinha, não oferece desconto para ele ficar e não negocia parcelamento. Retenção e negociação são decisões comerciais, que dependem de quanto aquele cliente vale para você. "Consigo pagar só dia 20" ou "não concordo com esse valor" seguem o mesmo caminho.</p>
+    <p class="art-p">A <a href="https://business.whatsapp.com/policy" target="_blank" rel="noopener">Política do WhatsApp Business</a> exige isso de qualquer automação: um caminho claro e direto para falar com uma pessoa, sem demora. Ela também exige respeitar quem pede para não receber mais mensagens. "Pare de me mandar mensagem" tira o cliente da régua do WhatsApp; a cobrança dele continua por outro meio de contato previsto no contrato.</p>
+    <p class="art-p">Se você usa um atendente de IA no mesmo número, a regra continua valendo. O agente de IA pode responder dúvida sobre a fatura dentro da conversa, mas cancelamento e negociação vão para uma pessoa.</p>
+
+    <h2 class="art-h2" id="de-onde-vem-o-dado">De onde vem o dado: o sistema de assinatura que você já usa</h2>
+    <p class="art-p">A automação não cria a lista de quem deve. Ela lê do sistema onde a sua empresa já gera as cobranças recorrentes. Lá estão o cliente, o telefone, o plano, o vencimento, a forma de pagamento e o status de cada ciclo: pago, em aberto ou cartão recusado.</p>
+    <p class="art-p">Todos os dias, a automação consulta esse sistema, separa quem está em cada etapa da régua e envia a mensagem certa. Quando um pagamento é aprovado, quem pagou sai da régua.</p>
+    <p class="art-p">Se você usa o Asaas, veja <a href="/blog/asaas-whatsapp-automacao-cobranca">Asaas e WhatsApp</a>. Se usa o Conta Azul, <a href="/blog/conta-azul-whatsapp-automacao-cobranca">Conta Azul e WhatsApp</a>. Se usa o Omie, <a href="/blog/omie-whatsapp-automacao-cobranca">Omie e WhatsApp</a>. Se usa o Bling, <a href="/blog/bling-whatsapp-automacao-cobranca">Bling e WhatsApp</a>.</p>
+    <p class="art-p">Se o seu sistema é outro ou foi feito sob medida, a lógica é a mesma. O que muda é como a automação lê os ciclos e o status de pagamento, e isso se resolve no diagnóstico técnico. Telefone desatualizado e cobrança gerada fora do sistema são as falhas que eu mais encontro, por isso o projeto começa pelo cadastro.</p>
+
+    <h2 class="art-h2" id="api-oficial-template-de-utilidade">Por que precisa da API Oficial e de template de utilidade</h2>
+    <p class="art-p">O aviso de cobrança é uma mensagem que a sua empresa manda sem o cliente ter escrito antes. Na API Oficial, a <a href="https://developers.facebook.com/documentation/business-messaging/whatsapp/pricing" target="_blank" rel="noopener">documentação de preços da Meta</a> define a regra: mensagem livre só com a janela de atendimento de 24 horas aberta, e essa janela abre quando o cliente escreve para você. Fora dela, a empresa só envia template, um modelo de mensagem aprovado previamente. As regras completas estão em <a href="/blog/janela-24-horas-templates-whatsapp">janela de 24 horas e templates do WhatsApp</a>.</p>
+    <h3 class="art-h3">Lembrar a cobrança é utilidade; convidar a renovar é marketing</h3>
+    <p class="art-p">Nas <a href="https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/template-categorization" target="_blank" rel="noopener">regras de categorização de templates da Meta</a>, utilidade é a mensagem sem intenção promocional. Um dos objetivos aceitos é o alerta de conta: informação importante ou com prazo sobre um produto ou serviço que o cliente comprou ou assinou. O exemplo que a própria Meta dá é um lembrete de que o pagamento mensal de um serviço será cobrado em tal data, no cartão salvo. É exatamente a cobrança recorrente.</p>
+    <p class="art-p">Na mesma página, a Meta diz que o alerta de conta não pode promover produto, oferecer desconto, fazer upsell nem tentar garantir renovação. E dá como exemplo de marketing a mensagem "sua assinatura vai expirar, renove hoje com desconto". Para quem cobra assinatura, a linha fica assim: "a sua mensalidade de novembro vence dia 15" é utilidade. "Renove agora e ganhe 10%", "conheça o plano anual" e "volte a ser assinante" são marketing, e vão em outro template.</p>
+    <p class="art-p">A categoria muda o preço. Pelas tabelas oficiais da Meta vigentes desde 1º de outubro de 2026, publicadas na <a href="https://developers.facebook.com/documentation/business-messaging/whatsapp/pricing" target="_blank" rel="noopener">página de preços</a>:</p>
+
+    <div class="metrics-grid">
+      <div class="metric-card">
+        <div class="metric-number">US$ 0,0068</div>
+        <div class="metric-label">Template de utilidade entregue no Brasil (R$ 0,035 na tabela em reais)</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-number">US$ 0,0625</div>
+        <div class="metric-label">Template de marketing entregue no Brasil (R$ 0,3217 na tabela em reais)</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-number">≈ 9×</div>
+        <div class="metric-label">O preço do mesmo aviso se a Meta o classificar como marketing</div>
+      </div>
+    </div>
+
+    <p class="art-p">A Meta cobra cada mensagem entregue. Uma base de 3.000 assinantes com cinco avisos por ciclo gera até 15.000 mensagens por mês. Em utilidade, até US$ 102. Em marketing, até US$ 937,50. A tabela completa está em <a href="/blog/quanto-custa-api-oficial-whatsapp-2026">quanto custa a API Oficial do WhatsApp em 2026</a>.</p>
+    <p class="art-p">A categoria também não fica só na sua escolha. A Meta pode mudar automaticamente para marketing um template de utilidade que não segue as regras, com 1 dia de aviso, e empresas já advertidas por uso indevido podem não receber esse aviso. Há 60 dias para pedir revisão. Um lembrete de mensalidade com "aproveite e faça o upgrade" no final é conteúdo misto, e conteúdo misto é marketing.</p>
+
+    <h2 class="art-h2" id="o-que-a-automacao-nao-faz">O que a automação não faz</h2>
+    <p class="art-p">Para você saber o que está contratando, isto fica fora da régua:</p>
+    <p class="art-p"><strong>Não negocia nem retém.</strong> Parcelamento, desconto, prazo extra e proposta para o cliente ficar são decisões da sua equipe.</p>
+    <p class="art-p"><strong>Não manda mensagem para quem não deu opt-in</strong> nem para quem pediu para parar.</p>
+    <p class="art-p"><strong>Não corrige cadastro errado.</strong> Se o telefone está desatualizado, o aviso não chega. A qualidade da régua depende do cadastro.</p>
+
+    <h2 class="art-h2" id="caso-locacao-maquinas-de-cafe">Caso: mensalidade de locação de máquinas de café</h2>
+    <p class="art-p">Um dos projetos em que eu trabalhei foi numa empresa de locação de máquinas de café. O modelo é mensalidade: o cliente aluga a máquina e paga todo mês. Antes do projeto, o financeiro esperava o vencimento passar, buscava no sistema quem não tinha pago e ia atrás de cada um.</p>
+    <p class="art-p">Com isso, todo contato acontecia depois do atraso. O cliente que só tinha esquecido era tratado como devedor, todo mês, e o tempo da equipe ia para caçar inadimplente.</p>
+    <p class="art-p">Com a régua recorrente, o aviso passou a sair antes de cada vencimento, sem ninguém disparar, e quem pagava saía da régua sozinho. Para essa operação, a régua foi um divisor de águas: o financeiro deixou de caçar inadimplente e passou a cuidar só das respostas e dos casos que chegavam ao fim da régua.</p>
+
+    <h2 class="art-h2" id="como-e-o-projeto">Como é o projeto até o go-live</h2>
+    <p class="art-p">Cobrança recorrente automática é um projeto, não uma configuração. Ele passa por levantar como a sua empresa cobra hoje, revisar cadastro e opt-in, desenhar as duas réguas e a regra para ciclos acumulados e submeter os templates à Meta. Depois vêm a integração com o sistema de assinatura, a passagem para o financeiro e um teste com um grupo pequeno de clientes antes da base inteira.</p>
+    <p class="art-p">Um projeto bem planejado leva algumas semanas até o go-live. Depois do go-live, a automação fica hospedada e mantida pela nossa consultoria. Quando o sistema de assinatura muda alguma coisa, ou quando a Meta atualiza uma regra de template, alguém está olhando.</p>
+
+    <hr class="art-divider">
+
+    <h2 class="art-h2" id="perguntas-frequentes">Perguntas frequentes</h2>
+
+    <h3 class="faq-q">Como funciona a cobrança recorrente pelo WhatsApp?</h3>
+    <p class="art-p">A automação lê o sistema de assinatura que a sua empresa já usa, separa quem está em cada etapa da régua e envia, pela API Oficial do WhatsApp, um template de utilidade com nome, plano, mês, valor e link. Quando o pagamento entra, o cliente sai da régua. Quando ele responde com dúvida ou pedido de cancelamento, a conversa vai para uma pessoa.</p>
+
+    <h3 class="faq-q">Dá para automatizar a cobrança de assinaturas sem a API Oficial do WhatsApp?</h3>
+    <p class="art-p">Não é o que eu recomendo. Aviso de cobrança é mensagem que a empresa envia sem o cliente ter escrito antes, e na API Oficial isso só sai por template aprovado e para quem deu opt-in. Fazer esse envio em volume por uma conexão não oficial é um dos usos que mais levam a banimento, e se o número do financeiro cai, a cobrança do mês para junto.</p>
+
+    <h3 class="faq-q">Qual é a régua de cobrança para mensalidade?</h3>
+    <p class="art-p">O ponto de partida é D-3, D0, D+1, D+3 e D+7 para boleto e Pix, e D+1, D+3 e D+7 contados da recusa para cartão. Quando dois ciclos ficam em aberto, a automação consolida numa mensagem só. Os dias, os textos e o que acontece depois são ajustados ao tom e às regras de cada empresa.</p>
+
+    <h3 class="faq-q">O que acontece quando o cartão do assinante é recusado?</h3>
+    <p class="art-p">O cliente normalmente não percebe, porque a cobrança no cartão acontece sem ele fazer nada. A régua começa no momento da recusa: avisa que a cobrança não foi aprovada e manda o link da página segura do sistema de assinatura para atualizar o cartão. A automação nunca pede o número do cartão na conversa; a Política do WhatsApp Business proíbe isso.</p>
+
+    <h3 class="faq-q">Quanto custa enviar lembrete de mensalidade pela API Oficial do WhatsApp?</h3>
+    <p class="art-p">A Meta cobra por mensagem entregue. Na tabela vigente desde 1º de outubro de 2026, um template de utilidade para número brasileiro custa US$ 0,0068 e um de marketing, US$ 0,0625, cerca de nove vezes mais. Um lembrete de mensalidade sem oferta se enquadra em utilidade; com desconto ou pedido de renovação, vira marketing. O custo da implementação e da plataforma é à parte.</p>
+
+    <h3 class="faq-q">Preciso pedir autorização do cliente todo mês?</h3>
+    <p class="art-p">Não. O opt-in, que é o aceite para receber mensagens da sua empresa no WhatsApp, é obtido uma vez, de preferência na contratação da assinatura, e precisa deixar claro de qual empresa as mensagens virão. O que precisa ser respeitado sempre é o pedido para parar: quem pede sai da régua do WhatsApp.</p>
+
+    <h3 class="faq-q">A automação cancela a assinatura ou negocia com o cliente?</h3>
+    <p class="art-p">Não. Quando o cliente pede para cancelar, parcelar ou contesta o valor, a régua pausa para ele e a conversa vai para uma pessoa da sua equipe com o histórico. Suspender o acesso ou pausar a entrega é decisão da empresa, prevista em contrato; a automação pode informar a regra, mas não decide.</p>
+
+    <h3 class="faq-q">Funciona com Asaas, Conta Azul, Omie ou Bling?</h3>
+    <p class="art-p">Sim. Esses quatro são os sistemas mais comuns nos meus projetos, e cada um tem um artigo próprio no blog. Se o seu sistema de assinatura é outro ou foi feito sob medida, a lógica é a mesma; o que muda é como a automação lê os ciclos e o status de pagamento, e isso se resolve no diagnóstico técnico.</p>
+
+    <div class="art-highlight"><strong>Resumo para decidir:</strong> Se a sua empresa cobra o mesmo cliente todo mês e o financeiro ainda descobre o atraso no sistema e cobra um a um, a régua recorrente, lida do seu sistema de assinatura e enviada por template de utilidade na API Oficial, resolve o esquecimento, trata o cartão recusado desde a recusa e para sozinha quando o cliente paga. Cancelamento e negociação continuam com uma pessoa. A Altum Digital é a consultoria de automação e IA de Talita Bispo, em São Paulo, que implementa a API Oficial do WhatsApp, agentes de IA e automações integradas aos sistemas da empresa, para negócios que faturam a partir de R$ 100 mil por mês e querem parar de depender de processo manual.</div>
+
+    <div class="cta-inline">
+      <h3>Quer desenhar a régua de cobrança recorrente da sua empresa?</h3>
+      <p>Me mande um áudio no WhatsApp contando como vocês cobram as mensalidades hoje, se é cartão, boleto ou Pix, e qual sistema de assinatura usam. A gente marca uma call para desenhar a régua do seu caso, ciclo por ciclo.</p>
+      <a href="https://wa.me/5511954715571?text=Oi%20Talita%2C%20li%20o%20post%20sobre%20cobran%C3%A7a%20recorrente%20de%20assinaturas%20pelo%20WhatsApp%20e%20quero%20marcar%20uma%20call%20sobre%20a%20r%C3%A9gua%20de%20cobran%C3%A7a%20recorrente%20da%20minha%20empresa.%20Vou%20te%20mandar%20um%20%C3%A1udio%20explicando%20como%20cobramos%20as%20mensalidades%20hoje." class="btn-wa" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Falar com Talita no WhatsApp
+      </a>
+    </div>
+
+    <div class="author-box">
+      <div class="author-box-inner">
+        <div class="author-box-avatar">TB</div>
+        <div>
+          <h4>Talita Bispo</h4>
+          <p>Fundadora da Altum Digital, consultoria de automação e IA em São Paulo que implementa a API Oficial do WhatsApp, agentes de IA e automações integradas aos sistemas da empresa, para negócios que faturam a partir de R$ 100 mil por mês e querem parar de depender de processo manual. Certificada Google Cloud Generative AI Leader, com 11 anos de consultoria na Accenture (TIM, SKY, SEFAZ-SP, Johnson &amp; Johnson, Getnet, Claro). Mais de 30 projetos entregues. Atende todo o Brasil.</p>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <aside class="sidebar">
+    <div class="sidebar-sticky">
+      <div class="sidebar-card">
+        <h4>Neste artigo</h4>
+        <ul class="toc-list">
+          <li><a href="#o-que-muda-na-recorrencia">O que muda na recorrência</a></li>
+          <li><a href="#cartao-recusado-e-boleto-esquecido">Cartão recusado e boleto esquecido</a></li>
+          <li><a href="#regua-por-ciclo">A régua por ciclo</a></li>
+          <li><a href="#cancelamento-vai-para-humano">Cancelamento e negociação</a></li>
+          <li><a href="#de-onde-vem-o-dado">De onde vem o dado</a></li>
+          <li><a href="#api-oficial-template-de-utilidade">API Oficial e template de utilidade</a></li>
+          <li><a href="#o-que-a-automacao-nao-faz">O que a automação não faz</a></li>
+          <li><a href="#caso-locacao-maquinas-de-cafe">Caso: locação de máquinas</a></li>
+          <li><a href="#como-e-o-projeto">Como é o projeto</a></li>
+          <li><a href="#perguntas-frequentes">Perguntas frequentes</a></li>
+        </ul>
+      </div>
+      <div class="sidebar-cta">
+        <h4>Desenhe a sua régua recorrente</h4>
+        <p>Me conte por áudio como vocês cobram as mensalidades hoje e marcamos uma call sobre a régua.</p>
+        <a href="https://wa.me/5511954715571?text=Oi%20Talita%2C%20li%20o%20post%20sobre%20cobran%C3%A7a%20recorrente%20de%20assinaturas%20pelo%20WhatsApp%20e%20quero%20marcar%20uma%20call%20sobre%20a%20r%C3%A9gua%20de%20cobran%C3%A7a%20recorrente%20da%20minha%20empresa.%20Vou%20te%20mandar%20um%20%C3%A1udio%20explicando%20como%20cobramos%20as%20mensalidades%20hoje." class="btn-wa-sm" target="_blank">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Falar com Talita
+        </a>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-logo">Altum<span>.</span>Digital</div>
+      <p>© 2025 Talita Bispo · Altum Digital Soluções LTDA</p>
+      <p>São Paulo, SP · Brasil</p>
+      <p>CNPJ 61.287.916/0001-69</p>
+      <p><a href="https://www.linkedin.com/in/talita-b-35b47923/" target="_blank" rel="me noopener" style="color:#9ca3af">LinkedIn</a> · <a href="https://www.instagram.com/soutalitabispo/" target="_blank" rel="me noopener" style="color:#9ca3af">Instagram @SouTalitaBispo</a></p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
